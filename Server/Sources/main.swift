@@ -1,11 +1,11 @@
 import Kitura
 import SwiftProtobuf
 
-let router = Router()
+private let router = Router()
+private var token = Token()
 
 router.get("/v1/token") { request, response, next in
-    var token = Token()
-    token.accessToken = "token"
+    token.accessToken = "my token"
     
     var data = GetTokenResponse()
     data.token = token
@@ -16,7 +16,6 @@ router.get("/v1/token") { request, response, next in
 }
 
 router.post("/v1/token") { request, response, next in
-    var token = Token()
     token.accessToken = "new token"
     
     var data = PostTokenResponse()
@@ -30,6 +29,7 @@ router.post("/v1/token") { request, response, next in
 router.get("/v1/error") { request, response, next in
     var error = NetworkError()
     error.code = .notFound
+    error.message = "error message"
     
     response.status(.notFound).send(data: try error.serializeProtobuf())
     

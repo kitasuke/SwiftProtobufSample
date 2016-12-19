@@ -47,13 +47,16 @@ struct PostToken: ProtobufRequest {
     }
     
     var bodyParameters: BodyParameters? {
-        var token = Token()
-        token.accessToken = "old token"
-        
         var data = PostTokenRequest()
         data.accessToken = token.accessToken
         
         return ProtobufBodyParameters(protobufObject: try! data.serializeProtobuf())
+    }
+    
+    private let token: Token
+    
+    init(token: Token) {
+        self.token = token
     }
 }
 

@@ -14,7 +14,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
+    }
+    
+    @IBAction private func getToken() {
         Session.send(GetToken()) { result in
             switch result {
             case .success(let response):
@@ -24,12 +26,30 @@ class ViewController: UIViewController {
             }
         }
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    @IBAction private func postToken() {
+        var token = Token()
+        token.accessToken = "old token"
+        
+        Session.send(PostToken(token: token)) { result in
+            switch result {
+            case .success(let response):
+                print(response)
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
-
-
+    
+    @IBAction private func getError() {
+        Session.send(ErrorRequest()) { result in
+            switch result {
+            case .success(let response):
+                print(response)
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
 }
 
