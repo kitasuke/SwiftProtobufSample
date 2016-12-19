@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+message NetworkError {
+  Code   code      = 1; // Error code
+  string message   = 2; // Optional: Message
+
+  enum Code {
+    UNKNOWN = 0; // Unknown
+
+    // 404
+    NOT_FOUND = 404; // Not found
+  }
+}
