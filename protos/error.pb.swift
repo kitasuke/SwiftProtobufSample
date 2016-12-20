@@ -26,8 +26,8 @@ struct NetworkError: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftPr
     ///   Unknown
     case unknown // = 0
 
-    ///   404
-    case notFound // = 404
+    ///   400
+    case badRequest // = 400
     case UNRECOGNIZED(Int)
 
     init() {
@@ -37,7 +37,7 @@ struct NetworkError: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftPr
     init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .unknown
-      case 404: self = .notFound
+      case 400: self = .badRequest
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
@@ -45,7 +45,7 @@ struct NetworkError: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftPr
     init?(name: String) {
       switch name {
       case "unknown": self = .unknown
-      case "notFound": self = .notFound
+      case "badRequest": self = .badRequest
       default: return nil
       }
     }
@@ -53,7 +53,7 @@ struct NetworkError: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftPr
     init?(jsonName: String) {
       switch jsonName {
       case "UNKNOWN": self = .unknown
-      case "NOT_FOUND": self = .notFound
+      case "BAD_REQUEST": self = .badRequest
       default: return nil
       }
     }
@@ -61,7 +61,7 @@ struct NetworkError: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftPr
     init?(protoName: String) {
       switch protoName {
       case "UNKNOWN": self = .unknown
-      case "NOT_FOUND": self = .notFound
+      case "BAD_REQUEST": self = .badRequest
       default: return nil
       }
     }
@@ -70,7 +70,7 @@ struct NetworkError: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftPr
       get {
         switch self {
         case .unknown: return 0
-        case .notFound: return 404
+        case .badRequest: return 400
         case .UNRECOGNIZED(let i): return i
         }
       }
@@ -80,7 +80,7 @@ struct NetworkError: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftPr
       get {
         switch self {
         case .unknown: return "\"UNKNOWN\""
-        case .notFound: return "\"NOT_FOUND\""
+        case .badRequest: return "\"BAD_REQUEST\""
         case .UNRECOGNIZED(let i): return String(i)
         }
       }
@@ -92,7 +92,7 @@ struct NetworkError: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftPr
       get {
         switch self {
         case .unknown: return ".unknown"
-        case .notFound: return ".notFound"
+        case .badRequest: return ".badRequest"
         case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
         }
       }

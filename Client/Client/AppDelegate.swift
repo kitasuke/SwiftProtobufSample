@@ -2,8 +2,8 @@
 //  AppDelegate.swift
 //  Client
 //
-//  Created by Yusuke Kita on 12/18/16.
-//  Copyright © 2016 Yusuke Kita. All rights reserved.
+//  Created by Yusuke Kita on 2016/12/19.
+//  Copyright © 2016 kitasuke. All rights reserved.
 //
 
 import UIKit

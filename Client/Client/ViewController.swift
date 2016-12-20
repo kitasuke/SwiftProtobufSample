@@ -10,7 +10,7 @@ import UIKit
 import APIKit
 
 class ViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -42,7 +42,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction private func getError() {
-        Session.send(ErrorRequest()) { result in
+        Session.send(PostToken(token: Token())) { result in
             switch result {
             case .success(let response):
                 print(response)

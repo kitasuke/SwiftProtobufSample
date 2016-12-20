@@ -7,7 +7,7 @@ message NetworkError {
   enum Code {
     UNKNOWN = 0; // Unknown
 
-    // 404
-    NOT_FOUND = 404; // Not found
+    // 400
+    BAD_REQUEST = 400; // Bad request
   }
 }

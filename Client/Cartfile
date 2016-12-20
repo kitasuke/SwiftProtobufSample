@@ -1,0 +1,2 @@
+github "apple/swift-protobuf" "0.9.26"
+github "ishkawa/APIKit"

@@ -60,18 +60,6 @@ struct PostToken: ProtobufRequest {
     }
 }
 
-struct ErrorRequest: ProtobufRequest {
-    typealias Response = GetTokenResponse
-    
-    var method: HTTPMethod {
-        return .get
-    }
-    
-    var path: String {
-        return "/v1/error"
-    }
-}
-
 extension ProtobufRequest where Response: SwiftProtobuf.Message {
     func response(from object: Any, urlResponse: HTTPURLResponse) throws -> Response {
         guard let data = object as? Data else {
