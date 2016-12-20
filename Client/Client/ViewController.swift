@@ -7,9 +7,10 @@
 //
 
 import UIKit
-import APIKit
 
 class ViewController: UIViewController {
+    
+    let apiClient = APIClient()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,13 +18,10 @@ class ViewController: UIViewController {
     }
     
     @IBAction private func getToken() {
-        Session.send(GetToken()) { result in
-            switch result {
-            case .success(let response):
-                print(response)
-            case .failure(let error):
-                print(error)
-            }
+        apiClient.getToken(success: { response in
+            print(response)
+        }) { error in
+            print(error)
         }
     }
     
@@ -31,24 +29,21 @@ class ViewController: UIViewController {
         var token = Token()
         token.accessToken = "old token"
         
-        Session.send(PostToken(token: token)) { result in
-            switch result {
-            case .success(let response):
-                print(response)
-            case .failure(let error):
-                print(error)
-            }
+        var body = PostTokenRequest()
+        body.accessToken = token.accessToken
+        
+        apiClient.postToken(body: body, success: { response in
+            print(response)
+        }) { error in
+            print(error)
         }
     }
     
     @IBAction private func getError() {
-        Session.send(PostToken(token: Token())) { result in
-            switch result {
-            case .success(let response):
-                print(response)
-            case .failure(let error):
-                print(error)
-            }
+        apiClient.getError(success: { response in
+            print(response)
+        }) { error in
+            print(error)
         }
     }
 }
