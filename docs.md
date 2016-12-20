@@ -37,7 +37,7 @@
 | Name | Number | Description |
 | ---- | ------ | ----------- |
 | UNKNOWN | 0 |  |
-| NOT_FOUND | 404 |  |
+| BAD_REQUEST | 400 |  |
 
 
 
