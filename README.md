@@ -19,7 +19,7 @@ Swift 3.0.1
 Xcode 8.2.1  
 protoc 3.1  
 swift-protobuf 0.9.26  
-kitura 1.3  
+Kitura 1.3  
 
 ## Usage
 
