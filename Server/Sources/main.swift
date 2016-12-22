@@ -24,7 +24,7 @@ router.post("/v1/token") { request, response, next in
         return
     }
     
-    guard token.accessToken.characters.count > 0 else {
+    guard token.accessToken.characters.count > 5 else {
         var error = NetworkError()
         error.code = .badRequest
         error.message = "invalid access token"
