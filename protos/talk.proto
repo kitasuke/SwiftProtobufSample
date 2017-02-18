@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+import "user.proto";
+
+message Talk {
+  int32 id = 1;
+  string title = 2;
+  string desc = 3;
+  User speaker = 4;
+  repeated string tags = 5;
+}
+
+message TalkResponse {
+  repeated Talk talks = 1;
+}
+
+message LikeRequest {
+  int32 id = 1;
+}
+
+message LikeResponse {
+  bool result = 1;
+}

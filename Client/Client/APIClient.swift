@@ -16,16 +16,12 @@ class APIClient {
         self.baseURL = baseURL
     }
     
-    func getToken(success: @escaping ((GetTokenResponse) -> Void), failure: @escaping ((NetworkError) -> Void)) {
-        get(path: "/v1/token", success: success, failure: failure)
+    func talks(success: @escaping ((TalkResponse) -> Void), failure: @escaping ((NetworkError) -> Void)) {
+        get(path: "/v1/talks", success: success, failure: failure)
     }
     
-    func postToken(body: PostTokenRequest, success: @escaping ((PostTokenResponse) -> Void), failure: @escaping ((NetworkError) -> Void)) {
-        post(path: "/v1/token", body: body, success: success, failure: failure)
-    }
-    
-    func getError(success: @escaping ((PostTokenResponse) -> Void), failure: @escaping ((NetworkError) -> Void)) {
-        post(path: "/v1/token", body: PostTokenRequest(), success: success, failure: failure)
+    func like(body: LikeRequest, success: @escaping ((LikeResponse) -> Void), failure: @escaping ((NetworkError) -> Void)) {
+        post(path: "/v1/like", body: body, success: success, failure: failure)
     }
     
     private func get<Response: SwiftProtobuf.Message>(path: String, success: @escaping ((Response) -> Void), failure: @escaping ((NetworkError) -> Void)) {

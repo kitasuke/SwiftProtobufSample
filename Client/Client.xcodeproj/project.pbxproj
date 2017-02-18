@@ -15,8 +15,9 @@
 		EC59DA131E0750A800A601B7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC59DA111E0750A800A601B7 /* LaunchScreen.storyboard */; };
 		EC5B1C4B1E0AFE2C00996368 /* SwiftProtobuf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC5B1C4A1E0AFE2C00996368 /* SwiftProtobuf.framework */; };
 		EC5B1C4C1E0AFE2C00996368 /* SwiftProtobuf.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC5B1C4A1E0AFE2C00996368 /* SwiftProtobuf.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		ECC27E261E58FF9400A07806 /* talk.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC27E241E58FF9400A07806 /* talk.pb.swift */; };
+		ECC27E271E58FF9400A07806 /* user.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC27E251E58FF9400A07806 /* user.pb.swift */; };
 		ECD9A3381E07525000B3B964 /* error.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD9A3361E07525000B3B964 /* error.pb.swift */; };
-		ECD9A3391E07525000B3B964 /* token.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD9A3371E07525000B3B964 /* token.pb.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -44,8 +45,9 @@
 		EC59DA121E0750A800A601B7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EC59DA141E0750A800A601B7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EC5B1C4A1E0AFE2C00996368 /* SwiftProtobuf.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftProtobuf.framework; path = Carthage/Build/iOS/SwiftProtobuf.framework; sourceTree = "<group>"; };
+		ECC27E241E58FF9400A07806 /* talk.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = talk.pb.swift; sourceTree = "<group>"; };
+		ECC27E251E58FF9400A07806 /* user.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = user.pb.swift; sourceTree = "<group>"; };
 		ECD9A3361E07525000B3B964 /* error.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = error.pb.swift; sourceTree = "<group>"; };
-		ECD9A3371E07525000B3B964 /* token.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = token.pb.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,8 +94,9 @@
 				EC59DA081E0750A800A601B7 /* AppDelegate.swift */,
 				EC59DA0A1E0750A800A601B7 /* ViewController.swift */,
 				EC4B4F8E1E0AF949002856BA /* APIClient.swift */,
+				ECC27E241E58FF9400A07806 /* talk.pb.swift */,
+				ECC27E251E58FF9400A07806 /* user.pb.swift */,
 				ECD9A3361E07525000B3B964 /* error.pb.swift */,
-				ECD9A3371E07525000B3B964 /* token.pb.swift */,
 				EC59DA0C1E0750A800A601B7 /* Main.storyboard */,
 				EC59DA0F1E0750A800A601B7 /* Assets.xcassets */,
 				EC59DA111E0750A800A601B7 /* LaunchScreen.storyboard */,
@@ -176,8 +179,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				EC59DA0B1E0750A800A601B7 /* ViewController.swift in Sources */,
+				ECC27E261E58FF9400A07806 /* talk.pb.swift in Sources */,
 				EC59DA091E0750A800A601B7 /* AppDelegate.swift in Sources */,
-				ECD9A3391E07525000B3B964 /* token.pb.swift in Sources */,
+				ECC27E271E58FF9400A07806 /* user.pb.swift in Sources */,
 				EC4B4F8F1E0AF949002856BA /* APIClient.swift in Sources */,
 				ECD9A3381E07525000B3B964 /* error.pb.swift in Sources */,
 			);

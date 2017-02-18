@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+message User {
+  int32 id = 1;
+  Type type = 2;
+  string name = 3;
+  string introduction = 4;
+  string photoUrl = 5;
+
+  enum Type {
+    Speaker = 0;
+    Participant = 1;
+  }
+}
