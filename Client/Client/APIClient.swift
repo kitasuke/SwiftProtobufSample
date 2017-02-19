@@ -44,7 +44,9 @@ class APIClient {
     private func response<Response: SwiftProtobuf.Message>(from request: URLRequest, success: @escaping ((Response) -> Void), failure: @escaping ((NetworkError) -> Void)) {
         let task = URLSession.shared.dataTask(with: request) { data, urlResponse, error in
             guard let data = data else {
-                failure(NetworkError())
+                DispatchQueue.main.async {
+                    failure(NetworkError())
+                }
                 return
             }
             
@@ -54,7 +56,9 @@ class APIClient {
                     return
             }
             
-            success(try! Response(protobuf: data))
+            DispatchQueue.main.async {
+                success(try! Response(protobuf: data))
+            }
         }
         task.resume()
     }

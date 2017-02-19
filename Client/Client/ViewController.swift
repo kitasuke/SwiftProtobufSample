@@ -26,25 +26,30 @@ class ViewController: UIViewController {
             print(response)
             
             let talk = response.talks[0]
-            guard let data = try? Data(contentsOf: URL(string: talk.speaker.photoURL)!),
-                let image = UIImage(data: data) else {
-                return
-            }
-                    
-            DispatchQueue.main.async {
-                self?.titleLabel.text = talk.title
-                self?.descriptionLabel.text = talk.desc
-                if let labels = self?.tagLabels {
-                    for (index, label) in labels.enumerated() {
-                        label.text = talk.tags[index]
-                    }
+            self?.titleLabel.text = talk.title
+            self?.descriptionLabel.text = talk.desc
+            if let labels = self?.tagLabels {
+                for (index, label) in labels.enumerated() {
+                    label.text = talk.tags[index]
                 }
-                self?.nameLabel.text = talk.speaker.name
-                self?.imageView.image = image
-                self?.introductionLabel.text = talk.speaker.introduction
             }
-        }) { error in
-            print(error)
+            self?.nameLabel.text = talk.speaker.name
+            self?.introductionLabel.text = talk.speaker.introduction
+            
+            DispatchQueue.global().async {
+                guard let data = try? Data(contentsOf: URL(string: talk.speaker.photoURL)!),
+                    let image = UIImage(data: data) else {
+                        return
+                }
+                DispatchQueue.main.async {
+                    self?.imageView.image = image
+                }
+            }
+        }) { [weak self] error in
+            let alertController = UIAlertController(title: "Network error", message: "Make sure that your server app is running. See README for more details", preferredStyle: .alert)
+            let action = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alertController.addAction(action)
+            self?.present(alertController, animated: true, completion: nil)
         }
     }
     
@@ -58,12 +63,10 @@ class ViewController: UIViewController {
         }) { [weak self] error in
             print(error)
             
-            DispatchQueue.main.async {
-                let alertController = UIAlertController(title: error.code.json, message: error.message, preferredStyle: .alert)
-                let action = UIAlertAction(title: "OK", style: .default, handler: nil)
-                alertController.addAction(action)
-                self?.present(alertController, animated: true, completion: nil)
-            }
+            let alertController = UIAlertController(title: error.code.json, message: error.message, preferredStyle: .alert)
+            let action = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alertController.addAction(action)
+            self?.present(alertController, animated: true, completion: nil)
         }
     }
 }
