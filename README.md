@@ -1,7 +1,7 @@
 # SwiftProtobufSample
 Sample project for client/server in Swift with Protocol Buffers
 
-See also [this sample app](https://github.com/kitasuke/SwiftProtobufSample) using [APIKit](https://github.com/ishkawa/APIKit) which is type-safe network layer library
+See also [this sample app](https://github.com/kitasuke/SwiftProtobufSample-APIKit) using [APIKit](https://github.com/ishkawa/APIKit) which is type-safe network layer library
 
 ## Sample app
 
