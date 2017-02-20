@@ -25,6 +25,7 @@ router.get("/v1/talks") { request, response, next in
         response.talks = [talk]
     }
     
+    print(data)
     response.send(data: try data.serializeProtobuf())
     
     next()
@@ -43,6 +44,7 @@ router.post("/v1/like") { request, response, next in
         $0.message = "Not implemented"
     }
     
+    print(error)
     response.status(.badRequest).send(data: try error.serializeProtobuf())
     
     next()
