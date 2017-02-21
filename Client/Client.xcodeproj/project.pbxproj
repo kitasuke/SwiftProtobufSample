@@ -15,6 +15,7 @@
 		EC59DA131E0750A800A601B7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC59DA111E0750A800A601B7 /* LaunchScreen.storyboard */; };
 		EC5B1C4B1E0AFE2C00996368 /* SwiftProtobuf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC5B1C4A1E0AFE2C00996368 /* SwiftProtobuf.framework */; };
 		EC5B1C4C1E0AFE2C00996368 /* SwiftProtobuf.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC5B1C4A1E0AFE2C00996368 /* SwiftProtobuf.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		EC67CC351E5BB2A600B1D05F /* TalkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC67CC341E5BB2A600B1D05F /* TalkViewController.swift */; };
 		ECC27E261E58FF9400A07806 /* talk.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC27E241E58FF9400A07806 /* talk.pb.swift */; };
 		ECC27E271E58FF9400A07806 /* user.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC27E251E58FF9400A07806 /* user.pb.swift */; };
 		ECD9A3381E07525000B3B964 /* error.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD9A3361E07525000B3B964 /* error.pb.swift */; };
@@ -45,6 +46,7 @@
 		EC59DA121E0750A800A601B7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EC59DA141E0750A800A601B7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EC5B1C4A1E0AFE2C00996368 /* SwiftProtobuf.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftProtobuf.framework; path = Carthage/Build/iOS/SwiftProtobuf.framework; sourceTree = "<group>"; };
+		EC67CC341E5BB2A600B1D05F /* TalkViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TalkViewController.swift; sourceTree = "<group>"; };
 		ECC27E241E58FF9400A07806 /* talk.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = talk.pb.swift; sourceTree = "<group>"; };
 		ECC27E251E58FF9400A07806 /* user.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = user.pb.swift; sourceTree = "<group>"; };
 		ECD9A3361E07525000B3B964 /* error.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = error.pb.swift; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 			children = (
 				EC59DA081E0750A800A601B7 /* AppDelegate.swift */,
 				EC59DA0A1E0750A800A601B7 /* ViewController.swift */,
+				EC67CC341E5BB2A600B1D05F /* TalkViewController.swift */,
 				EC4B4F8E1E0AF949002856BA /* APIClient.swift */,
 				ECC27E241E58FF9400A07806 /* talk.pb.swift */,
 				ECC27E251E58FF9400A07806 /* user.pb.swift */,
@@ -179,6 +182,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EC59DA0B1E0750A800A601B7 /* ViewController.swift in Sources */,
+				EC67CC351E5BB2A600B1D05F /* TalkViewController.swift in Sources */,
 				ECC27E261E58FF9400A07806 /* talk.pb.swift in Sources */,
 				EC59DA091E0750A800A601B7 /* AppDelegate.swift in Sources */,
 				ECC27E271E58FF9400A07806 /* user.pb.swift in Sources */,

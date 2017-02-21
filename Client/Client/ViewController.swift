@@ -8,72 +8,45 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-    @IBOutlet private weak var titleLabel: UILabel!
-    @IBOutlet private weak var descriptionLabel: UILabel!
-    @IBOutlet private var tagLabels: [UILabel]!
-    @IBOutlet private weak var nameLabel: UILabel!
-    @IBOutlet private weak var imageView: UIImageView!
-    @IBOutlet private weak var introductionLabel: UILabel!
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    @IBOutlet private weak var tableView: UITableView!
     
-    let apiClient = APIClient()
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
-        fetchTalks()
-    }
-    
-    private func fetchTalks() {
-        apiClient.talks(success: { [weak self] response in
-            print(response)
-            
-            let talk = response.talks[0]
-            self?.titleLabel.text = talk.title
-            self?.descriptionLabel.text = talk.desc
-            if let labels = self?.tagLabels {
-                for (index, label) in labels.enumerated() {
-                    label.text = talk.tags[index]
-                }
-            }
-            self?.nameLabel.text = talk.speaker.name
-            self?.introductionLabel.text = talk.speaker.introduction
-            
-            DispatchQueue.global().async {
-                guard let data = try? Data(contentsOf: URL(string: talk.speaker.photoURL)!),
-                    let image = UIImage(data: data) else {
-                        return
-                }
-                DispatchQueue.main.async {
-                    self?.imageView.image = image
-                }
-            }
-        }) { [weak self] error in
-            let alertController = UIAlertController(title: "Network error", message: "Make sure that your server app is running. See README for more details", preferredStyle: .alert)
-            let action = UIAlertAction(title: "Retry", style: .default) { _ in
-                self?.fetchTalks()
-            }
-            alertController.addAction(action)
-            self?.present(alertController, animated: true, completion: nil)
+        if let indexPath = tableView.indexPathForSelectedRow {
+            tableView.deselectRow(at: indexPath, animated: true)
         }
     }
     
-    @IBAction private func likeButtonPressed() {
-        let body = LikeRequest.with {
-            $0.id = 1
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 2
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") else {
+            return UITableViewCell()
         }
         
-        apiClient.like(body: body, success: { response in
-            print(response)
-        }) { [weak self] error in
-            print(error)
-            
-            let alertController = UIAlertController(title: error.code.json, message: error.message, preferredStyle: .alert)
-            let action = UIAlertAction(title: "OK", style: .default, handler: nil)
-            alertController.addAction(action)
-            self?.present(alertController, animated: true, completion: nil)
+        if indexPath.row == 0 {
+            cell.textLabel?.text = "protobuf"
+        } else {
+            cell.textLabel?.text = "JSON"
         }
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let viewController = storyboard?.instantiateViewController(withIdentifier: String(describing: TalkViewController.self)) as? TalkViewController else {
+            return
+        }
+        
+        if indexPath.row == 0 {
+            viewController.contentType = .protobuf
+        } else {
+            viewController.contentType = .json
+        }
+        navigationController?.pushViewController(viewController, animated: true)
     }
 }
 

@@ -2,6 +2,12 @@ import Kitura
 import SwiftProtobuf
 import Foundation
 
+enum Accept: String {
+    case protobuf = "application/protobuf"
+    case json = "application/json"
+    
+}
+
 private let router = Router()
 
 router.get("/v1/talks") { request, response, next in
@@ -26,7 +32,19 @@ router.get("/v1/talks") { request, response, next in
     }
     
     print(data)
-    response.send(data: try data.serializeProtobuf())
+    
+    guard let acceptHeader = request.headers["Accept"],
+        let accept = Accept(rawValue: acceptHeader) else {
+        return
+    }
+    
+    response.headers["Content-Type"] = accept.rawValue
+    switch accept {
+    case .protobuf:
+        response.send(data: try data.serializeProtobuf())
+    case .json:
+        response.send(try data.serializeJSON())
+    }
     
     next()
 }
@@ -45,7 +63,19 @@ router.post("/v1/like") { request, response, next in
     }
     
     print(error)
-    response.status(.badRequest).send(data: try error.serializeProtobuf())
+    
+    guard let acceptHeader = request.headers["Accept"],
+        let accept = Accept(rawValue: acceptHeader) else {
+            return
+    }
+    
+    response.headers["Content-Type"] = accept.rawValue
+    switch accept {
+    case .protobuf:
+        response.status(.badRequest).send(data: try error.serializeProtobuf())
+    case .json:
+        response.status(.badRequest).send(try error.serializeJSON())
+    }
     
     next()
 }

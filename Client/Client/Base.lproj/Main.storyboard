@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Mj9-LS-zfy">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -9,10 +9,74 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="VH0-Ez-WKH">
+            <objects>
+                <navigationController id="Mj9-LS-zfy" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="xnG-tC-wRN">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="E6b-qh-eL8" kind="relationship" relationship="rootViewController" id="EZR-V9-4fc"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WTW-Qi-Hqq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1562" y="38"/>
+        </scene>
         <!--View Controller-->
+        <scene sceneID="1j8-H9-6ww">
+            <objects>
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="E6b-qh-eL8" customClass="ViewController" customModule="Client" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="pa2-y8-R5g"/>
+                        <viewControllerLayoutGuide type="bottom" id="9yF-qq-PpN"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="rSI-Ey-E7X">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ph3-ik-dLB">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="YDJ-Nw-SVq">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="YDJ-Nw-SVq" id="XKL-rq-7tn">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="E6b-qh-eL8" id="i91-GM-wbR"/>
+                                    <outlet property="delegate" destination="E6b-qh-eL8" id="cOp-Xe-cOP"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ph3-ik-dLB" firstAttribute="leading" secondItem="rSI-Ey-E7X" secondAttribute="leading" id="C2b-t5-CFz"/>
+                            <constraint firstAttribute="trailing" secondItem="ph3-ik-dLB" secondAttribute="trailing" id="INq-U8-s8k"/>
+                            <constraint firstItem="9yF-qq-PpN" firstAttribute="top" secondItem="ph3-ik-dLB" secondAttribute="bottom" id="NT2-o9-7ll"/>
+                            <constraint firstItem="ph3-ik-dLB" firstAttribute="top" secondItem="pa2-y8-R5g" secondAttribute="bottom" id="fic-ns-dzs"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="s3F-Db-Fdt"/>
+                    <connections>
+                        <outlet property="tableView" destination="ph3-ik-dLB" id="VZ3-ZK-rPs"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5I7-M4-QLc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-747" y="39"/>
+        </scene>
+        <!--Talk View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Client" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TalkViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="TalkViewController" customModule="Client" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -143,6 +207,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-4" y="38"/>
         </scene>
     </scenes>
 </document>
