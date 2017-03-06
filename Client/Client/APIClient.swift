@@ -61,7 +61,7 @@ class APIClient {
             guard let data = data,
                 let urlResponse = urlResponse as? HTTPURLResponse,
                 let type = urlResponse.allHeaderFields["Content-Type"] as? String,
-                let contentTpye = ContentType(rawValue: type) else {
+                let contentType = ContentType(rawValue: type) else {
                     
                 DispatchQueue.main.async {
                     failure(NetworkError())
@@ -70,30 +70,28 @@ class APIClient {
             }
             
             guard 200..<300 ~= urlResponse.statusCode else {
-                let error: NetworkError
-                switch contentTpye {
-                case .protobuf:
-                    error = try! NetworkError(protobuf: data)
-                case .json:
-                    let json = String(data: data, encoding: .utf8)!
-                    error = try! NetworkError(json: json)
+                let error: NetworkError = self.convertData(data: data, to: contentType)
+                DispatchQueue.main.async {
+                    failure(error)
                 }
-                failure(error)
                 return
             }
             
+            let response: Response = self.convertData(data: data, to: contentType)
             DispatchQueue.main.async {
-                let response: Response
-                switch contentTpye {
-                case .protobuf:
-                    response = try! Response(protobuf: data)
-                case .json:
-                    let json = String(data: data, encoding: .utf8)!
-                    response = try! Response(json: json)
-                }
                 success(response)
             }
         }
         task.resume()
+    }
+    
+    private func convertData<T: SwiftProtobuf.Message>(data: Data, to contentType: ContentType) -> T {
+        switch contentType {
+        case .protobuf:
+            return try! T(protobuf: data)
+        case .json:
+            let json = String(data: data, encoding: .utf8)!
+            return try! T(json: json)
+        }
     }
 }

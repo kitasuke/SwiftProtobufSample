@@ -25,10 +25,10 @@ class TalkViewController: UIViewController {
         
         apiClient = APIClient(contentType: contentType)
         
-        displayTalks()
+        updateViews()
     }
     
-    private func displayTalks() {
+    private func updateViews() {
         apiClient.talks(success: { [weak self] response in
             print(response)
             
@@ -72,7 +72,18 @@ class TalkViewController: UIViewController {
         }) { [weak self] error in
             print(error)
             
-            let alertController = UIAlertController(title: error.code.json, message: error.message, preferredStyle: .alert)
+            let title: String
+            let message: String
+            switch error.code {
+            case .badRequest:
+                title = error.code.json
+                message = error.message
+            default:
+                title = "Error"
+                message = "Unexpected error occured"
+            }
+            
+            let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
             let action = UIAlertAction(title: "OK", style: .default, handler: nil)
             alertController.addAction(action)
             self?.present(alertController, animated: true, completion: nil)
