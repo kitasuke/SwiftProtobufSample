@@ -1,12 +1,10 @@
-// Test/Sources/TestSuite/Test_Reserved.swift - Verify handling of reserved words
+// Tests/SwiftProtobufTests/Test_Reserved.swift - Verify handling of reserved words
 //
-// This source file is part of the Swift.org open source project
-//
-// Copyright (c) 2014 - 2016 Apple Inc. and the Swift project authors
+// Copyright (c) 2014 - 2016 Apple Inc. and the project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception
 //
-// See http://swift.org/LICENSE.txt for license information
-// See http://swift.org/CONTRIBUTORS.txt for the list of Swift project authors
+// See LICENSE.txt for license information:
+// https://github.com/apple/swift-protobuf/blob/master/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
 ///
@@ -19,16 +17,52 @@
 
 import Foundation
 import XCTest
-import SwiftProtobuf
+@testable import SwiftProtobuf
 
 class Test_Reserved: XCTestCase {
-    func testEnumPrefix() {
-        XCTAssertEqual(ProtobufUnittest_SwiftReservedTest.Enum.`double`.rawValue, 1)
+    func testEnumNaming() {
+        XCTAssertEqual(ProtobufUnittest_SwiftReservedTest.Enum.double.rawValue, 1)
+        XCTAssertEqual(String(describing: ProtobufUnittest_SwiftReservedTest.Enum.double.name!), "DOUBLE")
+        XCTAssertEqual(ProtobufUnittest_SwiftReservedTest.Enum.json.rawValue, 2)
+        XCTAssertEqual(String(describing: ProtobufUnittest_SwiftReservedTest.Enum.json.name!), "JSON")
         XCTAssertEqual(ProtobufUnittest_SwiftReservedTest.Enum.`class`.rawValue, 3)
+        XCTAssertEqual(String(describing: ProtobufUnittest_SwiftReservedTest.Enum.`class`.name!), "CLASS")
+        XCTAssertEqual(ProtobufUnittest_SwiftReservedTest.Enum.___.rawValue, 4)
+        XCTAssertEqual(String(describing: ProtobufUnittest_SwiftReservedTest.Enum.___.name!), "_")
         XCTAssertEqual(ProtobufUnittest_SwiftReservedTest.Enum.self_.rawValue, 5)
-        XCTAssertEqual(ProtobufUnittest_SwiftReservedTest.Enum.json_.rawValue, 2)
-        XCTAssertEqual(ProtobufUnittest_SwiftReservedTest.classMessage().debugDescription, "ProtobufUnittest_SwiftReservedTest.classMessage()")
-        XCTAssertEqual(ProtobufUnittest_SwiftReservedTest.isEqualMessage().debugDescription, "ProtobufUnittest_SwiftReservedTest.isEqualMessage()")
-        XCTAssertEqual(ProtobufUnittest_SwiftReservedTest.TypeMessage().debugDescription, "ProtobufUnittest_SwiftReservedTest.TypeMessage()")
+        XCTAssertEqual(String(describing: ProtobufUnittest_SwiftReservedTest.Enum.self_.name!), "SELF")
+        XCTAssertEqual(ProtobufUnittest_SwiftReservedTest.Enum.type.rawValue, 6)
+        XCTAssertEqual(String(describing: ProtobufUnittest_SwiftReservedTest.Enum.type.name!), "TYPE")
+    }
+
+    func testMessageNames() {
+        XCTAssertEqual(ProtobufUnittest_SwiftReservedTest.classMessage.protoMessageName, "class")
+        XCTAssertEqual(ProtobufUnittest_SwiftReservedTest.isEqualMessage.protoMessageName, "isEqual")
+        XCTAssertEqual(ProtobufUnittest_SwiftReservedTest.TypeMessage.protoMessageName, "Type")
+    }
+
+    func testFieldNamesMatchingMetadata() {
+        // A chunk of this test is just that things compile because it is calling the names
+        // we expect to have generated.
+
+        var msg = ProtobufUnittest_SwiftReservedTest()
+
+        msg.protoMessageName = 1
+        msg.protoPackageName = 2
+        msg.anyTypePrefix = 3
+        msg.anyTypeURL = 4
+
+        msg.isInitialized_p = "foo"
+        msg.hashValue_p = "bar"
+        msg.debugDescription_p = 5
+
+        XCTAssertEqual(msg.debugDescription, "SwiftProtobufTests.ProtobufUnittest_SwiftReservedTest:\nproto_message_name: 1\nproto_package_name: 2\nany_type_prefix: 3\nany_type_url: 4\nis_initialized: \"foo\"\nhash_value: \"bar\"\ndebug_description: 5\n")
+
+        msg.clearIsInitialized_p()
+        msg.clearHashValue_p()
+        msg.clearDebugDescription_p()
+        XCTAssertFalse(msg.hasIsInitialized_p)
+        XCTAssertFalse(msg.hasHashValue_p)
+        XCTAssertFalse(msg.hasDebugDescription_p)
     }
 }

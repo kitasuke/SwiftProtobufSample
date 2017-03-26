@@ -1,12 +1,10 @@
-// Test/Soures/TestSuite/Test_Unknown_proto2.swift - Exercise unknown field handling for proto2 messages
+// Tests/SwiftProtobufTests/Test_Unknown_proto2.swift - Exercise unknown field handling for proto2 messages
 //
-// This source file is part of the Swift.org open source project
-//
-// Copyright (c) 2014 - 2016 Apple Inc. and the Swift project authors
+// Copyright (c) 2014 - 2016 Apple Inc. and the project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception
 //
-// See http://swift.org/LICENSE.txt for license information
-// See http://swift.org/CONTRIBUTORS.txt for the list of Swift project authors
+// See LICENSE.txt for license information:
+// https://github.com/apple/swift-protobuf/blob/master/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
 ///
@@ -17,6 +15,7 @@
 
 import Foundation
 import XCTest
+import SwiftProtobuf
 
 /*
  * Verify that unknown fields are correctly preserved by
@@ -29,15 +28,15 @@ class Test_Unknown_proto2: XCTestCase, PBTestHelpers {
     /// Verify that json decode ignores the provided fields but otherwise succeeds
     func assertJSONIgnores(_ json: String, file: XCTestFileArgType = #file, line: UInt = #line) {
         do {
-            let empty = try ProtobufUnittest_TestEmptyMessage(json: json)
+            let empty = try ProtobufUnittest_TestEmptyMessage(jsonString: json)
             do {
-                let json = try empty.serializeJSON()
+                let json = try empty.jsonString()
                 XCTAssertEqual("{}", json, file: file, line: line)
             } catch {
-                XCTFail("Recoding empty message threw an error")
+                XCTFail("Recoding empty message threw an error", file: file, line: line)
             }
         } catch {
-            XCTFail("empty message threw an error")
+            XCTFail("empty message threw an error", file: file, line: line)
         }
     }
 
@@ -46,9 +45,9 @@ class Test_Unknown_proto2: XCTestCase, PBTestHelpers {
     func testBinaryPB() {
         func assertRecodes(_ protobufBytes: [UInt8], file: XCTestFileArgType = #file, line: UInt = #line) {
             do {
-                let empty = try ProtobufUnittest_TestEmptyMessage(protobuf: Data(bytes: protobufBytes))
+                let empty = try ProtobufUnittest_TestEmptyMessage(serializedData: Data(bytes: protobufBytes))
                 do {
-                    let pb = try empty.serializeProtobuf()
+                    let pb = try empty.serializedData()
                     XCTAssertEqual(Data(bytes: protobufBytes), pb, file: file, line: line)
                 } catch {
                     XCTFail()
@@ -58,7 +57,7 @@ class Test_Unknown_proto2: XCTestCase, PBTestHelpers {
             }
         }
         func assertFails(_ protobufBytes: [UInt8], file: XCTestFileArgType = #file, line: UInt = #line) {
-            XCTAssertThrowsError(try ProtobufUnittest_TestEmptyMessage(protobuf: Data(bytes: protobufBytes)), file: file, line: line)
+            XCTAssertThrowsError(try ProtobufUnittest_TestEmptyMessage(serializedData: Data(bytes: protobufBytes)), file: file, line: line)
         }
         // Well-formed input should decode/recode as-is; malformed input should fail to decode
         assertFails([0]) // Invalid field number
@@ -125,5 +124,54 @@ class Test_Unknown_proto2: XCTestCase, PBTestHelpers {
         assertJSONDecodeFails("{\"unknown\": \"hi!}")
         assertJSONDecodeFails("{\"unknown\": qqq }")
         assertJSONDecodeFails("{\"unknown\": { }")
+    }
+
+
+    func assertUnknownFields(_ message: Proto2Message, _ bytes: [UInt8], line: UInt = #line) {
+        XCTAssertEqual(message.unknownFields.data, Data(bytes: bytes), line: line)
+    }
+
+    func test_MessageNoStorageClass() throws {
+        // Reusing message class from unittest_swift_extension.proto that were crafted
+        // for forcing/avoiding _StorageClass usage.
+        var msg1 = ProtobufUnittest_Extend_MsgNoStorage()
+        assertUnknownFields(msg1, [])
+
+        try msg1.merge(serializedData: Data(bytes: [24, 1]))  // Field 3, varint
+        assertUnknownFields(msg1, [24, 1])
+
+        var msg2 = msg1
+        assertUnknownFields(msg2, [24, 1])
+        assertUnknownFields(msg1, [24, 1])
+
+        try msg2.merge(serializedData: Data([34, 1, 52]))   // Field 4, length delimted
+        assertUnknownFields(msg2, [24, 1, 34, 1, 52])
+        assertUnknownFields(msg1, [24, 1])
+
+        try msg1.merge(serializedData: Data([61, 7, 0, 0, 0]))  // Field 7, 32-bit value
+        assertUnknownFields(msg2, [24, 1, 34, 1, 52])
+        assertUnknownFields(msg1, [24, 1, 61, 7, 0, 0, 0])
+    }
+
+    func test_MessageUsingStorageClass() throws {
+        // Reusing message class from unittest_swift_extension.proto that were crafted
+        // for forcing/avoiding _StorageClass usage.
+        var msg1 = ProtobufUnittest_Extend_MsgUsesStorage()
+        assertUnknownFields(msg1, [])
+
+        try msg1.merge(serializedData: Data(bytes: [24, 1]))  // Field 3, varint
+        assertUnknownFields(msg1, [24, 1])
+
+        var msg2 = msg1
+        assertUnknownFields(msg2, [24, 1])
+        assertUnknownFields(msg1, [24, 1])
+
+        try msg2.merge(serializedData: Data([34, 1, 52]))   // Field 4, length delimted
+        assertUnknownFields(msg2, [24, 1, 34, 1, 52])
+        assertUnknownFields(msg1, [24, 1])
+
+        try msg1.merge(serializedData: Data([61, 7, 0, 0, 0]))  // Field 7, 32-bit value
+        assertUnknownFields(msg2, [24, 1, 34, 1, 52])
+        assertUnknownFields(msg1, [24, 1, 61, 7, 0, 0, 0])
     }
 }

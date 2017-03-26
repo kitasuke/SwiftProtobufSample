@@ -1,12 +1,10 @@
-// ProtobufRuntime/Sources/Protobuf/Google_Protobuf_Struct.swift - Well-known Struct types.
+// Sources/SwiftProtobuf/Google_Protobuf_Struct.swift - Well-known Struct types.
 //
-// This source file is part of the Swift.org open source project
-//
-// Copyright (c) 2014 - 2016 Apple Inc. and the Swift project authors
+// Copyright (c) 2014 - 2016 Apple Inc. and the project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception
 //
-// See http://swift.org/LICENSE.txt for license information
-// See http://swift.org/CONTRIBUTORS.txt for the list of Swift project authors
+// See LICENSE.txt for license information:
+// https://github.com/apple/swift-protobuf/blob/master/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
 ///
@@ -15,13 +13,11 @@
 ///
 // -----------------------------------------------------------------------------
 
-import Swift
-
 /*
  * Hand-built implementation.
  */
 
-public enum Google_Protobuf_NullValue: Enum {
+public enum Google_Protobuf_NullValue: Enum, _ProtoNameProviding {
     // TODO: This is awkward, see the references to .NullValue(.NullValue) below.
     // TODO: The .nullValue property on Google_Protobuf_Value has to have
     // a type; but this is a little weird.
@@ -29,15 +25,13 @@ public enum Google_Protobuf_NullValue: Enum {
     ///   Null value.
     case nullValue
 
-    public init?(rawValue: Int) {self = .nullValue}
-    public init?(name: String) {self = .nullValue}
-    public init?(jsonName: String) {self = .nullValue}
-    public init?(protoName: String) {self = .nullValue}
+    public static var _protobuf_nameMap: _NameMap = [
+      0: .same(proto: "NULL_VALUE"),
+    ]
+
     public init() {self = .nullValue}
+    public init?(rawValue: Int) {self = .nullValue}
     public var rawValue: Int {return 0}
-    public var json: String {return "null"}
-    public var hashValue: Int {return 0}
-    public var debugDescription: String {return "NullValue"}
 }
 
 ///   `Struct` represents a structured data value, consisting of fields
@@ -51,12 +45,11 @@ public enum Google_Protobuf_NullValue: Enum {
 
 // Should Google_Protobuf_Struct be a synonym for [String: Any]?
 // TODO: Implement CollectionType
-public struct Google_Protobuf_Struct: Message, Proto3Message, _MessageImplementationBase, ExpressibleByDictionaryLiteral, ProtoNameProviding {
-    public var swiftClassName: String {return "Google_Protobuf_Struct"}
-    public var protoMessageName: String {return "Struct"}
-    public var protoPackageName: String {return "google.protobuf"}
-    public static let _protobuf_fieldNames: FieldNameMap = [
-        1: .same(proto: "fields", swift: "fields"),
+public struct Google_Protobuf_Struct: Message, Proto3Message, _MessageImplementationBase, ExpressibleByDictionaryLiteral, _ProtoNameProviding {
+    public static let protoMessageName: String = "Struct"
+    public static let protoPackageName: String = "google.protobuf"
+    public static let _protobuf_nameMap: _NameMap = [
+        1: .same(proto: "fields"),
     ]
     public typealias Key = String
     public typealias Value = Google_Protobuf_Value
@@ -69,100 +62,75 @@ public struct Google_Protobuf_Struct: Message, Proto3Message, _MessageImplementa
     public init(fields: [String: Google_Protobuf_Value]) {
         self.fields = fields
     }
-    
+
     public init(dictionaryLiteral: (String, Google_Protobuf_Value)...) {
         fields = [:]
         for (k,v) in dictionaryLiteral {
             fields[k] = v
         }
     }
-    
+
     public subscript(index: String) -> Google_Protobuf_Value? {
         get {return fields[index]}
         set(newValue) {fields[index] = newValue}
     }
 
-    public mutating func decodeFromJSONObject(jsonDecoder: inout JSONDecoder) throws {
-        var key = ""
-        var state = JSONDecoder.ObjectParseState.expectFirstKey
-        while let token = try jsonDecoder.nextToken() {
-            switch token {
-            case .string(let s): // This is a key
-                if state != .expectKey && state != .expectFirstKey {
-                    throw DecodingError.malformedJSON
-                }
-                key = s
-                state = .expectColon
-            case .colon:
-                if state != .expectColon {
-                    throw DecodingError.malformedJSON
-                }
-                guard let valueToken = try jsonDecoder.nextToken() else {
-                    throw DecodingError.malformedJSON
-                }
-                var value = Google_Protobuf_Value()
-                switch valueToken {
-                case .number(_), .string(_), .boolean(_):
-                    try value.decodeFromJSONToken(token: valueToken)
-                case .null:
-                    break
-                case .beginArray:
-                    try value.decodeFromJSONArray(jsonDecoder: &jsonDecoder)
-                case .beginObject:
-                    try value.decodeFromJSONObject(jsonDecoder: &jsonDecoder)
-                default:
-                    throw DecodingError.malformedJSON
-                }
-                fields[key] = value
-                state = .expectComma
-            case .comma:
-                if state != .expectComma {
-                    throw DecodingError.malformedJSON
-                }
-                state = .expectKey
-            case .endObject:
-                if state != .expectFirstKey && state != .expectComma {
-                    throw DecodingError.malformedJSON
-                }
-                return
-            default:
-                throw DecodingError.malformedJSON
-            }
+    public mutating func decodeJSON(from decoder: inout JSONDecoder) throws {
+        try decoder.scanner.skipRequiredObjectStart()
+        if decoder.scanner.skipOptionalObjectEnd() {
+            return
         }
-        throw DecodingError.truncatedInput
+        while true {
+            let key = try decoder.scanner.nextQuotedString()
+            try decoder.scanner.skipRequiredColon()
+            var value = Google_Protobuf_Value()
+            try value.decodeJSON(from: &decoder)
+            fields[key] = value
+            if decoder.scanner.skipOptionalObjectEnd() {
+                return
+            }
+            try decoder.scanner.skipRequiredComma()
+        }
     }
 
-    public func serializeJSON() throws -> String {
+    public func jsonString() throws -> String {
         var jsonEncoder = JSONEncoder()
         jsonEncoder.startObject()
+        var mapVisitor = JSONMapEncodingVisitor(encoder: jsonEncoder)
         for (k,v) in fields {
-            jsonEncoder.startField(name: k)
-            try v.serializeJSONValue(jsonEncoder: &jsonEncoder)
+            try mapVisitor.visitSingularStringField(value: k, fieldNumber: 1)
+            try mapVisitor.visitSingularMessageField(value: v, fieldNumber: 2)
         }
-        jsonEncoder.endObject()
-        return jsonEncoder.result
+        mapVisitor.encoder.endObject()
+        return mapVisitor.encoder.stringResult
     }
 
-    public func serializeAnyJSON() throws -> String {
-        let value = try serializeJSON()
-        return "{\"@type\":\"\(anyTypeURL)\",\"value\":\(value)}"
+    public func anyJSONString() throws -> String {
+        let value = try jsonString()
+        return "{\"@type\":\"\(type(of: self).anyTypeURL)\",\"value\":\(value)}"
     }
 
-    public mutating func _protoc_generated_decodeField(setter: inout FieldDecoder, protoFieldNumber: Int) throws {
-        switch protoFieldNumber {
-        case 1: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufString,Google_Protobuf_Value>.self, value: &fields)
+    mutating public func _protobuf_generated_decodeMessage<T: Decoder>(decoder: inout T) throws {
+        while let fieldNumber = try decoder.nextFieldNumber() {
+            try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+        }
+    }
+
+    public mutating func _protobuf_generated_decodeField<T: Decoder>(decoder: inout T, fieldNumber: Int) throws {
+        switch fieldNumber {
+        case 1: try decoder.decodeMapField(fieldType: _ProtobufMessageMap<ProtobufString,Google_Protobuf_Value>.self, value: &fields)
         default:
             break
         }
     }
 
-    public func _protoc_generated_traverse(visitor: inout Visitor) throws {
+    public func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
         if !fields.isEmpty {
-            try visitor.visitMapField(fieldType: ProtobufMap<ProtobufString,Google_Protobuf_Value>.self, value: fields, protoFieldNumber: 1)
+            try visitor.visitMapField(fieldType: _ProtobufMessageMap<ProtobufString,Google_Protobuf_Value>.self, value: fields, fieldNumber: 1)
         }
     }
 
-    public  func _protoc_generated_isEqualTo(other: Google_Protobuf_Struct) -> Bool {
+    public  func _protobuf_generated_isEqualTo(other: Google_Protobuf_Struct) -> Bool {
         if fields != other.fields {return false}
         return true
     }
@@ -174,17 +142,16 @@ public struct Google_Protobuf_Struct: Message, Proto3Message, _MessageImplementa
 ///   variants, absence of any variant indicates an error.
 ///
 ///   The JSON representation for `Value` is JSON value.
-public struct Google_Protobuf_Value: Message, Proto3Message, _MessageImplementationBase, ExpressibleByIntegerLiteral, ExpressibleByFloatLiteral, ExpressibleByStringLiteral, ExpressibleByBooleanLiteral, ExpressibleByNilLiteral, ProtoNameProviding {
-    public var swiftClassName: String {return "Google_Protobuf_Value"}
-    public var protoMessageName: String {return "Value"}
-    public var protoPackageName: String {return "google.protobuf"}
-    public static let _protobuf_fieldNames: FieldNameMap = [
-        1: .unique(proto: "null_value", json: "nullValue", swift: "nullValue"),
-        2: .unique(proto: "number_value", json: "numberValue", swift: "numberValue"),
-        3: .unique(proto: "string_value", json: "stringValue", swift: "stringValue"),
-        4: .unique(proto: "bool_value", json: "boolValue", swift: "boolValue"),
-        5: .unique(proto: "struct_value", json: "structValue", swift: "structValue"),
-        6: .unique(proto: "list_value", json: "listValue", swift: "listValue"),
+public struct Google_Protobuf_Value: Message, Proto3Message, _MessageImplementationBase, ExpressibleByIntegerLiteral, ExpressibleByFloatLiteral, ExpressibleByStringLiteral, ExpressibleByBooleanLiteral, ExpressibleByNilLiteral, _ProtoNameProviding {
+    public static let protoMessageName: String = "Value"
+    public static let protoPackageName: String = "google.protobuf"
+    public static let _protobuf_nameMap: _NameMap = [
+        1: .unique(proto: "null_value", json: "nullValue"),
+        2: .unique(proto: "number_value", json: "numberValue"),
+        3: .unique(proto: "string_value", json: "stringValue"),
+        4: .unique(proto: "bool_value", json: "boolValue"),
+        5: .unique(proto: "struct_value", json: "structValue"),
+        6: .unique(proto: "list_value", json: "listValue"),
     ]
 
     // TODO: Would it make sense to collapse the implementation here and
@@ -271,50 +238,66 @@ public struct Google_Protobuf_Value: Message, Proto3Message, _MessageImplementat
         }
     }
 
-    mutating public func _protoc_generated_decodeField(setter: inout FieldDecoder, protoFieldNumber: Int) throws {
-        switch protoFieldNumber {
+    mutating public func _protobuf_generated_decodeMessage<T: Decoder>(decoder: inout T) throws {
+        while let fieldNumber = try decoder.nextFieldNumber() {
+            try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+        }
+    }
+
+    mutating public func _protobuf_generated_decodeField<T: Decoder>(decoder: inout T, fieldNumber: Int) throws {
+        switch fieldNumber {
         case 1, 2, 3, 4, 5, 6:
-            try kind.decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
+            if kind != nil {
+                try decoder.handleConflictingOneOf()
+            }
+            kind = try OneOf_Kind(byDecodingFrom: &decoder, fieldNumber: fieldNumber)
         default: break
         }
     }
 
-    public static func decodeFromJSONNull() throws -> Google_Protobuf_Value? {
-        return Google_Protobuf_Value()
-    }
-
-    public mutating func decodeFromJSONToken(token: JSONToken) throws {
-        try kind.decodeFromJSONToken(token: token)
-    }
-
-    public mutating func decodeFromJSONObject(jsonDecoder: inout JSONDecoder) throws {
-        var s = Google_Protobuf_Struct()
-        try s.decodeFromJSONObject(jsonDecoder: &jsonDecoder)
-        kind = .structValue(s)
-    }
-
-    public mutating func decodeFromJSONArray(jsonDecoder: inout JSONDecoder) throws {
-        var s = Google_Protobuf_ListValue()
-        try s.decodeFromJSONArray(jsonDecoder: &jsonDecoder)
-        kind = .listValue(s)
-    }
-
-    public func serializeJSON() throws -> String {
+    public func jsonString() throws -> String {
         var jsonEncoder = JSONEncoder()
         try serializeJSONValue(jsonEncoder: &jsonEncoder)
-        return jsonEncoder.result
+        return jsonEncoder.stringResult
     }
 
-    public func serializeAnyJSON() throws -> String {
-        let value = try serializeJSON()
-        return "{\"@type\":\"\(anyTypeURL)\",\"value\":\(value)}"
+    public func anyJSONString() throws -> String {
+        let value = try jsonString()
+        return "{\"@type\":\"\(type(of: self).anyTypeURL)\",\"value\":\(value)}"
     }
 
     fileprivate func serializeJSONValue(jsonEncoder: inout JSONEncoder) throws {
-        try kind.serializeJSONField(encoder: &jsonEncoder)
+        try kind?.serializeJSONField(encoder: &jsonEncoder)
     }
 
-    public func _protoc_generated_isEqualTo(other: Google_Protobuf_Value) -> Bool {
+    public mutating func decodeJSON(from decoder: inout JSONDecoder) throws {
+        let c = try decoder.scanner.peekOneCharacter()
+        switch c {
+        case "n":
+            if !decoder.scanner.skipOptionalNull() {
+                throw JSONDecodingError.failure
+            }
+        case "[":
+            var l = Google_Protobuf_ListValue()
+            try l.decodeJSON(from: &decoder)
+            kind = .listValue(l)
+        case "{":
+            var s = Google_Protobuf_Struct()
+            try s.decodeJSON(from: &decoder)
+            kind = .structValue(s)
+        case "t", "f":
+            let b = try decoder.scanner.nextBool()
+            kind = .boolValue(b)
+        case "\"":
+            let s = try decoder.scanner.nextQuotedString()
+            kind = .stringValue(s)
+        default:
+            let d = try decoder.scanner.nextDouble()
+            kind = .numberValue(d)
+        }
+    }
+
+    public func _protobuf_generated_isEqualTo(other: Google_Protobuf_Value) -> Bool {
         return kind == other.kind
     }
 
@@ -322,36 +305,17 @@ public struct Google_Protobuf_Value: Message, Proto3Message, _MessageImplementat
         try any.unpackTo(target: &self)
     }
 
-    public var debugDescription: String {
-        get {
-            do {
-                let json = try serializeJSON()
-                switch kind {
-                case .nullValue(_): return "\(swiftClassName)(null)"
-                case .numberValue(_): return "\(swiftClassName)(numberValue:\(json))"
-                case .stringValue(_): return"\(swiftClassName)(stringValue:\(json))"
-                case .boolValue(_): return"\(swiftClassName)(boolValue:\(json))"
-                case .structValue(_): return"\(swiftClassName)(structValue:\(json))"
-                case .listValue(_): return"\(swiftClassName)(listValue:\(json))"
-                case .None: return "\(swiftClassName)()"
-                }
-            } catch let e {
-                return "\(swiftClassName)(FAILURE: \(e))"
-            }
-        }
-    }
-
-    public func _protoc_generated_traverse(visitor: inout Visitor) throws {
-        try kind.traverse(visitor: &visitor, start:1, end: 7)
+    public func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+        try kind?.traverse(visitor: &visitor, start:1, end: 7)
     }
 
     // Storage ivars
-    private var kind = Google_Protobuf_Value.OneOf_Kind()
+    private var kind: Google_Protobuf_Value.OneOf_Kind?
 
     ///   Represents a null value.
     public var nullValue: Google_Protobuf_NullValue? {
         get {
-            if case .nullValue(let v) = kind {
+            if case .nullValue(let v)? = kind {
                 return v
             }
             return nil
@@ -360,7 +324,7 @@ public struct Google_Protobuf_Value: Message, Proto3Message, _MessageImplementat
             if let newValue = newValue {
                 kind = .nullValue(newValue)
             } else {
-                kind = .None
+                kind = nil
             }
         }
     }
@@ -368,7 +332,7 @@ public struct Google_Protobuf_Value: Message, Proto3Message, _MessageImplementat
     ///   Represents a double value.
     public var numberValue: Double? {
         get {
-            if case .numberValue(let v) = kind {
+            if case .numberValue(let v)? = kind {
                 return v
             }
             return nil
@@ -377,7 +341,7 @@ public struct Google_Protobuf_Value: Message, Proto3Message, _MessageImplementat
             if let newValue = newValue {
                 kind = .numberValue(newValue)
             } else {
-                kind = .None
+                kind = nil
             }
         }
     }
@@ -385,7 +349,7 @@ public struct Google_Protobuf_Value: Message, Proto3Message, _MessageImplementat
     ///   Represents a string value.
     public var stringValue: String? {
         get {
-            if case .stringValue(let v) = kind {
+            if case .stringValue(let v)? = kind {
                 return v
             }
             return nil
@@ -394,7 +358,7 @@ public struct Google_Protobuf_Value: Message, Proto3Message, _MessageImplementat
             if let newValue = newValue {
                 kind = .stringValue(newValue)
             } else {
-                kind = .None
+                kind = nil
             }
         }
     }
@@ -402,7 +366,7 @@ public struct Google_Protobuf_Value: Message, Proto3Message, _MessageImplementat
     ///   Represents a boolean value.
     public var boolValue: Bool? {
         get {
-            if case .boolValue(let v) = kind {
+            if case .boolValue(let v)? = kind {
                 return v
             }
             return nil
@@ -411,7 +375,7 @@ public struct Google_Protobuf_Value: Message, Proto3Message, _MessageImplementat
             if let newValue = newValue {
                 kind = .boolValue(newValue)
             } else {
-                kind = .None
+                kind = nil
             }
         }
     }
@@ -419,7 +383,7 @@ public struct Google_Protobuf_Value: Message, Proto3Message, _MessageImplementat
     ///   Represents a structured value.
     public var structValue: Google_Protobuf_Struct? {
         get {
-            if case .structValue(let v) = kind {
+            if case .structValue(let v)? = kind {
                 return v
             }
             return nil
@@ -428,7 +392,7 @@ public struct Google_Protobuf_Value: Message, Proto3Message, _MessageImplementat
             if let newValue = newValue {
                 kind = .structValue(newValue)
             } else {
-                kind = .None
+                kind = nil
             }
         }
     }
@@ -436,7 +400,7 @@ public struct Google_Protobuf_Value: Message, Proto3Message, _MessageImplementat
     ///   Represents a repeated `Value`.
     public var listValue: Google_Protobuf_ListValue? {
         get {
-            if case .listValue(let v) = kind {
+            if case .listValue(let v)? = kind {
                 return v
             }
             return nil
@@ -445,131 +409,106 @@ public struct Google_Protobuf_Value: Message, Proto3Message, _MessageImplementat
             if let newValue = newValue {
                 kind = .listValue(newValue)
             } else {
-                kind = .None
+                kind = nil
             }
         }
     }
 
-    public enum OneOf_Kind: ExpressibleByNilLiteral, OneofEnum {
+    public enum OneOf_Kind: Equatable {
         case nullValue(Google_Protobuf_NullValue)
         case numberValue(Double)
         case stringValue(String)
         case boolValue(Bool)
         case structValue(Google_Protobuf_Struct)
         case listValue(Google_Protobuf_ListValue)
-        case None
 
-        public init(nilLiteral: ()) {
-            self = .None
-        }
-
-        public init() {
-            self = .None
-        }
-
-        public mutating func decodeField(setter: inout FieldDecoder, protoFieldNumber: Int) throws {
-            switch protoFieldNumber {
+        fileprivate init?<T: Decoder>(byDecodingFrom decoder: inout T, fieldNumber: Int) throws {
+            switch fieldNumber {
             case 1:
                 var value: Google_Protobuf_NullValue?
-                try setter.decodeSingularField(fieldType: Google_Protobuf_NullValue.self, value: &value)
+                try decoder.decodeSingularEnumField(value: &value)
                 if let value = value {
                     self = .nullValue(value)
+                    return
                 }
             case 2:
                 var value: Double?
-                try setter.decodeSingularField(fieldType: ProtobufDouble.self, value: &value)
+                try decoder.decodeSingularDoubleField(value: &value)
                 if let value = value {
                     self = .numberValue(value)
+                    return
                 }
             case 3:
                 var value: String?
-                try setter.decodeSingularField(fieldType: ProtobufString.self, value: &value)
+                try decoder.decodeSingularStringField(value: &value)
                 if let value = value {
                     self = .stringValue(value)
+                    return
                 }
             case 4:
                 var value: Bool?
-                try setter.decodeSingularField(fieldType: ProtobufBool.self, value: &value)
+                try decoder.decodeSingularBoolField(value: &value)
                 if let value = value {
                     self = .boolValue(value)
+                    return
                 }
             case 5:
                 var value: Google_Protobuf_Struct?
-                try setter.decodeSingularMessageField(fieldType: Google_Protobuf_Struct.self, value: &value)
+                try decoder.decodeSingularMessageField(value: &value)
                 if let value = value {
                     self = .structValue(value)
+                    return
                 }
             case 6:
                 var value: Google_Protobuf_ListValue?
-                try setter.decodeSingularMessageField(fieldType: Google_Protobuf_ListValue.self, value: &value)
+                try decoder.decodeSingularMessageField(value: &value)
                 if let value = value {
                     self = .listValue(value)
+                    return
                 }
             default:
-                throw DecodingError.schemaMismatch
+                break
             }
+            return nil
         }
 
         fileprivate func serializeJSONField(encoder: inout JSONEncoder) throws {
             switch self {
             case .nullValue(_): encoder.putNullValue()
-            case .numberValue(let v): encoder.putDoubleValue(value: v, quote: false)
+            case .numberValue(let v): encoder.putDoubleValue(value: v)
             case .stringValue(let v): encoder.putStringValue(value: v)
-            case .boolValue(let v): encoder.putBoolValue(value: v, quote: false)
-            case .structValue(let v): encoder.append(text: try v.serializeJSON())
-            case .listValue(let v): encoder.append(text: try v.serializeJSON())
-            case .None:
-                break
+            case .boolValue(let v): encoder.putBoolValue(value: v)
+            case .structValue(let v): encoder.append(text: try v.jsonString())
+            case .listValue(let v): encoder.append(text: try v.jsonString())
             }
         }
 
-        public mutating func decodeFromJSONToken(token: JSONToken) throws {
-            switch token {
-            case .null:
-                self = .nullValue(.nullValue)
-            case .number(_):
-                if let value = token.asDouble {
-                    self = .numberValue(value)
-                } else {
-                    throw DecodingError.malformedJSONNumber
-                }
-            case .string(let s):
-                self = .stringValue(s)
-            case .boolean(let b):
-                self = .boolValue(b)
-            default:
-                throw DecodingError.schemaMismatch
-            }
-        }
-
-        public func traverse(visitor: inout Visitor, start: Int, end: Int) throws {
+        fileprivate func traverse<V: Visitor>(visitor: inout V, start: Int, end: Int) throws {
             switch self {
             case .nullValue(let v):
                 if start <= 1 && 1 < end {
-                    try visitor.visitSingularField(fieldType: Google_Protobuf_NullValue.self, value: v, protoFieldNumber: 1)
+                    try visitor.visitSingularEnumField(value: v, fieldNumber: 1)
                 }
             case .numberValue(let v):
                 if start <= 2 && 2 < end {
-                    try visitor.visitSingularField(fieldType: ProtobufDouble.self, value: v, protoFieldNumber: 2)
+                    try visitor.visitSingularDoubleField(value: v, fieldNumber: 2)
                 }
             case .stringValue(let v):
                 if start <= 3 && 3 < end {
-                    try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 3)
+                    try visitor.visitSingularStringField(value: v, fieldNumber: 3)
                 }
             case .boolValue(let v):
                 if start <= 4 && 4 < end {
-                    try visitor.visitSingularField(fieldType: ProtobufBool.self, value: v, protoFieldNumber: 4)
+                    try visitor.visitSingularBoolField(value: v, fieldNumber: 4)
                 }
             case .structValue(let v):
                 if start <= 5 && 5 < end {
-                    try visitor.visitSingularMessageField(value: v, protoFieldNumber: 5)
+                    try visitor.visitSingularMessageField(value: v, fieldNumber: 5)
                 }
             case .listValue(let v):
                 if start <= 6 && 6 < end {
-                    try visitor.visitSingularMessageField(value: v, protoFieldNumber: 6)
+                    try visitor.visitSingularMessageField(value: v, fieldNumber: 6)
                 }
-            case .None:
-                break
             }
         }
 
@@ -581,7 +520,6 @@ public struct Google_Protobuf_Value: Message, Proto3Message, _MessageImplementat
             case .boolValue(let v): return v.hashValue
             case .structValue(let v): return v.hashValue
             case .listValue(let v): return v.hashValue
-            case .None: return 0
             }
         }
     }
@@ -590,12 +528,11 @@ public struct Google_Protobuf_Value: Message, Proto3Message, _MessageImplementat
 ///   `ListValue` is a wrapper around a repeated field of values.
 ///
 ///   The JSON representation for `ListValue` is JSON array.
-public struct Google_Protobuf_ListValue: Message, Proto3Message, _MessageImplementationBase, ExpressibleByArrayLiteral, ProtoNameProviding {
-    public var swiftClassName: String {return "Google_Protobuf_ListValue"}
-    public var protoMessageName: String {return "ListValue"}
-    public var protoPackageName: String {return "google.protobuf"}
-    public static let _protobuf_fieldNames: FieldNameMap = [
-        1: .same(proto: "values", swift: "values"),
+public struct Google_Protobuf_ListValue: Message, Proto3Message, _MessageImplementationBase, ExpressibleByArrayLiteral, _ProtoNameProviding {
+    public static let protoMessageName: String = "ListValue"
+    public static let protoPackageName: String = "google.protobuf"
+    public static let _protobuf_nameMap: _NameMap = [
+        1: .same(proto: "values"),
     ]
 
     // TODO: Give this a direct array interface by proxying the interesting
@@ -624,97 +561,67 @@ public struct Google_Protobuf_ListValue: Message, Proto3Message, _MessageImpleme
         set(newValue) {values[index] = newValue}
     }
 
-    public mutating func decodeFromJSONObject(jsonDecoder: inout JSONDecoder) throws {
-        throw DecodingError.schemaMismatch
-    }
-
-    public mutating func decodeFromJSONArray(jsonDecoder: inout JSONDecoder) throws {
-        var firstItem = true
-        while true {
-            guard let token = try jsonDecoder.nextToken() else {
-                throw DecodingError.truncatedInput
-            }
-            switch token {
-            case .endArray:
-                if !firstItem {
-                    throw DecodingError.malformedJSON
-                }
-                return
-            case .null:
-                values.append(Google_Protobuf_Value())
-            case .beginObject:
-                var message = Google_Protobuf_Value()
-                try message.decodeFromJSONObject(jsonDecoder: &jsonDecoder)
-                values.append(message)
-            case .beginArray:
-                var message = Google_Protobuf_Value()
-                try message.decodeFromJSONArray(jsonDecoder: &jsonDecoder)
-                values.append(message)
-            case .boolean(_), .string(_), .number(_):
-                var message = Google_Protobuf_Value()
-                try message.decodeFromJSONToken(token: token)
-                values.append(message)
-            default:
-                throw DecodingError.malformedJSON
-            }
-            firstItem = false
-            if let separatorToken = try jsonDecoder.nextToken() {
-                switch separatorToken {
-                case .comma: break
-                case .endArray: return
-                default: throw DecodingError.malformedJSON
-                }
-            }
-        }
-    }
-
-    public func serializeJSON() throws -> String {
+    public func jsonString() throws -> String {
         var jsonEncoder = JSONEncoder()
         jsonEncoder.append(text: "[")
-        var separator = ""
+        var separator: StaticString = ""
         for v in values {
-            jsonEncoder.append(text: separator)
+            jsonEncoder.append(staticText: separator)
             try v.serializeJSONValue(jsonEncoder: &jsonEncoder)
             separator = ","
         }
         jsonEncoder.append(text: "]")
-        return jsonEncoder.result
+        return jsonEncoder.stringResult
     }
 
-    public func serializeAnyJSON() throws -> String {
-        let value = try serializeJSON()
-        return "{\"@type\":\"\(anyTypeURL)\",\"value\":\(value)}"
+    public mutating func decodeJSON(from decoder: inout JSONDecoder) throws {
+        if decoder.scanner.skipOptionalNull() {
+            return
+        }
+        try decoder.scanner.skipRequiredArrayStart()
+        if decoder.scanner.skipOptionalArrayEnd() {
+            return
+        }
+        while true {
+            var v = Google_Protobuf_Value()
+            try v.decodeJSON(from: &decoder)
+            values.append(v)
+            if decoder.scanner.skipOptionalArrayEnd() {
+                return
+            }
+            try decoder.scanner.skipRequiredComma()
+        }
+    }
+
+    public func anyJSONString() throws -> String {
+        let value = try jsonString()
+        return "{\"@type\":\"\(type(of: self).anyTypeURL)\",\"value\":\(value)}"
     }
 
     public init(any: Google_Protobuf_Any) throws {
         try any.unpackTo(target: &self)
     }
 
-    public var debugDescription: String {
-        get {
-            do {
-                let json = try serializeJSON()
-                return "\(swiftClassName)(\(json))"
-            } catch let e {
-                return "\(swiftClassName)(FAILURE: \(e))"
-            }
+    mutating public func _protobuf_generated_decodeMessage<T: Decoder>(decoder: inout T) throws {
+        while let fieldNumber = try decoder.nextFieldNumber() {
+            try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
         }
     }
 
-    mutating public func _protoc_generated_decodeField(setter: inout FieldDecoder, protoFieldNumber: Int) throws {
-        switch protoFieldNumber {
-        case 1: try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_Value.self, value: &values)
+    mutating public func _protobuf_generated_decodeField<T: Decoder>(decoder: inout T, fieldNumber: Int) throws {
+        switch fieldNumber {
+        case 1: try decoder.decodeRepeatedMessageField(value: &values)
         default: break
         }
     }
 
-    public func _protoc_generated_traverse(visitor: inout Visitor) throws {
+    public func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
         if !values.isEmpty {
-            try visitor.visitRepeatedMessageField(value: values, protoFieldNumber: 1)
+            try visitor.visitRepeatedMessageField(value: values, fieldNumber: 1)
         }
     }
 
-    public func _protoc_generated_isEqualTo(other: Google_Protobuf_ListValue) -> Bool {
+    public func _protobuf_generated_isEqualTo(other: Google_Protobuf_ListValue) -> Bool {
         return values == other.values
     }
 }
@@ -727,7 +634,6 @@ public func ==(lhs: Google_Protobuf_Value.OneOf_Kind, rhs: Google_Protobuf_Value
   case (.boolValue(let l), .boolValue(let r)): return l == r
   case (.structValue(let l), .structValue(let r)): return l == r
   case (.listValue(let l), .listValue(let r)): return l == r
-  case (.None, .None): return true
   default: return false
   }
 }

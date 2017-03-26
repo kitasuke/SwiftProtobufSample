@@ -1,12 +1,10 @@
-// Test/Sources/TestSuite/Test_Api.swift - Exercise API type
+// Tests/SwiftProtobufTests/Test_Api.swift - Exercise API type
 //
-// This source file is part of the Swift.org open source project
-//
-// Copyright (c) 2014 - 2016 Apple Inc. and the Swift project authors
+// Copyright (c) 2014 - 2016 Apple Inc. and the project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception
 //
-// See http://swift.org/LICENSE.txt for license information
-// See http://swift.org/CONTRIBUTORS.txt for the list of Swift project authors
+// See LICENSE.txt for license information:
+// https://github.com/apple/swift-protobuf/blob/master/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
 ///
@@ -43,7 +41,7 @@ class Test_Api: XCTestCase, PBTestHelpers {
         m.version = "1.0.0"
         m.syntax = .proto3
 
-        XCTAssertEqual(try m.serializeJSON(), "{\"name\":\"apiName\",\"methods\":[{\"name\":\"method1\"}],\"options\":[{\"name\":\"option1\",\"value\":{\"@type\":\"type.googleapis.com/google.protobuf.StringValue\",\"value\":\"value1\"}}],\"version\":\"1.0.0\",\"syntax\":\"SYNTAX_PROTO3\"}")
+        XCTAssertEqual(try m.jsonString(), "{\"name\":\"apiName\",\"methods\":[{\"name\":\"method1\"}],\"options\":[{\"name\":\"option1\",\"value\":{\"@type\":\"type.googleapis.com/google.protobuf.StringValue\",\"value\":\"value1\"}}],\"version\":\"1.0.0\",\"syntax\":\"SYNTAX_PROTO3\"}")
     }
 }
 

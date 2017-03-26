@@ -41,9 +41,9 @@ router.get("/v1/talks") { request, response, next in
     response.headers["Content-Type"] = accept.rawValue
     switch accept {
     case .protobuf:
-        response.send(data: try data.serializeProtobuf())
+        response.send(data: try data.serializedData())
     case .json:
-        response.send(try data.serializeJSON())
+        response.send(try data.jsonString())
     }
     
     next()
@@ -53,7 +53,7 @@ router.post("/v1/like") { request, response, next in
     var body = Data()
     
     guard let bytes = try? request.read(into: &body),
-        let token = try? LikeRequest(protobuf: body) else {
+        let token = try? LikeRequest(serializedData: body) else {
         return
     }
     
@@ -72,9 +72,9 @@ router.post("/v1/like") { request, response, next in
     response.headers["Content-Type"] = accept.rawValue
     switch accept {
     case .protobuf:
-        response.status(.badRequest).send(data: try error.serializeProtobuf())
+        response.status(.badRequest).send(data: try error.serializedData())
     case .json:
-        response.status(.badRequest).send(try error.serializeJSON())
+        response.status(.badRequest).send(try error.jsonString())
     }
     
     next()

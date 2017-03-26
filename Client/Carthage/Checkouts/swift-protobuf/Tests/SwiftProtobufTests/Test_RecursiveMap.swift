@@ -1,12 +1,10 @@
-// Test/Sources/TestSuite/Test_RecursiveMap.swift - Test maps within maps
+// Tests/SwiftProtobufTests/Test_RecursiveMap.swift - Test maps within maps
 //
-// This source file is part of the Swift.org open source project
-//
-// Copyright (c) 2014 - 2016 Apple Inc. and the Swift project authors
+// Copyright (c) 2014 - 2016 Apple Inc. and the project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception
 //
-// See http://swift.org/LICENSE.txt for license information
-// See http://swift.org/CONTRIBUTORS.txt for the list of Swift project authors
+// See LICENSE.txt for license information:
+// https://github.com/apple/swift-protobuf/blob/master/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
 ///
@@ -26,10 +24,10 @@ class Test_RecursiveMap: XCTestCase {
         outer.a = ["2": mid]
 
         do {
-            let encoded = try outer.serializeProtobuf()
+            let encoded = try outer.serializedData()
             XCTAssertEqual(encoded, Data(bytes: [10, 12, 10, 1, 50, 18, 7, 10, 5, 10, 1, 49, 18, 0]))
 
-            let decodedOuter = try ProtobufUnittest_TestRecursiveMapMessage(protobuf: encoded)
+            let decodedOuter = try ProtobufUnittest_TestRecursiveMapMessage(serializedData: encoded)
             if let decodedMid = decodedOuter.a["2"] {
                 if let decodedInner = decodedMid.a["1"] {
                     XCTAssertEqual(decodedOuter.a.count, 1)

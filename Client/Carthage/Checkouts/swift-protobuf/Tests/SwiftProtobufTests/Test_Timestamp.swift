@@ -1,12 +1,10 @@
-// Test/Sources/TestSuite/Test_Timestamp.swift - VerifyA well-known Timestamp type
+// Tests/SwiftProtobufTests/Test_Timestamp.swift - VerifyA well-known Timestamp type
 //
-// This source file is part of the Swift.org open source project
-//
-// Copyright (c) 2014 - 2016 Apple Inc. and the Swift project authors
+// Copyright (c) 2014 - 2016 Apple Inc. and the project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception
 //
-// See http://swift.org/LICENSE.txt for license information
-// See http://swift.org/CONTRIBUTORS.txt for the list of Swift project authors
+// See LICENSE.txt for license information:
+// https://github.com/apple/swift-protobuf/blob/master/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
 ///
@@ -31,7 +29,7 @@ class Test_Timestamp: XCTestCase, PBTestHelpers {
 
     func testJSON() throws {
         XCTAssertEqual("\"1970-01-01T00:00:00Z\"",
-                       try Google_Protobuf_Timestamp().serializeJSON())
+                       try Google_Protobuf_Timestamp().jsonString())
 
         assertJSONEncode("\"1970-01-01T00:00:01.000000001Z\"") {
             (o: inout MessageTestType) in
@@ -196,9 +194,9 @@ class Test_Timestamp: XCTestCase, PBTestHelpers {
         while t < latest {
             let start = Google_Protobuf_Timestamp(seconds: t)
             do {
-                let encoded = try start.serializeJSON()
+                let encoded = try start.jsonString()
                 do {
-                    let decoded = try Google_Protobuf_Timestamp(json: encoded)
+                    let decoded = try Google_Protobuf_Timestamp(jsonString: encoded)
                     if decoded.seconds != t {
                         if roundTripFailures == 0 {
                             // Only the first round-trip failure will be reported here
@@ -237,34 +235,34 @@ class Test_Timestamp: XCTestCase, PBTestHelpers {
 
     func testJSON_timestampField() throws {
         do {
-            let valid = try Conformance_TestAllTypes(json: "{\"optionalTimestamp\": \"0001-01-01T00:00:00Z\"}")
+            let valid = try ProtobufTestMessages_Proto3_TestAllTypes(jsonString: "{\"optionalTimestamp\": \"0001-01-01T00:00:00Z\"}")
             XCTAssertEqual(valid.optionalTimestamp, Google_Protobuf_Timestamp(seconds: -62135596800))
         } catch {
             XCTFail("Should have decoded correctly")
         }
 
 
-        XCTAssertThrowsError(try Conformance_TestAllTypes(json: "{\"optionalTimestamp\": \"10000-01-01T00:00:00Z\"}"))
-        XCTAssertThrowsError(try Conformance_TestAllTypes(json: "{\"optionalTimestamp\": \"0001-01-01T00:00:00\"}"))
-        XCTAssertThrowsError(try Conformance_TestAllTypes(json: "{\"optionalTimestamp\": \"0001-01-01 00:00:00Z\"}"))
-        XCTAssertThrowsError(try Conformance_TestAllTypes(json: "{\"optionalTimestamp\": \"0001-01-01T00:00:00z\"}"))
-        XCTAssertThrowsError(try Conformance_TestAllTypes(json: "{\"optionalTimestamp\": \"0001-01-01t00:00:00Z\"}"))
+        XCTAssertThrowsError(try ProtobufTestMessages_Proto3_TestAllTypes(jsonString: "{\"optionalTimestamp\": \"10000-01-01T00:00:00Z\"}"))
+        XCTAssertThrowsError(try ProtobufTestMessages_Proto3_TestAllTypes(jsonString: "{\"optionalTimestamp\": \"0001-01-01T00:00:00\"}"))
+        XCTAssertThrowsError(try ProtobufTestMessages_Proto3_TestAllTypes(jsonString: "{\"optionalTimestamp\": \"0001-01-01 00:00:00Z\"}"))
+        XCTAssertThrowsError(try ProtobufTestMessages_Proto3_TestAllTypes(jsonString: "{\"optionalTimestamp\": \"0001-01-01T00:00:00z\"}"))
+        XCTAssertThrowsError(try ProtobufTestMessages_Proto3_TestAllTypes(jsonString: "{\"optionalTimestamp\": \"0001-01-01t00:00:00Z\"}"))
     }
 
     // A couple more test cases transcribed from conformance test
     func testJSON_conformance() throws {
         let t1 = Google_Protobuf_Timestamp(seconds: 0, nanos: 10000000)
-        var m1 = Conformance_TestAllTypes()
+        var m1 = ProtobufTestMessages_Proto3_TestAllTypes()
         m1.optionalTimestamp = t1
         let expected1 = "{\"optionalTimestamp\":\"1970-01-01T00:00:00.010Z\"}"
-        XCTAssertEqual(try m1.serializeJSON(), expected1)
+        XCTAssertEqual(try m1.jsonString(), expected1)
 
         let json2 = "{\"optionalTimestamp\": \"1970-01-01T00:00:00.010000000Z\"}"
         let expected2 = "{\"optionalTimestamp\":\"1970-01-01T00:00:00.010Z\"}"
         do {
-            let m2 = try Conformance_TestAllTypes(json: json2)
+            let m2 = try ProtobufTestMessages_Proto3_TestAllTypes(jsonString: json2)
             do {
-                let recoded2 = try m2.serializeJSON()
+                let recoded2 = try m2.jsonString()
                 XCTAssertEqual(recoded2, expected2)
             } catch {
                 XCTFail()
@@ -275,7 +273,7 @@ class Test_Timestamp: XCTestCase, PBTestHelpers {
 
         // Extra spaces around all the tokens.
         let json3 = " { \"repeatedTimestamp\" : [ \"0001-01-01T00:00:00Z\" , \"9999-12-31T23:59:59.999999999Z\" ] } "
-        let m3 = try Conformance_TestAllTypes(json: json3)
+        let m3 = try ProtobufTestMessages_Proto3_TestAllTypes(jsonString: json3)
         let expected3 = [Google_Protobuf_Timestamp(seconds: -62135596800),
                 Google_Protobuf_Timestamp(seconds: 253402300799, nanos: 999999999)]
         XCTAssertEqual(m3.repeatedTimestamp, expected3)
@@ -283,17 +281,17 @@ class Test_Timestamp: XCTestCase, PBTestHelpers {
 
     func testSerializationFailure() throws {
         let maxOutOfRange = Google_Protobuf_Timestamp(seconds:-62135596800, nanos: -1)
-        XCTAssertThrowsError(try maxOutOfRange.serializeJSON())
+        XCTAssertThrowsError(try maxOutOfRange.jsonString())
         let minInRange = Google_Protobuf_Timestamp(seconds:-62135596800)
-        XCTAssertNotNil(try minInRange.serializeJSON())
+        XCTAssertNotNil(try minInRange.jsonString())
         let maxInRange = Google_Protobuf_Timestamp(seconds:253402300799, nanos: 999999999)
-        XCTAssertNotNil(try maxInRange.serializeJSON())
+        XCTAssertNotNil(try maxInRange.jsonString())
         let minOutOfRange = Google_Protobuf_Timestamp(seconds:253402300800)
-        XCTAssertThrowsError(try minOutOfRange.serializeJSON())
+        XCTAssertThrowsError(try minOutOfRange.jsonString())
     }
 
     func testBasicArithmetic() throws {
-        let tn1_n1 = Google_Protobuf_Timestamp(seconds: -1, nanos: -1)
+        let tn1_n1 = Google_Protobuf_Timestamp(seconds: -2, nanos: 999999999)
         let t0 = Google_Protobuf_Timestamp()
         let t1_1 = Google_Protobuf_Timestamp(seconds: 1, nanos: 1)
         let t2_2 = Google_Protobuf_Timestamp(seconds: 2, nanos: 2)
@@ -329,8 +327,8 @@ class Test_Timestamp: XCTestCase, PBTestHelpers {
 
         // Subtraction normalizes the result
         let r2: Google_Protobuf_Timestamp = Google_Protobuf_Timestamp() - Google_Protobuf_Duration(seconds: 0, nanos: 2000000001)
-        XCTAssertEqual(r2.seconds, -2)
-        XCTAssertEqual(r2.nanos, -1)
+        XCTAssertEqual(r2.seconds, -3)
+        XCTAssertEqual(r2.nanos, 999999999)
 
         // Subtraction normalizes the result
         let r3: Google_Protobuf_Duration = Google_Protobuf_Timestamp() - Google_Protobuf_Timestamp(seconds: 0, nanos: 2000000001)
@@ -355,10 +353,8 @@ class Test_Timestamp: XCTestCase, PBTestHelpers {
     }
 
 
-    // TODO: Should setter correct for mismatched nanos sign, out-of-range
+    // TODO: Should setter correct for out-of-range
     // nanos and other minor inconsistencies?
-
-    // TODO: Test that seconds and nanos must be same sign (e.g., 4.2 seconds *before* the epoch is seconds:-4, nanos:-200000000)
 
     // TODO: Consider implementing convenience
     // setters/getters/initializers that convert to

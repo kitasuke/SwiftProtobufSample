@@ -1,12 +1,10 @@
-// Test/Sources/TestSuite/Test_Enum.swift - Exercise generated enums
+// Tests/SwiftProtobufTests/Test_Enum.swift - Exercise generated enums
 //
-// This source file is part of the Swift.org open source project
-//
-// Copyright (c) 2014 - 2016 Apple Inc. and the Swift project authors
+// Copyright (c) 2014 - 2016 Apple Inc. and the project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception
 //
-// See http://swift.org/LICENSE.txt for license information
-// See http://swift.org/CONTRIBUTORS.txt for the list of Swift project authors
+// See LICENSE.txt for license information:
+// https://github.com/apple/swift-protobuf/blob/master/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
 ///
@@ -25,7 +23,6 @@ class Test_Enum: XCTestCase, PBTestHelpers {
     func testEqual() {
         XCTAssertEqual(Proto3TestEnumWithDupValue.foo1, Proto3TestEnumWithDupValue.foo2)
         XCTAssertNotEqual(Proto3TestEnumWithDupValue.foo1, Proto3TestEnumWithDupValue.bar1)
-        XCTAssertEqual(Proto3TestEnumWithDupValue(name:"foo1"), Proto3TestEnumWithDupValue.foo2)
     }
 
     func testJSONsingular() {

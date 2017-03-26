@@ -1,12 +1,10 @@
-// Test/Sources/TestSuite/Test_ReallyLargeTagNumber.swift - Exercise extreme tag values
+// Tests/SwiftProtobufTests/Test_ReallyLargeTagNumber.swift - Exercise extreme tag values
 //
-// This source file is part of the Swift.org open source project
-//
-// Copyright (c) 2014 - 2016 Apple Inc. and the Swift project authors
+// Copyright (c) 2014 - 2016 Apple Inc. and the project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception
 //
-// See http://swift.org/LICENSE.txt for license information
-// See http://swift.org/CONTRIBUTORS.txt for the list of Swift project authors
+// See LICENSE.txt for license information:
+// https://github.com/apple/swift-protobuf/blob/master/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
 ///
@@ -25,11 +23,11 @@ class Test_ReallyLargeTagNumber: XCTestCase {
         m.bb = 2
 
         do {
-            let encoded = try m.serializeProtobuf()
+            let encoded = try m.serializedData()
             XCTAssertEqual(encoded, Data(bytes: [8, 1, 248, 255, 255, 255, 7, 2]))
 
             do {
-                let decoded = try ProtobufUnittest_TestReallyLargeTagNumber(protobuf: encoded)
+                let decoded = try ProtobufUnittest_TestReallyLargeTagNumber(serializedData: encoded)
                 XCTAssertEqual(2, decoded.bb)
                 XCTAssertEqual(1, decoded.a)
                 XCTAssertEqual(m, decoded)

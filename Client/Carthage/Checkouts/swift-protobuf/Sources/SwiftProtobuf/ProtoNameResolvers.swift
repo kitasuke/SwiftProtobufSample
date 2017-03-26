@@ -1,22 +1,17 @@
-// ProtobufRuntime/Sources/Protobuf/ProtoNameProviding.swift - Resolve proto field names
+// Sources/SwiftProtobuf/ProtoNameResolvers.swift - Resolve proto field names
 //
-// This source file is part of the Swift.org open source project
-//
-// Copyright (c) 2014 - 2016 Apple Inc. and the Swift project authors
+// Copyright (c) 2014 - 2016 Apple Inc. and the project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception
 //
-// See http://swift.org/LICENSE.txt for license information
-// See http://swift.org/CONTRIBUTORS.txt for the list of Swift project authors
+// See LICENSE.txt for license information:
+// https://github.com/apple/swift-protobuf/blob/master/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
 
 
 /// This type contains helper functions to resolve field names based on their
 /// numbers during encoding.
-///
-/// This type is public since it might be useful to clients who want to write
-/// advanced custom visitors.
-public enum ProtoNameResolvers {
+internal enum ProtoNameResolvers {
 
   /// Returns a function that resolves the proto/text name for fields defined on
   /// the given message or in any set extensions.
@@ -24,12 +19,12 @@ public enum ProtoNameResolvers {
   /// If the name cannot be resolved (because the field number is not defined
   /// on the message or any of its extensions, or names were not compiled into
   /// the binary), then the resolver returns nil.
-  public static func protoFieldNameResolver(
+  static func protoFieldNameResolver(
     for message: Message
-  ) -> (Int) -> String? {
-    if let nameProviding = message as? ProtoNameProviding {
+  ) -> (Int) -> StaticString? {
+    if let nameProviding = message as? _ProtoNameProviding {
       return { number in
-        nameProviding._protobuf_fieldNames(for: number)?.protoName
+        nameProviding._protobuf_names(for: number)?.protoStaticStringName
       }
     } else {
       return { _ in nil }
@@ -42,30 +37,12 @@ public enum ProtoNameResolvers {
   /// If the name cannot be resolved (because the field number is not defined
   /// on the message or any of its extensions, or names were not compiled into
   /// the binary), then the resolver returns nil.
-  public static func jsonFieldNameResolver(
+  static func jsonFieldNameResolver(
     for message: Message
-  ) -> (Int) -> String? {
-    if let nameProviding = message as? ProtoNameProviding {
+  ) -> (Int) -> StaticString? {
+    if let nameProviding = message as? _ProtoNameProviding {
       return { number in
-        nameProviding._protobuf_fieldNames(for: number)?.jsonName
-      }
-    } else {
-      return { _ in nil }
-    }
-  }
-
-  /// Returns a function that resolves the Swift property name for fields
-  /// defined on the given message or in any set extensions.
-  ///
-  /// If the name cannot be resolved (because the field number is not defined
-  /// on the message or any of its extensions, or names were not compiled into
-  /// the binary), then the resolver returns nil.
-  public static func swiftFieldNameResolver(
-    for message: Message
-  ) -> (Int) -> String? {
-    if let nameProviding = message as? ProtoNameProviding {
-      return { number in
-        nameProviding._protobuf_fieldNames(for: number)?.swiftName
+        nameProviding._protobuf_names(for: number)?.jsonStaticStringName
       }
     } else {
       return { _ in nil }

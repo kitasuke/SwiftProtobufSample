@@ -1,12 +1,10 @@
-// Test/Sources/TestSuite/Test_Unknown_proto3.swift - Unknown field handling for proto3
+// Tests/SwiftProtobufTests/Test_Unknown_proto3.swift - Unknown field handling for proto3
 //
-// This source file is part of the Swift.org open source project
-//
-// Copyright (c) 2014 - 2016 Apple Inc. and the Swift project authors
+// Copyright (c) 2014 - 2016 Apple Inc. and the project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception
 //
-// See http://swift.org/LICENSE.txt for license information
-// See http://swift.org/CONTRIBUTORS.txt for the list of Swift project authors
+// See LICENSE.txt for license information:
+// https://github.com/apple/swift-protobuf/blob/master/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
 ///
@@ -28,9 +26,9 @@ class Test_Unknown_proto3: XCTestCase, PBTestHelpers {
     /// Verify that json decode ignores the provided fields but otherwise succeeds
     func assertJSONIgnores(_ json: String, file: XCTestFileArgType = #file, line: UInt = #line) {
         do {
-            let empty = try Proto3ArenaUnittest_TestEmptyMessage(json: json)
+            let empty = try Proto3ArenaUnittest_TestEmptyMessage(jsonString: json)
             do {
-                let json = try empty.serializeJSON()
+                let json = try empty.jsonString()
                 XCTAssertEqual("{}", json, file: file, line: line)
             } catch let e {
                 XCTFail("Recoding empty threw error \(e)", file: file, line: line)
@@ -45,9 +43,9 @@ class Test_Unknown_proto3: XCTestCase, PBTestHelpers {
     func testBinaryPB() {
         func assertIgnores(_ protobufBytes: [UInt8], file: XCTestFileArgType = #file, line: UInt = #line) {
             do {
-                let empty = try Proto3ArenaUnittest_TestEmptyMessage(protobuf: Data(bytes: protobufBytes))
+                let empty = try Proto3ArenaUnittest_TestEmptyMessage(serializedData: Data(bytes: protobufBytes))
                 do {
-                    let pb = try empty.serializeProtobuf()
+                    let pb = try empty.serializedData()
                     XCTAssertEqual(Data(), pb, file: file, line: line)
                 } catch {
                     XCTFail("Recoding empty failed", file: file, line: line)
@@ -57,7 +55,7 @@ class Test_Unknown_proto3: XCTestCase, PBTestHelpers {
             }
         }
         func assertFails(_ protobufBytes: [UInt8], file: XCTestFileArgType = #file, line: UInt = #line) {
-            XCTAssertThrowsError(try Proto3ArenaUnittest_TestEmptyMessage(protobuf: Data(bytes: protobufBytes)), file: file, line: line)
+            XCTAssertThrowsError(try Proto3ArenaUnittest_TestEmptyMessage(serializedData: Data(bytes: protobufBytes)), file: file, line: line)
         }
         // Well-formed input should ignore the field on decode, recode without it
         // Malformed input should fail to decode
@@ -108,7 +106,7 @@ class Test_Unknown_proto3: XCTestCase, PBTestHelpers {
         assertJSONIgnores("{\"unknown\":false}")
         assertJSONIgnores("{\"unknown\":true}")
         assertJSONIgnores("{\"unknown\":  7.0}")
-        assertJSONIgnores("{\"unknown\": -.04}")
+        assertJSONIgnores("{\"unknown\": -3.04}")
         assertJSONIgnores("{\"unknown\":  -7.0e-55}")
         assertJSONIgnores("{\"unknown\":  7.308e+8}")
         assertJSONIgnores("{\"unknown\": \"hi!\"}")
@@ -131,9 +129,24 @@ class Test_Unknown_proto3: XCTestCase, PBTestHelpers {
         assertJSONDecodeFails("{\"unknown\": { ]}")
         assertJSONDecodeFails("{\"unknown\": ]}")
         assertJSONDecodeFails("{\"unknown\": null true}")
+        assertJSONDecodeFails("{\"unknown\": nulll }")
+        assertJSONDecodeFails("{\"unknown\": nul }")
+        assertJSONDecodeFails("{\"unknown\": Null }")
+        assertJSONDecodeFails("{\"unknown\": NULL }")
+        assertJSONDecodeFails("{\"unknown\": True }")
+        assertJSONDecodeFails("{\"unknown\": False }")
+        assertJSONDecodeFails("{\"unknown\": nan }")
+        assertJSONDecodeFails("{\"unknown\": NaN }")
+        assertJSONDecodeFails("{\"unknown\": Infinity }")
+        assertJSONDecodeFails("{\"unknown\": infinity }")
+        assertJSONDecodeFails("{\"unknown\": Inf }")
+        assertJSONDecodeFails("{\"unknown\": inf }")
         assertJSONDecodeFails("{\"unknown\": 1}}")
         assertJSONDecodeFails("{\"unknown\": {1, 2}}")
         assertJSONDecodeFails("{\"unknown\": 1.2.3.4.5}")
+        assertJSONDecodeFails("{\"unknown\": -.04}")
+        assertJSONDecodeFails("{\"unknown\": -19.}")
+        assertJSONDecodeFails("{\"unknown\": -9.3e+}")
         assertJSONDecodeFails("{\"unknown\": 1 2 3}")
         assertJSONDecodeFails("{\"unknown\": { true false }}")
         assertJSONDecodeFails("{\"unknown\"}")

@@ -1,12 +1,10 @@
-// ProtobufRuntime/Sources/Protobuf/ProtobufMessage.swift - Message support
+// Sources/SwiftProtobuf/Message.swift - Message support
 //
-// This source file is part of the Swift.org open source project
-//
-// Copyright (c) 2014 - 2016 Apple Inc. and the Swift project authors
+// Copyright (c) 2014 - 2016 Apple Inc. and the project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception
 //
-// See http://swift.org/LICENSE.txt for license information
-// See http://swift.org/CONTRIBUTORS.txt for the list of Swift project authors
+// See LICENSE.txt for license information:
+// https://github.com/apple/swift-protobuf/blob/master/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
 ///
@@ -19,7 +17,6 @@
 ///
 // -----------------------------------------------------------------------------
 
-import Swift
 
 ///
 /// See ProtobufBinaryTypes and ProtobufJSONTypes for extensions
@@ -33,51 +30,69 @@ import Swift
 /// In particular, this has no associated types or self references so can be
 /// used as a variable or argument type.
 ///
-public protocol Message: CustomDebugStringConvertible, CustomReflectable {
+public protocol Message: CustomDebugStringConvertible {
   init()
 
   // Metadata
   // Basic facts about this class and the proto message it was generated from
   // Used by various encoders and decoders
-  var swiftClassName: String { get }
-  var protoMessageName: String { get }
-  var protoPackageName: String { get }
-  var anyTypePrefix: String { get }
-  var anyTypeURL: String { get }
+  static var protoMessageName: String { get }
+  static var protoPackageName: String { get }
+  static var anyTypePrefix: String { get }
+  static var anyTypeURL: String { get }
+
+  /// Check if all required fields (if any) have values set on this message
+  /// on any messages withing this message.
+  var isInitialized: Bool { get }
 
   //
-  // General serialization machinery
+  // General serialization/deserialization machinery
   //
 
   /// Decode a field identified by a field number (as given in the .proto file).
+  /// The Message will call the Decoder method corresponding
+  /// to the declared type of the field.
   ///
   /// This is the core method used by the deserialization machinery.
   ///
   /// Note that this is not specific to protobuf encoding; formats that use
-  /// textual identifiers translate those to protoFieldNumbers and then invoke
+  /// textual identifiers translate those to fieldNumbers and then invoke
   /// this to decode the field value.
-  mutating func decodeField(setter: inout FieldDecoder,
-                            protoFieldNumber: Int) throws
+  ///
+  /// Warning: This method does NOT take precautions to preserve copy-on-write
+  /// semantics for messages with heap storage; it should only be called on
+  /// newly-created messages or messages where the storage has been ensured
+  /// unique.
+  mutating func decodeField<D: Decoder>(decoder: inout D, fieldNumber: Int) throws
+
+  mutating func decodeMessage<D: Decoder>(decoder: inout D) throws
+
 
   /// Support for traversing the object tree.
   ///
   /// This is used by:
-  /// = Protobuf serialization
-  /// = JSON serialization (with some twists to account for specialty JSON encodings)
+  /// = Protobuf binary serialization
+  /// = JSON serialization (with some twists to account for specialty JSON
+  ///   encodings)
+  /// = Protouf Text serialization
   /// = hashValue computation
-  /// = mirror generation
   ///
   /// Conceptually, serializers create visitor objects that are
   /// then passed recursively to every message and field via generated
   /// 'traverse' methods.  The details get a little involved due to
   /// the need to allow particular messages to override particular
   /// behaviors for specific encodings, but the general idea is quite simple.
-  func traverse(visitor: inout Visitor) throws
+  func traverse<V: Visitor>(visitor: inout V) throws
+
+  /// SwiftProtobuf Internal: Common support for decoding.
+  mutating func _protobuf_mergeSerializedBytes(from: UnsafePointer<UInt8>,
+                                               count: Int,
+                                               extensions: ExtensionSet?) throws
 
   //
-  // Protobuf Binary decoding
+  // Protobuf Text decoding
   //
-  mutating func decodeIntoSelf(protobuf: UnsafeBufferPointer<UInt8>, extensions: ExtensionSet?) throws
+  mutating func decodeTextFormat(from: inout TextFormatDecoder) throws
 
   //
   // google.protobuf.Any support
@@ -91,28 +106,16 @@ public protocol Message: CustomDebugStringConvertible, CustomReflectable {
   ///
   /// For generated message types, this generates the same JSON object as
   /// `serializeJSON()` except it adds an additional `@type` field.
-  func serializeAnyJSON() throws -> String
+  func anyJSONString() throws -> String
 
   //
   // JSON encoding/decoding support
   //
 
-  /// Serialize to JSON
   /// Overridden by well-known-types with custom JSON requirements.
-  func serializeJSON() throws -> String
-  /// Value, NullValue override this to decode themselves from a JSON "null".
-  /// Default just returns nil.
-  static func decodeFromJSONNull() throws -> Self?
-  /// Duration, Timestamp, FieldMask override this to
-  /// update themselves from a single JSON token.
-  /// Default always throws an error.
-  mutating func decodeFromJSONToken(token: JSONToken) throws
-  /// Value, Struct, Any override this to update themselves from a JSON object.
-  /// Default decodes keys and feeds them to decodeField()
-  mutating func decodeFromJSONObject(jsonDecoder: inout JSONDecoder) throws
-  /// Value, ListValue override this to update themselves from a JSON array.
-  /// Default always throws an error
-  mutating func decodeFromJSONArray(jsonDecoder: inout JSONDecoder) throws
+  func jsonString() throws -> String
+
+  mutating func decodeJSON(from: inout JSONDecoder) throws
 
   // Standard utility properties and methods.
   // Most of these are simple wrappers on top of the visitor machinery.
@@ -121,26 +124,39 @@ public protocol Message: CustomDebugStringConvertible, CustomReflectable {
   // the generated struct.
   var hashValue: Int { get }
   var debugDescription: String { get }
-  var customMirror: Mirror { get }
 }
 
 public extension Message {
-  var hashValue: Int { return HashVisitor(message: self).hashValue }
+
+  var isInitialized: Bool {
+    // The generated code will include a specialization as needed.
+    return true;
+  }
+
+  var hashValue: Int {
+    var visitor = HashVisitor()
+    try? traverse(visitor: &visitor)
+    return visitor.hashValue
+  }
 
   var debugDescription: String {
-    return DebugDescriptionVisitor(message: self).description
+    // TODO Ideally there would be something like serializeText() that can
+    // take a prefix so we could do something like:
+    //   [class name](
+    //      [text format]
+    //   )
+    let className = String(reflecting: type(of: self))
+    var result = "\(className):\n"
+    if let textFormat = try? textFormatString() {
+      result += textFormat
+    } else {
+      result += "<internal error>"
+    }
+    return result
   }
 
-  var customMirror: Mirror {
-    return MirrorVisitor(message: self).mirror
-  }
-
-  // TODO:  Add an option to the generator to override this in particular messages.
-  // TODO:  It would be nice if this could default to "" instead; that would save ~20
-  // bytes on every serialized Any.
-  var anyTypePrefix: String { return "type.googleapis.com" }
-
-  var anyTypeURL: String {
+  static var anyTypePrefix: String { return "type.googleapis.com" }
+  static var anyTypeURL: String {
     var url = anyTypePrefix
     if anyTypePrefix == "" || anyTypePrefix.characters.last! != "/" {
       url += "/"
@@ -167,24 +183,24 @@ public extension Message {
   /// - Parameter populator: A block or function that populates the new message,
   ///   which is passed into the block as an `inout` argument.
   /// - Returns: The message after execution of the block.
-  public static func with(populator: (inout Self) -> ()) -> Self {
+  public static func with(_ populator: (inout Self) throws -> ()) rethrows -> Self {
     var message = Self()
-    populator(&message)
+    try populator(&message)
     return message
   }
 }
 
 ///
 /// Marker type that specifies the message was generated from
-/// a proto2 source file.
+/// a source file using proto2 syntax.
 ///
 public protocol Proto2Message: Message {
-  var unknown: UnknownStorage { get set }
+  var unknownFields: UnknownStorage { get set }
 }
 
 ///
 /// Marker type that specifies the message was generated from
-/// a proto3 source file.
+/// a source file using proto3 syntax.
 ///
 public protocol Proto3Message: Message {
 }
@@ -202,38 +218,36 @@ public protocol Proto3Message: Message {
 /// `SwiftProtobuf.Message & Hashable` if you need to use equality
 /// tests or put it in a `Set<>`.
 ///
-public protocol _MessageImplementationBase: Message, Hashable, MapValueType {
-    func isEqualTo(other: Self) -> Bool
+public protocol _MessageImplementationBase: Message, Hashable {
+  // The compiler actually generates the following methods. Default
+  // implementations below redirect the standard names. This allows developers
+  // to override the standard names to customize the behavior.
+  mutating func _protobuf_generated_decodeMessage<T: Decoder>(decoder: inout T) throws
 
-    // The compiler actually generates the following methods. Default
-    // implementations below redirect the standard names. This allows developers
-    // to override the standard names to customize the behavior.
-    mutating func _protoc_generated_decodeField(
-        setter: inout FieldDecoder,
-        protoFieldNumber: Int) throws
+  mutating func _protobuf_generated_decodeField<T: Decoder>(decoder: inout T,
+                                                          fieldNumber: Int) throws
 
-    func _protoc_generated_traverse(visitor: inout Visitor) throws
+  func _protobuf_generated_traverse<V: Visitor>(visitor: inout V) throws
 
-    func _protoc_generated_isEqualTo(other: Self) -> Bool
+  func _protobuf_generated_isEqualTo(other: Self) -> Bool
 }
 
 public extension _MessageImplementationBase {
+  public static func ==(lhs: Self, rhs: Self) -> Bool {
+    return lhs._protobuf_generated_isEqualTo(other: rhs)
+  }
+
   // Default implementations simply redirect to the generated versions.
-  public func traverse(visitor: inout Visitor) throws {
-    try _protoc_generated_traverse(visitor: &visitor)
+  public func traverse<V: Visitor>(visitor: inout V) throws {
+    try _protobuf_generated_traverse(visitor: &visitor)
   }
 
-  mutating func decodeField(setter: inout FieldDecoder,
-                            protoFieldNumber: Int) throws {
-      try _protoc_generated_decodeField(setter: &setter,
-                                        protoFieldNumber: protoFieldNumber)
+  mutating func decodeField<T: Decoder>(decoder: inout T, fieldNumber: Int) throws {
+    try _protobuf_generated_decodeField(decoder: &decoder,
+                                      fieldNumber: fieldNumber)
   }
 
-  func isEqualTo(other: Self) -> Bool {
-    return _protoc_generated_isEqualTo(other: other)
+  mutating func decodeMessage<T: Decoder>(decoder: inout T) throws {
+      try _protobuf_generated_decodeMessage(decoder: &decoder)
   }
-}
-
-public func ==<M: _MessageImplementationBase>(lhs: M, rhs: M) -> Bool {
-  return lhs.isEqualTo(other: rhs)
 }

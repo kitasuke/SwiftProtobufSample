@@ -51,7 +51,7 @@ class APIClient {
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.allHTTPHeaderFields = contentType.headers
-        request.httpBody = try! body.serializeProtobuf()
+        request.httpBody = try! body.serializedData()
         
         response(from: request, success: success, failure: failure)
     }
@@ -88,10 +88,10 @@ class APIClient {
     private func convertData<T: SwiftProtobuf.Message>(data: Data, to contentType: ContentType) -> T {
         switch contentType {
         case .protobuf:
-            return try! T(protobuf: data)
+            return try! T(serializedData: data)
         case .json:
             let json = String(data: data, encoding: .utf8)!
-            return try! T(json: json)
+            return try! T(jsonString: json)
         }
     }
 }

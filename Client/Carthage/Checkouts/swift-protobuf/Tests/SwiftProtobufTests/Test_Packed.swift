@@ -1,12 +1,10 @@
-// Test/Sources/TestSuite/Test_Packed.swift - Verify coding/decoding of packed fields
+// Tests/SwiftProtobufTests/Test_Packed.swift - Verify coding/decoding of packed fields
 //
-// This source file is part of the Swift.org open source project
-//
-// Copyright (c) 2014 - 2016 Apple Inc. and the Swift project authors
+// Copyright (c) 2014 - 2016 Apple Inc. and the project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception
 //
-// See http://swift.org/LICENSE.txt for license information
-// See http://swift.org/CONTRIBUTORS.txt for the list of Swift project authors
+// See LICENSE.txt for license information:
+// https://github.com/apple/swift-protobuf/blob/master/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
 ///
@@ -360,11 +358,16 @@ class Test_Packed: XCTestCase, PBTestHelpers {
         assertDecodeSucceeds([186, 6, 2, 4, 6, 184, 6, 5]) {$0.packedEnum == [.foreignFoo, .foreignBaz, .foreignBar]}
         // Proto2 converts unrecognized enum values into unknowns
         assertDecodeSucceeds([186, 6, 2, 6, 99]) {$0.packedEnum == [.foreignBaz]}
+        
         // Unknown enums within packed become separate unknown entries
-        let decoded1 = try ProtobufUnittest_TestPackedTypes(protobuf: Data(bytes: [186, 6, 3, 4, 99, 6]))
-        XCTAssertEqual(decoded1.packedEnum, [.foreignFoo, .foreignBaz])
-        let recoded1 = try decoded1.serializeProtobufBytes()
-        XCTAssertEqual(recoded1, [186, 6, 2, 4, 6, 186, 6, 1, 99])
+        do {
+            let decoded1 = try ProtobufUnittest_TestPackedTypes(serializedData: Data(bytes: [186, 6, 3, 4, 99, 6]))
+            XCTAssertEqual(decoded1.packedEnum, [.foreignFoo, .foreignBaz])
+            let recoded1 = try decoded1.serializedBytes()
+            XCTAssertEqual(recoded1, [186, 6, 2, 4, 6, 186, 6, 1, 99])
+        } catch let e {
+            XCTFail("Decode failed: \(e)")
+        }
 
         assertDecodeFails([186, 6, 3, 0, 1])
         assertDecodeFails([186, 6, 2, 0, 129])

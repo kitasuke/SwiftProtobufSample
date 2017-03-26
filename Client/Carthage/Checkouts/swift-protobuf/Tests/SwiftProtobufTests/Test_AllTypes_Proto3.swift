@@ -1,12 +1,10 @@
-// Test/Sources/TestSuite/Test_AllTypes_Proto3.swift - Proto3 coding/decoding
+// Tests/SwiftProtobufTests/Test_AllTypes_Proto3.swift - Proto3 coding/decoding
 //
-// This source file is part of the Swift.org open source project
-//
-// Copyright (c) 2014 - 2016 Apple Inc. and the Swift project authors
+// Copyright (c) 2014 - 2016 Apple Inc. and the project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception
 //
-// See http://swift.org/LICENSE.txt for license information
-// See http://swift.org/CONTRIBUTORS.txt for the list of Swift project authors
+// See LICENSE.txt for license information:
+// https://github.com/apple/swift-protobuf/blob/master/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
 ///
@@ -29,9 +27,9 @@ class Test_AllTypes_Proto3: XCTestCase, PBTestHelpers {
         baseAssertDecodeSucceeds(bytes, file: file, line: line, check: check)
         do {
             // Make sure unknown fields are preserved by empty message decode/encode
-            let empty = try ProtobufUnittest_TestEmptyMessage(protobufBytes: bytes)
+            let empty = try ProtobufUnittest_TestEmptyMessage(serializedBytes: bytes)
             do {
-                let newBytes = try empty.serializeProtobufBytes()
+                let newBytes = try empty.serializedBytes()
                 XCTAssertEqual(bytes, newBytes, "Empty decode/recode did not match", file: file, line: line)
             } catch let e {
                 XCTFail("Reserializing empty threw an error \(e)", file: file, line: line)
@@ -59,12 +57,12 @@ class Test_AllTypes_Proto3: XCTestCase, PBTestHelpers {
             let t: Int32 = o.singleInt32
             return t == 1
         }
-        assertDebugDescription("Proto3TestAllTypes(singleInt32:1)") {(o: inout MessageTestType) in o.singleInt32 = 1}
-        assertDebugDescription("Proto3TestAllTypes(singleInt32:-2147483648,singleUint32:4294967295)") {(o: inout MessageTestType) in
+        assertDebugDescription("SwiftProtobufTests.Proto3TestAllTypes:\nsingle_int32: 1\n") {(o: inout MessageTestType) in o.singleInt32 = 1}
+        assertDebugDescription("SwiftProtobufTests.Proto3TestAllTypes:\nsingle_int32: -2147483648\nsingle_uint32: 4294967295\n") {(o: inout MessageTestType) in
             o.singleInt32 = Int32.min
             o.singleUint32 = UInt32.max
         }
-        assertDebugDescription("Proto3TestAllTypes()") {(o: inout MessageTestType) in
+        assertDebugDescription("SwiftProtobufTests.Proto3TestAllTypes:\n") {(o: inout MessageTestType) in
             o.singleInt32 = 1
             o.singleInt32 = 0
         }
@@ -103,7 +101,7 @@ class Test_AllTypes_Proto3: XCTestCase, PBTestHelpers {
             let t: Int64 = o.singleInt64 // Verify in-memory type
             return t == 54529150520
         }
-        assertDebugDescription("Proto3TestAllTypes(singleInt64:1)") {(o: inout MessageTestType) in o.singleInt64 = 1}
+        assertDebugDescription("SwiftProtobufTests.Proto3TestAllTypes:\nsingle_int64: 1\n") {(o: inout MessageTestType) in o.singleInt64 = 1}
         assertDecodeFails([16])
         assertDecodeFails([16, 184, 156, 195, 145, 203])
         assertDecodeFails([17, 81])
@@ -131,7 +129,7 @@ class Test_AllTypes_Proto3: XCTestCase, PBTestHelpers {
             let t: UInt32 = o.singleUint32
             return t == 11285
         }
-        assertDebugDescription("Proto3TestAllTypes(singleUint32:1)") {(o: inout MessageTestType) in o.singleUint32 = 1}
+        assertDebugDescription("SwiftProtobufTests.Proto3TestAllTypes:\nsingle_uint32: 1\n") {(o: inout MessageTestType) in o.singleUint32 = 1}
         assertDecodeFails([24])
         assertDecodeFails([24, 149])
         assertDecodeFails([25, 105])
@@ -146,7 +144,7 @@ class Test_AllTypes_Proto3: XCTestCase, PBTestHelpers {
         var a = empty
         a.singleUint32 = 0
         XCTAssertEqual(a, empty)
-        XCTAssertEqual(try a.serializeProtobufBytes(), [])
+        XCTAssertEqual(try a.serializedBytes(), [])
         var b = empty
         b.singleUint32 = 1
         XCTAssertNotEqual(a, b)
@@ -160,7 +158,7 @@ class Test_AllTypes_Proto3: XCTestCase, PBTestHelpers {
             let t: UInt64 = o.singleUint64
             return t == 917
         }
-        assertDebugDescription("Proto3TestAllTypes(singleUint64:1)") {(o: inout MessageTestType) in o.singleUint64 = 1}
+        assertDebugDescription("SwiftProtobufTests.Proto3TestAllTypes:\nsingle_uint64: 1\n") {(o: inout MessageTestType) in o.singleUint64 = 1}
         assertDecodeFails([32])
         assertDecodeFails([32, 149])
         assertDecodeFails([32, 149, 190, 193, 230, 186, 233, 166, 219])
@@ -190,7 +188,7 @@ class Test_AllTypes_Proto3: XCTestCase, PBTestHelpers {
         var a = empty
         a.singleUint64 = 0
         XCTAssertEqual(a, empty)
-        XCTAssertEqual(try a.serializeProtobufBytes(), [])
+        XCTAssertEqual(try a.serializedBytes(), [])
         var b = empty
         b.singleUint64 = 1
         XCTAssertNotEqual(a, b)
@@ -206,7 +204,7 @@ class Test_AllTypes_Proto3: XCTestCase, PBTestHelpers {
             return t == -129
         }
         assertDecodeSucceeds([40, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x00]) {$0.singleSint32 == 0}
-        assertDebugDescription("Proto3TestAllTypes(singleSint32:1)") {(o: inout MessageTestType) in o.singleSint32 = 1}
+        assertDebugDescription("SwiftProtobufTests.Proto3TestAllTypes:\nsingle_sint32: 1\n") {(o: inout MessageTestType) in o.singleSint32 = 1}
 
         // Truncate on overflow
         assertDecodeSucceeds([40, 0xff, 0xff, 0xff, 0xff, 0xff, 0x7f]) {$0.singleSint32 == -2147483648}
@@ -247,7 +245,7 @@ class Test_AllTypes_Proto3: XCTestCase, PBTestHelpers {
             let t: Int64 = o.singleSint64
             return t == -6022
         }
-        assertDebugDescription("Proto3TestAllTypes(singleSint64:1)") {(o: inout MessageTestType) in o.singleSint64 = 1}
+        assertDebugDescription("SwiftProtobufTests.Proto3TestAllTypes:\nsingle_sint64: 1\n") {(o: inout MessageTestType) in o.singleSint64 = 1}
         assertDecodeFails([48])
         assertDecodeFails([48, 139])
         assertDecodeFails([49])
@@ -282,7 +280,7 @@ class Test_AllTypes_Proto3: XCTestCase, PBTestHelpers {
             let t: UInt32 = o.singleFixed32
             return t == 23858184
         }
-        assertDebugDescription("Proto3TestAllTypes(singleFixed32:1)") {(o: inout MessageTestType) in o.singleFixed32 = 1}
+        assertDebugDescription("SwiftProtobufTests.Proto3TestAllTypes:\nsingle_fixed32: 1\n") {(o: inout MessageTestType) in o.singleFixed32 = 1}
         assertDecodeFails([61])
         assertDecodeFails([61, 255])
         assertDecodeFails([61, 255, 255])
@@ -313,7 +311,7 @@ class Test_AllTypes_Proto3: XCTestCase, PBTestHelpers {
         var a = empty
         a.singleFixed32 = 0
         XCTAssertEqual(a, empty)
-        XCTAssertEqual(try a.serializeProtobufBytes(), [])
+        XCTAssertEqual(try a.serializedBytes(), [])
         var b = empty
         b.singleFixed32 = 1
         XCTAssertNotEqual(a, b)
@@ -327,7 +325,7 @@ class Test_AllTypes_Proto3: XCTestCase, PBTestHelpers {
             let t: UInt64 = o.singleFixed64 // Verify in-memory type
             return t == 18446744073709551615
         }
-        assertDebugDescription("Proto3TestAllTypes(singleFixed64:1)") {(o: inout MessageTestType) in o.singleFixed64 = 1}
+        assertDebugDescription("SwiftProtobufTests.Proto3TestAllTypes:\nsingle_fixed64: 1\n") {(o: inout MessageTestType) in o.singleFixed64 = 1}
         assertDecodeFails([65])
         assertDecodeFails([65, 255])
         assertDecodeFails([65, 255, 255])
@@ -362,7 +360,7 @@ class Test_AllTypes_Proto3: XCTestCase, PBTestHelpers {
         var a = empty
         a.singleFixed64 = 0
         XCTAssertEqual(a, empty)
-        XCTAssertEqual(try a.serializeProtobufBytes(), [])
+        XCTAssertEqual(try a.serializedBytes(), [])
         var b = empty
         b.singleFixed64 = 1
         XCTAssertNotEqual(a, b)
@@ -378,7 +376,7 @@ class Test_AllTypes_Proto3: XCTestCase, PBTestHelpers {
             return t == 0
         }
         assertDecodeSucceeds([77, 255, 255, 255, 255]) {$0.singleSfixed32 == -1}
-        assertDebugDescription("Proto3TestAllTypes(singleSfixed32:1)") {(o: inout MessageTestType) in o.singleSfixed32 = 1}
+        assertDebugDescription("SwiftProtobufTests.Proto3TestAllTypes:\nsingle_sfixed32: 1\n") {(o: inout MessageTestType) in o.singleSfixed32 = 1}
         assertDecodeFails([77])
         assertDecodeFails([77])
         assertDecodeFails([77, 0])
@@ -424,7 +422,7 @@ class Test_AllTypes_Proto3: XCTestCase, PBTestHelpers {
             let t: Int64 = o.singleSfixed64 // Verify in-memory type
             return t == -9223372036854775808
         }
-        assertDebugDescription("Proto3TestAllTypes(singleSfixed64:1)") {(o: inout MessageTestType) in o.singleSfixed64 = 1}
+        assertDebugDescription("SwiftProtobufTests.Proto3TestAllTypes:\nsingle_sfixed64: 1\n") {(o: inout MessageTestType) in o.singleSfixed64 = 1}
         assertDecodeFails([81])
         assertDecodeFails([81, 0])
         assertDecodeFails([81, 0, 0])
@@ -471,7 +469,7 @@ class Test_AllTypes_Proto3: XCTestCase, PBTestHelpers {
             let t: Float = o.singleFloat
             return t == 0
         }
-        assertDebugDescription("Proto3TestAllTypes(singleFloat:1.0)") {(o: inout MessageTestType) in o.singleFloat = 1.0}
+        assertDebugDescription("SwiftProtobufTests.Proto3TestAllTypes:\nsingle_float: 1\n") {(o: inout MessageTestType) in o.singleFloat = 1.0}
         assertDecodeFails([93, 0, 0, 0])
         assertDecodeFails([93, 0, 0])
         assertDecodeFails([93, 0])
@@ -495,7 +493,7 @@ class Test_AllTypes_Proto3: XCTestCase, PBTestHelpers {
         var a = empty
         a.singleFloat = 0
         XCTAssertEqual(a, empty)
-        XCTAssertEqual(try a.serializeProtobufBytes(), [])
+        XCTAssertEqual(try a.serializedBytes(), [])
         var b = empty
         b.singleFloat = 1
         XCTAssertNotEqual(a, b)
@@ -510,7 +508,7 @@ class Test_AllTypes_Proto3: XCTestCase, PBTestHelpers {
             let t: Double = o.singleDouble
             return t == 0.5
         }
-        assertDebugDescription("Proto3TestAllTypes(singleDouble:1.0)") {(o: inout MessageTestType) in o.singleDouble = 1.0}
+        assertDebugDescription("SwiftProtobufTests.Proto3TestAllTypes:\nsingle_double: 1\n") {(o: inout MessageTestType) in o.singleDouble = 1.0}
         assertDecodeFails([97, 0, 0, 0, 0, 0, 0, 224])
         assertDecodeFails([97])
         assertDecodeFails([96])
@@ -539,7 +537,7 @@ class Test_AllTypes_Proto3: XCTestCase, PBTestHelpers {
         var a = empty
         a.singleDouble = 0
         XCTAssertEqual(a, empty)
-        XCTAssertEqual(try a.serializeProtobufBytes(), [])
+        XCTAssertEqual(try a.serializedBytes(), [])
         var b = empty
         b.singleDouble = 1
         XCTAssertNotEqual(a, b)
@@ -553,8 +551,8 @@ class Test_AllTypes_Proto3: XCTestCase, PBTestHelpers {
             let t: Bool = o.singleBool // Verify non-optional
             return t == true
         }
-        assertDebugDescription("Proto3TestAllTypes(singleBool:true)") {(o: inout MessageTestType) in o.singleBool = true}
-        assertDebugDescription("Proto3TestAllTypes()") {(o: inout MessageTestType) in o.singleBool = false}
+        assertDebugDescription("SwiftProtobufTests.Proto3TestAllTypes:\nsingle_bool: true\n") {(o: inout MessageTestType) in o.singleBool = true}
+        assertDebugDescription("SwiftProtobufTests.Proto3TestAllTypes:\n") {(o: inout MessageTestType) in o.singleBool = false}
         assertDecodeFails([104])
         assertDecodeFails([104, 255])
         assertDecodeFails([105])
@@ -576,7 +574,7 @@ class Test_AllTypes_Proto3: XCTestCase, PBTestHelpers {
         var a = empty
         a.singleBool = false
         XCTAssertEqual(a, empty)
-        XCTAssertEqual(try a.serializeProtobufBytes(), [])
+        XCTAssertEqual(try a.serializedBytes(), [])
         var b = empty
         b.singleBool = true
         XCTAssertNotEqual(a, b)
@@ -591,8 +589,8 @@ class Test_AllTypes_Proto3: XCTestCase, PBTestHelpers {
             let t: String = o.singleString // Verify non-optional
             return t == "Hello"
         }
-        assertDebugDescription("Proto3TestAllTypes(singleString:\"abc\")") {(o: inout MessageTestType) in o.singleString = "abc"}
-        assertDebugDescription("Proto3TestAllTypes(singleString:\"\\u{08}\\t\")") {(o: inout MessageTestType) in o.singleString = "\u{08}\u{09}"}
+        assertDebugDescription("SwiftProtobufTests.Proto3TestAllTypes:\nsingle_string: \"abc\"\n") {(o: inout MessageTestType) in o.singleString = "abc"}
+        assertDebugDescription("SwiftProtobufTests.Proto3TestAllTypes:\nsingle_string: \"\\b\\t\"\n") {(o: inout MessageTestType) in o.singleString = "\u{08}\u{09}"}
         assertDecodeFails([114])
         assertDecodeFails([114, 1])
         assertDecodeFails([114, 2, 65])
@@ -616,7 +614,7 @@ class Test_AllTypes_Proto3: XCTestCase, PBTestHelpers {
         var a = empty
         a.singleString = ""
         XCTAssertEqual(a, empty)
-        XCTAssertEqual(try a.serializeProtobufBytes(), [])
+        XCTAssertEqual(try a.serializedBytes(), [])
         var b = empty
         b.singleString = "a"
         XCTAssertNotEqual(a, b)
@@ -631,7 +629,7 @@ class Test_AllTypes_Proto3: XCTestCase, PBTestHelpers {
             let t = o.singleBytes // Verify non-optional
             return t == Data(bytes: [0, 1, 2, 255])
         }
-        assertDebugDescription("Proto3TestAllTypes(singleBytes:3 bytes)") {(o: inout MessageTestType) in o.singleBytes = Data(bytes: [1, 2, 3])}
+        assertDebugDescription("SwiftProtobufTests.Proto3TestAllTypes:\nsingle_bytes: \"\\001\\002\\003\"\n") {(o: inout MessageTestType) in o.singleBytes = Data(bytes: [1, 2, 3])}
         assertDecodeFails([122])
         assertDecodeFails([122, 1])
         assertDecodeFails([122, 2, 0])
@@ -655,7 +653,7 @@ class Test_AllTypes_Proto3: XCTestCase, PBTestHelpers {
         var a = empty
         a.singleBytes = Data()
         XCTAssertEqual(a, empty)
-        XCTAssertEqual(try a.serializeProtobufBytes(), [])
+        XCTAssertEqual(try a.serializedBytes(), [])
         var b = empty
         b.singleBytes = Data(bytes: [1])
         XCTAssertNotEqual(a, b)
@@ -669,7 +667,7 @@ class Test_AllTypes_Proto3: XCTestCase, PBTestHelpers {
         }
         assertDecodeSucceeds([146, 1, 4, 8, 1, 8, 3]) {$0.singleNestedMessage.bb == 3}
         assertDecodeSucceeds([146, 1, 2, 8, 1, 146, 1, 2, 8, 4]) {$0.singleNestedMessage.bb == 4}
-        assertDebugDescription("Proto3TestAllTypes(singleNestedMessage:Proto3TestAllTypes.NestedMessage(bb:1))") {(o: inout MessageTestType) in
+        assertDebugDescription("SwiftProtobufTests.Proto3TestAllTypes:\nsingle_nested_message {\n  bb: 1\n}\n") {(o: inout MessageTestType) in
             var nested = MessageTestType.NestedMessage()
             nested.bb = 1
             o.singleNestedMessage = nested
@@ -685,7 +683,7 @@ class Test_AllTypes_Proto3: XCTestCase, PBTestHelpers {
         }
         assertDecodeSucceeds([154, 1, 4, 8, 1, 8, 3]) {$0.singleForeignMessage.c == 3}
         assertDecodeSucceeds([154, 1, 2, 8, 1, 154, 1, 2, 8, 4]) {$0.singleForeignMessage.c == 4}
-        assertDebugDescription("Proto3TestAllTypes(singleForeignMessage:Proto3ForeignMessage(c:1))") {(o: inout MessageTestType) in
+        assertDebugDescription("SwiftProtobufTests.Proto3TestAllTypes:\nsingle_foreign_message {\n  c: 1\n}\n") {(o: inout MessageTestType) in
             var foreign = Proto3ForeignMessage()
             foreign.c = 1
             o.singleForeignMessage = foreign
@@ -726,7 +724,7 @@ class Test_AllTypes_Proto3: XCTestCase, PBTestHelpers {
         assertDecodeFails([168, 1])
         assertDecodeSucceeds([168, 1, 128, 1]) {$0.singleNestedEnum == .UNRECOGNIZED(128)}
         assertDecodeSucceeds([168, 1, 255, 255, 255, 255, 255, 255, 255, 255, 255, 1]) {$0.singleNestedEnum == .UNRECOGNIZED(-1)}
-        assertDebugDescription("Proto3TestAllTypes(singleNestedEnum:.bar)") {(o: inout MessageTestType) in
+        assertDebugDescription("SwiftProtobufTests.Proto3TestAllTypes:\nsingle_nested_enum: BAR\n") {(o: inout MessageTestType) in
             o.singleNestedEnum = .bar
         }
     }
@@ -735,7 +733,7 @@ class Test_AllTypes_Proto3: XCTestCase, PBTestHelpers {
         assertEncode([176, 1, 5]) {(o: inout MessageTestType) in
             o.singleForeignEnum = .foreignBar
         }
-        assertDebugDescription("Proto3TestAllTypes(singleForeignEnum:.foreignBar)") {(o: inout MessageTestType) in
+        assertDebugDescription("SwiftProtobufTests.Proto3TestAllTypes:\nsingle_foreign_enum: FOREIGN_BAR\n") {(o: inout MessageTestType) in
             o.singleForeignEnum = .foreignBar
         }
     }
@@ -744,7 +742,7 @@ class Test_AllTypes_Proto3: XCTestCase, PBTestHelpers {
         assertEncode([184, 1, 8]) {(o: inout MessageTestType) in
             o.singleImportEnum = .importBar
         }
-        assertDebugDescription("Proto3TestAllTypes(singleImportEnum:.importBar)") {(o: inout MessageTestType) in
+        assertDebugDescription("SwiftProtobufTests.Proto3TestAllTypes:\nsingle_import_enum: IMPORT_BAR\n") {(o: inout MessageTestType) in
             o.singleImportEnum = .importBar
         }
     }
@@ -755,7 +753,7 @@ class Test_AllTypes_Proto3: XCTestCase, PBTestHelpers {
             sub.e = 12
             o.singlePublicImportMessage = sub
         }
-        assertDebugDescription("Proto3TestAllTypes(singlePublicImportMessage:Proto3PublicImportMessage(e:9999))") {(o: inout MessageTestType) in
+        assertDebugDescription("SwiftProtobufTests.Proto3TestAllTypes:\nsingle_public_import_message {\n  e: 9999\n}\n") {(o: inout MessageTestType) in
             var sub = Proto3PublicImportMessage()
             sub.e = 9999
             o.singlePublicImportMessage = sub
@@ -779,13 +777,13 @@ class Test_AllTypes_Proto3: XCTestCase, PBTestHelpers {
         assertDecodeFails([253, 1, 77])
         assertDecodeFails([254, 1, 78])
         assertDecodeFails([255, 1, 79])
-        assertDebugDescription("Proto3TestAllTypes(repeatedInt32:[1])") {(o: inout MessageTestType) in
+        assertDebugDescription("SwiftProtobufTests.Proto3TestAllTypes:\nrepeated_int32: [1]\n") {(o: inout MessageTestType) in
             o.repeatedInt32 = [1]
         }
-        assertDebugDescription("Proto3TestAllTypes()") {(o: inout MessageTestType) in
+        assertDebugDescription("SwiftProtobufTests.Proto3TestAllTypes:\n") {(o: inout MessageTestType) in
             o.repeatedInt32 = []
         }
-        assertDebugDescription("Proto3TestAllTypes(repeatedInt32:[1,2])") {(o: inout MessageTestType) in
+        assertDebugDescription("SwiftProtobufTests.Proto3TestAllTypes:\nrepeated_int32: [1, 2]\n") {(o: inout MessageTestType) in
             o.repeatedInt32 = [1, 2]
         }
     }
@@ -1164,7 +1162,7 @@ class Test_AllTypes_Proto3: XCTestCase, PBTestHelpers {
         }
         assertDecodeFails([128, 3])
         assertDecodeFails([128, 3, 0])
-        assertDebugDescription("Proto3TestAllTypes(repeatedNestedMessage:[Proto3TestAllTypes.NestedMessage(bb:1),Proto3TestAllTypes.NestedMessage(bb:2)])") {(o: inout MessageTestType) in
+        assertDebugDescription("SwiftProtobufTests.Proto3TestAllTypes:\nrepeated_nested_message {\n  bb: 1\n}\nrepeated_nested_message {\n  bb: 2\n}\n") {(o: inout MessageTestType) in
             var m1 = MessageTestType.NestedMessage()
             m1.bb = 1
             var m2 = MessageTestType.NestedMessage()
@@ -1177,7 +1175,7 @@ class Test_AllTypes_Proto3: XCTestCase, PBTestHelpers {
         assertEncode([154, 3, 2, 2, 3]) {(o: inout MessageTestType) in
             o.repeatedNestedEnum = [.bar, .baz]
         }
-        assertDebugDescription("Proto3TestAllTypes(repeatedNestedEnum:[.bar,.baz])") {(o: inout MessageTestType) in
+        assertDebugDescription("SwiftProtobufTests.Proto3TestAllTypes:\nrepeated_nested_enum: [BAR, BAZ]\n") {(o: inout MessageTestType) in
             o.repeatedNestedEnum = [.bar, .baz]
         }
     }
@@ -1186,7 +1184,7 @@ class Test_AllTypes_Proto3: XCTestCase, PBTestHelpers {
         assertEncode([248, 6, 0]) {(o: inout MessageTestType) in o.oneofUint32 = 0}
         assertDecodeSucceeds([248, 6, 255, 255, 255, 255, 15]) {$0.oneofUint32 == UInt32.max}
         assertDecodeSucceeds([138, 7, 1, 97, 248, 6, 1]) {(o: MessageTestType) in
-            if case .oneofUint32 = o.oneofField, o.oneofUint32 == UInt32(1) {
+            if case .oneofUint32? = o.oneofField, o.oneofUint32 == UInt32(1) {
               return true
             }
             return false
@@ -1211,7 +1209,7 @@ class Test_AllTypes_Proto3: XCTestCase, PBTestHelpers {
 
         var m = MessageTestType()
         m.oneofUint32 = 77
-        XCTAssertEqual(m.debugDescription, "Proto3TestAllTypes(oneofUint32:77)");
+        XCTAssertEqual(m.debugDescription, "SwiftProtobufTests.Proto3TestAllTypes:\noneof_uint32: 77\n");
         var m2 = MessageTestType()
         m2.oneofUint32 = 78
         XCTAssertNotEqual(m.hashValue, m2.hashValue)
@@ -1223,16 +1221,16 @@ class Test_AllTypes_Proto3: XCTestCase, PBTestHelpers {
             o.oneofNestedMessage.bb = 1
         }
         assertDecodeSucceeds([130, 7, 0]) {(o: MessageTestType) in
-            if case .oneofNestedMessage(let m) = o.oneofField {
+            if case .oneofNestedMessage(let m)? = o.oneofField {
                 return m.bb == 0
             }
             return false
         }
         assertDecodeSucceeds([248, 6, 0, 130, 7, 2, 8, 1]) {(o: MessageTestType) in
-            if case .oneofUint32 = o.oneofField {
+            if case .oneofUint32? = o.oneofField {
                 return false
             }
-            if case .oneofNestedMessage(let m) = o.oneofField {
+            if case .oneofNestedMessage(let m)? = o.oneofField {
                 return m.bb == 1
             }
             return false
@@ -1240,14 +1238,14 @@ class Test_AllTypes_Proto3: XCTestCase, PBTestHelpers {
     }
     func testEncoding_oneofNestedMessage1() {
         assertDecodeSucceeds([130, 7, 2, 8, 1, 248, 6, 0]) {(o: MessageTestType) in
-            if case .oneofUint32 = o.oneofField, o.oneofUint32 == UInt32(0) {
+            if case .oneofUint32? = o.oneofField, o.oneofUint32 == UInt32(0) {
                 return true
             }
             return false
         }
         // Unkonwn field within nested message should not break decoding
         assertDecodeSucceeds([130, 7, 5, 128, 127, 0, 8, 1, 248, 6, 0]) {(o: MessageTestType) in
-            if case .oneofUint32 = o.oneofField, o.oneofUint32 == 0 {
+            if case .oneofUint32? = o.oneofField, o.oneofUint32 == 0 {
                 return true
             }
             return false
@@ -1258,7 +1256,7 @@ class Test_AllTypes_Proto3: XCTestCase, PBTestHelpers {
         var m = MessageTestType()
         m.oneofNestedMessage = MessageTestType.NestedMessage()
         m.oneofNestedMessage.bb = 1
-        XCTAssertEqual(m.debugDescription, "Proto3TestAllTypes(oneofNestedMessage:Proto3TestAllTypes.NestedMessage(bb:1))");
+        XCTAssertEqual(m.debugDescription, "SwiftProtobufTests.Proto3TestAllTypes:\noneof_nested_message {\n  bb: 1\n}\n");
         var m2 = MessageTestType()
         m2.oneofNestedMessage = MessageTestType.NestedMessage()
         m2.oneofNestedMessage.bb = 2
@@ -1287,7 +1285,7 @@ class Test_AllTypes_Proto3: XCTestCase, PBTestHelpers {
         assertDecodeSucceeds([138, 7, 1, 97]) {$0.oneofString == "a"}
         assertDecodeSucceeds([138, 7, 0]) {$0.oneofString == ""}
         assertDecodeSucceeds([146, 7, 0, 138, 7, 1, 97]) {(o:MessageTestType) in
-            if case .oneofString = o.oneofField, o.oneofString == "a" {
+            if case .oneofString? = o.oneofField, o.oneofString == "a" {
               return true
             }
             return false
@@ -1309,7 +1307,7 @@ class Test_AllTypes_Proto3: XCTestCase, PBTestHelpers {
 
         var m = MessageTestType()
         m.oneofString = "abc"
-        XCTAssertEqual(m.debugDescription, "Proto3TestAllTypes(oneofString:\"abc\")");
+        XCTAssertEqual(m.debugDescription, "SwiftProtobufTests.Proto3TestAllTypes:\noneof_string: \"abc\"\n");
         var m2 = MessageTestType()
         m2.oneofString = "def"
         XCTAssertNotEqual(m.hashValue, m2.hashValue)
@@ -1321,7 +1319,7 @@ class Test_AllTypes_Proto3: XCTestCase, PBTestHelpers {
     func testEncoding_oneofBytes2() {
         assertDecodeSucceeds([146, 7, 1, 1]) {(o: MessageTestType) in
             let expectedB = Data(bytes: [1])
-            if case .oneofBytes(let b) = o.oneofField {
+            if case .oneofBytes(let b)? = o.oneofField {
                 let s = o.oneofString
                 return b == expectedB && s == ""
             }
@@ -1331,7 +1329,7 @@ class Test_AllTypes_Proto3: XCTestCase, PBTestHelpers {
     func testEncoding_oneofBytes3() {
         assertDecodeSucceeds([146, 7, 0]) {(o: MessageTestType) in
             let expectedB = Data()
-            if case .oneofBytes(let b) = o.oneofField {
+            if case .oneofBytes(let b)? = o.oneofField {
                 let s = o.oneofString
                 return b == expectedB && s == ""
             }
@@ -1341,7 +1339,7 @@ class Test_AllTypes_Proto3: XCTestCase, PBTestHelpers {
     func testEncoding_oneofBytes4() {
         assertDecodeSucceeds([138, 7, 1, 97, 146, 7, 0]) {(o: MessageTestType) in
             let expectedB = Data()
-            if case .oneofBytes(let b) = o.oneofField {
+            if case .oneofBytes(let b)? = o.oneofField {
                 let s = o.oneofString
                 return b == expectedB && s == ""
             }
@@ -1377,71 +1375,43 @@ class Test_AllTypes_Proto3: XCTestCase, PBTestHelpers {
         var m = MessageTestType()
         m.oneofBytes = Data(bytes: [1, 2, 3])
 
-        XCTAssertEqual(m.debugDescription, "Proto3TestAllTypes(oneofBytes:3 bytes)");
+        XCTAssertEqual(m.debugDescription, "SwiftProtobufTests.Proto3TestAllTypes:\noneof_bytes: \"\\001\\002\\003\"\n");
         var m2 = MessageTestType()
         m2.oneofBytes = Data(bytes: [4, 5, 6])
         XCTAssertNotEqual(m.hashValue, m2.hashValue)
     }
 
-    func test_reflection() {
-        var m = MessageTestType()
-        m.singleInt32 = 1
-        let mirror1 = Mirror(reflecting: m)
-
-        XCTAssertEqual(mirror1.children.count, 1)
-        if let (name, value) = mirror1.children.first {
-            XCTAssertEqual(name!, "singleInt32")
-            XCTAssertEqual((value as! Int32), 1)
-        }
-
-        m.repeatedInt32 = [1, 2, 3]
-        let mirror2 = Mirror(reflecting: m)
-
-        XCTAssertEqual(mirror2.children.count, 2)
-
-        for (name, value) in mirror2.children {
-            switch name! {
-            case "singleInt32":
-                XCTAssertEqual((value as! Int32), 1)
-            case "repeatedInt32":
-                XCTAssertEqual((value as! [Int32]), [1, 2, 3])
-            default:
-                XCTFail("Unexpected child element \(name)")
-            }
-        }
-    }
-
     func testDebugDescription() {
         var m = MessageTestType()
         let d = m.debugDescription
-        XCTAssertEqual("Proto3TestAllTypes()", d)
+        XCTAssertEqual("SwiftProtobufTests.Proto3TestAllTypes:\n", d)
         m.singleInt32 = 7
-        XCTAssertEqual("Proto3TestAllTypes(singleInt32:7)", m.debugDescription)
+        XCTAssertEqual("SwiftProtobufTests.Proto3TestAllTypes:\nsingle_int32: 7\n", m.debugDescription)
         m.repeatedString = ["a", "b"]
-        XCTAssertEqual("Proto3TestAllTypes(singleInt32:7,repeatedString:[\"a\",\"b\"])", m.debugDescription)
+        XCTAssertEqual("SwiftProtobufTests.Proto3TestAllTypes:\nsingle_int32: 7\nrepeated_string: \"a\"\nrepeated_string: \"b\"\n", m.debugDescription)
     }
 
     func testDebugDescription2() {
         // Message with only one field
         var m = ProtobufUnittest_ForeignMessage()
-        XCTAssertEqual("ProtobufUnittest_ForeignMessage()", m.debugDescription)
+        XCTAssertEqual("SwiftProtobufTests.ProtobufUnittest_ForeignMessage:\n", m.debugDescription)
         m.c = 3
-        XCTAssertEqual("ProtobufUnittest_ForeignMessage(c:3)", m.debugDescription)
+        XCTAssertEqual("SwiftProtobufTests.ProtobufUnittest_ForeignMessage:\nc: 3\n", m.debugDescription)
     }
 
     func testDebugDescription3() {
         // Message with only a single oneof
         var m = ProtobufUnittest_TestOneof()
-        XCTAssertEqual("ProtobufUnittest_TestOneof()", m.debugDescription)
+        XCTAssertEqual("SwiftProtobufTests.ProtobufUnittest_TestOneof:\n", m.debugDescription)
         m.fooInt = 1
-        XCTAssertEqual("ProtobufUnittest_TestOneof(fooInt:1)", m.debugDescription)
+        XCTAssertEqual("SwiftProtobufTests.ProtobufUnittest_TestOneof:\nfoo_int: 1\n", m.debugDescription)
         m.fooString = "a"
-        XCTAssertEqual("ProtobufUnittest_TestOneof(fooString:\"a\")", m.debugDescription)
+        XCTAssertEqual("SwiftProtobufTests.ProtobufUnittest_TestOneof:\nfoo_string: \"a\"\n", m.debugDescription)
         var g = ProtobufUnittest_TestOneof.FooGroup()
         g.a = 7
         g.b = "b"
         m.fooGroup = g
-        XCTAssertEqual("ProtobufUnittest_TestOneof(fooGroup:ProtobufUnittest_TestOneof.FooGroup(a:7,b:\"b\"))", m.debugDescription)
+        XCTAssertEqual("SwiftProtobufTests.ProtobufUnittest_TestOneof:\nFooGroup {\n  a: 7\n  b: \"b\"\n}\n", m.debugDescription)
     }
 }
 

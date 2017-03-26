@@ -31,6 +31,11 @@ BEGIN {
     CLASS=""
     TESTCASES=""
     TESTCASE_separator=""
+    printf("//\n")
+    printf("// GENERATED FILE\n")
+    printf("// DO NOT EDIT\n")
+    printf("//\n")
+    printf("\n")
     printf("import XCTest\n")
     printf("@testable import SwiftProtobufTests\n")
     printf("\n")
@@ -47,7 +52,7 @@ BEGIN {
 
 /class .*:.* XCTestCase/ {
     if (CLASS != "") {
-	printf("        ]\n")
+	printf("\n        ]\n")
 	printf("    }\n")
 	printf("}\n")
     }
@@ -64,7 +69,7 @@ BEGIN {
 }
 
 
-/ *func *test.*/ {
+/^ *func *test.*/ {
     split($0, a, "(")
     split(a[1], words, " ")
     FUNC=words[2]

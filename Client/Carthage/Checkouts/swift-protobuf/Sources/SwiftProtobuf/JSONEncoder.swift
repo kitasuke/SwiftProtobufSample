@@ -1,12 +1,10 @@
-// ProtobufRuntime/Sources/Protobuf/ProtobufJSONEncoding.swift - JSON Encoding support
+// Sources/SwiftProtobuf/JSONEncoder.swift - JSON Encoding support
 //
-// This source file is part of the Swift.org open source project
-//
-// Copyright (c) 2014 - 2016 Apple Inc. and the Swift project authors
+// Copyright (c) 2014 - 2016 Apple Inc. and the project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception
 //
-// See http://swift.org/LICENSE.txt for license information
-// See http://swift.org/CONTRIBUTORS.txt for the list of Swift project authors
+// See LICENSE.txt for license information:
+// https://github.com/apple/swift-protobuf/blob/master/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
 ///
@@ -15,283 +13,282 @@
 // -----------------------------------------------------------------------------
 
 import Foundation
-import Swift
 
-struct JSONEncodingVisitor: Visitor {
-    private var encoder = JSONEncoder()
-    var result: String {return encoder.result}
+private let asciiZero = UInt8(ascii: "0")
+private let asciiOne = UInt8(ascii: "1")
+private let asciiTwo = UInt8(ascii: "2")
+private let asciiThree = UInt8(ascii: "3")
+private let asciiFour = UInt8(ascii: "4")
+private let asciiFive = UInt8(ascii: "5")
+private let asciiSix = UInt8(ascii: "6")
+private let asciiSeven = UInt8(ascii: "7")
+private let asciiEight = UInt8(ascii: "8")
+private let asciiNine = UInt8(ascii: "9")
+private let asciiMinus = UInt8(ascii: "-")
+private let asciiPlus = UInt8(ascii: "+")
+private let asciiEquals = UInt8(ascii: "=")
+private let asciiColon = UInt8(ascii: ":")
+private let asciiComma = UInt8(ascii: ",")
+private let asciiDoubleQuote = UInt8(ascii: "\"")
+private let asciiBackslash = UInt8(ascii: "\\")
+private let asciiForwardSlash = UInt8(ascii: "/")
+private let asciiOpenCurlyBracket = UInt8(ascii: "{")
+private let asciiCloseCurlyBracket = UInt8(ascii: "}")
+private let asciiUpperA = UInt8(ascii: "A")
+private let asciiUpperB = UInt8(ascii: "B")
+private let asciiUpperC = UInt8(ascii: "C")
+private let asciiUpperD = UInt8(ascii: "D")
+private let asciiUpperE = UInt8(ascii: "E")
+private let asciiUpperF = UInt8(ascii: "F")
+private let asciiUpperZ = UInt8(ascii: "Z")
+private let asciiLowerA = UInt8(ascii: "a")
+private let asciiLowerZ = UInt8(ascii: "z")
 
-    private var nameResolver: (Int) -> String?
-    private var anyTypeURL: String?
+private let base64Digits: [UInt8] = {
+    var digits = [UInt8]()
+    digits.append(contentsOf: asciiUpperA...asciiUpperZ)
+    digits.append(contentsOf: asciiLowerA...asciiLowerZ)
+    digits.append(contentsOf: asciiZero...asciiNine)
+    digits.append(asciiPlus)
+    digits.append(asciiForwardSlash)
+    return digits
+}()
 
-    init(message: Message, anyTypeURL: String? = nil) throws {
-        self.nameResolver =
-            ProtoNameResolvers.jsonFieldNameResolver(for: message)
-        self.anyTypeURL = anyTypeURL
+private let hexDigits: [UInt8] = {
+    var digits = [UInt8]()
+    digits.append(contentsOf: asciiZero...asciiNine)
+    digits.append(contentsOf: asciiUpperA...asciiUpperF)
+    return digits
+}()
 
-        try withAbstractVisitor {(visitor: inout Visitor) in
-            try message.traverse(visitor: &visitor)
+internal struct JSONEncoder {
+    private var data = [UInt8]()
+    private var separator: UInt8?
+
+    internal init() {}
+
+    internal var dataResult: Data { return Data(bytes: data) }
+
+    internal var stringResult: String {
+        get {
+            return String(bytes: data, encoding: String.Encoding.utf8)!
         }
     }
 
-    mutating func withAbstractVisitor(clause: (inout Visitor) throws -> ()) throws {
-        encoder.startObject()
+    /// Append a `StaticString` to the JSON text.  Because
+    /// `StaticString` is UTF8 internally, this is faster
+    /// than appending a regular `String`.
+    internal mutating func append(staticText: StaticString) {
+        let buff = UnsafeBufferPointer(start: staticText.utf8Start, count: staticText.utf8CodeUnitCount)
+        data.append(contentsOf: buff)
+    }
 
-        // TODO: This is a bit of a hack that exists as a workaround to make the
-        // hand-written Any serialization work with the new design. We need to
-        // generate those WKTs instead of maintaining the hand-written ones,
-        // handle the special cases differently, and then remove this.
-        if let anyTypeURL = anyTypeURL {
-            encoder.startField(name: "@type")
-            ProtobufString.serializeJSONValue(
-                encoder: &encoder, value: anyTypeURL)
+    /// Append a `String` to the JSON text.
+    internal mutating func append(text: String) {
+        data.append(contentsOf: text.utf8)
+    }
+
+    /// Begin a new field whose name is given as a `StaticString`.
+    internal mutating func startField(name: StaticString) {
+        if let s = separator {
+            data.append(s)
         }
-
-        var visitor: Visitor = self
-        try clause(&visitor)
-        encoder.json = (visitor as! JSONEncodingVisitor).encoder.json
-        encoder.endObject()
+        data.append(asciiDoubleQuote)
+        // Append the StaticString's utf8 contents directly
+        append(staticText: name)
+        append(staticText: "\":")
+        separator = asciiComma
     }
 
-
-    mutating func visitUnknown(bytes: Data) {
-        // JSON encoding has no provision for carrying proto2 unknown fields
-    }
-
-    mutating func visitSingularField<S: FieldType>(fieldType: S.Type, value: S.BaseType, protoFieldNumber: Int) throws {
-        let jsonFieldName = try self.jsonFieldName(for: protoFieldNumber)
-        encoder.startField(name: jsonFieldName)
-        try S.serializeJSONValue(encoder: &encoder, value: value)
-    }
-
-    mutating func visitRepeatedField<S: FieldType>(fieldType: S.Type, value: [S.BaseType], protoFieldNumber: Int) throws {
-        let jsonFieldName = try self.jsonFieldName(for: protoFieldNumber)
-        encoder.startField(name: jsonFieldName)
-        var arraySeparator = ""
-        encoder.append(text: "[")
-        for v in value {
-            encoder.append(text: arraySeparator)
-            try S.serializeJSONValue(encoder: &encoder, value: v)
-            arraySeparator = ","
+    /// Begin a new field whose name is given as a `String`.
+    internal mutating func startField(name: String) {
+        if let s = separator {
+            data.append(s)
         }
-        encoder.append(text: "]")
+        data.append(asciiDoubleQuote)
+        // Can avoid overhead of putStringValue, since
+        // the JSON field names are always clean ASCII.
+        data.append(contentsOf: name.utf8)
+        append(staticText: "\":")
+        separator = asciiComma
     }
 
-    mutating func visitPackedField<S: FieldType>(fieldType: S.Type, value: [S.BaseType], protoFieldNumber: Int) throws {
-        try visitRepeatedField(fieldType: fieldType, value: value, protoFieldNumber: protoFieldNumber)
+    /// Append an open curly brace `{` to the JSON.
+    internal mutating func startObject() {
+        data.append(asciiOpenCurlyBracket)
+        separator = nil
     }
 
-    mutating func visitSingularMessageField<M: Message>(value: M, protoFieldNumber: Int) throws {
-        let jsonFieldName = try self.jsonFieldName(for: protoFieldNumber)
-        encoder.startField(name: jsonFieldName)
-        // Note: We ask the message to serialize itself instead of
-        // using JSONEncodingVisitor(message:) since
-        // some messages override the JSON format at this point.
-        try M.serializeJSONValue(encoder: &encoder, value: value)
+    /// Append a close curly brace `}` to the JSON.
+    internal mutating func endObject() {
+        data.append(asciiCloseCurlyBracket)
+        separator = asciiComma
     }
 
-    mutating func visitRepeatedMessageField<M: Message>(value: [M], protoFieldNumber: Int) throws {
-        let jsonFieldName = try self.jsonFieldName(for: protoFieldNumber)
-        encoder.startField(name: jsonFieldName)
-        var arraySeparator = ""
-        encoder.append(text: "[")
-        for v in value {
-            encoder.append(text: arraySeparator)
-            // Note: We ask the message to serialize itself instead of
-            // using JSONEncodingVisitor(message:) since
-            // some messages override the JSON format at this point.
-            try M.serializeJSONValue(encoder: &encoder, value: v)
-            arraySeparator = ","
-        }
-        encoder.append(text: "]")
+    /// Write a JSON `null` token to the output.
+    internal mutating func putNullValue() {
+        append(staticText: "null")
     }
 
-    // Note that JSON encoding for groups is not officially supported
-    // by any Google spec.  But it's trivial to support it here.
-    mutating func visitSingularGroupField<G: Message>(value: G, protoFieldNumber: Int) throws {
-        let jsonFieldName = try self.jsonFieldName(for: protoFieldNumber)
-        encoder.startField(name: jsonFieldName)
-        // Groups have no special JSON support, so we use only the generic traversal mechanism here
-        let t = try JSONEncodingVisitor(message: value).result
-        encoder.append(text: t)
+    /// Append a float value to the output.
+    internal mutating func putFloatValue(value: Float) {
+        putDoubleValue(value: Double(value))
     }
 
-    mutating func visitRepeatedGroupField<G: Message>(value: [G], protoFieldNumber: Int) throws {
-        let jsonFieldName = try self.jsonFieldName(for: protoFieldNumber)
-        encoder.startField(name: jsonFieldName)
-        var arraySeparator = ""
-        encoder.append(text: "[")
-        for v in value {
-            encoder.append(text: arraySeparator)
-            // Groups have no special JSON support, so we use only the generic traversal mechanism here
-            let t = try JSONEncodingVisitor(message: v).result
-            encoder.append(text: t)
-            arraySeparator = ","
-        }
-        encoder.append(text: "]")
-    }
-
-    mutating func visitMapField<KeyType: MapKeyType, ValueType: MapValueType>(fieldType: ProtobufMap<KeyType, ValueType>.Type, value: ProtobufMap<KeyType, ValueType>.BaseType, protoFieldNumber: Int) throws  where KeyType.BaseType: Hashable {
-        let jsonFieldName = try self.jsonFieldName(for: protoFieldNumber)
-        encoder.startField(name: jsonFieldName)
-        var arraySeparator = ""
-        encoder.append(text: "{")
-        for (k,v) in value {
-            encoder.append(text: arraySeparator)
-            KeyType.serializeJSONMapKey(encoder: &encoder, value: k)
-            encoder.append(text: ":")
-            try ValueType.serializeJSONValue(encoder: &encoder, value: v)
-            arraySeparator = ","
-        }
-        encoder.append(text: "}")
-    }
-
-    /// Helper function that throws an error if the field number could not be
-    /// resolved.
-    private func jsonFieldName(for number: Int) throws -> String {
-        if let jsonName = nameResolver(number) {
-            return jsonName
-        }
-        throw EncodingError.missingFieldNames
-    }
-}
-
-
-public struct JSONEncoder {
-    fileprivate var json: [String] = []
-    private var separator: String = ""
-    public init() {}
-    public var result: String { return json.joined(separator: "") }
-
-    mutating func append(text: String) {
-        json.append(text)
-    }
-    mutating func appendTokens(tokens: [JSONToken]) {
-        for t in tokens {
-            switch t {
-            case .beginArray: append(text: "[")
-            case .beginObject: append(text: "{")
-            case .boolean(let v):
-                // Note that quoted boolean map keys get stored as .string()
-                putBoolValue(value: v, quote: false)
-            case .colon: append(text: ":")
-            case .comma: append(text: ",")
-            case .endArray: append(text: "]")
-            case .endObject: append(text: "}")
-            case .null: putNullValue()
-            case .number(let v): append(text: v)
-            case .string(let v): putStringValue(value: v)
-            }
-        }
-    }
-    mutating func startField(name: String) {
-        append(text: separator + "\"" + name + "\":")
-        separator = ","
-    }
-    public mutating func startObject() {
-        append(text: "{")
-        separator = ""
-    }
-    public mutating func endObject() {
-        append(text: "}")
-        separator = ","
-    }
-    mutating func putNullValue() {
-        append(text: "null")
-    }
-    mutating func putFloatValue(value: Float, quote: Bool) {
-        putDoubleValue(value: Double(value), quote: quote)
-    }
-    mutating func putDoubleValue(value: Double, quote: Bool) {
+    /// Append a double value to the output.
+    /// This handles Nan and infinite values by
+    /// writing well-known string values.
+    internal mutating func putDoubleValue(value: Double) {
         if value.isNaN {
-            append(text: "\"NaN\"")
+            append(staticText: "\"NaN\"")
         } else if !value.isFinite {
             if value < 0 {
-                append(text: "\"-Infinity\"")
+                append(staticText: "\"-Infinity\"")
             } else {
-                append(text: "\"Infinity\"")
+                append(staticText: "\"Infinity\"")
             }
         } else {
             // TODO: Be smarter here about choosing significant digits
             // See: protoc source has C++ code for this with interesting ideas
-            let s: String
-            if value < Double(Int64.max) && value > Double(Int64.min) && value == Double(Int64(value)) {
-                s = String(Int64(value))
+            if let v = Int64(safely: value) {
+                appendInt(value: v)
             } else {
-                s = String(value)
-            }
-            if quote {
-                append(text: "\"" + s + "\"")
-            } else {
+                let s = String(value)
                 append(text: s)
             }
         }
     }
-    mutating func putInt64(value: Int64, quote: Bool) {
-        // Always quote integers with abs value > 2^53
-        if quote || value > 0x1FFFFFFFFFFFFF || value < -0x1FFFFFFFFFFFFF {
-            append(text: "\"" + String(value) + "\"")
-        } else {
-            append(text: String(value))
+
+    /// Append a UInt64 to the output (without quoting).
+    private mutating func appendUInt(value: UInt64) {
+        if value >= 10 {
+            appendUInt(value: value / 10)
         }
+        data.append(asciiZero + UInt8(value % 10))
     }
-    mutating func putUInt64(value: UInt64, quote: Bool) {
-        if quote || value > 0x1FFFFFFFFFFFFF { // 2^53 - 1
-            append(text: "\"" + String(value) + "\"")
+
+    /// Append an Int64 to the output (without quoting).
+    private mutating func appendInt(value: Int64) {
+        if value < 0 {
+            data.append(asciiMinus)
+            // This is the twos-complement negation of value,
+            // computed in a way that won't overflow a 64-bit
+            // signed integer.
+            appendUInt(value: 1 + ~UInt64(bitPattern: value))
         } else {
-            append(text: String(value))
+            appendUInt(value: UInt64(bitPattern: value))
         }
     }
 
-    mutating func putBoolValue(value: Bool, quote: Bool) {
-        if quote {
-            append(text: value ? "\"true\"" : "\"false\"")
+    /// Write an Enum as an int.
+    internal mutating func putEnumInt(value: Int) {
+        appendInt(value: Int64(value))
+    }
+
+    /// Write an `Int64` using protobuf JSON quoting conventions.
+    internal mutating func putInt64(value: Int64) {
+        data.append(asciiDoubleQuote)
+        appendInt(value: value)
+        data.append(asciiDoubleQuote)
+    }
+
+    /// Write an `Int32` with quoting suitable for
+    /// using the value as a map key.
+    internal mutating func putQuotedInt32(value: Int32) {
+        data.append(asciiDoubleQuote)
+        appendInt(value: Int64(value))
+        data.append(asciiDoubleQuote)
+    }
+
+    /// Write an `Int32` in the default format.
+    internal mutating func putInt32(value: Int32) {
+        appendInt(value: Int64(value))
+    }
+
+    /// Write a `UInt64` using protobuf JSON quoting conventions.
+    internal mutating func putUInt64(value: UInt64) {
+        data.append(asciiDoubleQuote)
+        appendUInt(value: value)
+        data.append(asciiDoubleQuote)
+    }
+
+    /// Write a `UInt32` with quoting suitable for
+    /// using the value as a map key.
+    internal mutating func putQuotedUInt32(value: UInt32) {
+        data.append(asciiDoubleQuote)
+        appendUInt(value: UInt64(value))
+        data.append(asciiDoubleQuote)
+    }
+
+    /// Write a `UInt32` in the default format.
+    internal mutating func putUInt32(value: UInt32) {
+        appendUInt(value: UInt64(value))
+    }
+
+    /// Write a `Bool` with quoting suitable for
+    /// using the value as a map key.
+    internal mutating func putQuotedBoolValue(value: Bool) {
+        data.append(asciiDoubleQuote)
+        putBoolValue(value: value)
+        data.append(asciiDoubleQuote)
+    }
+
+    /// Write a `Bool` in the default format.
+    internal mutating func putBoolValue(value: Bool) {
+        if value {
+            append(staticText: "true")
         } else {
-            append(text: value ? "true" : "false")
+            append(staticText: "false")
         }
     }
-    mutating func putStringValue(value: String) {
-        let hexDigits = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F"];
-        append(text: "\"")
+
+    /// Append a string value escaping special characters as needed.
+    internal mutating func putStringValue(value: String) {
+        data.append(asciiDoubleQuote)
         for c in value.unicodeScalars {
             switch c.value {
             // Special two-byte escapes
-            case 8: append(text: "\\b")
-            case 9: append(text: "\\t")
-            case 10: append(text: "\\n")
-            case 12: append(text: "\\f")
-            case 13: append(text: "\\r")
-            case 34: append(text: "\\\"")
-            case 92: append(text: "\\\\")
-            case 0...31, 127...159: // Hex form for C0 and C1 control chars
-                let digit1 = hexDigits[Int(c.value / 16)]
-                let digit2 = hexDigits[Int(c.value & 15)]
-                append(text: "\\u00\(digit1)\(digit2)")
-            case 0...127:  // ASCII
-                append(text: String(c))
-            default: // Non-ASCII
-                append(text: String(c))
+            case 8: append(staticText: "\\b")
+            case 9: append(staticText: "\\t")
+            case 10: append(staticText: "\\n")
+            case 12: append(staticText: "\\f")
+            case 13: append(staticText: "\\r")
+            case 34: append(staticText: "\\\"")
+            case 92: append(staticText: "\\\\")
+            case 0...31, 127...159: // Hex form for C0 control chars
+                append(staticText: "\\u00")
+                data.append(hexDigits[Int(c.value / 16)])
+                data.append(hexDigits[Int(c.value & 15)])
+            case 23...126:
+                data.append(UInt8(truncatingBitPattern: c.value))
+            case 0x80...0x7ff:
+                data.append(0xc0 + UInt8(truncatingBitPattern: c.value >> 6))
+                data.append(0x80 + UInt8(truncatingBitPattern: c.value & 0x3f))
+            case 0x800...0xffff:
+                data.append(0xe0 + UInt8(truncatingBitPattern: c.value >> 12))
+                data.append(0x80 + UInt8(truncatingBitPattern: (c.value >> 6) & 0x3f))
+                data.append(0x80 + UInt8(truncatingBitPattern: c.value & 0x3f))
+            default:
+                data.append(0xf0 + UInt8(truncatingBitPattern: c.value >> 18))
+                data.append(0x80 + UInt8(truncatingBitPattern: (c.value >> 12) & 0x3f))
+                data.append(0x80 + UInt8(truncatingBitPattern: (c.value >> 6) & 0x3f))
+                data.append(0x80 + UInt8(truncatingBitPattern: c.value & 0x3f))
             }
         }
-        append(text: "\"")
+        data.append(asciiDoubleQuote)
     }
-    mutating func putBytesValue(value: Data) {
-        var out: String = ""
+
+    /// Append a bytes value using protobuf JSON Base-64 encoding.
+    internal mutating func putBytesValue(value: Data) {
+        data.append(asciiDoubleQuote)
         if value.count > 0 {
-            let digits: [Character] = ["A", "B", "C", "D", "E", "F",
-            "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q",
-            "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "a", "b",
-            "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m",
-            "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x",
-            "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8",
-            "9", "+", "/"]
             var t: Int = 0
             for (i,v) in value.enumerated() {
                 if i > 0 && i % 3 == 0 {
-                    out.append(digits[(t >> 18) & 63])
-                    out.append(digits[(t >> 12) & 63])
-                    out.append(digits[(t >> 6) & 63])
-                    out.append(digits[t & 63])
+                    data.append(base64Digits[(t >> 18) & 63])
+                    data.append(base64Digits[(t >> 12) & 63])
+                    data.append(base64Digits[(t >> 6) & 63])
+                    data.append(base64Digits[t & 63])
                     t = 0
                 }
                 t <<= 8
@@ -299,25 +296,25 @@ public struct JSONEncoder {
             }
             switch value.count % 3 {
             case 0:
-                out.append(digits[(t >> 18) & 63])
-                out.append(digits[(t >> 12) & 63])
-                out.append(digits[(t >> 6) & 63])
-                out.append(digits[t & 63])
+                data.append(base64Digits[(t >> 18) & 63])
+                data.append(base64Digits[(t >> 12) & 63])
+                data.append(base64Digits[(t >> 6) & 63])
+                data.append(base64Digits[t & 63])
             case 1:
                 t <<= 16
-                out.append(digits[(t >> 18) & 63])
-                out.append(digits[(t >> 12) & 63])
-                out.append(Character("="))
-                out.append(Character("="))
+                data.append(base64Digits[(t >> 18) & 63])
+                data.append(base64Digits[(t >> 12) & 63])
+                data.append(asciiEquals)
+                data.append(asciiEquals)
             default:
                 t <<= 8
-                out.append(digits[(t >> 18) & 63])
-                out.append(digits[(t >> 12) & 63])
-                out.append(digits[(t >> 6) & 63])
-                out.append(Character("="))
+                data.append(base64Digits[(t >> 18) & 63])
+                data.append(base64Digits[(t >> 12) & 63])
+                data.append(base64Digits[(t >> 6) & 63])
+                data.append(asciiEquals)
             }
         }
-        append(text: "\"" + out + "\"")
+        data.append(asciiDoubleQuote)
     }
 }
 

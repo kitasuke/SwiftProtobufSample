@@ -1,12 +1,10 @@
-// ProtobufRuntime/Sources/Protobuf/ProtobufExtensions.swift - Extension support
+// Sources/SwiftProtobuf/MessageExtension.swift - Extension support
 //
-// This source file is part of the Swift.org open source project
-//
-// Copyright (c) 2014 - 2016 Apple Inc. and the Swift project authors
+// Copyright (c) 2014 - 2016 Apple Inc. and the project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception
 //
-// See http://swift.org/LICENSE.txt for license information
-// See http://swift.org/CONTRIBUTORS.txt for the list of Swift project authors
+// See LICENSE.txt for license information:
+// https://github.com/apple/swift-protobuf/blob/master/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
 ///
@@ -17,37 +15,35 @@
 ///
 // -----------------------------------------------------------------------------
 
-import Swift
-
 /// Note that the MessageExtensionBase protocol has no generic
 /// pieces.
 public protocol MessageExtensionBase {
-    var protoFieldNumber: Int { get }
-    var fieldNames: FieldNameMap.Names { get }
+    var fieldNumber: Int { get }
+    var _protobuf_fieldNames: _NameMap.Names { get }
     var messageType: Message.Type { get }
-    func newField() -> AnyExtensionField
+    func _protobuf_newField() -> AnyExtensionField
 }
 
 /// A "Message Extension" relates a particular extension field to
 /// a particular message.  The generic constraints allow
 /// compile-time compatibility checks.
 public class MessageExtension<FieldType: ExtensionField, MessageType: Message>: MessageExtensionBase {
-    public let protoFieldNumber: Int
-    public var fieldNames: FieldNameMap.Names
+    public let fieldNumber: Int
+    public var _protobuf_fieldNames: _NameMap.Names
     public let messageType: Message.Type
     public let defaultValue: FieldType.ValueType
-    public init(protoFieldNumber: Int, fieldNames: FieldNameMap.Names, defaultValue: FieldType.ValueType) {
-        self.protoFieldNumber = protoFieldNumber
-        self.fieldNames = fieldNames
+    public init(_protobuf_fieldNumber: Int, fieldNames: _NameMap.Names, defaultValue: FieldType.ValueType) {
+        self.fieldNumber = _protobuf_fieldNumber
+        self._protobuf_fieldNames = fieldNames
         self.messageType = MessageType.self
         self.defaultValue = defaultValue
     }
-    public func set(value: FieldType.ValueType) -> AnyExtensionField {
+    public func _protobuf_set(value: FieldType.ValueType) -> AnyExtensionField {
         var f = FieldType(protobufExtension: self)
         f.value = value
         return f
     }
-    public func newField() -> AnyExtensionField {
+    public func _protobuf_newField() -> AnyExtensionField {
         return FieldType(protobufExtension: self)
     }
 }

@@ -1,12 +1,10 @@
-// SwiftProtobuf/Sources/SwiftProtobuf/WireFormat.swift - Describes proto wire formats
+// Sources/SwiftProtobuf/WireFormat.swift - Describes proto wire formats
 //
-// This source file is part of the Swift.org open source project
-//
-// Copyright (c) 2014 - 2016 Apple Inc. and the Swift project authors
+// Copyright (c) 2014 - 2016 Apple Inc. and the project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception
 //
-// See http://swift.org/LICENSE.txt for license information
-// See http://swift.org/CONTRIBUTORS.txt for the list of Swift project authors
+// See LICENSE.txt for license information:
+// https://github.com/apple/swift-protobuf/blob/master/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
 ///
@@ -14,13 +12,8 @@
 ///
 // -----------------------------------------------------------------------------
 
-
-// TODO(#51): This type is currently public because there are protocols that use
-// it that cannot currently be easily made internal. Revisit the visibility of
-// this type once we've figured out if we can lock those other protocols down.
-
 /// Denotes the wire format by which a value is encoded in binary form.
-public enum WireFormat: UInt8 {
+internal enum WireFormat: UInt8 {
 
   case varint = 0
   case fixed64 = 1

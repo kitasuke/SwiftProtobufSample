@@ -76,7 +76,7 @@ class TalkViewController: UIViewController {
             let message: String
             switch error.code {
             case .badRequest:
-                title = error.code.json
+                title = "\(error.code)"
                 message = error.message
             default:
                 title = "Error"

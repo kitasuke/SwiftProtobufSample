@@ -29,7 +29,7 @@ SWIFT=swift
 
 # How to run a working version of protoc. Invoke make with PROTOC=[path] to
 # override this value, i.e. -
-#   make reference PROTOC=../protobuf/src/protoc
+#   make [TARGET] PROTOC=../protobuf/src/protoc
 PROTOC=protoc
 
 # How to run awk on your system
@@ -41,9 +41,11 @@ BINDIR=/usr/local/bin
 # Install tool name
 INSTALL=install
 
-# Where to find a google/protobufs checkout. This is only used for the
-# 'update-proto-files' target.  Defaults be being beside this checkout.
-GOOGLE_PROTOBUFS_CHECKOUT=../protobuf
+# Where to find a google/protobuf checkout. Defaults be being beside this
+# checkout. Invoke make with GOOGLE_PROTOBUF_CHECKOUT=[PATH_TO_CHECKOUT] to
+# override this value, i.e. -
+#   make [TARGET] GOOGLE_PROTOBUF_CHECKOUT=[PATH_TO_CHECKOUT]
+GOOGLE_PROTOBUF_CHECKOUT?=../protobuf
 
 # Helpers for the common parts of source generation.
 #
@@ -52,6 +54,14 @@ GOOGLE_PROTOBUFS_CHECKOUT=../protobuf
 PROTOC_GEN_SWIFT=.build/debug/protoc-gen-swift
 GENERATE_SRCS_BASE=${PROTOC} --plugin=protoc-gen-tfiws=${PROTOC_GEN_SWIFT}
 GENERATE_SRCS=${GENERATE_SRCS_BASE} -I Protos
+
+# Where to find the Swift conformance test runner executable.
+SWIFT_CONFORMANCE_PLUGIN=.build/debug/Conformance
+
+# If you have already build conformance-test-runner in
+# a nearby directory, just set the full path here and
+# we'll use it instead.
+CONFORMANCE_HOST=${GOOGLE_PROTOBUF_CHECKOUT}/conformance/conformance-test-runner
 
 # NOTE: TEST_PROTOS, LIBRARY_PROTOS, and PLUGIN_PROTOS are all full paths so
 # eventually we might be able to do proper dependencies and use them as inputs
@@ -74,6 +84,7 @@ TEST_PROTOS= \
 	Protos/google/protobuf/descriptor.proto \
 	Protos/google/protobuf/map_unittest.proto \
 	Protos/google/protobuf/map_unittest_proto3.proto \
+	Protos/google/protobuf/test_messages_proto3.proto \
 	Protos/google/protobuf/unittest.proto \
 	Protos/google/protobuf/unittest_arena.proto \
 	Protos/google/protobuf/unittest_custom_options.proto \
@@ -138,6 +149,11 @@ PLUGIN_PROTOS= \
 	Protos/google/protobuf/compiler/plugin.proto \
 	Protos/google/protobuf/descriptor.proto
 
+# Protos that are used by the conformance test runner.
+CONFORMANCE_PROTOS= \
+	Protos/conformance/conformance.proto \
+	Protos/google/protobuf/test_messages_proto3.proto
+
 XCODEBUILD_EXTRAS =
 # Invoke make with XCODE_SKIP_OPTIMIZER=1 to suppress the optimizer when
 # building the Xcode projects. For Release builds, this is a non trivial speed
@@ -158,11 +174,15 @@ endif
 	all \
 	build \
 	check \
+	check-for-protobuf-checkout \
 	clean \
+	conformance-host \
 	default \
+	docs \
 	install \
 	reference \
 	regenerate \
+	regenerate-conformance-protos \
 	regenerate-library-protos \
 	regenerate-plugin-protos \
 	regenerate-test-protos \
@@ -220,12 +240,14 @@ build:
 # in a check during the library build to ensure that the protoc on the local
 # system is one we expect. This was inspired by the findings that lead to
 #   https://github.com/apple/swift-protobuf/issues/111
-# This likely will need follow up to eventually do a pattern match to ensure it
-# is 3.1 or higher.
+# We want 3.1 or later.
 ${PROTOC_GEN_SWIFT}: build
-	@if [ "$(shell ${PROTOC} --version)" != "libprotoc 3.1.0" ]; then \
+	@if [[ ! "$(shell ${PROTOC} --version)" =~ libprotoc\ 3\.[1-9]\.[[:digit:]]+ ]]; then \
+	  echo "===================================================================================="; \
 	  echo "WARNING: Unexpected version of protoc: $(shell ${PROTOC} --version)"; \
 	  echo "WARNING: The JSON support in generated files may not be correct."; \
+	  echo "WARNING: Use a protoc that is 3.1.x or higher."; \
+	  echo "===================================================================================="; \
 	fi
 
 # Does it really make sense to install a debug build, or should this be forcing
@@ -238,12 +260,21 @@ clean:
 	rm -rf .build _test ${PROTOC_GEN_SWIFT}
 	find . -name '*~' | xargs rm
 
+# Build a local copy of the API documentation, using the same process used
+# by cocoadocs.org.
+docs:
+	@if which jazzy >/dev/null; then \
+		jazzy; \
+	else \
+		echo "Jazzy not installed, use 'gem install jazzy' or download from https://github.com/realm/jazzy"; \
+	fi
+
 #
 # Test the runtime and the plugin
 #
 # This must pass before any commit.
 #
-check test: build test-runtime test-plugin
+check test: build test-runtime test-plugin test-conformance
 
 # Test everything (runtime, plugin, xcode project)
 test-all test-everything: test test-xcode
@@ -273,7 +304,7 @@ test-runtime: build
 # Note: Some of these protos define the same package.(message|enum)s, so they
 # can't be done in a single protoc/proto-gen-swift invoke and have to be done
 # one at a time instead.
-test-plugin: build
+test-plugin: build ${PROTOC_GEN_SWIFT}
 	@rm -rf _test && mkdir _test
 	for p in `find Protos -type f -name '*.proto'`; do \
 		${GENERATE_SRCS} --tfiws_out=_test $$p; \
@@ -290,7 +321,7 @@ test-plugin: build
 # Note: Some of these protos define the same package.(message|enum)s, so they
 # can't be done in a single protoc/proto-gen-swift invoke and have to be done
 # one at a time instead.
-reference: build
+reference: build ${PROTOC_GEN_SWIFT}
 	@rm -rf Reference && mkdir Reference
 	for p in `find Protos -type f -name '*.proto'`; do \
 		${GENERATE_SRCS} --tfiws_out=Reference $$p; \
@@ -305,46 +336,89 @@ reference: build
 #  * protoc is built and installed
 #  * PROTOC at the top of this file is set correctly
 #
-regenerate: regenerate-library-protos regenerate-plugin-protos regenerate-test-protos
+regenerate: regenerate-library-protos regenerate-plugin-protos regenerate-test-protos regenerate-conformance-protos
 
 # Rebuild just the protos included in the runtime library
-regenerate-library-protos: build
-	${GENERATE_SRCS} --tfiws_out=FileNaming=DropPath,Visibility=Public:Sources/SwiftProtobuf ${LIBRARY_PROTOS}
+regenerate-library-protos: build ${PROTOC_GEN_SWIFT}
+	${GENERATE_SRCS} \
+		--tfiws_opt=FileNaming=DropPath \
+		--tfiws_opt=Visibility=Public \
+		--tfiws_out=Sources/SwiftProtobuf \
+		${LIBRARY_PROTOS}
 
 # Rebuild just the protos used by the plugin
-regenerate-plugin-protos: build
-	${GENERATE_SRCS} --tfiws_out=FileNaming=DropPath,Visibility=Public:Sources/PluginLibrary ${PLUGIN_PROTOS}
+regenerate-plugin-protos: build ${PROTOC_GEN_SWIFT}
+	${GENERATE_SRCS} \
+		--tfiws_opt=FileNaming=DropPath \
+		--tfiws_opt=Visibility=Public \
+		--tfiws_out=Sources/PluginLibrary \
+		${PLUGIN_PROTOS}
 
 # Rebuild just the protos used by the runtime test suite
 # Note: Some of these protos define the same package.(message|enum)s, so they
 # can't be done in a single protoc/proto-gen-swift invoke and have to be done
 # one at a time instead.
-regenerate-test-protos: build
+regenerate-test-protos: build ${PROTOC_GEN_SWIFT}
 	for t in ${TEST_PROTOS}; do \
-		${GENERATE_SRCS} --tfiws_out=FileNaming=DropPath:Tests/SwiftProtobufTests $$t; \
+		${GENERATE_SRCS} \
+			--tfiws_opt=FileNaming=DropPath \
+			--tfiws_out=Tests/SwiftProtobufTests \
+			$$t; \
 	done
 
-#
-# Helper to update the .proto files copied from the google/protobufs distro.
-#
-update-proto-files:
-	@if [ ! -d "${GOOGLE_PROTOBUFS_CHECKOUT}/src/google/protobuf" ]; then \
-	  echo "ERROR: ${GOOGLE_PROTOBUFS_CHECKOUT} does not appear to be a checkout of"; \
+# Rebuild just the protos used by the conformance test runner.
+regenerate-conformance-protos: build ${PROTOC_GEN_SWIFT}
+	${GENERATE_SRCS} \
+		--tfiws_opt=FileNaming=DropPath \
+		--tfiws_out=Sources/Conformance \
+		${CONFORMANCE_PROTOS}
+
+# Helper to check if there is a protobuf checkout as expected.
+check-for-protobuf-checkout:
+	@if [ ! -d "${GOOGLE_PROTOBUF_CHECKOUT}/src/google/protobuf" ]; then \
+	  echo "ERROR: ${GOOGLE_PROTOBUF_CHECKOUT} does not appear to be a checkout of"; \
 	  echo "ERROR:   github.com/google/protobuf. Please check it out or set"; \
-	  echo "ERROR:   GOOGLE_PROTOBUFS_CHECKOUT to point to a checkout."; \
+	  echo "ERROR:   GOOGLE_PROTOBUF_CHECKOUT to point to a checkout."; \
 	  exit 1; \
 	fi
+
+#
+# Helper to update the .proto files copied from the google/protobuf distro.
+#
+update-proto-files: check-for-protobuf-checkout
 	@rm -rf Protos/conformance && mkdir Protos/conformance
-	@cp -v "${GOOGLE_PROTOBUFS_CHECKOUT}"/conformance/*.proto Protos/conformance/
+	@cp -v "${GOOGLE_PROTOBUF_CHECKOUT}"/conformance/*.proto Protos/conformance/
 	@rm -rf Protos/google && mkdir -p Protos/google/protobuf/compiler
-	@cp -v "${GOOGLE_PROTOBUFS_CHECKOUT}"/src/google/protobuf/*.proto Protos/google/protobuf/
-	@cp -v "${GOOGLE_PROTOBUFS_CHECKOUT}"/src/google/protobuf/compiler/*.proto Protos/google/protobuf/compiler/
+	@cp -v "${GOOGLE_PROTOBUF_CHECKOUT}"/src/google/protobuf/*.proto Protos/google/protobuf/
+	@cp -v "${GOOGLE_PROTOBUF_CHECKOUT}"/src/google/protobuf/compiler/*.proto Protos/google/protobuf/compiler/
 	# It would be nice to get these added to google/protobuf instead of
 	# applying them locally.
 	@echo 'option swift_prefix = "Proto3";' >> Protos/google/protobuf/map_unittest_proto3.proto
 	@echo 'option swift_prefix = "Proto3";' >> Protos/google/protobuf/unittest_import_proto3.proto
 	@echo 'option swift_prefix = "Proto3";' >> Protos/google/protobuf/unittest_import_public_proto3.proto
 	@echo 'option swift_prefix = "Proto3";' >> Protos/google/protobuf/unittest_proto3.proto
+
+# Runs the conformance tests.
+test-conformance: build check-for-protobuf-checkout $(CONFORMANCE_HOST) failure_list_swift.txt
+	( \
+		ABS_PBDIR=`cd ${GOOGLE_PROTOBUF_CHECKOUT}; pwd`; \
+		$${ABS_PBDIR}/conformance/conformance-test-runner \
+		  --enforce_recommended \
+		  --failure_list failure_list_swift.txt \
+		  $(SWIFT_CONFORMANCE_PLUGIN); \
+	)
+
+# The 'conformance-host' program is part of the protobuf project.
+# It generates test cases, feeds them to our plugin, and verifies the results:
+conformance-host $(CONFORMANCE_HOST): check-for-protobuf-checkout
+	@if [ ! -f "${GOOGLE_PROTOBUF_CHECKOUT}/Makefile" ]; then \
+		echo "No Makefile, running autogen.sh and configure." ; \
+		( cd ${GOOGLE_PROTOBUF_CHECKOUT} && \
+		  ./autogen.sh && \
+		  ./configure ) \
+	fi
+	$(MAKE) -C ${GOOGLE_PROTOBUF_CHECKOUT}/src
+	$(MAKE) -C ${GOOGLE_PROTOBUF_CHECKOUT}/conformance
 
 
 # Helpers to put the Xcode project through all modes.
