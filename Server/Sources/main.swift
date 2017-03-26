@@ -22,8 +22,8 @@ router.get("/v1/talks") { request, response, next in
         
         let talk = Talk.with {
             $0.id = 1
-            $0.title = "Type-safe API call with Protocol Buffers in Swift"
-            $0.desc = "Apple recently open sourced swift-protobuf which is a plugin of Protocol Buffers for swift language. Protocol Buffers enables us to have type safety, make API faster and unify schema of structured data. JSON used to be a reasonable way for API call in most cases, but Protocol Buffers could be another option if we consider these benefits. In this talk, you'll discover examples of usage with swift-protobuf in server and client apps. Yusuke will also highlight pros and cons compare to JSON based on his knowledge and experiences."
+            $0.title = "Type-safe Web APIs with Protocol Buffers in Swift"
+            $0.desc = "Apple recently open sourced swift-protobuf which is a plugin of Protocol Buffers for swift language. Protocol Buffers enables us to have type safety, make API faster and unify schema of structured data. JSON used to be a reasonable way for Web APIs in most cases, but Protocol Buffers could be another option if we consider these benefits. In this talk, you'll discover examples of usage with swift-protobuf in server and client apps. Yusuke will also highlight pros and cons compare to JSON based on his knowledge and experiences."
             $0.speaker = user
             $0.tags = ["swift", "iOS", "protocol-buffers", "ioscon", "type-safe"]
         }
