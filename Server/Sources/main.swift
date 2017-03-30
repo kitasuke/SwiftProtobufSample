@@ -2,15 +2,23 @@ import Kitura
 import SwiftProtobuf
 import Foundation
 
-enum Accept: String {
+enum AcceptType: String {
     case protobuf = "application/protobuf"
     case json = "application/json"
-    
 }
 
 private let router = Router()
 
+// returns array of talk information
 router.get("/v1/talks") { request, response, next in
+    
+    // unsupported accept type
+    guard let acceptHeader = request.headers["Accept"],
+        let acceptType = AcceptType(rawValue: acceptHeader) else {
+            return
+    }
+    
+    // make TalkResponse value
     let data = TalkResponse.with { response in
         let user = User.with {
             $0.id = 1
@@ -30,16 +38,11 @@ router.get("/v1/talks") { request, response, next in
         
         response.talks = [talk]
     }
-    
     print(data)
     
-    guard let acceptHeader = request.headers["Accept"],
-        let accept = Accept(rawValue: acceptHeader) else {
-        return
-    }
-    
-    response.headers["Content-Type"] = accept.rawValue
-    switch accept {
+    // send serialized data to client
+    response.headers["Content-Type"] = acceptType.rawValue
+    switch acceptType {
     case .protobuf:
         response.send(data: try data.serializedData())
     case .json:
@@ -49,28 +52,32 @@ router.get("/v1/talks") { request, response, next in
     next()
 }
 
+// returns error(.badRequest)
 router.post("/v1/like") { request, response, next in
     var body = Data()
     
+    // unsupported accept type
+    guard let acceptHeader = request.headers["Accept"],
+        let acceptType = AcceptType(rawValue: acceptHeader) else {
+            return
+    }
+    
+    // desealize to LikeRequest type
     guard let bytes = try? request.read(into: &body),
-        let token = try? LikeRequest(serializedData: body) else {
+        let likeRequest = try? LikeRequest(serializedData: body) else {
         return
     }
     
+    // make NetworkError value
     let error = NetworkError.with {
         $0.code = .badRequest
         $0.message = "Not implemented"
     }
-    
     print(error)
     
-    guard let acceptHeader = request.headers["Accept"],
-        let accept = Accept(rawValue: acceptHeader) else {
-            return
-    }
-    
-    response.headers["Content-Type"] = accept.rawValue
-    switch accept {
+    // send serialized data to client
+    response.headers["Content-Type"] = acceptType.rawValue
+    switch acceptType {
     case .protobuf:
         response.status(.badRequest).send(data: try error.serializedData())
     case .json:

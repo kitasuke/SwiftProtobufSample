@@ -30,7 +30,7 @@ class APIClient {
         self.contentType = contentType
     }
     
-    func talks(success: @escaping ((TalkResponse) -> Void), failure: @escaping ((NetworkError) -> Void)) {
+    func fetchTalks(success: @escaping ((TalkResponse) -> Void), failure: @escaping ((NetworkError) -> Void)) {
         get(path: "/v1/talks", success: success, failure: failure)
     }
     
@@ -39,14 +39,17 @@ class APIClient {
     }
     
     private func get<Response: SwiftProtobuf.Message>(path: String, success: @escaping ((Response) -> Void), failure: @escaping ((NetworkError) -> Void)) {
+        
         let url = baseURL.appendingPathComponent(path)
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         request.allHTTPHeaderFields = contentType.headers
+        
         response(from: request, success: success, failure: failure)
     }
     
     private func post<Body: SwiftProtobuf.Message, Response: SwiftProtobuf.Message>(path: String, body: Body, success: @escaping ((Response) -> Void), failure: @escaping ((NetworkError) -> Void)) {
+        
         let url = baseURL.appendingPathComponent(path)
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
@@ -57,7 +60,10 @@ class APIClient {
     }
     
     private func response<Response: SwiftProtobuf.Message>(from request: URLRequest, success: @escaping ((Response) -> Void), failure: @escaping ((NetworkError) -> Void)) {
+        
         let task = URLSession.shared.dataTask(with: request) { data, urlResponse, error in
+            
+            // ignore unexpected response
             guard let data = data,
                 let urlResponse = urlResponse as? HTTPURLResponse,
                 let type = urlResponse.allHeaderFields["Content-Type"] as? String,
@@ -69,15 +75,16 @@ class APIClient {
                 return
             }
             
+            // error handling   
             guard 200..<300 ~= urlResponse.statusCode else {
-                let error: NetworkError = self.convertData(data: data, to: contentType)
+                let error: NetworkError = self.convertData(data, to: contentType)
                 DispatchQueue.main.async {
                     failure(error)
                 }
                 return
             }
             
-            let response: Response = self.convertData(data: data, to: contentType)
+            let response: Response = self.convertData(data, to: contentType)
             DispatchQueue.main.async {
                 success(response)
             }
@@ -85,7 +92,7 @@ class APIClient {
         task.resume()
     }
     
-    private func convertData<T: SwiftProtobuf.Message>(data: Data, to contentType: ContentType) -> T {
+    private func convertData<T: SwiftProtobuf.Message>(_ data: Data, to contentType: ContentType) -> T {
         switch contentType {
         case .protobuf:
             return try! T(serializedData: data)

@@ -29,9 +29,12 @@ class TalkViewController: UIViewController {
     }
     
     private func updateViews() {
-        apiClient.talks(success: { [weak self] response in
+        
+        // fetch talk information from server
+        apiClient.fetchTalks(success: { [weak self] response in
             print(response)
             
+            // show talk information
             let talk = response.talks[0]
             self?.titleLabel.text = talk.title
             self?.descriptionLabel.text = talk.desc
@@ -53,6 +56,7 @@ class TalkViewController: UIViewController {
                 }
             }
         }) { [weak self] error in
+            // it's required to run server app to get response
             let alertController = UIAlertController(title: "Network error", message: "Make sure that your server app is running. See README for more details", preferredStyle: .alert)
             let action = UIAlertAction(title: "OK", style: .default) { _ in
                 let _ = self?.navigationController?.popViewController(animated: true)
@@ -67,6 +71,7 @@ class TalkViewController: UIViewController {
             $0.id = 1
         }
         
+        // this API always returns network error
         apiClient.like(body: body, success: { response in
             print(response)
         }) { [weak self] error in
