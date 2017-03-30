@@ -1,8 +1,6 @@
 # SwiftProtobufSample
 Sample project for client/server in Swift with Protocol Buffers
 
-See also [this sample app](https://github.com/kitasuke/SwiftProtobufSample-APIKit) using [APIKit](https://github.com/ishkawa/APIKit) which is type-safe network layer library
-
 ## Sample app
 
 ### Client side
@@ -15,10 +13,10 @@ Web framework, [Kitura](http://www.kitura.io/) provides HTTP server with [swift-
 
 ## Requirements
 
-Swift 3.0.1  
-Xcode 8.2.1  
+Swift 3.1  
+Xcode 8.3    
 protoc 3.1  
-swift-protobuf 0.9.26  
+swift-protobuf 0.9.29  
 Kitura 1.3  
 
 ## Usage
