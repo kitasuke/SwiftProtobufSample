@@ -16,6 +16,28 @@ import Foundation
 import PluginLibrary
 import SwiftProtobuf
 
+
+/// This must be exactly the same as the corresponding code in the
+/// SwiftProtobuf library.  Changing it will break compatibility of
+/// the generated code with old library version.
+///
+private func toJsonFieldName(_ s: String) -> String {
+    var result = ""
+    var capitalizeNext = false
+
+    for c in s.characters {
+        if c == "_" {
+            capitalizeNext = true
+        } else if capitalizeNext {
+            result.append(String(c).uppercased())
+            capitalizeNext = false
+        } else {
+            result.append(String(c))
+        }
+    }
+    return result;
+}
+
 extension Google_Protobuf_FieldDescriptorProto {
 
     var isRepeated: Bool {return label == .repeated}
@@ -290,11 +312,6 @@ struct MessageFieldGenerator {
     }
 
     var fieldMapNames: String {
-        // TODO: Add a check to see if the JSON name is just the text name
-        // transformed with protoc's algorithm; if so, use a new case to ask
-        // the runtime to do the same transformation instead of storing both
-        // strings.
-
         // Protobuf Text uses the unqualified group name for the field
         // name instead of the field name provided by protoc.  As far
         // as I can tell, no one uses the fieldname provided by protoc,
@@ -308,10 +325,19 @@ struct MessageFieldGenerator {
             protoName = self.protoName
         }
         jsonName = self.jsonName ?? protoName
-        if jsonName != protoName {
-            return ".unique(proto: \"\(protoName)\", json: \"\(jsonName)\")"
-        } else {
+        if jsonName == protoName {
+            /// The proto and JSON names are identical:
             return ".same(proto: \"\(protoName)\")"
+        } else {
+            let libraryGeneratedJsonName = toJsonFieldName(protoName)
+            if jsonName == libraryGeneratedJsonName {
+                /// The library will generate the same thing protoc gave, so
+                /// we can let the library recompute this:
+                return ".standard(proto: \"\(protoName)\")"
+            } else {
+                /// The library's generation didn't match, so specify this explicitly.
+                return ".unique(proto: \"\(protoName)\", json: \"\(jsonName)\")"
+            }
         }
     }
 
@@ -374,7 +400,7 @@ struct MessageFieldGenerator {
 
     func generateTopIvar(printer p: inout CodePrinter) {
         p.print("\n")
-        if comments != "" {
+        if !comments.isEmpty {
             p.print(comments)
         }
         if let oneof = oneof {
@@ -412,7 +438,7 @@ struct MessageFieldGenerator {
 
     func generateProxyIvar(printer p: inout CodePrinter) {
         p.print("\n")
-        if comments != "" {
+        if !comments.isEmpty {
             p.print(comments)
         }
         p.print("\(generatorOptions.visibilitySourceSnippet)var \(swiftName): \(swiftApiType) {\n")

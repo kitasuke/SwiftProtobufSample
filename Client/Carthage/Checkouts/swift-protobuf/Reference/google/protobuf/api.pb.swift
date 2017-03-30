@@ -48,16 +48,17 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _1
 }
 
+fileprivate let _protobuf_package = "google.protobuf"
+
 ///   Api is a light-weight descriptor for a protocol buffer service.
-struct Google_Protobuf_Api: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "Api"
-  static let protoPackageName: String = "google.protobuf"
+struct Google_Protobuf_Api: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".Api"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "name"),
     2: .same(proto: "methods"),
     3: .same(proto: "options"),
     4: .same(proto: "version"),
-    5: .unique(proto: "source_context", json: "sourceContext"),
+    5: .standard(proto: "source_context"),
     6: .same(proto: "mixins"),
     7: .same(proto: "syntax"),
   ]
@@ -73,16 +74,14 @@ struct Google_Protobuf_Api: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageI
 
     init() {}
 
-    func copy() -> _StorageClass {
-      let clone = _StorageClass()
-      clone._name = _name
-      clone._methods = _methods
-      clone._options = _options
-      clone._version = _version
-      clone._sourceContext = _sourceContext
-      clone._mixins = _mixins
-      clone._syntax = _syntax
-      return clone
+    init(copying source: _StorageClass) {
+      _name = source._name
+      _methods = source._methods
+      _options = source._options
+      _version = source._version
+      _sourceContext = source._sourceContext
+      _mixins = source._mixins
+      _syntax = source._syntax
     }
   }
 
@@ -90,7 +89,7 @@ struct Google_Protobuf_Api: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageI
 
   private mutating func _uniqueStorage() -> _StorageClass {
     if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _storage.copy()
+      _storage = _StorageClass(copying: _storage)
     }
     return _storage
   }
@@ -164,31 +163,29 @@ struct Google_Protobuf_Api: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageI
     set {_uniqueStorage()._syntax = newValue}
   }
 
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
   init() {}
 
-  mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
-        try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+        switch fieldNumber {
+        case 1: try decoder.decodeSingularStringField(value: &_storage._name)
+        case 2: try decoder.decodeRepeatedMessageField(value: &_storage._methods)
+        case 3: try decoder.decodeRepeatedMessageField(value: &_storage._options)
+        case 4: try decoder.decodeSingularStringField(value: &_storage._version)
+        case 5: try decoder.decodeSingularMessageField(value: &_storage._sourceContext)
+        case 6: try decoder.decodeRepeatedMessageField(value: &_storage._mixins)
+        case 7: try decoder.decodeSingularEnumField(value: &_storage._syntax)
+        default: break
+        }
       }
     }
   }
 
-  mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
-    switch fieldNumber {
-    case 1: try decoder.decodeSingularStringField(value: &_storage._name)
-    case 2: try decoder.decodeRepeatedMessageField(value: &_storage._methods)
-    case 3: try decoder.decodeRepeatedMessageField(value: &_storage._options)
-    case 4: try decoder.decodeSingularStringField(value: &_storage._version)
-    case 5: try decoder.decodeSingularMessageField(value: &_storage._sourceContext)
-    case 6: try decoder.decodeRepeatedMessageField(value: &_storage._mixins)
-    case 7: try decoder.decodeSingularEnumField(value: &_storage._syntax)
-    default: break
-    }
-  }
-
-  func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       if !_storage._name.isEmpty {
         try visitor.visitSingularStringField(value: _storage._name, fieldNumber: 1)
@@ -212,11 +209,12 @@ struct Google_Protobuf_Api: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageI
         try visitor.visitSingularEnumField(value: _storage._syntax, fieldNumber: 7)
       }
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: Google_Protobuf_Api) -> Bool {
-    return withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
-      if _storage !== other_storage {
+    if _storage !== other._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
         if _storage._name != other_storage._name {return false}
         if _storage._methods != other_storage._methods {return false}
         if _storage._options != other_storage._options {return false}
@@ -224,22 +222,24 @@ struct Google_Protobuf_Api: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageI
         if _storage._sourceContext != other_storage._sourceContext {return false}
         if _storage._mixins != other_storage._mixins {return false}
         if _storage._syntax != other_storage._syntax {return false}
+        return true
       }
-      return true
+      if !storagesAreEqual {return false}
     }
+    if unknownFields != other.unknownFields {return false}
+    return true
   }
 }
 
 ///   Method represents a method of an api.
-struct Google_Protobuf_Method: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "Method"
-  static let protoPackageName: String = "google.protobuf"
+struct Google_Protobuf_Method: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".Method"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "name"),
-    2: .unique(proto: "request_type_url", json: "requestTypeUrl"),
-    3: .unique(proto: "request_streaming", json: "requestStreaming"),
-    4: .unique(proto: "response_type_url", json: "responseTypeUrl"),
-    5: .unique(proto: "response_streaming", json: "responseStreaming"),
+    2: .standard(proto: "request_type_url"),
+    3: .standard(proto: "request_streaming"),
+    4: .standard(proto: "response_type_url"),
+    5: .standard(proto: "response_streaming"),
     6: .same(proto: "options"),
     7: .same(proto: "syntax"),
   ]
@@ -265,28 +265,26 @@ struct Google_Protobuf_Method: SwiftProtobuf.Proto3Message, SwiftProtobuf._Messa
   ///   The source syntax of this method.
   var syntax: Google_Protobuf_Syntax = Google_Protobuf_Syntax.proto2
 
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
   init() {}
 
-  mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
-      try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularStringField(value: &name)
+      case 2: try decoder.decodeSingularStringField(value: &requestTypeURL)
+      case 3: try decoder.decodeSingularBoolField(value: &requestStreaming)
+      case 4: try decoder.decodeSingularStringField(value: &responseTypeURL)
+      case 5: try decoder.decodeSingularBoolField(value: &responseStreaming)
+      case 6: try decoder.decodeRepeatedMessageField(value: &options)
+      case 7: try decoder.decodeSingularEnumField(value: &syntax)
+      default: break
+      }
     }
   }
 
-  mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
-    switch fieldNumber {
-    case 1: try decoder.decodeSingularStringField(value: &name)
-    case 2: try decoder.decodeSingularStringField(value: &requestTypeURL)
-    case 3: try decoder.decodeSingularBoolField(value: &requestStreaming)
-    case 4: try decoder.decodeSingularStringField(value: &responseTypeURL)
-    case 5: try decoder.decodeSingularBoolField(value: &responseStreaming)
-    case 6: try decoder.decodeRepeatedMessageField(value: &options)
-    case 7: try decoder.decodeSingularEnumField(value: &syntax)
-    default: break
-    }
-  }
-
-  func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !name.isEmpty {
       try visitor.visitSingularStringField(value: name, fieldNumber: 1)
     }
@@ -308,6 +306,7 @@ struct Google_Protobuf_Method: SwiftProtobuf.Proto3Message, SwiftProtobuf._Messa
     if syntax != Google_Protobuf_Syntax.proto2 {
       try visitor.visitSingularEnumField(value: syntax, fieldNumber: 7)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: Google_Protobuf_Method) -> Bool {
@@ -318,6 +317,7 @@ struct Google_Protobuf_Method: SwiftProtobuf.Proto3Message, SwiftProtobuf._Messa
     if responseStreaming != other.responseStreaming {return false}
     if options != other.options {return false}
     if syntax != other.syntax {return false}
+    if unknownFields != other.unknownFields {return false}
     return true
   }
 }
@@ -399,9 +399,8 @@ struct Google_Protobuf_Method: SwiftProtobuf.Proto3Message, SwiftProtobuf._Messa
 ///         }
 ///         ...
 ///       }
-struct Google_Protobuf_Mixin: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "Mixin"
-  static let protoPackageName: String = "google.protobuf"
+struct Google_Protobuf_Mixin: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".Mixin"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "name"),
     2: .same(proto: "root"),
@@ -414,34 +413,34 @@ struct Google_Protobuf_Mixin: SwiftProtobuf.Proto3Message, SwiftProtobuf._Messag
   ///   are rooted.
   var root: String = ""
 
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
   init() {}
 
-  mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
-      try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularStringField(value: &name)
+      case 2: try decoder.decodeSingularStringField(value: &root)
+      default: break
+      }
     }
   }
 
-  mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
-    switch fieldNumber {
-    case 1: try decoder.decodeSingularStringField(value: &name)
-    case 2: try decoder.decodeSingularStringField(value: &root)
-    default: break
-    }
-  }
-
-  func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !name.isEmpty {
       try visitor.visitSingularStringField(value: name, fieldNumber: 1)
     }
     if !root.isEmpty {
       try visitor.visitSingularStringField(value: root, fieldNumber: 2)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: Google_Protobuf_Mixin) -> Bool {
     if name != other.name {return false}
     if root != other.root {return false}
+    if unknownFields != other.unknownFields {return false}
     return true
   }
 }

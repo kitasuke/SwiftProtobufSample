@@ -48,6 +48,8 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _1
 }
 
+fileprivate let _protobuf_package = "google.protobuf"
+
 ///   `NullValue` is a singleton enumeration to represent the null value for the
 ///   `Value` type union.
 ///  
@@ -91,9 +93,8 @@ enum Google_Protobuf_NullValue: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProv
 ///   with the proto support for the language.
 ///  
 ///   The JSON representation for `Struct` is JSON object.
-struct Google_Protobuf_Struct: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "Struct"
-  static let protoPackageName: String = "google.protobuf"
+struct Google_Protobuf_Struct: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".Struct"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "fields"),
   ]
@@ -101,29 +102,29 @@ struct Google_Protobuf_Struct: SwiftProtobuf.Proto3Message, SwiftProtobuf._Messa
   ///   Unordered map of dynamically typed values.
   var fields: Dictionary<String,Google_Protobuf_Value> = [:]
 
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
   init() {}
 
-  mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
-      try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+      switch fieldNumber {
+      case 1: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufString,Google_Protobuf_Value>.self, value: &fields)
+      default: break
+      }
     }
   }
 
-  mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
-    switch fieldNumber {
-    case 1: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufString,Google_Protobuf_Value>.self, value: &fields)
-    default: break
-    }
-  }
-
-  func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !fields.isEmpty {
       try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufString,Google_Protobuf_Value>.self, value: fields, fieldNumber: 1)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: Google_Protobuf_Struct) -> Bool {
     if fields != other.fields {return false}
+    if unknownFields != other.unknownFields {return false}
     return true
   }
 }
@@ -134,16 +135,15 @@ struct Google_Protobuf_Struct: SwiftProtobuf.Proto3Message, SwiftProtobuf._Messa
 ///   variants, absence of any variant indicates an error.
 ///  
 ///   The JSON representation for `Value` is JSON value.
-struct Google_Protobuf_Value: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "Value"
-  static let protoPackageName: String = "google.protobuf"
+struct Google_Protobuf_Value: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".Value"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .unique(proto: "null_value", json: "nullValue"),
-    2: .unique(proto: "number_value", json: "numberValue"),
-    3: .unique(proto: "string_value", json: "stringValue"),
-    4: .unique(proto: "bool_value", json: "boolValue"),
-    5: .unique(proto: "struct_value", json: "structValue"),
-    6: .unique(proto: "list_value", json: "listValue"),
+    1: .standard(proto: "null_value"),
+    2: .standard(proto: "number_value"),
+    3: .standard(proto: "string_value"),
+    4: .standard(proto: "bool_value"),
+    5: .standard(proto: "struct_value"),
+    6: .standard(proto: "list_value"),
   ]
 
   private class _StorageClass {
@@ -151,10 +151,8 @@ struct Google_Protobuf_Value: SwiftProtobuf.Proto3Message, SwiftProtobuf._Messag
 
     init() {}
 
-    func copy() -> _StorageClass {
-      let clone = _StorageClass()
-      clone._kind = _kind
-      return clone
+    init(copying source: _StorageClass) {
+      _kind = source._kind
     }
   }
 
@@ -162,7 +160,7 @@ struct Google_Protobuf_Value: SwiftProtobuf.Proto3Message, SwiftProtobuf._Messag
 
   private mutating func _uniqueStorage() -> _StorageClass {
     if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _storage.copy()
+      _storage = _StorageClass(copying: _storage)
     }
     return _storage
   }
@@ -251,6 +249,8 @@ struct Google_Protobuf_Value: SwiftProtobuf.Proto3Message, SwiftProtobuf._Messag
       _uniqueStorage()._kind = newValue
     }
   }
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
   enum OneOf_Kind: Equatable {
     case nullValue(Google_Protobuf_NullValue)
@@ -346,48 +346,47 @@ struct Google_Protobuf_Value: SwiftProtobuf.Proto3Message, SwiftProtobuf._Messag
 
   init() {}
 
-  mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
-        try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+        switch fieldNumber {
+        case 1...6:
+          if _storage._kind != nil {
+            try decoder.handleConflictingOneOf()
+          }
+          _storage._kind = try Google_Protobuf_Value.OneOf_Kind(byDecodingFrom: &decoder, fieldNumber: fieldNumber)
+        default: break
+        }
       }
     }
   }
 
-  mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
-    switch fieldNumber {
-    case 1, 2, 3, 4, 5, 6:
-      if _storage._kind != nil {
-        try decoder.handleConflictingOneOf()
-      }
-      _storage._kind = try Google_Protobuf_Value.OneOf_Kind(byDecodingFrom: &decoder, fieldNumber: fieldNumber)
-    default: break
-    }
-  }
-
-  func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       try _storage._kind?.traverse(visitor: &visitor, start: 1, end: 7)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: Google_Protobuf_Value) -> Bool {
-    return withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
-      if _storage !== other_storage {
+    if _storage !== other._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
         if _storage._kind != other_storage._kind {return false}
+        return true
       }
-      return true
+      if !storagesAreEqual {return false}
     }
+    if unknownFields != other.unknownFields {return false}
+    return true
   }
 }
 
 ///   `ListValue` is a wrapper around a repeated field of values.
 ///  
 ///   The JSON representation for `ListValue` is JSON array.
-struct Google_Protobuf_ListValue: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "ListValue"
-  static let protoPackageName: String = "google.protobuf"
+struct Google_Protobuf_ListValue: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".ListValue"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "values"),
   ]
@@ -395,29 +394,29 @@ struct Google_Protobuf_ListValue: SwiftProtobuf.Proto3Message, SwiftProtobuf._Me
   ///   Repeated field of dynamically typed values.
   var values: [Google_Protobuf_Value] = []
 
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
   init() {}
 
-  mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
-      try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+      switch fieldNumber {
+      case 1: try decoder.decodeRepeatedMessageField(value: &values)
+      default: break
+      }
     }
   }
 
-  mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
-    switch fieldNumber {
-    case 1: try decoder.decodeRepeatedMessageField(value: &values)
-    default: break
-    }
-  }
-
-  func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !values.isEmpty {
       try visitor.visitRepeatedMessageField(value: values, fieldNumber: 1)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: Google_Protobuf_ListValue) -> Bool {
     if values != other.values {return false}
+    if unknownFields != other.unknownFields {return false}
     return true
   }
 }

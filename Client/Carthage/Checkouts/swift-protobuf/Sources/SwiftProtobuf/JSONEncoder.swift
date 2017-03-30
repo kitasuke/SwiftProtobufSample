@@ -64,6 +64,7 @@ private let hexDigits: [UInt8] = {
 internal struct JSONEncoder {
     private var data = [UInt8]()
     private var separator: UInt8?
+    private let doubleFormatter = DoubleFormatter()
 
     internal init() {}
 
@@ -76,11 +77,19 @@ internal struct JSONEncoder {
     }
 
     /// Append a `StaticString` to the JSON text.  Because
-    /// `StaticString` is UTF8 internally, this is faster
+    /// `StaticString` is already UTF8 internally, this is faster
     /// than appending a regular `String`.
     internal mutating func append(staticText: StaticString) {
         let buff = UnsafeBufferPointer(start: staticText.utf8Start, count: staticText.utf8CodeUnitCount)
         data.append(contentsOf: buff)
+    }
+
+    /// Append a `_NameMap.Name` to the JSON text.  As with
+    /// StaticString above, a `_NameMap.Name` provides pre-converted
+    /// UTF8 bytes, so this is much faster than appending a regular
+    /// `String`.
+    internal mutating func append(name: _NameMap.Name) {
+        data.append(contentsOf: name.utf8Buffer)
     }
 
     /// Append a `String` to the JSON text.
@@ -88,14 +97,19 @@ internal struct JSONEncoder {
         data.append(contentsOf: text.utf8)
     }
 
-    /// Begin a new field whose name is given as a `StaticString`.
-    internal mutating func startField(name: StaticString) {
+    /// Append a raw utf8 in a `Data` to the JSON text.
+    internal mutating func append(utf8Data: Data) {
+        data.append(contentsOf: utf8Data)
+    }
+
+    /// Begin a new field whose name is given as a `_NameMap.Name`
+    internal mutating func startField(name: _NameMap.Name) {
         if let s = separator {
             data.append(s)
         }
         data.append(asciiDoubleQuote)
         // Append the StaticString's utf8 contents directly
-        append(staticText: name)
+        append(name: name)
         append(staticText: "\":")
         separator = asciiComma
     }
@@ -131,8 +145,25 @@ internal struct JSONEncoder {
     }
 
     /// Append a float value to the output.
+    /// This handles Nan and infinite values by
+    /// writing well-known string values.
     internal mutating func putFloatValue(value: Float) {
-        putDoubleValue(value: Double(value))
+        if value.isNaN {
+            append(staticText: "\"NaN\"")
+        } else if !value.isFinite {
+            if value < 0 {
+                append(staticText: "\"-Infinity\"")
+            } else {
+                append(staticText: "\"Infinity\"")
+            }
+        } else {
+            if let v = Int64(exactly: Double(value)) {
+                appendInt(value: v)
+            } else {
+                let formatted = doubleFormatter.floatToUtf8(value)
+                data.append(contentsOf: formatted)
+            }
+        }
     }
 
     /// Append a double value to the output.
@@ -148,13 +179,11 @@ internal struct JSONEncoder {
                 append(staticText: "\"Infinity\"")
             }
         } else {
-            // TODO: Be smarter here about choosing significant digits
-            // See: protoc source has C++ code for this with interesting ideas
-            if let v = Int64(safely: value) {
+            if let v = Int64(exactly: value) {
                 appendInt(value: v)
             } else {
-                let s = String(value)
-                append(text: s)
+                let formatted = doubleFormatter.doubleToUtf8(value)
+                data.append(contentsOf: formatted)
             }
         }
     }

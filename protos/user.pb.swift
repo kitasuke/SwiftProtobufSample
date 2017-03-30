@@ -19,9 +19,8 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _1
 }
 
-struct User: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+struct User: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "User"
-  static let protoPackageName: String = ""
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "id"),
     2: .same(proto: "type"),
@@ -39,6 +38,8 @@ struct User: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBa
   var introduction: String = ""
 
   var photoURL: String = ""
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
   enum TypeEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
     typealias RawValue = Int
@@ -75,24 +76,20 @@ struct User: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBa
 
   init() {}
 
-  mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
-      try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &id)
+      case 2: try decoder.decodeSingularEnumField(value: &type)
+      case 3: try decoder.decodeSingularStringField(value: &name)
+      case 4: try decoder.decodeSingularStringField(value: &introduction)
+      case 5: try decoder.decodeSingularStringField(value: &photoURL)
+      default: break
+      }
     }
   }
 
-  mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
-    switch fieldNumber {
-    case 1: try decoder.decodeSingularInt32Field(value: &id)
-    case 2: try decoder.decodeSingularEnumField(value: &type)
-    case 3: try decoder.decodeSingularStringField(value: &name)
-    case 4: try decoder.decodeSingularStringField(value: &introduction)
-    case 5: try decoder.decodeSingularStringField(value: &photoURL)
-    default: break
-    }
-  }
-
-  func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if id != 0 {
       try visitor.visitSingularInt32Field(value: id, fieldNumber: 1)
     }
@@ -108,6 +105,7 @@ struct User: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBa
     if !photoURL.isEmpty {
       try visitor.visitSingularStringField(value: photoURL, fieldNumber: 5)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: User) -> Bool {
@@ -116,6 +114,7 @@ struct User: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBa
     if name != other.name {return false}
     if introduction != other.introduction {return false}
     if photoURL != other.photoURL {return false}
+    if unknownFields != other.unknownFields {return false}
     return true
   }
 }

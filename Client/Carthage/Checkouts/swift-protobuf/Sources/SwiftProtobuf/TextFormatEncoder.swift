@@ -45,6 +45,10 @@ internal struct TextFormatEncoder {
         data.append(contentsOf: buff)
     }
 
+    internal mutating func append(name: _NameMap.Name) {
+        data.append(contentsOf: name.utf8Buffer)
+    }
+
     private mutating func append(text: String) {
         data.append(contentsOf: text.utf8)
     }
@@ -55,50 +59,39 @@ internal struct TextFormatEncoder {
         data.append(contentsOf: indentString)
     }
 
-    private mutating func appendFieldName(name: StaticString, inExtension: Bool) {
+    mutating func emitFieldName(name: UnsafeBufferPointer<UInt8>) {
         indent()
-        if inExtension {
-            data.append(asciiOpenSquareBracket)
-        }
+        data.append(contentsOf: name)
+    }
+
+    mutating func emitFieldName(name: StaticString) {
         let buff = UnsafeBufferPointer(start: name.utf8Start, count: name.utf8CodeUnitCount)
-        data.append(contentsOf: buff)
-        if inExtension {
-            data.append(asciiCloseSquareBracket)
-        }
+        emitFieldName(name: buff)
     }
 
-    // In Text format, fields with simple types write the name with
-    // a trailing colon:
-    //    name_of_field: value
-    mutating func startField(name: StaticString, inExtension: Bool) {
-        appendFieldName(name: name, inExtension: inExtension)
-        append(staticText: ": ")
+    mutating func emitExtensionFieldName(name: String) {
+        indent()
+        data.append(asciiOpenSquareBracket)
+        append(text: name)
+        data.append(asciiCloseSquareBracket)
     }
 
-    mutating func startField(number: Int) {
+    mutating func emitFieldNumber(number: Int) {
         indent()
         appendUInt(value: UInt64(number))
-        append(staticText: ": ")
     }
 
-    mutating func endField() {
+    mutating func startRegularField() {
+        append(staticText: ": ")
+    }
+    mutating func endRegularField() {
         data.append(asciiNewline)
     }
 
     // In Text format, a message-valued field writes the name
     // without a trailing colon:
     //    name_of_field {key: value key2: value2}
-    mutating func startMessageField(name: StaticString, inExtension: Bool) {
-        appendFieldName(name: name, inExtension: inExtension)
-        append(staticText: " {\n")
-        for _ in 1...tabSize {
-            indentString.append(asciiSpace)
-        }
-    }
-
-    mutating func startMessageField(number: Int) {
-        indent()
-        appendUInt(value: UInt64(number))
+    mutating func startMessageField() {
         append(staticText: " {\n")
         for _ in 1...tabSize {
             indentString.append(asciiSpace)
@@ -127,11 +120,29 @@ internal struct TextFormatEncoder {
 
     mutating func putEnumValue<E: Enum>(value: E) {
         if let name = value.name {
-            let buff = UnsafeBufferPointer(start: name.utf8Start,
-                                           count: name.utf8CodeUnitCount)
-            data.append(contentsOf: buff)
+            data.append(contentsOf: name.utf8Buffer)
         } else {
             appendInt(value: Int64(value.rawValue))
+        }
+    }
+
+    mutating func putFloatValue(value: Float) {
+        if value.isNaN {
+            append(staticText: "nan")
+        } else if !value.isFinite {
+            if value < 0 {
+                append(staticText: "-inf")
+            } else {
+                append(staticText: "inf")
+            }
+        } else {
+            if let v = Int64(exactly: Double(value)) {
+                appendInt(value: v)
+            } else {
+                let doubleFormatter = DoubleFormatter()
+                let formatted = doubleFormatter.floatToUtf8(value)
+                data.append(contentsOf: formatted)
+            }
         }
     }
 
@@ -145,20 +156,25 @@ internal struct TextFormatEncoder {
                 append(staticText: "inf")
             }
         } else {
-            // TODO: Be smarter here about choosing significant digits
-            // See: protoc source has C++ code for this with interesting ideas
-            if let v = Int64(safely: value) {
+            if let v = Int64(exactly: value) {
                 appendInt(value: v)
             } else {
-                let s = String(value)
-                append(text: s)
+                let doubleFormatter = DoubleFormatter()
+                let formatted = doubleFormatter.doubleToUtf8(value)
+                data.append(contentsOf: formatted)
             }
         }
     }
 
     private mutating func appendUInt(value: UInt64) {
+        if value >= 1000 {
+            appendUInt(value: value / 1000)
+        }
+        if value >= 100 {
+            data.append(asciiZero + UInt8((value / 100) % 10))
+        }
         if value >= 10 {
-            appendUInt(value: value / 10)
+            data.append(asciiZero + UInt8((value / 10) % 10))
         }
         data.append(asciiZero + UInt8(value % 10))
     }

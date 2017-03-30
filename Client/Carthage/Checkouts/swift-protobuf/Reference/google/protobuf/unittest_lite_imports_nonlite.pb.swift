@@ -53,9 +53,10 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _1
 }
 
-struct ProtobufUnittest_TestLiteImportsNonlite: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "TestLiteImportsNonlite"
-  static let protoPackageName: String = "protobuf_unittest"
+fileprivate let _protobuf_package = "protobuf_unittest"
+
+struct ProtobufUnittest_TestLiteImportsNonlite: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".TestLiteImportsNonlite"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "message"),
   ]
@@ -65,10 +66,8 @@ struct ProtobufUnittest_TestLiteImportsNonlite: SwiftProtobuf.Proto2Message, Swi
 
     init() {}
 
-    func copy() -> _StorageClass {
-      let clone = _StorageClass()
-      clone._message = _message
-      return clone
+    init(copying source: _StorageClass) {
+      _message = source._message
     }
   }
 
@@ -76,7 +75,7 @@ struct ProtobufUnittest_TestLiteImportsNonlite: SwiftProtobuf.Proto2Message, Swi
 
   private mutating func _uniqueStorage() -> _StorageClass {
     if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _storage.copy()
+      _storage = _StorageClass(copying: _storage)
     }
     return _storage
   }
@@ -96,38 +95,36 @@ struct ProtobufUnittest_TestLiteImportsNonlite: SwiftProtobuf.Proto2Message, Swi
 
   init() {}
 
-  mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
-        try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+        switch fieldNumber {
+        case 1: try decoder.decodeSingularMessageField(value: &_storage._message)
+        default: break
+        }
       }
     }
   }
 
-  mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
-    switch fieldNumber {
-    case 1: try decoder.decodeSingularMessageField(value: &_storage._message)
-    default: break
-    }
-  }
-
-  func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       if let v = _storage._message {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
       }
-      try unknownFields.traverse(visitor: &visitor)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestLiteImportsNonlite) -> Bool {
-    return withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
-      if _storage !== other_storage {
+    if _storage !== other._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
         if _storage._message != other_storage._message {return false}
+        return true
       }
-      if unknownFields != other.unknownFields {return false}
-      return true
+      if !storagesAreEqual {return false}
     }
+    if unknownFields != other.unknownFields {return false}
+    return true
   }
 }

@@ -48,42 +48,43 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _1
 }
 
+fileprivate let _protobuf_package = "google.protobuf"
+
 ///   `SourceContext` represents information about the source of a
 ///   protobuf element, like the file in which it is defined.
-struct Google_Protobuf_SourceContext: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "SourceContext"
-  static let protoPackageName: String = "google.protobuf"
+struct Google_Protobuf_SourceContext: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".SourceContext"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .unique(proto: "file_name", json: "fileName"),
+    1: .standard(proto: "file_name"),
   ]
 
   ///   The path-qualified name of the .proto file that contained the associated
   ///   protobuf element.  For example: `"google/protobuf/source_context.proto"`.
   var fileName: String = ""
 
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
   init() {}
 
-  mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
-      try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularStringField(value: &fileName)
+      default: break
+      }
     }
   }
 
-  mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
-    switch fieldNumber {
-    case 1: try decoder.decodeSingularStringField(value: &fileName)
-    default: break
-    }
-  }
-
-  func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !fileName.isEmpty {
       try visitor.visitSingularStringField(value: fileName, fieldNumber: 1)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: Google_Protobuf_SourceContext) -> Bool {
     if fileName != other.fileName {return false}
+    if unknownFields != other.unknownFields {return false}
     return true
   }
 }

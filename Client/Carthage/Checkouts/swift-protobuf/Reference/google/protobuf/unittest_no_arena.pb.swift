@@ -57,6 +57,8 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _1
 }
 
+fileprivate let _protobuf_package = "protobuf_unittest_no_arena"
+
 enum ProtobufUnittestNoArena_ForeignEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
   typealias RawValue = Int
   case foreignFoo // = 4
@@ -94,86 +96,85 @@ enum ProtobufUnittestNoArena_ForeignEnum: SwiftProtobuf.Enum, SwiftProtobuf._Pro
 
 ///   This proto includes every type of field in both singular and repeated
 ///   forms.
-struct ProtobufUnittestNoArena_TestAllTypes: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "TestAllTypes"
-  static let protoPackageName: String = "protobuf_unittest_no_arena"
+struct ProtobufUnittestNoArena_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".TestAllTypes"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .unique(proto: "optional_int32", json: "optionalInt32"),
-    2: .unique(proto: "optional_int64", json: "optionalInt64"),
-    3: .unique(proto: "optional_uint32", json: "optionalUint32"),
-    4: .unique(proto: "optional_uint64", json: "optionalUint64"),
-    5: .unique(proto: "optional_sint32", json: "optionalSint32"),
-    6: .unique(proto: "optional_sint64", json: "optionalSint64"),
-    7: .unique(proto: "optional_fixed32", json: "optionalFixed32"),
-    8: .unique(proto: "optional_fixed64", json: "optionalFixed64"),
-    9: .unique(proto: "optional_sfixed32", json: "optionalSfixed32"),
-    10: .unique(proto: "optional_sfixed64", json: "optionalSfixed64"),
-    11: .unique(proto: "optional_float", json: "optionalFloat"),
-    12: .unique(proto: "optional_double", json: "optionalDouble"),
-    13: .unique(proto: "optional_bool", json: "optionalBool"),
-    14: .unique(proto: "optional_string", json: "optionalString"),
-    15: .unique(proto: "optional_bytes", json: "optionalBytes"),
+    1: .standard(proto: "optional_int32"),
+    2: .standard(proto: "optional_int64"),
+    3: .standard(proto: "optional_uint32"),
+    4: .standard(proto: "optional_uint64"),
+    5: .standard(proto: "optional_sint32"),
+    6: .standard(proto: "optional_sint64"),
+    7: .standard(proto: "optional_fixed32"),
+    8: .standard(proto: "optional_fixed64"),
+    9: .standard(proto: "optional_sfixed32"),
+    10: .standard(proto: "optional_sfixed64"),
+    11: .standard(proto: "optional_float"),
+    12: .standard(proto: "optional_double"),
+    13: .standard(proto: "optional_bool"),
+    14: .standard(proto: "optional_string"),
+    15: .standard(proto: "optional_bytes"),
     16: .unique(proto: "OptionalGroup", json: "optionalgroup"),
-    18: .unique(proto: "optional_nested_message", json: "optionalNestedMessage"),
-    19: .unique(proto: "optional_foreign_message", json: "optionalForeignMessage"),
-    20: .unique(proto: "optional_import_message", json: "optionalImportMessage"),
-    21: .unique(proto: "optional_nested_enum", json: "optionalNestedEnum"),
-    22: .unique(proto: "optional_foreign_enum", json: "optionalForeignEnum"),
-    23: .unique(proto: "optional_import_enum", json: "optionalImportEnum"),
-    24: .unique(proto: "optional_string_piece", json: "optionalStringPiece"),
-    25: .unique(proto: "optional_cord", json: "optionalCord"),
-    26: .unique(proto: "optional_public_import_message", json: "optionalPublicImportMessage"),
-    27: .unique(proto: "optional_message", json: "optionalMessage"),
-    31: .unique(proto: "repeated_int32", json: "repeatedInt32"),
-    32: .unique(proto: "repeated_int64", json: "repeatedInt64"),
-    33: .unique(proto: "repeated_uint32", json: "repeatedUint32"),
-    34: .unique(proto: "repeated_uint64", json: "repeatedUint64"),
-    35: .unique(proto: "repeated_sint32", json: "repeatedSint32"),
-    36: .unique(proto: "repeated_sint64", json: "repeatedSint64"),
-    37: .unique(proto: "repeated_fixed32", json: "repeatedFixed32"),
-    38: .unique(proto: "repeated_fixed64", json: "repeatedFixed64"),
-    39: .unique(proto: "repeated_sfixed32", json: "repeatedSfixed32"),
-    40: .unique(proto: "repeated_sfixed64", json: "repeatedSfixed64"),
-    41: .unique(proto: "repeated_float", json: "repeatedFloat"),
-    42: .unique(proto: "repeated_double", json: "repeatedDouble"),
-    43: .unique(proto: "repeated_bool", json: "repeatedBool"),
-    44: .unique(proto: "repeated_string", json: "repeatedString"),
-    45: .unique(proto: "repeated_bytes", json: "repeatedBytes"),
+    18: .standard(proto: "optional_nested_message"),
+    19: .standard(proto: "optional_foreign_message"),
+    20: .standard(proto: "optional_import_message"),
+    21: .standard(proto: "optional_nested_enum"),
+    22: .standard(proto: "optional_foreign_enum"),
+    23: .standard(proto: "optional_import_enum"),
+    24: .standard(proto: "optional_string_piece"),
+    25: .standard(proto: "optional_cord"),
+    26: .standard(proto: "optional_public_import_message"),
+    27: .standard(proto: "optional_message"),
+    31: .standard(proto: "repeated_int32"),
+    32: .standard(proto: "repeated_int64"),
+    33: .standard(proto: "repeated_uint32"),
+    34: .standard(proto: "repeated_uint64"),
+    35: .standard(proto: "repeated_sint32"),
+    36: .standard(proto: "repeated_sint64"),
+    37: .standard(proto: "repeated_fixed32"),
+    38: .standard(proto: "repeated_fixed64"),
+    39: .standard(proto: "repeated_sfixed32"),
+    40: .standard(proto: "repeated_sfixed64"),
+    41: .standard(proto: "repeated_float"),
+    42: .standard(proto: "repeated_double"),
+    43: .standard(proto: "repeated_bool"),
+    44: .standard(proto: "repeated_string"),
+    45: .standard(proto: "repeated_bytes"),
     46: .unique(proto: "RepeatedGroup", json: "repeatedgroup"),
-    48: .unique(proto: "repeated_nested_message", json: "repeatedNestedMessage"),
-    49: .unique(proto: "repeated_foreign_message", json: "repeatedForeignMessage"),
-    50: .unique(proto: "repeated_import_message", json: "repeatedImportMessage"),
-    51: .unique(proto: "repeated_nested_enum", json: "repeatedNestedEnum"),
-    52: .unique(proto: "repeated_foreign_enum", json: "repeatedForeignEnum"),
-    53: .unique(proto: "repeated_import_enum", json: "repeatedImportEnum"),
-    54: .unique(proto: "repeated_string_piece", json: "repeatedStringPiece"),
-    55: .unique(proto: "repeated_cord", json: "repeatedCord"),
-    57: .unique(proto: "repeated_lazy_message", json: "repeatedLazyMessage"),
-    61: .unique(proto: "default_int32", json: "defaultInt32"),
-    62: .unique(proto: "default_int64", json: "defaultInt64"),
-    63: .unique(proto: "default_uint32", json: "defaultUint32"),
-    64: .unique(proto: "default_uint64", json: "defaultUint64"),
-    65: .unique(proto: "default_sint32", json: "defaultSint32"),
-    66: .unique(proto: "default_sint64", json: "defaultSint64"),
-    67: .unique(proto: "default_fixed32", json: "defaultFixed32"),
-    68: .unique(proto: "default_fixed64", json: "defaultFixed64"),
-    69: .unique(proto: "default_sfixed32", json: "defaultSfixed32"),
-    70: .unique(proto: "default_sfixed64", json: "defaultSfixed64"),
-    71: .unique(proto: "default_float", json: "defaultFloat"),
-    72: .unique(proto: "default_double", json: "defaultDouble"),
-    73: .unique(proto: "default_bool", json: "defaultBool"),
-    74: .unique(proto: "default_string", json: "defaultString"),
-    75: .unique(proto: "default_bytes", json: "defaultBytes"),
-    81: .unique(proto: "default_nested_enum", json: "defaultNestedEnum"),
-    82: .unique(proto: "default_foreign_enum", json: "defaultForeignEnum"),
-    83: .unique(proto: "default_import_enum", json: "defaultImportEnum"),
-    84: .unique(proto: "default_string_piece", json: "defaultStringPiece"),
-    85: .unique(proto: "default_cord", json: "defaultCord"),
-    111: .unique(proto: "oneof_uint32", json: "oneofUint32"),
-    112: .unique(proto: "oneof_nested_message", json: "oneofNestedMessage"),
-    113: .unique(proto: "oneof_string", json: "oneofString"),
-    114: .unique(proto: "oneof_bytes", json: "oneofBytes"),
-    115: .unique(proto: "lazy_oneof_nested_message", json: "lazyOneofNestedMessage"),
+    48: .standard(proto: "repeated_nested_message"),
+    49: .standard(proto: "repeated_foreign_message"),
+    50: .standard(proto: "repeated_import_message"),
+    51: .standard(proto: "repeated_nested_enum"),
+    52: .standard(proto: "repeated_foreign_enum"),
+    53: .standard(proto: "repeated_import_enum"),
+    54: .standard(proto: "repeated_string_piece"),
+    55: .standard(proto: "repeated_cord"),
+    57: .standard(proto: "repeated_lazy_message"),
+    61: .standard(proto: "default_int32"),
+    62: .standard(proto: "default_int64"),
+    63: .standard(proto: "default_uint32"),
+    64: .standard(proto: "default_uint64"),
+    65: .standard(proto: "default_sint32"),
+    66: .standard(proto: "default_sint64"),
+    67: .standard(proto: "default_fixed32"),
+    68: .standard(proto: "default_fixed64"),
+    69: .standard(proto: "default_sfixed32"),
+    70: .standard(proto: "default_sfixed64"),
+    71: .standard(proto: "default_float"),
+    72: .standard(proto: "default_double"),
+    73: .standard(proto: "default_bool"),
+    74: .standard(proto: "default_string"),
+    75: .standard(proto: "default_bytes"),
+    81: .standard(proto: "default_nested_enum"),
+    82: .standard(proto: "default_foreign_enum"),
+    83: .standard(proto: "default_import_enum"),
+    84: .standard(proto: "default_string_piece"),
+    85: .standard(proto: "default_cord"),
+    111: .standard(proto: "oneof_uint32"),
+    112: .standard(proto: "oneof_nested_message"),
+    113: .standard(proto: "oneof_string"),
+    114: .standard(proto: "oneof_bytes"),
+    115: .standard(proto: "lazy_oneof_nested_message"),
   ]
 
   private class _StorageClass {
@@ -252,81 +253,79 @@ struct ProtobufUnittestNoArena_TestAllTypes: SwiftProtobuf.Proto2Message, SwiftP
 
     init() {}
 
-    func copy() -> _StorageClass {
-      let clone = _StorageClass()
-      clone._optionalInt32 = _optionalInt32
-      clone._optionalInt64 = _optionalInt64
-      clone._optionalUint32 = _optionalUint32
-      clone._optionalUint64 = _optionalUint64
-      clone._optionalSint32 = _optionalSint32
-      clone._optionalSint64 = _optionalSint64
-      clone._optionalFixed32 = _optionalFixed32
-      clone._optionalFixed64 = _optionalFixed64
-      clone._optionalSfixed32 = _optionalSfixed32
-      clone._optionalSfixed64 = _optionalSfixed64
-      clone._optionalFloat = _optionalFloat
-      clone._optionalDouble = _optionalDouble
-      clone._optionalBool = _optionalBool
-      clone._optionalString = _optionalString
-      clone._optionalBytes = _optionalBytes
-      clone._optionalGroup = _optionalGroup
-      clone._optionalNestedMessage = _optionalNestedMessage
-      clone._optionalForeignMessage = _optionalForeignMessage
-      clone._optionalImportMessage = _optionalImportMessage
-      clone._optionalNestedEnum = _optionalNestedEnum
-      clone._optionalForeignEnum = _optionalForeignEnum
-      clone._optionalImportEnum = _optionalImportEnum
-      clone._optionalStringPiece = _optionalStringPiece
-      clone._optionalCord = _optionalCord
-      clone._optionalPublicImportMessage = _optionalPublicImportMessage
-      clone._optionalMessage = _optionalMessage
-      clone._repeatedInt32 = _repeatedInt32
-      clone._repeatedInt64 = _repeatedInt64
-      clone._repeatedUint32 = _repeatedUint32
-      clone._repeatedUint64 = _repeatedUint64
-      clone._repeatedSint32 = _repeatedSint32
-      clone._repeatedSint64 = _repeatedSint64
-      clone._repeatedFixed32 = _repeatedFixed32
-      clone._repeatedFixed64 = _repeatedFixed64
-      clone._repeatedSfixed32 = _repeatedSfixed32
-      clone._repeatedSfixed64 = _repeatedSfixed64
-      clone._repeatedFloat = _repeatedFloat
-      clone._repeatedDouble = _repeatedDouble
-      clone._repeatedBool = _repeatedBool
-      clone._repeatedString = _repeatedString
-      clone._repeatedBytes = _repeatedBytes
-      clone._repeatedGroup = _repeatedGroup
-      clone._repeatedNestedMessage = _repeatedNestedMessage
-      clone._repeatedForeignMessage = _repeatedForeignMessage
-      clone._repeatedImportMessage = _repeatedImportMessage
-      clone._repeatedNestedEnum = _repeatedNestedEnum
-      clone._repeatedForeignEnum = _repeatedForeignEnum
-      clone._repeatedImportEnum = _repeatedImportEnum
-      clone._repeatedStringPiece = _repeatedStringPiece
-      clone._repeatedCord = _repeatedCord
-      clone._repeatedLazyMessage = _repeatedLazyMessage
-      clone._defaultInt32 = _defaultInt32
-      clone._defaultInt64 = _defaultInt64
-      clone._defaultUint32 = _defaultUint32
-      clone._defaultUint64 = _defaultUint64
-      clone._defaultSint32 = _defaultSint32
-      clone._defaultSint64 = _defaultSint64
-      clone._defaultFixed32 = _defaultFixed32
-      clone._defaultFixed64 = _defaultFixed64
-      clone._defaultSfixed32 = _defaultSfixed32
-      clone._defaultSfixed64 = _defaultSfixed64
-      clone._defaultFloat = _defaultFloat
-      clone._defaultDouble = _defaultDouble
-      clone._defaultBool = _defaultBool
-      clone._defaultString = _defaultString
-      clone._defaultBytes = _defaultBytes
-      clone._defaultNestedEnum = _defaultNestedEnum
-      clone._defaultForeignEnum = _defaultForeignEnum
-      clone._defaultImportEnum = _defaultImportEnum
-      clone._defaultStringPiece = _defaultStringPiece
-      clone._defaultCord = _defaultCord
-      clone._oneofField = _oneofField
-      return clone
+    init(copying source: _StorageClass) {
+      _optionalInt32 = source._optionalInt32
+      _optionalInt64 = source._optionalInt64
+      _optionalUint32 = source._optionalUint32
+      _optionalUint64 = source._optionalUint64
+      _optionalSint32 = source._optionalSint32
+      _optionalSint64 = source._optionalSint64
+      _optionalFixed32 = source._optionalFixed32
+      _optionalFixed64 = source._optionalFixed64
+      _optionalSfixed32 = source._optionalSfixed32
+      _optionalSfixed64 = source._optionalSfixed64
+      _optionalFloat = source._optionalFloat
+      _optionalDouble = source._optionalDouble
+      _optionalBool = source._optionalBool
+      _optionalString = source._optionalString
+      _optionalBytes = source._optionalBytes
+      _optionalGroup = source._optionalGroup
+      _optionalNestedMessage = source._optionalNestedMessage
+      _optionalForeignMessage = source._optionalForeignMessage
+      _optionalImportMessage = source._optionalImportMessage
+      _optionalNestedEnum = source._optionalNestedEnum
+      _optionalForeignEnum = source._optionalForeignEnum
+      _optionalImportEnum = source._optionalImportEnum
+      _optionalStringPiece = source._optionalStringPiece
+      _optionalCord = source._optionalCord
+      _optionalPublicImportMessage = source._optionalPublicImportMessage
+      _optionalMessage = source._optionalMessage
+      _repeatedInt32 = source._repeatedInt32
+      _repeatedInt64 = source._repeatedInt64
+      _repeatedUint32 = source._repeatedUint32
+      _repeatedUint64 = source._repeatedUint64
+      _repeatedSint32 = source._repeatedSint32
+      _repeatedSint64 = source._repeatedSint64
+      _repeatedFixed32 = source._repeatedFixed32
+      _repeatedFixed64 = source._repeatedFixed64
+      _repeatedSfixed32 = source._repeatedSfixed32
+      _repeatedSfixed64 = source._repeatedSfixed64
+      _repeatedFloat = source._repeatedFloat
+      _repeatedDouble = source._repeatedDouble
+      _repeatedBool = source._repeatedBool
+      _repeatedString = source._repeatedString
+      _repeatedBytes = source._repeatedBytes
+      _repeatedGroup = source._repeatedGroup
+      _repeatedNestedMessage = source._repeatedNestedMessage
+      _repeatedForeignMessage = source._repeatedForeignMessage
+      _repeatedImportMessage = source._repeatedImportMessage
+      _repeatedNestedEnum = source._repeatedNestedEnum
+      _repeatedForeignEnum = source._repeatedForeignEnum
+      _repeatedImportEnum = source._repeatedImportEnum
+      _repeatedStringPiece = source._repeatedStringPiece
+      _repeatedCord = source._repeatedCord
+      _repeatedLazyMessage = source._repeatedLazyMessage
+      _defaultInt32 = source._defaultInt32
+      _defaultInt64 = source._defaultInt64
+      _defaultUint32 = source._defaultUint32
+      _defaultUint64 = source._defaultUint64
+      _defaultSint32 = source._defaultSint32
+      _defaultSint64 = source._defaultSint64
+      _defaultFixed32 = source._defaultFixed32
+      _defaultFixed64 = source._defaultFixed64
+      _defaultSfixed32 = source._defaultSfixed32
+      _defaultSfixed64 = source._defaultSfixed64
+      _defaultFloat = source._defaultFloat
+      _defaultDouble = source._defaultDouble
+      _defaultBool = source._defaultBool
+      _defaultString = source._defaultString
+      _defaultBytes = source._defaultBytes
+      _defaultNestedEnum = source._defaultNestedEnum
+      _defaultForeignEnum = source._defaultForeignEnum
+      _defaultImportEnum = source._defaultImportEnum
+      _defaultStringPiece = source._defaultStringPiece
+      _defaultCord = source._defaultCord
+      _oneofField = source._oneofField
     }
   }
 
@@ -334,7 +333,7 @@ struct ProtobufUnittestNoArena_TestAllTypes: SwiftProtobuf.Proto2Message, SwiftP
 
   private mutating func _uniqueStorage() -> _StorageClass {
     if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _storage.copy()
+      _storage = _StorageClass(copying: _storage)
     }
     return _storage
   }
@@ -1140,10 +1139,10 @@ struct ProtobufUnittestNoArena_TestAllTypes: SwiftProtobuf.Proto2Message, SwiftP
     case neg // = -1
 
     static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+      -1: .same(proto: "NEG"),
       1: .same(proto: "FOO"),
       2: .same(proto: "BAR"),
       3: .same(proto: "BAZ"),
-      -1: .same(proto: "NEG"),
     ]
 
     init() {
@@ -1152,28 +1151,27 @@ struct ProtobufUnittestNoArena_TestAllTypes: SwiftProtobuf.Proto2Message, SwiftP
 
     init?(rawValue: Int) {
       switch rawValue {
+      case -1: self = .neg
       case 1: self = .foo
       case 2: self = .bar
       case 3: self = .baz
-      case -1: self = .neg
       default: return nil
       }
     }
 
     var rawValue: Int {
       switch self {
+      case .neg: return -1
       case .foo: return 1
       case .bar: return 2
       case .baz: return 3
-      case .neg: return -1
       }
     }
 
   }
 
-  struct NestedMessage: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-    static let protoMessageName: String = "NestedMessage"
-    static let protoPackageName: String = "protobuf_unittest_no_arena"
+  struct NestedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+    static let protoMessageName: String = ProtobufUnittestNoArena_TestAllTypes.protoMessageName + ".NestedMessage"
     static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
       1: .same(proto: "bb"),
     ]
@@ -1197,20 +1195,16 @@ struct ProtobufUnittestNoArena_TestAllTypes: SwiftProtobuf.Proto2Message, SwiftP
 
     init() {}
 
-    mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
-        try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+        switch fieldNumber {
+        case 1: try decoder.decodeSingularInt32Field(value: &_bb)
+        default: break
+        }
       }
     }
 
-    mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
-      switch fieldNumber {
-      case 1: try decoder.decodeSingularInt32Field(value: &_bb)
-      default: break
-      }
-    }
-
-    func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _bb {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
@@ -1224,9 +1218,8 @@ struct ProtobufUnittestNoArena_TestAllTypes: SwiftProtobuf.Proto2Message, SwiftP
     }
   }
 
-  struct OptionalGroup: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-    static let protoMessageName: String = "OptionalGroup"
-    static let protoPackageName: String = "protobuf_unittest_no_arena"
+  struct OptionalGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+    static let protoMessageName: String = ProtobufUnittestNoArena_TestAllTypes.protoMessageName + ".OptionalGroup"
     static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
       17: .same(proto: "a"),
     ]
@@ -1247,20 +1240,16 @@ struct ProtobufUnittestNoArena_TestAllTypes: SwiftProtobuf.Proto2Message, SwiftP
 
     init() {}
 
-    mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
-        try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+        switch fieldNumber {
+        case 17: try decoder.decodeSingularInt32Field(value: &_a)
+        default: break
+        }
       }
     }
 
-    mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
-      switch fieldNumber {
-      case 17: try decoder.decodeSingularInt32Field(value: &_a)
-      default: break
-      }
-    }
-
-    func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 17)
       }
@@ -1274,9 +1263,8 @@ struct ProtobufUnittestNoArena_TestAllTypes: SwiftProtobuf.Proto2Message, SwiftP
     }
   }
 
-  struct RepeatedGroup: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-    static let protoMessageName: String = "RepeatedGroup"
-    static let protoPackageName: String = "protobuf_unittest_no_arena"
+  struct RepeatedGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+    static let protoMessageName: String = ProtobufUnittestNoArena_TestAllTypes.protoMessageName + ".RepeatedGroup"
     static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
       47: .same(proto: "a"),
     ]
@@ -1297,20 +1285,16 @@ struct ProtobufUnittestNoArena_TestAllTypes: SwiftProtobuf.Proto2Message, SwiftP
 
     init() {}
 
-    mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
-        try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+        switch fieldNumber {
+        case 47: try decoder.decodeSingularInt32Field(value: &_a)
+        default: break
+        }
       }
     }
 
-    mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
-      switch fieldNumber {
-      case 47: try decoder.decodeSingularInt32Field(value: &_a)
-      default: break
-      }
-    }
-
-    func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 47)
       }
@@ -1326,98 +1310,94 @@ struct ProtobufUnittestNoArena_TestAllTypes: SwiftProtobuf.Proto2Message, SwiftP
 
   init() {}
 
-  mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
-        try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+        switch fieldNumber {
+        case 1: try decoder.decodeSingularInt32Field(value: &_storage._optionalInt32)
+        case 2: try decoder.decodeSingularInt64Field(value: &_storage._optionalInt64)
+        case 3: try decoder.decodeSingularUInt32Field(value: &_storage._optionalUint32)
+        case 4: try decoder.decodeSingularUInt64Field(value: &_storage._optionalUint64)
+        case 5: try decoder.decodeSingularSInt32Field(value: &_storage._optionalSint32)
+        case 6: try decoder.decodeSingularSInt64Field(value: &_storage._optionalSint64)
+        case 7: try decoder.decodeSingularFixed32Field(value: &_storage._optionalFixed32)
+        case 8: try decoder.decodeSingularFixed64Field(value: &_storage._optionalFixed64)
+        case 9: try decoder.decodeSingularSFixed32Field(value: &_storage._optionalSfixed32)
+        case 10: try decoder.decodeSingularSFixed64Field(value: &_storage._optionalSfixed64)
+        case 11: try decoder.decodeSingularFloatField(value: &_storage._optionalFloat)
+        case 12: try decoder.decodeSingularDoubleField(value: &_storage._optionalDouble)
+        case 13: try decoder.decodeSingularBoolField(value: &_storage._optionalBool)
+        case 14: try decoder.decodeSingularStringField(value: &_storage._optionalString)
+        case 15: try decoder.decodeSingularBytesField(value: &_storage._optionalBytes)
+        case 16: try decoder.decodeSingularGroupField(value: &_storage._optionalGroup)
+        case 18: try decoder.decodeSingularMessageField(value: &_storage._optionalNestedMessage)
+        case 19: try decoder.decodeSingularMessageField(value: &_storage._optionalForeignMessage)
+        case 20: try decoder.decodeSingularMessageField(value: &_storage._optionalImportMessage)
+        case 21: try decoder.decodeSingularEnumField(value: &_storage._optionalNestedEnum)
+        case 22: try decoder.decodeSingularEnumField(value: &_storage._optionalForeignEnum)
+        case 23: try decoder.decodeSingularEnumField(value: &_storage._optionalImportEnum)
+        case 24: try decoder.decodeSingularStringField(value: &_storage._optionalStringPiece)
+        case 25: try decoder.decodeSingularStringField(value: &_storage._optionalCord)
+        case 26: try decoder.decodeSingularMessageField(value: &_storage._optionalPublicImportMessage)
+        case 27: try decoder.decodeSingularMessageField(value: &_storage._optionalMessage)
+        case 31: try decoder.decodeRepeatedInt32Field(value: &_storage._repeatedInt32)
+        case 32: try decoder.decodeRepeatedInt64Field(value: &_storage._repeatedInt64)
+        case 33: try decoder.decodeRepeatedUInt32Field(value: &_storage._repeatedUint32)
+        case 34: try decoder.decodeRepeatedUInt64Field(value: &_storage._repeatedUint64)
+        case 35: try decoder.decodeRepeatedSInt32Field(value: &_storage._repeatedSint32)
+        case 36: try decoder.decodeRepeatedSInt64Field(value: &_storage._repeatedSint64)
+        case 37: try decoder.decodeRepeatedFixed32Field(value: &_storage._repeatedFixed32)
+        case 38: try decoder.decodeRepeatedFixed64Field(value: &_storage._repeatedFixed64)
+        case 39: try decoder.decodeRepeatedSFixed32Field(value: &_storage._repeatedSfixed32)
+        case 40: try decoder.decodeRepeatedSFixed64Field(value: &_storage._repeatedSfixed64)
+        case 41: try decoder.decodeRepeatedFloatField(value: &_storage._repeatedFloat)
+        case 42: try decoder.decodeRepeatedDoubleField(value: &_storage._repeatedDouble)
+        case 43: try decoder.decodeRepeatedBoolField(value: &_storage._repeatedBool)
+        case 44: try decoder.decodeRepeatedStringField(value: &_storage._repeatedString)
+        case 45: try decoder.decodeRepeatedBytesField(value: &_storage._repeatedBytes)
+        case 46: try decoder.decodeRepeatedGroupField(value: &_storage._repeatedGroup)
+        case 48: try decoder.decodeRepeatedMessageField(value: &_storage._repeatedNestedMessage)
+        case 49: try decoder.decodeRepeatedMessageField(value: &_storage._repeatedForeignMessage)
+        case 50: try decoder.decodeRepeatedMessageField(value: &_storage._repeatedImportMessage)
+        case 51: try decoder.decodeRepeatedEnumField(value: &_storage._repeatedNestedEnum)
+        case 52: try decoder.decodeRepeatedEnumField(value: &_storage._repeatedForeignEnum)
+        case 53: try decoder.decodeRepeatedEnumField(value: &_storage._repeatedImportEnum)
+        case 54: try decoder.decodeRepeatedStringField(value: &_storage._repeatedStringPiece)
+        case 55: try decoder.decodeRepeatedStringField(value: &_storage._repeatedCord)
+        case 57: try decoder.decodeRepeatedMessageField(value: &_storage._repeatedLazyMessage)
+        case 61: try decoder.decodeSingularInt32Field(value: &_storage._defaultInt32)
+        case 62: try decoder.decodeSingularInt64Field(value: &_storage._defaultInt64)
+        case 63: try decoder.decodeSingularUInt32Field(value: &_storage._defaultUint32)
+        case 64: try decoder.decodeSingularUInt64Field(value: &_storage._defaultUint64)
+        case 65: try decoder.decodeSingularSInt32Field(value: &_storage._defaultSint32)
+        case 66: try decoder.decodeSingularSInt64Field(value: &_storage._defaultSint64)
+        case 67: try decoder.decodeSingularFixed32Field(value: &_storage._defaultFixed32)
+        case 68: try decoder.decodeSingularFixed64Field(value: &_storage._defaultFixed64)
+        case 69: try decoder.decodeSingularSFixed32Field(value: &_storage._defaultSfixed32)
+        case 70: try decoder.decodeSingularSFixed64Field(value: &_storage._defaultSfixed64)
+        case 71: try decoder.decodeSingularFloatField(value: &_storage._defaultFloat)
+        case 72: try decoder.decodeSingularDoubleField(value: &_storage._defaultDouble)
+        case 73: try decoder.decodeSingularBoolField(value: &_storage._defaultBool)
+        case 74: try decoder.decodeSingularStringField(value: &_storage._defaultString)
+        case 75: try decoder.decodeSingularBytesField(value: &_storage._defaultBytes)
+        case 81: try decoder.decodeSingularEnumField(value: &_storage._defaultNestedEnum)
+        case 82: try decoder.decodeSingularEnumField(value: &_storage._defaultForeignEnum)
+        case 83: try decoder.decodeSingularEnumField(value: &_storage._defaultImportEnum)
+        case 84: try decoder.decodeSingularStringField(value: &_storage._defaultStringPiece)
+        case 85: try decoder.decodeSingularStringField(value: &_storage._defaultCord)
+        case 111...115:
+          if _storage._oneofField != nil {
+            try decoder.handleConflictingOneOf()
+          }
+          _storage._oneofField = try ProtobufUnittestNoArena_TestAllTypes.OneOf_OneofField(byDecodingFrom: &decoder, fieldNumber: fieldNumber)
+        default: break
+        }
       }
     }
   }
 
-  mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
-    switch fieldNumber {
-    case 1: try decoder.decodeSingularInt32Field(value: &_storage._optionalInt32)
-    case 2: try decoder.decodeSingularInt64Field(value: &_storage._optionalInt64)
-    case 3: try decoder.decodeSingularUInt32Field(value: &_storage._optionalUint32)
-    case 4: try decoder.decodeSingularUInt64Field(value: &_storage._optionalUint64)
-    case 5: try decoder.decodeSingularSInt32Field(value: &_storage._optionalSint32)
-    case 6: try decoder.decodeSingularSInt64Field(value: &_storage._optionalSint64)
-    case 7: try decoder.decodeSingularFixed32Field(value: &_storage._optionalFixed32)
-    case 8: try decoder.decodeSingularFixed64Field(value: &_storage._optionalFixed64)
-    case 9: try decoder.decodeSingularSFixed32Field(value: &_storage._optionalSfixed32)
-    case 10: try decoder.decodeSingularSFixed64Field(value: &_storage._optionalSfixed64)
-    case 11: try decoder.decodeSingularFloatField(value: &_storage._optionalFloat)
-    case 12: try decoder.decodeSingularDoubleField(value: &_storage._optionalDouble)
-    case 13: try decoder.decodeSingularBoolField(value: &_storage._optionalBool)
-    case 14: try decoder.decodeSingularStringField(value: &_storage._optionalString)
-    case 15: try decoder.decodeSingularBytesField(value: &_storage._optionalBytes)
-    case 16: try decoder.decodeSingularGroupField(value: &_storage._optionalGroup)
-    case 18: try decoder.decodeSingularMessageField(value: &_storage._optionalNestedMessage)
-    case 19: try decoder.decodeSingularMessageField(value: &_storage._optionalForeignMessage)
-    case 20: try decoder.decodeSingularMessageField(value: &_storage._optionalImportMessage)
-    case 21: try decoder.decodeSingularEnumField(value: &_storage._optionalNestedEnum)
-    case 22: try decoder.decodeSingularEnumField(value: &_storage._optionalForeignEnum)
-    case 23: try decoder.decodeSingularEnumField(value: &_storage._optionalImportEnum)
-    case 24: try decoder.decodeSingularStringField(value: &_storage._optionalStringPiece)
-    case 25: try decoder.decodeSingularStringField(value: &_storage._optionalCord)
-    case 26: try decoder.decodeSingularMessageField(value: &_storage._optionalPublicImportMessage)
-    case 27: try decoder.decodeSingularMessageField(value: &_storage._optionalMessage)
-    case 31: try decoder.decodeRepeatedInt32Field(value: &_storage._repeatedInt32)
-    case 32: try decoder.decodeRepeatedInt64Field(value: &_storage._repeatedInt64)
-    case 33: try decoder.decodeRepeatedUInt32Field(value: &_storage._repeatedUint32)
-    case 34: try decoder.decodeRepeatedUInt64Field(value: &_storage._repeatedUint64)
-    case 35: try decoder.decodeRepeatedSInt32Field(value: &_storage._repeatedSint32)
-    case 36: try decoder.decodeRepeatedSInt64Field(value: &_storage._repeatedSint64)
-    case 37: try decoder.decodeRepeatedFixed32Field(value: &_storage._repeatedFixed32)
-    case 38: try decoder.decodeRepeatedFixed64Field(value: &_storage._repeatedFixed64)
-    case 39: try decoder.decodeRepeatedSFixed32Field(value: &_storage._repeatedSfixed32)
-    case 40: try decoder.decodeRepeatedSFixed64Field(value: &_storage._repeatedSfixed64)
-    case 41: try decoder.decodeRepeatedFloatField(value: &_storage._repeatedFloat)
-    case 42: try decoder.decodeRepeatedDoubleField(value: &_storage._repeatedDouble)
-    case 43: try decoder.decodeRepeatedBoolField(value: &_storage._repeatedBool)
-    case 44: try decoder.decodeRepeatedStringField(value: &_storage._repeatedString)
-    case 45: try decoder.decodeRepeatedBytesField(value: &_storage._repeatedBytes)
-    case 46: try decoder.decodeRepeatedGroupField(value: &_storage._repeatedGroup)
-    case 48: try decoder.decodeRepeatedMessageField(value: &_storage._repeatedNestedMessage)
-    case 49: try decoder.decodeRepeatedMessageField(value: &_storage._repeatedForeignMessage)
-    case 50: try decoder.decodeRepeatedMessageField(value: &_storage._repeatedImportMessage)
-    case 51: try decoder.decodeRepeatedEnumField(value: &_storage._repeatedNestedEnum)
-    case 52: try decoder.decodeRepeatedEnumField(value: &_storage._repeatedForeignEnum)
-    case 53: try decoder.decodeRepeatedEnumField(value: &_storage._repeatedImportEnum)
-    case 54: try decoder.decodeRepeatedStringField(value: &_storage._repeatedStringPiece)
-    case 55: try decoder.decodeRepeatedStringField(value: &_storage._repeatedCord)
-    case 57: try decoder.decodeRepeatedMessageField(value: &_storage._repeatedLazyMessage)
-    case 61: try decoder.decodeSingularInt32Field(value: &_storage._defaultInt32)
-    case 62: try decoder.decodeSingularInt64Field(value: &_storage._defaultInt64)
-    case 63: try decoder.decodeSingularUInt32Field(value: &_storage._defaultUint32)
-    case 64: try decoder.decodeSingularUInt64Field(value: &_storage._defaultUint64)
-    case 65: try decoder.decodeSingularSInt32Field(value: &_storage._defaultSint32)
-    case 66: try decoder.decodeSingularSInt64Field(value: &_storage._defaultSint64)
-    case 67: try decoder.decodeSingularFixed32Field(value: &_storage._defaultFixed32)
-    case 68: try decoder.decodeSingularFixed64Field(value: &_storage._defaultFixed64)
-    case 69: try decoder.decodeSingularSFixed32Field(value: &_storage._defaultSfixed32)
-    case 70: try decoder.decodeSingularSFixed64Field(value: &_storage._defaultSfixed64)
-    case 71: try decoder.decodeSingularFloatField(value: &_storage._defaultFloat)
-    case 72: try decoder.decodeSingularDoubleField(value: &_storage._defaultDouble)
-    case 73: try decoder.decodeSingularBoolField(value: &_storage._defaultBool)
-    case 74: try decoder.decodeSingularStringField(value: &_storage._defaultString)
-    case 75: try decoder.decodeSingularBytesField(value: &_storage._defaultBytes)
-    case 81: try decoder.decodeSingularEnumField(value: &_storage._defaultNestedEnum)
-    case 82: try decoder.decodeSingularEnumField(value: &_storage._defaultForeignEnum)
-    case 83: try decoder.decodeSingularEnumField(value: &_storage._defaultImportEnum)
-    case 84: try decoder.decodeSingularStringField(value: &_storage._defaultStringPiece)
-    case 85: try decoder.decodeSingularStringField(value: &_storage._defaultCord)
-    case 111, 112, 113, 114, 115:
-      if _storage._oneofField != nil {
-        try decoder.handleConflictingOneOf()
-      }
-      _storage._oneofField = try ProtobufUnittestNoArena_TestAllTypes.OneOf_OneofField(byDecodingFrom: &decoder, fieldNumber: fieldNumber)
-    default: break
-    }
-  }
-
-  func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       if let v = _storage._optionalInt32 {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
@@ -1633,13 +1613,13 @@ struct ProtobufUnittestNoArena_TestAllTypes: SwiftProtobuf.Proto2Message, SwiftP
         try visitor.visitSingularStringField(value: v, fieldNumber: 85)
       }
       try _storage._oneofField?.traverse(visitor: &visitor, start: 111, end: 116)
-      try unknownFields.traverse(visitor: &visitor)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittestNoArena_TestAllTypes) -> Bool {
-    return withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
-      if _storage !== other_storage {
+    if _storage !== other._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
         if _storage._optionalInt32 != other_storage._optionalInt32 {return false}
         if _storage._optionalInt64 != other_storage._optionalInt64 {return false}
         if _storage._optionalUint32 != other_storage._optionalUint32 {return false}
@@ -1712,18 +1692,19 @@ struct ProtobufUnittestNoArena_TestAllTypes: SwiftProtobuf.Proto2Message, SwiftP
         if _storage._defaultStringPiece != other_storage._defaultStringPiece {return false}
         if _storage._defaultCord != other_storage._defaultCord {return false}
         if _storage._oneofField != other_storage._oneofField {return false}
+        return true
       }
-      if unknownFields != other.unknownFields {return false}
-      return true
+      if !storagesAreEqual {return false}
     }
+    if unknownFields != other.unknownFields {return false}
+    return true
   }
 }
 
 ///   Define these after TestAllTypes to make sure the compiler can handle
 ///   that.
-struct ProtobufUnittestNoArena_ForeignMessage: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "ForeignMessage"
-  static let protoPackageName: String = "protobuf_unittest_no_arena"
+struct ProtobufUnittestNoArena_ForeignMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".ForeignMessage"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "c"),
   ]
@@ -1744,20 +1725,16 @@ struct ProtobufUnittestNoArena_ForeignMessage: SwiftProtobuf.Proto2Message, Swif
 
   init() {}
 
-  mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
-      try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &_c)
+      default: break
+      }
     }
   }
 
-  mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
-    switch fieldNumber {
-    case 1: try decoder.decodeSingularInt32Field(value: &_c)
-    default: break
-    }
-  }
-
-  func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if let v = _c {
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
     }
@@ -1771,11 +1748,10 @@ struct ProtobufUnittestNoArena_ForeignMessage: SwiftProtobuf.Proto2Message, Swif
   }
 }
 
-struct ProtobufUnittestNoArena_TestNoArenaMessage: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "TestNoArenaMessage"
-  static let protoPackageName: String = "protobuf_unittest_no_arena"
+struct ProtobufUnittestNoArena_TestNoArenaMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".TestNoArenaMessage"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .unique(proto: "arena_message", json: "arenaMessage"),
+    1: .standard(proto: "arena_message"),
   ]
 
   private class _StorageClass {
@@ -1783,10 +1759,8 @@ struct ProtobufUnittestNoArena_TestNoArenaMessage: SwiftProtobuf.Proto2Message, 
 
     init() {}
 
-    func copy() -> _StorageClass {
-      let clone = _StorageClass()
-      clone._arenaMessage = _arenaMessage
-      return clone
+    init(copying source: _StorageClass) {
+      _arenaMessage = source._arenaMessage
     }
   }
 
@@ -1794,7 +1768,7 @@ struct ProtobufUnittestNoArena_TestNoArenaMessage: SwiftProtobuf.Proto2Message, 
 
   private mutating func _uniqueStorage() -> _StorageClass {
     if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _storage.copy()
+      _storage = _StorageClass(copying: _storage)
     }
     return _storage
   }
@@ -1814,38 +1788,36 @@ struct ProtobufUnittestNoArena_TestNoArenaMessage: SwiftProtobuf.Proto2Message, 
 
   init() {}
 
-  mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
-        try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+        switch fieldNumber {
+        case 1: try decoder.decodeSingularMessageField(value: &_storage._arenaMessage)
+        default: break
+        }
       }
     }
   }
 
-  mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
-    switch fieldNumber {
-    case 1: try decoder.decodeSingularMessageField(value: &_storage._arenaMessage)
-    default: break
-    }
-  }
-
-  func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       if let v = _storage._arenaMessage {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
       }
-      try unknownFields.traverse(visitor: &visitor)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittestNoArena_TestNoArenaMessage) -> Bool {
-    return withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
-      if _storage !== other_storage {
+    if _storage !== other._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
         if _storage._arenaMessage != other_storage._arenaMessage {return false}
+        return true
       }
-      if unknownFields != other.unknownFields {return false}
-      return true
+      if !storagesAreEqual {return false}
     }
+    if unknownFields != other.unknownFields {return false}
+    return true
   }
 }

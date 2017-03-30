@@ -14,20 +14,15 @@
 
 import Foundation
 
-private func mapNameResolver(fieldNumber: Int) -> StaticString? {
-    switch fieldNumber {
-    case 1: return "key"
-    case 2: return "value"
-    default: return nil
-    }
-}
+private let mapNameResolver: [Int:StaticString] = [1: "key", 2: "value"]
 
 /// Visitor that serializes a message into protobuf text format.
 internal struct TextFormatEncodingVisitor: Visitor {
 
   private var encoder: TextFormatEncoder
-  private var inExtension = false
-  private var nameResolver: (Int) -> StaticString?
+  private var nameMap: _NameMap?
+  private var nameResolver: [Int:StaticString]
+  private var extensions: ExtensionFieldValueSet?
 
   /// The protobuf text produced by the visitor.
   var result: String {
@@ -43,28 +38,33 @@ internal struct TextFormatEncodingVisitor: Visitor {
   /// Creates a new visitor that serializes the given message to protobuf text
   /// format, using an existing encoder.
   private init(message: Message, encoder: TextFormatEncoder) {
-    self.init(nameResolver: ProtoNameResolvers.protoFieldNameResolver(for: message), encoder: encoder)
+    let nameMap: _NameMap?
+    if let nameProviding = message as? _ProtoNameProviding {
+        nameMap = type(of: nameProviding)._protobuf_nameMap
+    } else {
+        nameMap = nil
+    }
+    let extensions = (message as? ExtensibleMessage)?._protobuf_extensionFieldValues
+    self.init(nameMap: nameMap, nameResolver: [:], extensions: extensions, encoder: encoder)
   }
 
-  private init(nameResolver: @escaping (Int) -> StaticString?, encoder: TextFormatEncoder) {
+  private init(nameMap: _NameMap?, nameResolver: [Int:StaticString], extensions: ExtensionFieldValueSet?, encoder: TextFormatEncoder) {
+    self.nameMap = nameMap
     self.nameResolver = nameResolver
+    self.extensions = extensions
     self.encoder = encoder
   }
 
-  private func protoFieldName(for number: Int) throws -> StaticString {
-    if let protoName = nameResolver(number) {
-      return protoName
-    }
-    throw TextFormatEncodingError.missingFieldNames
-  }
-
-  private mutating func startField(name: StaticString) {
-      encoder.startField(name: name, inExtension: inExtension)
-  }
-
-  private mutating func startField(fieldNumber: Int) throws {
-    let protoFieldName = try self.protoFieldName(for: fieldNumber)
-    startField(name: protoFieldName)
+  private mutating func emitFieldName(lookingUp fieldNumber: Int) {
+      if let protoName = nameMap?.names(for: fieldNumber)?.proto {
+          encoder.emitFieldName(name: protoName.utf8Buffer)
+      } else if let protoName = nameResolver[fieldNumber] {
+          encoder.emitFieldName(name: protoName)
+      } else if let extensionName = extensions?[fieldNumber]?.protobufExtension.fieldName {
+          encoder.emitExtensionFieldName(name: extensionName)
+      } else {
+          encoder.emitFieldNumber(number: fieldNumber)
+      }
   }
 
   mutating func visitUnknown(bytes: Data) throws {
@@ -78,18 +78,21 @@ internal struct TextFormatEncodingVisitor: Visitor {
       while let tag = try decoder.getTag() {
           switch tag.wireFormat {
           case .varint:
+              encoder.emitFieldNumber(number: tag.fieldNumber)
               var value: UInt64 = 0
-              encoder.startField(number: tag.fieldNumber)
+              encoder.startRegularField()
               try decoder.decodeSingularUInt64Field(value: &value)
               encoder.putUInt64(value: value)
-              encoder.endField()
+              encoder.endRegularField()
           case .fixed64:
+              encoder.emitFieldNumber(number: tag.fieldNumber)
               var value: UInt64 = 0
-              encoder.startField(number: tag.fieldNumber)
+              encoder.startRegularField()
               try decoder.decodeSingularFixed64Field(value: &value)
               encoder.putUInt64Hex(value: value, digits: 16)
-              encoder.endField()
+              encoder.endRegularField()
           case .lengthDelimited:
+              encoder.emitFieldNumber(number: tag.fieldNumber)
               var bytes = Data()
               try decoder.decodeSingularBytesField(value: &bytes)
               bytes.withUnsafeBytes { (p: UnsafePointer<UInt8>) -> () in
@@ -100,18 +103,19 @@ internal struct TextFormatEncodingVisitor: Visitor {
                       }
                       // No error?  Output the message body.
                       var subDecoder = BinaryDecoder(forReadingFrom: p, count: bytes.count)
-                      encoder.startMessageField(number: tag.fieldNumber)
+                      encoder.startMessageField()
                       try visitUnknown(decoder: &subDecoder, groupFieldNumber: nil)
                       encoder.endMessageField()
                   } catch {
                       // Field scan threw an error, so just dump it as a string.
-                      encoder.startField(number: tag.fieldNumber)
+                      encoder.startRegularField()
                       encoder.putBytesValue(value: bytes)
-                      encoder.endField()
+                      encoder.endRegularField()
                   }
               }
           case .startGroup:
-              encoder.startMessageField(number: tag.fieldNumber)
+              encoder.emitFieldNumber(number: tag.fieldNumber)
+              encoder.startMessageField()
               try visitUnknown(decoder: &decoder, groupFieldNumber: tag.fieldNumber)
               encoder.endMessageField()
           case .endGroup:
@@ -120,11 +124,12 @@ internal struct TextFormatEncodingVisitor: Visitor {
               assert(tag.fieldNumber == groupFieldNumber)
               return
           case .fixed32:
+              encoder.emitFieldNumber(number: tag.fieldNumber)
               var value: UInt32 = 0
-              encoder.startField(number: tag.fieldNumber)
+              encoder.startRegularField()
               try decoder.decodeSingularFixed32Field(value: &value)
               encoder.putUInt64Hex(value: UInt64(value), digits: 8)
-              encoder.endField()
+              encoder.endRegularField()
           }
       }
   }
@@ -133,56 +138,99 @@ internal struct TextFormatEncodingVisitor: Visitor {
   // that simply widen and dispatch to one of the following.  Since Text format
   // does not distinguish e.g., Fixed64 vs. UInt64, this is sufficient.
 
+  mutating func visitSingularFloatField(value: Float, fieldNumber: Int) throws {
+      emitFieldName(lookingUp: fieldNumber)
+      encoder.startRegularField()
+      encoder.putFloatValue(value: value)
+      encoder.endRegularField()
+  }
+
   mutating func visitSingularDoubleField(value: Double, fieldNumber: Int) throws {
-    try startField(fieldNumber: fieldNumber)
-    encoder.putDoubleValue(value: value)
-    encoder.endField()
+      emitFieldName(lookingUp: fieldNumber)
+      encoder.startRegularField()
+      encoder.putDoubleValue(value: value)
+      encoder.endRegularField()
   }
 
   mutating func visitSingularInt64Field(value: Int64, fieldNumber: Int) throws {
-    try startField(fieldNumber: fieldNumber)
-    encoder.putInt64(value: value)
-    encoder.endField()
+      emitFieldName(lookingUp: fieldNumber)
+      encoder.startRegularField()
+      encoder.putInt64(value: value)
+      encoder.endRegularField()
   }
 
   mutating func visitSingularUInt64Field(value: UInt64, fieldNumber: Int) throws {
-    try startField(fieldNumber: fieldNumber)
-    encoder.putUInt64(value: value)
-    encoder.endField()
+      emitFieldName(lookingUp: fieldNumber)
+      encoder.startRegularField()
+      encoder.putUInt64(value: value)
+      encoder.endRegularField()
   }
 
   mutating func visitSingularBoolField(value: Bool, fieldNumber: Int) throws {
-    try startField(fieldNumber: fieldNumber)
-    encoder.putBoolValue(value: value)
-    encoder.endField()
+      emitFieldName(lookingUp: fieldNumber)
+      encoder.startRegularField()
+      encoder.putBoolValue(value: value)
+      encoder.endRegularField()
   }
 
   mutating func visitSingularStringField(value: String, fieldNumber: Int) throws {
-    try startField(fieldNumber: fieldNumber)
-    encoder.putStringValue(value: value)
-    encoder.endField()
+      emitFieldName(lookingUp: fieldNumber)
+      encoder.startRegularField()
+      encoder.putStringValue(value: value)
+      encoder.endRegularField()
   }
 
   mutating func visitSingularBytesField(value: Data, fieldNumber: Int) throws {
-    try startField(fieldNumber: fieldNumber)
-    encoder.putBytesValue(value: value)
-    encoder.endField()
+      emitFieldName(lookingUp: fieldNumber)
+      encoder.startRegularField()
+      encoder.putBytesValue(value: value)
+      encoder.endRegularField()
   }
 
   mutating func visitSingularEnumField<E: Enum>(value: E, fieldNumber: Int) throws {
-    try startField(fieldNumber: fieldNumber)
-    encoder.putEnumValue(value: value)
-    encoder.endField()
+      emitFieldName(lookingUp: fieldNumber)
+      encoder.startRegularField()
+      encoder.putEnumValue(value: value)
+      encoder.endRegularField()
   }
 
   mutating func visitSingularMessageField<M: Message>(value: M,
                                              fieldNumber: Int) throws {
-    let protoFieldName = try self.protoFieldName(for: fieldNumber)
-    encoder.startMessageField(name: protoFieldName, inExtension: inExtension)
-    var visitor = TextFormatEncodingVisitor(message: value, encoder: encoder)
-    try value.traverse(visitor: &visitor)
-    encoder = visitor.encoder
-    encoder.endMessageField()
+      emitFieldName(lookingUp: fieldNumber)
+      encoder.startMessageField()
+      var visitor = TextFormatEncodingVisitor(message: value, encoder: encoder)
+      if let any = value as? Google_Protobuf_Any {
+          any.textTraverse(visitor: &visitor)
+      } else {
+          try! value.traverse(visitor: &visitor)
+      }
+      encoder = visitor.encoder
+      encoder.endMessageField()
+  }
+
+  // Emit the full "verbose" form of an Any.  This writes the typeURL
+  // as a field name in `[...]` followed by the fields of the
+  // contained message.
+  internal mutating func visitAnyVerbose(value: Message, typeURL: String) {
+      encoder.emitExtensionFieldName(name: typeURL)
+      encoder.startMessageField()
+      var visitor = TextFormatEncodingVisitor(message: value, encoder: encoder)
+      if let any = value as? Google_Protobuf_Any {
+          any.textTraverse(visitor: &visitor)
+      } else {
+          try! value.traverse(visitor: &visitor)
+      }
+      encoder = visitor.encoder
+      encoder.endMessageField()
+  }
+
+  // Write a single special field called "#json".  This
+  // is used for Any objects with undecoded JSON contents.
+  internal mutating func visitAnyJSONDataField(value: Data) {
+      encoder.indent()
+      encoder.append(staticText: "#json: ")
+      encoder.putBytesValue(value: value)
+      encoder.append(staticText: "\n")
   }
 
   // The default implementations in Visitor.swift provide the correct
@@ -190,57 +238,57 @@ internal struct TextFormatEncodingVisitor: Visitor {
   // the name lookup once for the array, rather than once for each element:
 
   mutating func visitRepeatedFloatField(value: [Float], fieldNumber: Int) throws {
-    let protoFieldName = try self.protoFieldName(for: fieldNumber)
-    for v in value {
-      startField(name: protoFieldName)
-      encoder.putDoubleValue(value: Double(v))
-      encoder.endField()
-    }
+      for v in value {
+          emitFieldName(lookingUp: fieldNumber)
+          encoder.startRegularField()
+          encoder.putFloatValue(value: v)
+          encoder.endRegularField()
+      }
   }
 
   mutating func visitRepeatedDoubleField(value: [Double], fieldNumber: Int) throws {
-    let protoFieldName = try self.protoFieldName(for: fieldNumber)
-    for v in value {
-      startField(name: protoFieldName)
-      encoder.putDoubleValue(value: v)
-      encoder.endField()
-    }
+      for v in value {
+          emitFieldName(lookingUp: fieldNumber)
+          encoder.startRegularField()
+          encoder.putDoubleValue(value: v)
+          encoder.endRegularField()
+      }
   }
 
   mutating func visitRepeatedInt32Field(value: [Int32], fieldNumber: Int) throws {
-    let protoFieldName = try self.protoFieldName(for: fieldNumber)
-    for v in value {
-      startField(name: protoFieldName)
-      encoder.putInt64(value: Int64(v))
-      encoder.endField()
-    }
+      for v in value {
+          emitFieldName(lookingUp: fieldNumber)
+          encoder.startRegularField()
+          encoder.putInt64(value: Int64(v))
+          encoder.endRegularField()
+      }
   }
 
   mutating func visitRepeatedInt64Field(value: [Int64], fieldNumber: Int) throws {
-    let protoFieldName = try self.protoFieldName(for: fieldNumber)
-    for v in value {
-      startField(name: protoFieldName)
-      encoder.putInt64(value: v)
-      encoder.endField()
-    }
+      for v in value {
+          emitFieldName(lookingUp: fieldNumber)
+          encoder.startRegularField()
+          encoder.putInt64(value: v)
+          encoder.endRegularField()
+      }
   }
 
   mutating func visitRepeatedUInt32Field(value: [UInt32], fieldNumber: Int) throws {
-    let protoFieldName = try self.protoFieldName(for: fieldNumber)
-    for v in value {
-      startField(name: protoFieldName)
-      encoder.putUInt64(value: UInt64(v))
-      encoder.endField()
-    }
+      for v in value {
+          emitFieldName(lookingUp: fieldNumber)
+          encoder.startRegularField()
+          encoder.putUInt64(value: UInt64(v))
+          encoder.endRegularField()
+      }
   }
 
   mutating func visitRepeatedUInt64Field(value: [UInt64], fieldNumber: Int) throws {
-    let protoFieldName = try self.protoFieldName(for: fieldNumber)
-    for v in value {
-      startField(name: protoFieldName)
-      encoder.putUInt64(value: v)
-      encoder.endField()
-    }
+      for v in value {
+          emitFieldName(lookingUp: fieldNumber)
+          encoder.startRegularField()
+          encoder.putUInt64(value: v)
+          encoder.endRegularField()
+      }
   }
 
   mutating func visitRepeatedSInt32Field(value: [Int32], fieldNumber: Int) throws {
@@ -263,52 +311,56 @@ internal struct TextFormatEncodingVisitor: Visitor {
   }
 
   mutating func visitRepeatedBoolField(value: [Bool], fieldNumber: Int) throws {
-    let protoFieldName = try self.protoFieldName(for: fieldNumber)
-    for v in value {
-      startField(name: protoFieldName)
-      encoder.putBoolValue(value: v)
-      encoder.endField()
-    }
+      for v in value {
+          emitFieldName(lookingUp: fieldNumber)
+          encoder.startRegularField()
+          encoder.putBoolValue(value: v)
+          encoder.endRegularField()
+      }
   }
 
   mutating func visitRepeatedStringField(value: [String], fieldNumber: Int) throws {
-    let protoFieldName = try self.protoFieldName(for: fieldNumber)
-    for v in value {
-      startField(name: protoFieldName)
-      encoder.putStringValue(value: v)
-      encoder.endField()
-    }
+      for v in value {
+          emitFieldName(lookingUp: fieldNumber)
+          encoder.startRegularField()
+          encoder.putStringValue(value: v)
+          encoder.endRegularField()
+      }
   }
 
   mutating func visitRepeatedBytesField(value: [Data], fieldNumber: Int) throws {
-    let protoFieldName = try self.protoFieldName(for: fieldNumber)
-    for v in value {
-      startField(name: protoFieldName)
-      encoder.putBytesValue(value: v)
-      encoder.endField()
-    }
+      for v in value {
+          emitFieldName(lookingUp: fieldNumber)
+          encoder.startRegularField()
+          encoder.putBytesValue(value: v)
+          encoder.endRegularField()
+      }
   }
 
   mutating func visitRepeatedEnumField<E: Enum>(value: [E], fieldNumber: Int) throws {
-    let protoFieldName = try self.protoFieldName(for: fieldNumber)
-    for v in value {
-      startField(name: protoFieldName)
-      encoder.putEnumValue(value: v)
-      encoder.endField()
-    }
+      for v in value {
+          emitFieldName(lookingUp: fieldNumber)
+          encoder.startRegularField()
+          encoder.putEnumValue(value: v)
+          encoder.endRegularField()
+      }
   }
 
   // Messages and groups
   mutating func visitRepeatedMessageField<M: Message>(value: [M],
                                              fieldNumber: Int) throws {
-    let protoFieldName = try self.protoFieldName(for: fieldNumber)
-    for v in value {
-      encoder.startMessageField(name: protoFieldName, inExtension: inExtension)
-      var visitor = TextFormatEncodingVisitor(message: v, encoder: encoder)
-      try v.traverse(visitor: &visitor)
-      encoder = visitor.encoder
-      encoder.endMessageField()
-    }
+      for v in value {
+          emitFieldName(lookingUp: fieldNumber)
+          encoder.startMessageField()
+          var visitor = TextFormatEncodingVisitor(message: v, encoder: encoder)
+          if let any = v as? Google_Protobuf_Any {
+              any.textTraverse(visitor: &visitor)
+          } else {
+              try! v.traverse(visitor: &visitor)
+          }
+          encoder = visitor.encoder
+          encoder.endMessageField()
+      }
   }
 
   // Google's C++ implementation of Text format supports two formats
@@ -325,23 +377,24 @@ internal struct TextFormatEncodingVisitor: Visitor {
   // introducing the baggage of a separate option.
 
   private mutating func _visitPacked<T>(value: [T], fieldNumber: Int, encode: (T) -> ()) throws {
-    try startField(fieldNumber: fieldNumber)
-    var firstItem = true
-    encoder.startArray()
-    for v in value {
-      if !firstItem {
-        encoder.arraySeparator()
+      emitFieldName(lookingUp: fieldNumber)
+      encoder.startRegularField()
+      var firstItem = true
+      encoder.startArray()
+      for v in value {
+          if !firstItem {
+              encoder.arraySeparator()
+          }
+          encode(v)
+          firstItem = false
       }
-      encode(v)
-      firstItem = false
-    }
-    encoder.endArray()
-    encoder.endField()
+      encoder.endArray()
+      encoder.endRegularField()
   }
 
   mutating func visitPackedFloatField(value: [Float], fieldNumber: Int) throws {
     try _visitPacked(value: value, fieldNumber: fieldNumber) { (v: Float) in
-      encoder.putDoubleValue(value: Double(v))
+      encoder.putFloatValue(value: v)
     }
   }
 
@@ -418,14 +471,14 @@ internal struct TextFormatEncodingVisitor: Visitor {
     fieldNumber: Int,
     coder: (inout TextFormatEncodingVisitor, K, V) throws -> ()
   ) throws {
-    let protoFieldName = try self.protoFieldName(for: fieldNumber)
-    for (k,v) in map {
-      encoder.startMessageField(name: protoFieldName, inExtension: inExtension)
-      var visitor = TextFormatEncodingVisitor(nameResolver: mapNameResolver, encoder: encoder)
-      try coder(&visitor, k, v)
-      encoder = visitor.encoder
-      encoder.endMessageField()
-    }
+      for (k,v) in map {
+          emitFieldName(lookingUp: fieldNumber)
+          encoder.startMessageField()
+          var visitor = TextFormatEncodingVisitor(nameMap: nil, nameResolver: mapNameResolver, extensions: nil, encoder: encoder)
+          try coder(&visitor, k, v)
+          encoder = visitor.encoder
+          encoder.endMessageField()
+      }
   }
 
   mutating func visitMapField<KeyType: MapKeyType, ValueType: MapValueType>(
@@ -466,8 +519,6 @@ internal struct TextFormatEncodingVisitor: Visitor {
 
   /// Called for each extension range.
   mutating func visitExtensionFields(fields: ExtensionFieldValueSet, start: Int, end: Int) throws {
-    inExtension = true
     try fields.traverse(visitor: &self, start: start, end: end)
-    inExtension = false
   }
 }

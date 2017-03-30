@@ -48,6 +48,8 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _1
 }
 
+fileprivate let _protobuf_package = "google.protobuf"
+
 ///   A Timestamp represents a point in time independent of any time zone
 ///   or calendar, represented as seconds and fractions of seconds at
 ///   nanosecond resolution in UTC Epoch time. It is encoded using the
@@ -99,9 +101,8 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 ///  
 ///       timestamp = Timestamp()
 ///       timestamp.GetCurrentTime()
-public struct Google_Protobuf_Timestamp: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = "Timestamp"
-  public static let protoPackageName: String = "google.protobuf"
+public struct Google_Protobuf_Timestamp: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".Timestamp"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "seconds"),
     2: .same(proto: "nanos"),
@@ -118,34 +119,34 @@ public struct Google_Protobuf_Timestamp: SwiftProtobuf.Proto3Message, SwiftProto
   ///   inclusive.
   public var nanos: Int32 = 0
 
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
   public init() {}
 
-  public mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
-      try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt64Field(value: &seconds)
+      case 2: try decoder.decodeSingularInt32Field(value: &nanos)
+      default: break
+      }
     }
   }
 
-  public mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
-    switch fieldNumber {
-    case 1: try decoder.decodeSingularInt64Field(value: &seconds)
-    case 2: try decoder.decodeSingularInt32Field(value: &nanos)
-    default: break
-    }
-  }
-
-  public func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if seconds != 0 {
       try visitor.visitSingularInt64Field(value: seconds, fieldNumber: 1)
     }
     if nanos != 0 {
       try visitor.visitSingularInt32Field(value: nanos, fieldNumber: 2)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   public func _protobuf_generated_isEqualTo(other: Google_Protobuf_Timestamp) -> Bool {
     if seconds != other.seconds {return false}
     if nanos != other.nanos {return false}
+    if unknownFields != other.unknownFields {return false}
     return true
   }
 }

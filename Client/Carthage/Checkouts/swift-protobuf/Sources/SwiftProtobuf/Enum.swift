@@ -15,20 +15,30 @@
 ///
 // -----------------------------------------------------------------------------
 
-/// Generated enum types conform to this protocol, which provides the
-/// hashability requirement for enums as well as the name mapping requirement
-/// for encoding/decoding text-based formats.
+/// Generated enum types conform to this protocol.
 public protocol Enum: RawRepresentable, Hashable {
+  /// Creates a new instance of the enum initialized to its default value.
   init()
 
+  /// Creates a new instance of the enum from the given raw integer value.
+  ///
+  /// For proto2 enums, this initializer will fail if the raw value does not
+  /// correspond to a valid enum value. For proto3 enums, this initializer never
+  /// fails; unknown values are created as instances of the `UNRECOGNIZED` case.
+  ///
+  /// - Parameter rawValue: The raw integer value from which to create the enum
+  ///   value.
   init?(rawValue: Int)
 
+  /// The raw integer value of the enum value.
+  ///
+  /// For a recognized enum case, this is the integer value of the case as
+  /// defined in the .proto file. For `UNRECOGNIZED` cases in proto3, this is
+  /// the value that was originally decoded.
   var rawValue: Int { get }
 }
 
 extension Enum {
-
-  /// Default implementation.
   public var hashValue: Int {
     return rawValue
   }
@@ -38,11 +48,11 @@ extension Enum {
   ///
   /// Since the text format and JSON names are always identical, we don't need
   /// to distinguish them.
-  internal var name: StaticString? {
-    guard let nameProviding = self as? _ProtoNameProviding else {
+  internal var name: _NameMap.Name? {
+    guard let nameProviding = Self.self as? _ProtoNameProviding.Type else {
       return nil
     }
-    return nameProviding._protobuf_names(for: rawValue)?.protoStaticStringName
+    return nameProviding._protobuf_nameMap.names(for: rawValue)?.proto
   }
 
   /// Internal convenience initializer that returns the enum value with the

@@ -12,6 +12,8 @@
 ///
 // -----------------------------------------------------------------------------
 
+import Foundation
+
 /// Remainder in standard modular arithmetic (modulo). This coincides with (%)
 /// when a > 0.
 ///

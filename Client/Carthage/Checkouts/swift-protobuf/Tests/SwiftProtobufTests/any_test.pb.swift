@@ -49,13 +49,14 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _1
 }
 
-struct ProtobufUnittest_TestAny: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "TestAny"
-  static let protoPackageName: String = "protobuf_unittest"
+fileprivate let _protobuf_package = "protobuf_unittest"
+
+struct ProtobufUnittest_TestAny: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".TestAny"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .unique(proto: "int32_value", json: "int32Value"),
-    2: .unique(proto: "any_value", json: "anyValue"),
-    3: .unique(proto: "repeated_any_value", json: "repeatedAnyValue"),
+    1: .standard(proto: "int32_value"),
+    2: .standard(proto: "any_value"),
+    3: .standard(proto: "repeated_any_value"),
   ]
 
   private class _StorageClass {
@@ -65,12 +66,10 @@ struct ProtobufUnittest_TestAny: SwiftProtobuf.Proto3Message, SwiftProtobuf._Mes
 
     init() {}
 
-    func copy() -> _StorageClass {
-      let clone = _StorageClass()
-      clone._int32Value = _int32Value
-      clone._anyValue = _anyValue
-      clone._repeatedAnyValue = _repeatedAnyValue
-      return clone
+    init(copying source: _StorageClass) {
+      _int32Value = source._int32Value
+      _anyValue = source._anyValue
+      _repeatedAnyValue = source._repeatedAnyValue
     }
   }
 
@@ -78,7 +77,7 @@ struct ProtobufUnittest_TestAny: SwiftProtobuf.Proto3Message, SwiftProtobuf._Mes
 
   private mutating func _uniqueStorage() -> _StorageClass {
     if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _storage.copy()
+      _storage = _StorageClass(copying: _storage)
     }
     return _storage
   }
@@ -104,27 +103,25 @@ struct ProtobufUnittest_TestAny: SwiftProtobuf.Proto3Message, SwiftProtobuf._Mes
     set {_uniqueStorage()._repeatedAnyValue = newValue}
   }
 
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
   init() {}
 
-  mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
-        try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+        switch fieldNumber {
+        case 1: try decoder.decodeSingularInt32Field(value: &_storage._int32Value)
+        case 2: try decoder.decodeSingularMessageField(value: &_storage._anyValue)
+        case 3: try decoder.decodeRepeatedMessageField(value: &_storage._repeatedAnyValue)
+        default: break
+        }
       }
     }
   }
 
-  mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
-    switch fieldNumber {
-    case 1: try decoder.decodeSingularInt32Field(value: &_storage._int32Value)
-    case 2: try decoder.decodeSingularMessageField(value: &_storage._anyValue)
-    case 3: try decoder.decodeRepeatedMessageField(value: &_storage._repeatedAnyValue)
-    default: break
-    }
-  }
-
-  func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       if _storage._int32Value != 0 {
         try visitor.visitSingularInt32Field(value: _storage._int32Value, fieldNumber: 1)
@@ -136,16 +133,20 @@ struct ProtobufUnittest_TestAny: SwiftProtobuf.Proto3Message, SwiftProtobuf._Mes
         try visitor.visitRepeatedMessageField(value: _storage._repeatedAnyValue, fieldNumber: 3)
       }
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestAny) -> Bool {
-    return withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
-      if _storage !== other_storage {
+    if _storage !== other._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
         if _storage._int32Value != other_storage._int32Value {return false}
         if _storage._anyValue != other_storage._anyValue {return false}
         if _storage._repeatedAnyValue != other_storage._repeatedAnyValue {return false}
+        return true
       }
-      return true
+      if !storagesAreEqual {return false}
     }
+    if unknownFields != other.unknownFields {return false}
+    return true
   }
 }

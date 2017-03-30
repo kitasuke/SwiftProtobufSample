@@ -48,6 +48,8 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _1
 }
 
+fileprivate let _protobuf_package = "google.protobuf"
+
 ///   `FieldMask` represents a set of symbolic field paths, for example:
 ///  
 ///       paths: "f.a"
@@ -249,9 +251,8 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 ///  
 ///   Note that oneof type names ("test_oneof" in this case) cannot be used in
 ///   paths.
-public struct Google_Protobuf_FieldMask: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = "FieldMask"
-  public static let protoPackageName: String = "google.protobuf"
+public struct Google_Protobuf_FieldMask: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".FieldMask"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "paths"),
   ]
@@ -259,29 +260,29 @@ public struct Google_Protobuf_FieldMask: SwiftProtobuf.Proto3Message, SwiftProto
   ///   The set of field mask paths.
   public var paths: [String] = []
 
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
   public init() {}
 
-  public mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
-      try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+      switch fieldNumber {
+      case 1: try decoder.decodeRepeatedStringField(value: &paths)
+      default: break
+      }
     }
   }
 
-  public mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
-    switch fieldNumber {
-    case 1: try decoder.decodeRepeatedStringField(value: &paths)
-    default: break
-    }
-  }
-
-  public func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !paths.isEmpty {
       try visitor.visitRepeatedStringField(value: paths, fieldNumber: 1)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   public func _protobuf_generated_isEqualTo(other: Google_Protobuf_FieldMask) -> Bool {
     if paths != other.paths {return false}
+    if unknownFields != other.unknownFields {return false}
     return true
   }
 }

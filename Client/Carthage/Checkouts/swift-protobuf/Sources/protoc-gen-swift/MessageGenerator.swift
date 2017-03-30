@@ -30,6 +30,7 @@ class MessageGenerator {
   private let protoMessageName: String
   private let protoPackageName: String
   private let fields: [MessageFieldGenerator]
+  private let fieldsSortedByNumber: [MessageFieldGenerator]
   private let oneofs: [OneofGenerator]
   private let extensions: [ExtensionGenerator]
   private let storage: MessageStorageClassGenerator?
@@ -38,6 +39,7 @@ class MessageGenerator {
   private let isProto3: Bool
   private let isExtensible: Bool
   private let isGroup: Bool
+  private let isAnyMessage: Bool
 
   private let path: [Int32]
   private let comments: String
@@ -67,12 +69,11 @@ class MessageGenerator {
       swiftRelativeName = sanitizeMessageTypeName(file.swiftPrefix + descriptor.name)
       swiftFullName = swiftRelativeName
     }
-    var conformance: [String] = []
-    if isProto3 {
-      conformance.append("SwiftProtobuf.Proto3Message")
-    } else {
-      conformance.append("SwiftProtobuf.Proto2Message")
-    }
+    self.isAnyMessage = (isProto3 &&
+                         descriptor.name == "Any" &&
+                         file.descriptor.package == "google.protobuf" &&
+                         file.descriptor.name == "google/protobuf/any.proto")
+    var conformance: [String] = ["SwiftProtobuf.Message"]
     if isExtensible {
       conformance.append("SwiftProtobuf.ExtensibleMessage")
     }
@@ -85,18 +86,19 @@ class MessageGenerator {
     var fields = [MessageFieldGenerator]()
     for f in descriptor.field {
       var fieldPath = path
-      fieldPath.append(2)
+      fieldPath.append(Google_Protobuf_DescriptorProto.FieldNumbers.field)
       fieldPath.append(i)
       i += 1
       fields.append(MessageFieldGenerator(descriptor: f, path: fieldPath, messageDescriptor: descriptor, file: file, context: context))
     }
     self.fields = fields
+    fieldsSortedByNumber = fields.sorted {$0.number < $1.number}
 
     i = 0
     var extensions = [ExtensionGenerator]()
     for e in descriptor.extension_p {
       var extPath = path
-      extPath.append(6)
+      extPath.append(Google_Protobuf_DescriptorProto.FieldNumbers.extension)
       extPath.append(i)
       i += 1
       extensions.append(ExtensionGenerator(descriptor: e, path: extPath, parentProtoPath: protoFullName, swiftDeclaringMessageName: swiftFullName, file: file, context: context))
@@ -117,7 +119,7 @@ class MessageGenerator {
     var enums = [EnumGenerator]()
     for e in descriptor.enumType {
       var enumPath = path
-      enumPath.append(4)
+      enumPath.append(Google_Protobuf_DescriptorProto.FieldNumbers.enumType)
       enumPath.append(i)
       i += 1
       enums.append(EnumGenerator(descriptor: e, path: enumPath, parentSwiftName: swiftFullName, file: file))
@@ -128,7 +130,7 @@ class MessageGenerator {
     var messages = [MessageGenerator]()
     for m in descriptor.nestedType where m.options.mapEntry != true {
       var msgPath = path
-      msgPath.append(3)
+      msgPath.append(Google_Protobuf_DescriptorProto.FieldNumbers.nestedType)
       msgPath.append(i)
       i += 1
       messages.append(MessageGenerator(descriptor: m, path: msgPath, parentSwiftName: swiftFullName, parentProtoPath: protoFullName, file: file, context: context))
@@ -144,7 +146,15 @@ class MessageGenerator {
     // storage yet.
     let useHeapStorage = fields.count > 16 ||
       hasMessageField(descriptor: descriptor, context: context)
-    if useHeapStorage {
+    if isAnyMessage {
+      self.storage = AnyMessageStorageClassGenerator(
+        descriptor: descriptor,
+        fields: fields,
+        oneofs: oneofs,
+        file: file,
+        messageSwiftName: swiftFullName,
+        context: context)
+    } else if useHeapStorage {
       self.storage = MessageStorageClassGenerator(
         descriptor: descriptor,
         fields: fields,
@@ -159,14 +169,19 @@ class MessageGenerator {
 
   func generateNested(printer p: inout CodePrinter, file: FileGenerator, parent: MessageGenerator?) {
     p.print("\n")
-    if comments != "" {
+    if !comments.isEmpty {
       p.print(comments)
     }
 
     p.print("\(visibility)struct \(swiftRelativeName): \(swiftMessageConformance) {\n")
     p.indent()
-    p.print("\(visibility)static let protoMessageName: String = \"\(protoMessageName)\"\n")
-    p.print("\(visibility)static let protoPackageName: String = \"\(protoPackageName)\"\n")
+    if let parent = parent {
+        p.print("\(visibility)static let protoMessageName: String = \(parent.swiftFullName).protoMessageName + \".\(protoMessageName)\"\n")
+    } else if !protoPackageName.isEmpty {
+        p.print("\(visibility)static let protoMessageName: String = _protobuf_package + \".\(protoMessageName)\"\n")
+    } else {
+        p.print("\(visibility)static let protoMessageName: String = \"\(protoMessageName)\"\n")
+    }
 
     // Map proto field names to field number
     if fields.isEmpty {
@@ -183,13 +198,14 @@ class MessageGenerator {
 
     if let storage = storage {
       // Storage class, if needed
+      p.print("\n")
       storage.generateNested(printer: &p)
       p.print("\n")
-      p.print("private var _storage = _StorageClass()\n")
+      p.print("\(storage.storageVisibility) var _storage = _StorageClass()\n")
       p.print("\n")
-      p.print("private mutating func _uniqueStorage() -> _StorageClass {\n")
+      p.print("\(storage.storageVisibility) mutating func _uniqueStorage() -> _StorageClass {\n")
       p.print("  if !isKnownUniquelyReferenced(&_storage) {\n")
-      p.print("    _storage = _storage.copy()\n")
+      p.print("    _storage = _StorageClass(copying: _storage)\n")
       p.print("  }\n")
       p.print("  return _storage\n")
       p.print("}\n")
@@ -220,10 +236,8 @@ class MessageGenerator {
       }
     }
 
-    if !file.isProto3 {
-      p.print("\n")
-      p.print("\(visibility)var unknownFields = SwiftProtobuf.UnknownStorage()\n")
-    }
+    p.print("\n")
+    p.print("\(visibility)var unknownFields = SwiftProtobuf.UnknownStorage()\n")
 
     for o in oneofs {
       o.generateNested(printer: &p)
@@ -264,9 +278,6 @@ class MessageGenerator {
     generateDecodeMessage(printer: &p)
 
     p.print("\n")
-    generateDecodeField(printer: &p)
-
-    p.print("\n")
     generateTraverse(printer: &p)
 
     p.print("\n")
@@ -275,29 +286,7 @@ class MessageGenerator {
     // Optional extension support
     if isExtensible {
       p.print("\n")
-      p.print("private var _extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()\n")
-      p.print("\n")
-      p.print("\(visibility)mutating func setExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, \(swiftRelativeName)>, value: F.ValueType) {\n")
-      p.print("  _extensionFieldValues[ext.fieldNumber] = ext._protobuf_set(value: value)\n")
-      p.print("}\n")
-      p.print("\n")
-      p.print("\(visibility)mutating func clearExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, \(swiftRelativeName)>) {\n")
-      p.print("  _extensionFieldValues[ext.fieldNumber] = nil\n")
-      p.print("}\n")
-      p.print("\n")
-      p.print("\(visibility)func getExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, \(swiftRelativeName)>) -> F.ValueType {\n")
-      p.print("  if let fieldValue = _extensionFieldValues[ext.fieldNumber] as? F {\n")
-      p.print("    return fieldValue.value\n")
-      p.print("  }\n")
-      p.print("  return ext.defaultValue\n")
-      p.print("}\n")
-      p.print("\n")
-      p.print("\(visibility)func hasExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, \(swiftRelativeName)>) -> Bool {\n")
-      p.print("  return _extensionFieldValues[ext.fieldNumber] is F\n")
-      p.print("}\n")
-      p.print("\(visibility)func _protobuf_names(for number: Int) -> _NameMap.Names? {\n")
-      p.print("  return \(swiftRelativeName)._protobuf_nameMap.names(for: number) ?? _extensionFieldValues._protobuf_fieldNames(for: number)\n")
-      p.print("}\n")
+      p.print("\(visibility)var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()\n")
     }
 
     p.outdent()
@@ -325,110 +314,131 @@ class MessageGenerator {
     }
   }
 
-  /// Generates the `_protobuf_generated_decodeMessage` method for the message.
+  /// Generates the `decodeMessage` method for the message.
   ///
   /// - Parameter p: The code printer.
   private func generateDecodeMessage(printer p: inout CodePrinter) {
-    p.print("\(visibility)mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {\n")
+    p.print("\(visibility)mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {\n")
     p.indent()
     if storage != nil {
       p.print("_ = _uniqueStorage()\n")
     }
-    // We can't extend the lifetime of _storage in decodeField because it will
-    // get executed for every field, instead of once per message, canceling out
-    // all the benefits. Fortunately the optimizer is able to recognize that
-    // this lifetime applies to the same _storage used within decodeField (even
-    // though it's not passed directly in) and we avoid the extra
-    // retains/releases.
+    let varName: String
+    if fields.isEmpty && !isExtensible {
+      varName = "_"
+    } else {
+      varName = "fieldNumber"
+    }
     generateWithLifetimeExtension(printer: &p, throws: true) { p in
-      p.print("while let fieldNumber = try decoder.nextFieldNumber() {\n")
+      p.print("while let \(varName) = try decoder.nextFieldNumber() {\n")
       p.indent()
-      p.print("try decodeField(decoder: &decoder, fieldNumber: fieldNumber)\n")
-      p.outdent()
-      p.print("}\n")
-    }
-    p.outdent()
-    p.print("}\n")
-  }
-
-  /// Generates the `_protobuf_generated_decodeField` method for the message.
-  ///
-  /// - Parameter p: The code printer.
-  private func generateDecodeField(printer p: inout CodePrinter) {
-    p.print("\(visibility)mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {\n")
-    p.indent()
-
-    if !fields.isEmpty {
-      p.print("switch fieldNumber {\n")
-      var oneofHandled = Set<Int32>()
-      for f in fields {
-        if f.descriptor.hasOneofIndex {
-          let oneofIndex = f.descriptor.oneofIndex
-          if !oneofHandled.contains(oneofIndex) {
-            p.print("case \(f.number)")
-            for other in fields {
-              if other.descriptor.hasOneofIndex && other.descriptor.oneofIndex == oneofIndex && other.number != f.number {
-                p.print(", \(other.number)")
-              }
+      if !fields.isEmpty {
+        p.print("switch fieldNumber {\n")
+        var oneofHandled = Set<Int32>()
+        for f in fields {
+          if f.descriptor.hasOneofIndex {
+            let oneofIndex = f.descriptor.oneofIndex
+            if !oneofHandled.contains(oneofIndex) {
+              p.print("case \(oneofFieldNumbersPattern(index: oneofIndex)):\n")
+              let oneof = f.oneof!
+              p.indent()
+              p.print("if \(storedProperty(forOneof: oneof)) != nil {\n")
+              p.print("  try decoder.handleConflictingOneOf()\n")
+              p.print("}\n")
+              p.print("\(storedProperty(forOneof: oneof)) = try \(swiftFullName).\(oneof.swiftRelativeType)(byDecodingFrom: &decoder, fieldNumber: fieldNumber)\n")
+              p.outdent()
+              oneofHandled.insert(oneofIndex)
             }
-            let oneof = f.oneof!
-            p.print(":\n")
-            p.indent()
-            p.print("if \(storedProperty(forOneof: oneof)) != nil {\n")
-            p.print("  try decoder.handleConflictingOneOf()\n")
-            p.print("}\n")
-            p.print("\(storedProperty(forOneof: oneof)) = try \(swiftFullName).\(oneof.swiftRelativeType)(byDecodingFrom: &decoder, fieldNumber: fieldNumber)\n")
-            p.outdent()
-            oneofHandled.insert(oneofIndex)
+          } else {
+            f.generateDecodeFieldCase(printer: &p, usesStorage: storage != nil)
           }
-        } else {
-          f.generateDecodeFieldCase(printer: &p, usesStorage: storage != nil)
         }
+        if isExtensible {
+          p.print("case \(descriptor.swiftExtensionRangeExpressions):\n")
+          p.print("  try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: \(swiftRelativeName).self, fieldNumber: fieldNumber)\n")
+        }
+        p.print("default: break\n")
+      } else if isExtensible {
+        // Just output a simple if-statement if the message had no fields of its
+        // own but we still need to generate a decode statement for extensions.
+        p.print("if ")
+        p.print(descriptor.swiftExtensionRangeBooleanExpression(variable: "fieldNumber"))
+        p.print(" {\n")
+        p.indent()
+        p.print("try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: \(swiftRelativeName).self, fieldNumber: fieldNumber)\n")
+        p.outdent()
+        p.print("}\n")
       }
-      p.print("default: ")
-      if isProto3 || !isExtensible {
-        p.print("break\n")
+      if !fields.isEmpty {
+        p.print("}\n")
       }
-      p.indent()
-    }
-    if isExtensible {
-      p.print("if ")
-      var separator = ""
-      for range in descriptor.extensionRange {
-        p.print(separator)
-        p.print("(\(range.start) <= fieldNumber && fieldNumber < \(range.end))")
-        separator = " || "
-      }
-      p.print(" {\n")
-      p.indent()
-      p.print("try decoder.decodeExtensionField(values: &_extensionFieldValues, messageType: \(swiftRelativeName).self, fieldNumber: fieldNumber)\n")
       p.outdent()
       p.print("}\n")
     }
-    if !fields.isEmpty {
-      p.outdent()
-      p.print("}\n")
-    }
-
     p.outdent()
     p.print("}\n")
   }
 
-  /// Generates the `_protobuf_generated_traverse` method for the message.
+  /// Returns a Swift pattern (or list of patterns) suitable for a `case`
+  /// statement that matches any of the field numbers corresponding to the
+  /// `oneof` with the given index.
+  ///
+  /// This function collapses large contiguous field number sequences into
+  /// into range patterns instead of listing all of the fields explicitly.
+  ///
+  /// - Parameter index: The index of the `oneof`.
+  /// - Returns: The Swift pattern(s) that match the `oneof`'s field numbers.
+  private func oneofFieldNumbersPattern(index: Int32) -> String {
+    let oneofFields = fields.lazy.filter {
+      $0.descriptor.hasOneofIndex && $0.descriptor.oneofIndex == index
+    }.map { $0.number }.sorted()
+
+    assert(oneofFields.count > 0)
+
+    if oneofFields.count <= 2 {
+      // For one or two fields, just return "n" or "n, m". ("n...m" would
+      // also be valid, but this is one character shorter.)
+      return oneofFields.lazy.map { String($0) }.joined(separator: ", ")
+    }
+
+    var it = oneofFields.makeIterator()
+
+    // Safe force-unwraps from here on down: We know there's at least one.
+    let first = it.next()!
+    var previous = first
+    while let current = it.next() {
+      if current - previous > 1 {
+        // Not a contiguous range, so just print the comma-delimited list of
+        // field numbers. (We could consider optimizing this to print ranges
+        // for contiguous subsequences later, as well.)
+        return oneofFields.lazy.map { String($0) }.joined(separator: ", ")
+      }
+      previous = current
+    }
+
+    // The field numbers were contiguous, so return a range instead.
+    let last = oneofFields.last!
+    return "\(first)...\(last)"
+  }
+
+  /// Generates the `traverse` method for the message.
   ///
   /// - Parameter p: The code printer.
   private func generateTraverse(printer p: inout CodePrinter) {
-    p.print("\(visibility)func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {\n")
+    p.print("\(visibility)func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {\n")
     p.indent()
     generateWithLifetimeExtension(printer: &p, throws: true) { p in
+      if let storage = storage {
+        storage.generatePreTraverse(printer: &p)
+      }
       var ranges = descriptor.extensionRange.makeIterator()
       var nextRange = ranges.next()
       var currentOneof: Google_Protobuf_OneofDescriptorProto?
       var oneofStart = 0
       var oneofEnd = 0
-      for f in (fields.sorted {$0.number < $1.number}) {
+      for f in fieldsSortedByNumber {
         while nextRange != nil && Int(nextRange!.start) < f.number {
-          p.print("try visitor.visitExtensionFields(fields: _extensionFieldValues, start: \(nextRange!.start), end: \(nextRange!.end))\n")
+          p.print("try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: \(nextRange!.start), end: \(nextRange!.end))\n")
           nextRange = ranges.next()
         }
         if let c = currentOneof, let n = f.oneof, n.name == c.name {
@@ -451,13 +461,11 @@ class MessageGenerator {
         p.print("try \(storedProperty(forOneof: oneof))?.traverse(visitor: &visitor, start: \(oneofStart), end: \(oneofEnd))\n")
       }
       while nextRange != nil {
-        p.print("try visitor.visitExtensionFields(fields: _extensionFieldValues, start: \(nextRange!.start), end: \(nextRange!.end))\n")
+        p.print("try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: \(nextRange!.start), end: \(nextRange!.end))\n")
         nextRange = ranges.next()
       }
-      if !isProto3 {
-        p.print("try unknownFields.traverse(visitor: &visitor)\n")
-      }
     }
+    p.print("try unknownFields.traverse(visitor: &visitor)\n")
     p.outdent()
     p.print("}\n")
   }
@@ -468,51 +476,59 @@ class MessageGenerator {
   private func generateIsEqualTo(printer p: inout CodePrinter) {
     p.print("\(visibility)func _protobuf_generated_isEqualTo(other: \(swiftFullName)) -> Bool {\n")
     p.indent()
-    generateWithLifetimeExtension(printer: &p,
-                                  returns: true,
-                                  alsoCapturing: "other") { p in
-      // We can't short-circuit the entire equality test if the storage objects
-      // have the same identity because the unknown fields and extension values
-      // might still be different, but we can at least save some time by only
-      // testing the individual fields in storage when they're different.
-      if storage != nil {
-        p.print("if _storage !== other_storage {\n")
-        p.indent()
+    var compareFields = true
+    if let storage = storage {
+      p.print("if _storage !== other._storage {\n")
+      p.indent()
+      p.print("let storagesAreEqual: Bool = ")
+      if storage.storageProvidesEqualTo {
+        p.print("_storage.isEqualTo(other: other._storage)\n")
+        compareFields = false
       }
-
-      var oneofHandled = Set<Int32>()
-      for f in fields {
-        if let o = f.oneof {
-          if !oneofHandled.contains(f.descriptor.oneofIndex) {
-            p.print("if \(storedProperty(forOneof: o)) != \(storedProperty(forOneof: o, in: "other")) {return false}\n")
-            oneofHandled.insert(f.descriptor.oneofIndex)
-          }
-        } else {
-          let notEqualClause: String
-          if isProto3 || f.isRepeated {
-            notEqualClause = "\(storedProperty(forField: f)) != \(storedProperty(forField: f, in: "other"))"
+    }
+    if compareFields {
+      generateWithLifetimeExtension(printer: &p,
+                                    alsoCapturing: "other") { p in
+        var oneofHandled = Set<Int32>()
+        for f in fields {
+          if let o = f.oneof {
+            if !oneofHandled.contains(f.descriptor.oneofIndex) {
+              p.print("if \(storedProperty(forOneof: o)) != \(storedProperty(forOneof: o, in: "other")) {return false}\n")
+              oneofHandled.insert(f.descriptor.oneofIndex)
+            }
           } else {
-            notEqualClause = "\(storedProperty(forField: f)) != \(storedProperty(forField: f, in: "other"))"
+            let notEqualClause: String
+            if isProto3 || f.isRepeated {
+              notEqualClause = "\(storedProperty(forField: f)) != \(storedProperty(forField: f, in: "other"))"
+            } else {
+              notEqualClause = "\(storedProperty(forField: f)) != \(storedProperty(forField: f, in: "other"))"
+            }
+            p.print("if \(notEqualClause) {return false}\n")
           }
-          p.print("if \(notEqualClause) {return false}\n")
+        }
+        if storage != nil {
+          p.print("return true\n")
         }
       }
-
-      if storage != nil {
-        p.outdent()
-        p.print("}\n")
-      }
-
-      if !isProto3 {
-        p.print("if unknownFields != other.unknownFields {return false}\n")
-      }
-      if isExtensible {
-        p.print("if _extensionFieldValues != other._extensionFieldValues {return false}\n")
-      }
-      p.print("return true\n")
     }
+    if storage != nil {
+      p.print("if !storagesAreEqual {return false}\n")
+      p.outdent()
+      p.print("}\n")
+    }
+    p.print("if unknownFields != other.unknownFields {return false}\n")
+    if isExtensible {
+      p.print("if _protobuf_extensionFieldValues != other._protobuf_extensionFieldValues {return false}\n")
+    }
+    p.print("return true\n")
     p.outdent()
     p.print("}\n")
+  }
+
+  private enum IsInitializedReason {
+    case hasRequiredField
+    case hasFieldWithIsInitialized
+    case hasExtensions
   }
 
   /// Examines the message's members and returns a value indicating whether
@@ -520,18 +536,15 @@ class MessageGenerator {
   /// the runtime library (which returns `true` unconditionally) is
   /// sufficient.
   ///
-  /// - Returns: `true` if an `isInitialized` property needs to be generated.
-  private func needsIsInitialized() -> Bool {
-    if isExtensible {
-      // Extensible messages need to generate isInitialized.
-      return true
-    }
+  /// - Returns: `IsInitializedReason` for the first reason found for why
+  ///     isInitialized is needed.
+  private func needsIsInitialized() -> IsInitializedReason? {
     if !isProto3 {
       // Only proto2 syntax can have field presence (required fields); if any
       // fields are required, we need to generate isInitialized.
       for f in fields {
         if f.descriptor.label == .required {
-          return true
+          return .hasRequiredField
         }
       }
     }
@@ -540,12 +553,16 @@ class MessageGenerator {
     for f in fields {
       if f.fieldHoldsMessage &&
         messageHasRequiredFields(msgTypeName:f.descriptor.typeName, context: context) {
-        return true
+        return .hasFieldWithIsInitialized
       }
+    }
+    if isExtensible {
+      // Extensible messages need to generate isInitialized.
+      return .hasExtensions
     }
     // If none of the above conditions were true, the default isInitialized,
     // which just returns true, is sufficient.
-    return false
+    return nil
   }
 
   /// Generates the `isInitialized` property for the message, if needed.
@@ -555,76 +572,80 @@ class MessageGenerator {
   ///
   /// - Parameter printer: The code printer.
   private func generateIsInitialized(printer p: inout CodePrinter) {
-    guard needsIsInitialized() else {
+    guard let reason = needsIsInitialized() else {
       return
     }
 
     p.print("\npublic var isInitialized: Bool {\n")
     p.indent()
-    generateWithLifetimeExtension(printer: &p, returns: true) { p in
-      if isExtensible {
-        p.print("if !_extensionFieldValues.isInitialized {return false}\n")
-      }
-
-      if !isProto3 {
-        // Only proto2 syntax can have field presence (required fields); ensure required
-        // fields have values.
-        for f in fields {
-          if f.descriptor.label == .required {
-            p.print("if \(storedProperty(forField: f)) == nil {return false}\n")
-          }
-        }
-      }
-
-      // Check that all non-oneof embedded messages are initialized.
-      for f in fields {
-        if f.fieldHoldsMessage && f.oneof == nil &&
-          messageHasRequiredFields(msgTypeName:f.descriptor.typeName, context: context) {
-          if f.isRepeated {
-            p.print("if !SwiftProtobuf.Internal.areAllInitialized(\(f.swiftName)) {return false}\n")
-          } else {
-            p.print("if let v = \(storedProperty(forField: f)), !v.isInitialized {return false}\n")
-          }
-        }
-      }
-
-      // Check the oneofs using a switch so we can be more efficent.
-      for oneofField in oneofs {
-        var hasRequiredFields = false
-        for f in oneofField.fields {
-          if f.descriptor.isMessage &&
-            messageHasRequiredFields(msgTypeName:f.descriptor.typeName, context: context) {
-            hasRequiredFields = true
-            break
-          }
-        }
-        if !hasRequiredFields {
-          continue
-        }
-
-        p.print("switch \(oneofField.descriptor.swiftFieldName) {\n")
-        var needsDefault = false
-        for f in oneofField.fields {
-          if f.descriptor.isMessage &&
-            messageHasRequiredFields(msgTypeName:f.descriptor.typeName, context: context) {
-            p.print("case .\(f.swiftName)(let v)?:\n")
-            p.indent()
-            p.print("if !v.isInitialized {return false}\n")
-            p.outdent()
-          } else {
-            needsDefault = true
-          }
-        }
-        if needsDefault {
-          p.print("default:\n")
-          p.indent()
-          p.print("break\n")
-          p.outdent()
-        }
-        p.print("}\n")
-      }
-
+    if isExtensible {
+      p.print("if !_protobuf_extensionFieldValues.isInitialized {return false}\n")
+    }
+    if reason == .hasExtensions {
+      // Only needed isInitialized for extensions, so we're done.
       p.print("return true\n")
+    } else {
+      generateWithLifetimeExtension(printer: &p, returns: true) { p in
+        if !isProto3 {
+          // Only proto2 syntax can have field presence (required fields); ensure required
+          // fields have values.
+          for f in fields {
+            if f.descriptor.label == .required {
+              p.print("if \(storedProperty(forField: f)) == nil {return false}\n")
+            }
+          }
+        }
+
+        // Check that all non-oneof embedded messages are initialized.
+        for f in fields {
+          if f.fieldHoldsMessage && f.oneof == nil &&
+            messageHasRequiredFields(msgTypeName:f.descriptor.typeName, context: context) {
+            if f.isRepeated {
+              p.print("if !SwiftProtobuf.Internal.areAllInitialized(\(f.swiftName)) {return false}\n")
+            } else {
+              p.print("if let v = \(storedProperty(forField: f)), !v.isInitialized {return false}\n")
+            }
+          }
+        }
+
+        // Check the oneofs using a switch so we can be more efficent.
+        for oneofField in oneofs {
+          var hasRequiredFields = false
+          for f in oneofField.fields {
+            if f.descriptor.isMessage &&
+              messageHasRequiredFields(msgTypeName:f.descriptor.typeName, context: context) {
+              hasRequiredFields = true
+              break
+            }
+          }
+          if !hasRequiredFields {
+            continue
+          }
+
+          p.print("switch \(oneofField.descriptor.swiftFieldName) {\n")
+          var needsDefault = false
+          for f in oneofField.fields {
+            if f.descriptor.isMessage &&
+              messageHasRequiredFields(msgTypeName:f.descriptor.typeName, context: context) {
+              p.print("case .\(f.swiftName)(let v)?:\n")
+              p.indent()
+              p.print("if !v.isInitialized {return false}\n")
+              p.outdent()
+            } else {
+              needsDefault = true
+            }
+          }
+          if needsDefault {
+            p.print("default:\n")
+            p.indent()
+            p.print("break\n")
+            p.outdent()
+          }
+          p.print("}\n")
+        }
+
+        p.print("return true\n")
+      }
     }
     p.outdent()
     p.print("}\n")

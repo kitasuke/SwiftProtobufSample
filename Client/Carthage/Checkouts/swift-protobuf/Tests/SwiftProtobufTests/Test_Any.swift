@@ -24,11 +24,10 @@ class Test_Any: XCTestCase {
     func test_Any() throws {
         var content = ProtobufUnittest_TestAllTypes()
         content.optionalInt32 = 7
-        XCTAssertEqual(type(of: content).anyTypeURL, "type.googleapis.com/protobuf_unittest.TestAllTypes")
 
         var m = ProtobufUnittest_TestAny()
         m.int32Value = 12
-        m.anyValue = Google_Protobuf_Any(message: content)
+        m.anyValue = try Google_Protobuf_Any(message: content)
 
         // The Any holding an object can be JSON serialized
         XCTAssertNotNil(try m.jsonString())
@@ -37,21 +36,18 @@ class Test_Any: XCTestCase {
         XCTAssertEqual(encoded, [8, 12, 18, 56, 10, 50, 116, 121, 112, 101, 46, 103, 111, 111, 103, 108, 101, 97, 112, 105, 115, 46, 99, 111, 109, 47, 112, 114, 111, 116, 111, 98, 117, 102, 95, 117, 110, 105, 116, 116, 101, 115, 116, 46, 84, 101, 115, 116, 65, 108, 108, 84, 121, 112, 101, 115, 18, 2, 8, 7])
         let decoded = try ProtobufUnittest_TestAny(serializedBytes: encoded)
         XCTAssertEqual(decoded.anyValue.typeURL, "type.googleapis.com/protobuf_unittest.TestAllTypes")
-        let decoded_value = decoded.anyValue.value
-        if let decoded_value = decoded_value {
-            XCTAssertEqual(decoded_value, Data(bytes: [8, 7]))
-        }
+        XCTAssertEqual(decoded.anyValue.value, Data(bytes: [8, 7]))
         XCTAssertEqual(decoded.int32Value, 12)
         XCTAssertNotNil(decoded.anyValue)
         let any = decoded.anyValue
         do {
-            let extracted = try ProtobufUnittest_TestAllTypes(any: any)
+            let extracted = try ProtobufUnittest_TestAllTypes(unpackingAny: any)
             XCTAssertEqual(extracted.optionalInt32, 7)
         } catch {
             XCTFail("Failed to unpack \(any)")
         }
 
-        XCTAssertThrowsError(try ProtobufUnittest_TestEmptyMessage(any: any))
+        XCTAssertThrowsError(try ProtobufUnittest_TestEmptyMessage(unpackingAny: any))
         let recoded = try decoded.serializedBytes()
         XCTAssertEqual(encoded, recoded)
     }
@@ -71,21 +67,18 @@ class Test_Any: XCTestCase {
             return
         }
         XCTAssertEqual(decoded.anyValue.typeURL, "X/Y/protobuf_unittest.TestAllTypes")
-        let decoded_value = decoded.anyValue.value
-        if let decoded_value = decoded_value {
-            XCTAssertEqual(decoded_value, Data(bytes: [8, 7]))
-        }
+        XCTAssertEqual(decoded.anyValue.value, Data(bytes: [8, 7]))
         XCTAssertEqual(decoded.int32Value, 12)
         XCTAssertNotNil(decoded.anyValue)
         let any = decoded.anyValue
         do {
-            let extracted = try ProtobufUnittest_TestAllTypes(any: any)
+            let extracted = try ProtobufUnittest_TestAllTypes(unpackingAny: any)
             XCTAssertEqual(extracted.optionalInt32, 7)
         } catch {
             XCTFail("Failed to unpack \(any)")
         }
 
-        XCTAssertThrowsError(try ProtobufUnittest_TestEmptyMessage(any: any))
+        XCTAssertThrowsError(try ProtobufUnittest_TestEmptyMessage(unpackingAny: any))
         let recoded = try decoded.serializedData()
         XCTAssertEqual(encoded, recoded)
     }
@@ -105,21 +98,18 @@ class Test_Any: XCTestCase {
             return
         }
         XCTAssertEqual(decoded.anyValue.typeURL, "/protobuf_unittest.TestAllTypes")
-        let decoded_value = decoded.anyValue.value
-        if let decoded_value = decoded_value {
-            XCTAssertEqual(decoded_value, Data(bytes: [8, 7]))
-        }
+        XCTAssertEqual(decoded.anyValue.value, Data(bytes: [8, 7]))
         XCTAssertEqual(decoded.int32Value, 12)
         XCTAssertNotNil(decoded.anyValue)
         let any = decoded.anyValue
         do {
-            let extracted = try ProtobufUnittest_TestAllTypes(any: any)
+            let extracted = try ProtobufUnittest_TestAllTypes(unpackingAny: any)
             XCTAssertEqual(extracted.optionalInt32, 7)
         } catch {
             XCTFail("Failed to unpack \(any)")
         }
 
-        XCTAssertThrowsError(try ProtobufUnittest_TestEmptyMessage(any: any))
+        XCTAssertThrowsError(try ProtobufUnittest_TestEmptyMessage(unpackingAny: any))
         let recoded = try decoded.serializedData()
         XCTAssertEqual(encoded, recoded)
     }
@@ -136,21 +126,18 @@ class Test_Any: XCTestCase {
             return
         }
         XCTAssertEqual(decoded.anyValue.typeURL, "protobuf_unittest.TestAllTypes")
-        let decoded_value = decoded.anyValue.value
-        if let decoded_value = decoded_value {
-            XCTAssertEqual(decoded_value, Data(bytes: [8, 7]))
-        }
+        XCTAssertEqual(decoded.anyValue.value, Data(bytes: [8, 7]))
         XCTAssertEqual(decoded.int32Value, 12)
         XCTAssertNotNil(decoded.anyValue)
         let any = decoded.anyValue
         do {
-            let extracted = try ProtobufUnittest_TestAllTypes(any: any)
+            let extracted = try ProtobufUnittest_TestAllTypes(unpackingAny: any)
             XCTAssertEqual(extracted.optionalInt32, 7)
         } catch {
             XCTFail("Failed to unpack \(any)")
         }
 
-        XCTAssertThrowsError(try ProtobufUnittest_TestEmptyMessage(any: any))
+        XCTAssertThrowsError(try ProtobufUnittest_TestEmptyMessage(unpackingAny: any))
         let recoded = try decoded.serializedData()
         XCTAssertEqual(encoded, recoded)
     }
@@ -162,25 +149,21 @@ class Test_Any: XCTestCase {
 
         var m = ProtobufUnittest_TestAny()
         m.int32Value = 12
-        m.anyValue = Google_Protobuf_Any(message: content)
+        m.anyValue = try Google_Protobuf_Any(message: content)
 
         let encoded = try m.jsonString()
         XCTAssertEqual(encoded, "{\"int32Value\":12,\"anyValue\":{\"@type\":\"type.googleapis.com/protobuf_unittest.TestAllTypes\",\"optionalInt32\":7}}")
         do {
             let decoded = try ProtobufUnittest_TestAny(jsonString: encoded)
             XCTAssertNotNil(decoded.anyValue)
-            let decoded_value = decoded.anyValue.value
-            XCTAssertNotNil(decoded_value)
-            if let decoded_value = decoded_value {
-                XCTAssertEqual(Data(bytes: [8, 7]), decoded_value)
-            }
+            XCTAssertEqual(Data(bytes: [8, 7]), decoded.anyValue.value)
             XCTAssertEqual(decoded.int32Value, 12)
             XCTAssertNotNil(decoded.anyValue)
             let any = decoded.anyValue
             do {
-                let extracted = try ProtobufUnittest_TestAllTypes(any: any)
+                let extracted = try ProtobufUnittest_TestAllTypes(unpackingAny: any)
                 XCTAssertEqual(extracted.optionalInt32, 7)
-                XCTAssertThrowsError(try ProtobufUnittest_TestEmptyMessage(any: any))
+                XCTAssertThrowsError(try ProtobufUnittest_TestEmptyMessage(unpackingAny: any))
             } catch {
                 XCTFail("Failed to unpack \(any)")
             }
@@ -193,7 +176,7 @@ class Test_Any: XCTestCase {
     }
 
     func test_Any_UnknownUserMessage_JSON() throws {
-        Google_Protobuf_Any.register(messageType: ProtobufUnittest_TestAllTypes.self )
+        Google_Protobuf_Any.register(messageType: ProtobufUnittest_TestAllTypes.self)
         let start = "{\"int32Value\":12,\"anyValue\":{\"@type\":\"type.googleapis.com/UNKNOWN\",\"optionalInt32\":7}}"
         let decoded = try ProtobufUnittest_TestAny(jsonString: start)
 
@@ -204,7 +187,9 @@ class Test_Any: XCTestCase {
         let anyValue = decoded.anyValue
         XCTAssertNotNil(anyValue)
         XCTAssertEqual(anyValue.typeURL, "type.googleapis.com/UNKNOWN")
-        XCTAssertNil(anyValue.value)
+        XCTAssertEqual(anyValue.value, Data())
+
+        XCTAssertEqual(anyValue.textFormatString(), "type_url: \"type.googleapis.com/UNKNOWN\"\n#json: \"{\\\"optionalInt32\\\":7}\"\n")
 
         // Verify:  JSON-to-protobuf transcoding should fail here
         // since the Any does not have type information
@@ -224,7 +209,9 @@ class Test_Any: XCTestCase {
         let anyValue = decoded.anyValue
         XCTAssertNotNil(anyValue)
         XCTAssertEqual(anyValue.typeURL, "type.googleapis.com/UNKNOWN")
-        XCTAssertEqual(anyValue.value!, Data(bytes: [8, 7]))
+        XCTAssertEqual(anyValue.value, Data(bytes: [8, 7]))
+
+        XCTAssertEqual(anyValue.textFormatString(), "type_url: \"type.googleapis.com/UNKNOWN\"\nvalue: \"\\b\\007\"\n")
 
         // Protobuf-to-JSON transcoding fails
         XCTAssertThrowsError(try decoded.jsonString())
@@ -242,9 +229,9 @@ class Test_Any: XCTestCase {
         XCTAssertNotNil(decoded.optionalAny)
         let outerAny = decoded.optionalAny
         do {
-            let innerAny = try Google_Protobuf_Any(any: outerAny)
+            let innerAny = try Google_Protobuf_Any(unpackingAny: outerAny)
             do {
-                let value = try Google_Protobuf_Int32Value(any: innerAny)
+                let value = try Google_Protobuf_Int32Value(unpackingAny: innerAny)
                 XCTAssertEqual(value.value, 1)
             } catch {
                 XCTFail("Failed to decode innerAny")
@@ -297,7 +284,7 @@ class Test_Any: XCTestCase {
             XCTAssertNotNil(decoded.optionalAny)
             let anyField = decoded.optionalAny
             do {
-                let unpacked = try Google_Protobuf_Duration(any: anyField)
+                let unpacked = try Google_Protobuf_Duration(unpackingAny: anyField)
                 XCTAssertEqual(unpacked.seconds, 99)
                 XCTAssertEqual(unpacked.nanos, 1000000)
             } catch {
@@ -336,7 +323,7 @@ class Test_Any: XCTestCase {
             XCTAssertNotNil(decoded.optionalAny)
             let anyField = decoded.optionalAny
             do {
-                let unpacked = try Google_Protobuf_FieldMask(any: anyField)
+                let unpacked = try Google_Protobuf_FieldMask(unpackingAny: anyField)
                 XCTAssertEqual(unpacked.paths, ["foo", "bar.baz_quux"])
             } catch {
                 XCTFail("Failed to unpack anyField \(anyField)")
@@ -374,7 +361,7 @@ class Test_Any: XCTestCase {
             XCTAssertNotNil(decoded.optionalAny)
             let anyField = decoded.optionalAny
             do {
-                let unpacked = try Google_Protobuf_Int32Value(any: anyField)
+                let unpacked = try Google_Protobuf_Int32Value(unpackingAny: anyField)
                 XCTAssertEqual(unpacked.value, 1)
             } catch {
                 XCTFail("failed to unpack \(anyField)")
@@ -414,7 +401,7 @@ class Test_Any: XCTestCase {
             XCTAssertNotNil(decoded.optionalAny)
             let anyField = decoded.optionalAny
             do {
-                let unpacked = try Google_Protobuf_Struct(any: anyField)
+                let unpacked = try Google_Protobuf_Struct(unpackingAny: anyField)
                 XCTAssertEqual(unpacked.fields["foo"], Google_Protobuf_Value(numberValue:1))
             } catch {
                 XCTFail("Failed to unpack \(anyField)")
@@ -452,7 +439,7 @@ class Test_Any: XCTestCase {
             XCTAssertNotNil(decoded.optionalAny)
             let anyField = decoded.optionalAny
             do {
-                let unpacked = try Google_Protobuf_Timestamp(any: anyField)
+                let unpacked = try Google_Protobuf_Timestamp(unpackingAny: anyField)
                 XCTAssertEqual(unpacked.seconds, 1)
                 XCTAssertEqual(unpacked.nanos, 0)
             } catch {
@@ -490,7 +477,7 @@ class Test_Any: XCTestCase {
             let decoded = try ProtobufTestMessages_Proto3_TestAllTypes(jsonString: start)
             let anyField = decoded.optionalAny
             do {
-                let unpacked = try Google_Protobuf_ListValue(any: anyField)
+                let unpacked = try Google_Protobuf_ListValue(unpackingAny: anyField)
                 XCTAssertEqual(unpacked.values, [Google_Protobuf_Value(stringValue: "foo"), Google_Protobuf_Value(numberValue: 1)])
             } catch {
                 XCTFail("Failed to unpack \(anyField)")
@@ -528,12 +515,10 @@ class Test_Any: XCTestCase {
             let decoded1 = try ProtobufTestMessages_Proto3_TestAllTypes(jsonString: start1)
             XCTAssertNotNil(decoded1.optionalAny)
             let anyField = decoded1.optionalAny
-            XCTAssertThrowsError(try Google_Protobuf_Struct(any: anyField))
+            XCTAssertThrowsError(try Google_Protobuf_Struct(unpackingAny: anyField))
             do {
-                let unpacked = try Google_Protobuf_Value(any: anyField)
-                if let structValue = unpacked.structValue {
-                    XCTAssertEqual(structValue.fields["foo"], Google_Protobuf_Value(numberValue:1))
-                }
+                let unpacked = try Google_Protobuf_Value(unpackingAny: anyField)
+                XCTAssertEqual(unpacked.structValue.fields["foo"], Google_Protobuf_Value(numberValue:1))
             } catch {
                 XCTFail("failed to unpack \(anyField)")
             }
@@ -570,9 +555,9 @@ class Test_Any: XCTestCase {
             let decoded2 = try ProtobufTestMessages_Proto3_TestAllTypes(jsonString: start2)
             XCTAssertNotNil(decoded2.optionalAny)
             let anyField = decoded2.optionalAny
-            XCTAssertThrowsError(try Google_Protobuf_Struct(any: anyField))
+            XCTAssertThrowsError(try Google_Protobuf_Struct(unpackingAny: anyField))
             do {
-                let unpacked = try Google_Protobuf_Value(any: anyField)
+                let unpacked = try Google_Protobuf_Value(unpackingAny: anyField)
                 XCTAssertEqual(unpacked.numberValue, 1)
             } catch {
                 XCTFail("Failed to unpack \(anyField)")
@@ -609,9 +594,9 @@ class Test_Any: XCTestCase {
         do {
             let decoded3 = try ProtobufTestMessages_Proto3_TestAllTypes(jsonString: start3)
             let anyField = decoded3.optionalAny
-            XCTAssertThrowsError(try Google_Protobuf_Struct(any: anyField))
+            XCTAssertThrowsError(try Google_Protobuf_Struct(unpackingAny: anyField))
             do {
-                let unpacked = try Google_Protobuf_Value(any: anyField)
+                let unpacked = try Google_Protobuf_Value(unpackingAny: anyField)
                 XCTAssertEqual(unpacked.stringValue, "abc")
             } catch {
                 XCTFail("Failed to unpack \(anyField)")
@@ -640,5 +625,85 @@ class Test_Any: XCTestCase {
         } catch {
             XCTFail("Decode failed for \(start)")
         }
+    }
+
+    func test_Any_OddTypeURL_FromValue() throws {
+      var msg = ProtobufTestMessages_Proto3_TestAllTypes()
+      msg.optionalAny.value = Data(bytes: [0x1a, 0x03, 0x61, 0x62, 0x63])
+      msg.optionalAny.typeURL = "Odd\nType\" prefix/google.protobuf.Value"
+      let newJSON = try msg.jsonString()
+      XCTAssertEqual(newJSON, "{\"optionalAny\":{\"@type\":\"Odd\\nType\\\" prefix/google.protobuf.Value\",\"value\":\"abc\"}}")
+    }
+
+    func test_Any_OddTypeURL_FromMessage() throws {
+      let valueMsg = Google_Protobuf_Value.with {
+        $0.stringValue = "abc"
+      }
+      var msg = ProtobufTestMessages_Proto3_TestAllTypes()
+      msg.optionalAny = try Google_Protobuf_Any(message: valueMsg, typePrefix: "Odd\nPrefix\"")
+      let newJSON = try msg.jsonString()
+      XCTAssertEqual(newJSON, "{\"optionalAny\":{\"@type\":\"Odd\\nPrefix\\\"/google.protobuf.Value\",\"value\":\"abc\"}}")
+    }
+
+    func test_IsA() {
+      var msg = Google_Protobuf_Any()
+
+      msg.typeURL = "type.googleapis.com/protobuf_unittest.TestAllTypes"
+      XCTAssertTrue(msg.isA(ProtobufUnittest_TestAllTypes.self))
+      XCTAssertFalse(msg.isA(Google_Protobuf_Empty.self))
+      msg.typeURL = "random.site.org/protobuf_unittest.TestAllTypes"
+      XCTAssertTrue(msg.isA(ProtobufUnittest_TestAllTypes.self))
+      XCTAssertFalse(msg.isA(Google_Protobuf_Empty.self))
+      msg.typeURL = "/protobuf_unittest.TestAllTypes"
+      XCTAssertTrue(msg.isA(ProtobufUnittest_TestAllTypes.self))
+      XCTAssertFalse(msg.isA(Google_Protobuf_Empty.self))
+      msg.typeURL = "protobuf_unittest.TestAllTypes"
+      XCTAssertTrue(msg.isA(ProtobufUnittest_TestAllTypes.self))
+      XCTAssertFalse(msg.isA(Google_Protobuf_Empty.self))
+
+      msg.typeURL = ""
+      XCTAssertFalse(msg.isA(ProtobufUnittest_TestAllTypes.self))
+      XCTAssertFalse(msg.isA(Google_Protobuf_Empty.self))
+    }
+
+    func test_Any_Registery() {
+      // Registering the same type multiple times is ok.
+      XCTAssertTrue(Google_Protobuf_Any.register(messageType: ProtobufUnittest_TestAllTypes.self))
+      XCTAssertTrue(Google_Protobuf_Any.register(messageType: ProtobufUnittest_TestAllTypes.self))
+
+      // Registering a different type with the same messageName will fail.
+      XCTAssertFalse(Google_Protobuf_Any.register(messageType: Proto3TestAllTypes.self))
+
+      // Sanity check that the .proto files weren't changed, and they do have the same name.
+      XCTAssertEqual(Proto3TestAllTypes.protoMessageName, ProtobufUnittest_TestAllTypes.protoMessageName)
+
+      // Lookup
+      XCTAssertTrue(Google_Protobuf_Any.messageType(forMessageName: ProtobufUnittest_TestAllTypes.protoMessageName) == ProtobufUnittest_TestAllTypes.self)
+      XCTAssertNil(Google_Protobuf_Any.messageType(forMessageName: ProtobufUnittest_TestAllTypes.OptionalGroup.protoMessageName))
+
+      // All the WKTs should be registered.
+      let wkts: [Message.Type] = [
+        Google_Protobuf_Any.self,
+        Google_Protobuf_BoolValue.self,
+        Google_Protobuf_BytesValue.self,
+        Google_Protobuf_DoubleValue.self,
+        Google_Protobuf_Duration.self,
+        Google_Protobuf_Empty.self,
+        Google_Protobuf_FieldMask.self,
+        Google_Protobuf_FloatValue.self,
+        Google_Protobuf_Int32Value.self,
+        Google_Protobuf_Int64Value.self,
+        Google_Protobuf_ListValue.self,
+        Google_Protobuf_StringValue.self,
+        Google_Protobuf_Struct.self,
+        Google_Protobuf_Timestamp.self,
+        Google_Protobuf_UInt32Value.self,
+        Google_Protobuf_UInt64Value.self,
+        Google_Protobuf_Value.self,
+      ]
+      for t in wkts {
+        XCTAssertTrue(Google_Protobuf_Any.messageType(forMessageName: t.protoMessageName) == t,
+                      "Looking up \(t.protoMessageName)")
+      }
     }
 }

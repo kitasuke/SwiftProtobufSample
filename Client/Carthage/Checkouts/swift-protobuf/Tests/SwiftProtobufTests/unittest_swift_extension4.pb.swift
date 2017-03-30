@@ -37,16 +37,16 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _1
 }
 
-struct Ext4MyMessage: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "MyMessage"
-  static let protoPackageName: String = "protobuf_unittest.extend4"
+fileprivate let _protobuf_package = "protobuf_unittest.extend4"
+
+struct Ext4MyMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".MyMessage"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  struct C: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-    static let protoMessageName: String = "C"
-    static let protoPackageName: String = "protobuf_unittest.extend4"
+  struct C: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+    static let protoMessageName: String = Ext4MyMessage.protoMessageName + ".C"
     static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
       1410: .same(proto: "c"),
     ]
@@ -67,20 +67,16 @@ struct Ext4MyMessage: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImpleme
 
     init() {}
 
-    mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
-        try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+        switch fieldNumber {
+        case 1410: try decoder.decodeSingularInt64Field(value: &_c)
+        default: break
+        }
       }
     }
 
-    mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
-      switch fieldNumber {
-      case 1410: try decoder.decodeSingularInt64Field(value: &_c)
-      default: break
-      }
-    }
-
-    func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _c {
         try visitor.visitSingularInt64Field(value: v, fieldNumber: 1410)
       }
@@ -98,29 +94,25 @@ struct Ext4MyMessage: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImpleme
 
     static let b = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufString>, ProtobufUnittest_Extend_Foo.Bar.Baz>(
       _protobuf_fieldNumber: 410,
-      fieldNames: .same(proto: "protobuf_unittest.extend4.MyMessage.b"),
+      fieldName: "protobuf_unittest.extend4.MyMessage.b",
       defaultValue: ""
     )
 
     static let C = SwiftProtobuf.MessageExtension<OptionalGroupExtensionField<Ext4MyMessage.C>, ProtobufUnittest_Extend_Foo.Bar.Baz>(
       _protobuf_fieldNumber: 411,
-      fieldNames: .same(proto: "protobuf_unittest.extend4.MyMessage.C"),
+      fieldName: "protobuf_unittest.extend4.MyMessage.C",
       defaultValue: Ext4MyMessage.C()
     )
   }
 
   init() {}
 
-  mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let _ = try decoder.nextFieldNumber() {
     }
   }
 
-  mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
-  }
-
-  func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -130,9 +122,8 @@ struct Ext4MyMessage: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImpleme
   }
 }
 
-struct Ext4C: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "C"
-  static let protoPackageName: String = "protobuf_unittest.extend4"
+struct Ext4C: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".C"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1420: .same(proto: "c"),
   ]
@@ -153,20 +144,16 @@ struct Ext4C: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationB
 
   init() {}
 
-  mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
-      try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+      switch fieldNumber {
+      case 1420: try decoder.decodeSingularInt64Field(value: &_c)
+      default: break
+      }
     }
   }
 
-  mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
-    switch fieldNumber {
-    case 1420: try decoder.decodeSingularInt64Field(value: &_c)
-    default: break
-    }
-  }
-
-  func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if let v = _c {
       try visitor.visitSingularInt64Field(value: v, fieldNumber: 1420)
     }
@@ -182,13 +169,13 @@ struct Ext4C: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationB
 
 let Ext4Extensions_b = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufString>, ProtobufUnittest_Extend_Foo.Bar.Baz>(
   _protobuf_fieldNumber: 420,
-  fieldNames: .same(proto: "protobuf_unittest.extend4.b"),
+  fieldName: "protobuf_unittest.extend4.b",
   defaultValue: ""
 )
 
 let Ext4Extensions_C = SwiftProtobuf.MessageExtension<OptionalGroupExtensionField<Ext4C>, ProtobufUnittest_Extend_Foo.Bar.Baz>(
   _protobuf_fieldNumber: 421,
-  fieldNames: .same(proto: "protobuf_unittest.extend4.C"),
+  fieldName: "protobuf_unittest.extend4.C",
   defaultValue: Ext4C()
 )
 
@@ -244,7 +231,7 @@ extension ProtobufUnittest_Extend_Foo.Bar.Baz {
   }
 }
 
-let Ext4UnittestSwiftExtension4_Extensions: SwiftProtobuf.ExtensionSet = [
+let Ext4UnittestSwiftExtension4_Extensions: SwiftProtobuf.SimpleExtensionMap = [
   Ext4Extensions_b,
   Ext4Extensions_C,
   Ext4MyMessage.Extensions.b,

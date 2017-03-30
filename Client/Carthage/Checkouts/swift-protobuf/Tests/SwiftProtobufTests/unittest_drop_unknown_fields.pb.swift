@@ -49,17 +49,20 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _1
 }
 
-struct UnittestDropUnknownFields_Foo: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "Foo"
-  static let protoPackageName: String = "unittest_drop_unknown_fields"
+fileprivate let _protobuf_package = "unittest_drop_unknown_fields"
+
+struct UnittestDropUnknownFields_Foo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".Foo"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .unique(proto: "int32_value", json: "int32Value"),
-    2: .unique(proto: "enum_value", json: "enumValue"),
+    1: .standard(proto: "int32_value"),
+    2: .standard(proto: "enum_value"),
   ]
 
   var int32Value: Int32 = 0
 
   var enumValue: UnittestDropUnknownFields_Foo.NestedEnum = UnittestDropUnknownFields_Foo.NestedEnum.foo
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
   enum NestedEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
     typealias RawValue = Int
@@ -100,43 +103,40 @@ struct UnittestDropUnknownFields_Foo: SwiftProtobuf.Proto3Message, SwiftProtobuf
 
   init() {}
 
-  mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
-      try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &int32Value)
+      case 2: try decoder.decodeSingularEnumField(value: &enumValue)
+      default: break
+      }
     }
   }
 
-  mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
-    switch fieldNumber {
-    case 1: try decoder.decodeSingularInt32Field(value: &int32Value)
-    case 2: try decoder.decodeSingularEnumField(value: &enumValue)
-    default: break
-    }
-  }
-
-  func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if int32Value != 0 {
       try visitor.visitSingularInt32Field(value: int32Value, fieldNumber: 1)
     }
     if enumValue != UnittestDropUnknownFields_Foo.NestedEnum.foo {
       try visitor.visitSingularEnumField(value: enumValue, fieldNumber: 2)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: UnittestDropUnknownFields_Foo) -> Bool {
     if int32Value != other.int32Value {return false}
     if enumValue != other.enumValue {return false}
+    if unknownFields != other.unknownFields {return false}
     return true
   }
 }
 
-struct UnittestDropUnknownFields_FooWithExtraFields: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "FooWithExtraFields"
-  static let protoPackageName: String = "unittest_drop_unknown_fields"
+struct UnittestDropUnknownFields_FooWithExtraFields: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".FooWithExtraFields"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .unique(proto: "int32_value", json: "int32Value"),
-    2: .unique(proto: "enum_value", json: "enumValue"),
-    3: .unique(proto: "extra_int32_value", json: "extraInt32Value"),
+    1: .standard(proto: "int32_value"),
+    2: .standard(proto: "enum_value"),
+    3: .standard(proto: "extra_int32_value"),
   ]
 
   var int32Value: Int32 = 0
@@ -144,6 +144,8 @@ struct UnittestDropUnknownFields_FooWithExtraFields: SwiftProtobuf.Proto3Message
   var enumValue: UnittestDropUnknownFields_FooWithExtraFields.NestedEnum = UnittestDropUnknownFields_FooWithExtraFields.NestedEnum.foo
 
   var extraInt32Value: Int32 = 0
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
   enum NestedEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
     typealias RawValue = Int
@@ -188,22 +190,18 @@ struct UnittestDropUnknownFields_FooWithExtraFields: SwiftProtobuf.Proto3Message
 
   init() {}
 
-  mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
-      try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &int32Value)
+      case 2: try decoder.decodeSingularEnumField(value: &enumValue)
+      case 3: try decoder.decodeSingularInt32Field(value: &extraInt32Value)
+      default: break
+      }
     }
   }
 
-  mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
-    switch fieldNumber {
-    case 1: try decoder.decodeSingularInt32Field(value: &int32Value)
-    case 2: try decoder.decodeSingularEnumField(value: &enumValue)
-    case 3: try decoder.decodeSingularInt32Field(value: &extraInt32Value)
-    default: break
-    }
-  }
-
-  func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if int32Value != 0 {
       try visitor.visitSingularInt32Field(value: int32Value, fieldNumber: 1)
     }
@@ -213,12 +211,14 @@ struct UnittestDropUnknownFields_FooWithExtraFields: SwiftProtobuf.Proto3Message
     if extraInt32Value != 0 {
       try visitor.visitSingularInt32Field(value: extraInt32Value, fieldNumber: 3)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: UnittestDropUnknownFields_FooWithExtraFields) -> Bool {
     if int32Value != other.int32Value {return false}
     if enumValue != other.enumValue {return false}
     if extraInt32Value != other.extraInt32Value {return false}
+    if unknownFields != other.unknownFields {return false}
     return true
   }
 }

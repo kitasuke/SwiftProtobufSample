@@ -41,11 +41,18 @@ class MessageStorageClassGenerator {
     self.context = context
   }
 
+  /// Visibility of the storage within the Message.
+  var storageVisibility: String {
+    return "private"
+  }
+
+  /// If the storage wants to manually implement equality.
+  var storageProvidesEqualTo: Bool { return false }
+
   /// Generates the full code for the storage class.
   ///
   /// - Parameter p: The code printer.
   func generateNested(printer p: inout CodePrinter) {
-    p.print("\n")
     p.print("private class _StorageClass {\n")
     p.indent()
 
@@ -58,10 +65,14 @@ class MessageStorageClassGenerator {
     p.print("init() {}\n")
 
     p.print("\n")
-    generateCopy(printer: &p)
+    generateClone(printer: &p)
 
     p.outdent()
     p.print("}\n")
+  }
+
+  func generatePreTraverse(printer p: inout CodePrinter) {
+    // Nothing
   }
 
   /// Generates the stored properties for the storage class.
@@ -83,27 +94,41 @@ class MessageStorageClassGenerator {
     }
   }
 
-  /// Generates the `copy` method of the storage class.
+  /// Generates the `init(copying:)` method of the storage class.
   ///
   /// - Parameter p: The code printer.
-  private func generateCopy(printer p: inout CodePrinter) {
-    p.print("func copy() -> _StorageClass {\n")
+  private func generateClone(printer p: inout CodePrinter) {
+    p.print("init(copying source: _StorageClass) {\n")
     p.indent()
-    p.print("let clone = _StorageClass()\n")
 
     var oneofsHandled = Set<Int32>()
     for f in fields {
       if let o = f.oneof {
         if !oneofsHandled.contains(f.descriptor.oneofIndex) {
-          p.print("clone.\(o.swiftStorageFieldName) = \(o.swiftStorageFieldName)\n")
+          p.print("\(o.swiftStorageFieldName) = source.\(o.swiftStorageFieldName)\n")
           oneofsHandled.insert(f.descriptor.oneofIndex)
         }
       } else {
-        p.print("clone.\(f.swiftStorageName) = \(f.swiftStorageName)\n")
+        p.print("\(f.swiftStorageName) = source.\(f.swiftStorageName)\n")
       }
     }
-    p.print("return clone\n")
     p.outdent()
     p.print("}\n")
+  }
+}
+
+/// Custom generator for storage of an google.protobuf.Any.
+class AnyMessageStorageClassGenerator : MessageStorageClassGenerator {
+
+  override var storageVisibility: String { return "internal" }
+  override var storageProvidesEqualTo: Bool { return true }
+
+  override func generateNested(printer p: inout CodePrinter) {
+    // Just need an alias to the hand coded Storage.
+    p.print("typealias _StorageClass = AnyMessageStorage\n")
+  }
+
+  override func generatePreTraverse(printer p: inout CodePrinter) {
+    p.print("try _storage.preTraverse()\n")
   }
 }

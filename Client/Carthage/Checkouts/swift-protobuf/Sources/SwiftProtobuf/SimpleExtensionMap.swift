@@ -1,4 +1,4 @@
-// Sources/SwiftProtobuf/ExtensionSet.swift - Extension support
+// Sources/SwiftProtobuf/SimpleExtensionMap.swift - Extension support
 //
 // Copyright (c) 2014 - 2016 Apple Inc. and the project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception
@@ -8,15 +8,13 @@
 //
 // -----------------------------------------------------------------------------
 ///
-/// A set of extensions that can be passed into deserializers
-/// to provide details of the particular extensions that should
-/// be recognized.
+/// A default implementation of ExtensionMap.
 ///
 // -----------------------------------------------------------------------------
 
-// TODO: Make this more Set-like
+
 // Note: The generated code only relies on ExpressibleByArrayLiteral
-public struct ExtensionSet: CustomDebugStringConvertible, ExpressibleByArrayLiteral {
+public struct SimpleExtensionMap: ExtensionMap, ExpressibleByArrayLiteral, CustomDebugStringConvertible {
     public typealias Element = MessageExtensionBase
 
     // Since type objects aren't Hashable, we can't do much better than this...
@@ -39,29 +37,13 @@ public struct ExtensionSet: CustomDebugStringConvertible, ExpressibleByArrayLite
             }
             return nil
         }
-        set(newValue) {
-            if let l = fields[fieldNumber] {
-                var newL = l.flatMap {
-                    pair -> (Message.Type, MessageExtensionBase)? in
-                    if pair.0 == messageType { return nil }
-                    else { return pair }
-                }
-                if let newValue = newValue {
-                    newL.append((messageType, newValue))
-                    fields[fieldNumber] = newL
-                }
-                fields[fieldNumber] = newL
-            } else if let newValue = newValue {
-                fields[fieldNumber] = [(messageType, newValue)]
-            }
-        }
     }
 
     public func fieldNumberForProto(messageType: Message.Type, protoFieldName: String) -> Int? {
         // TODO: Make this faster...
         for (_, list) in fields {
             for (t, e) in list {
-                let extensionName = e._protobuf_fieldNames.protoStaticStringName.description
+                let extensionName = e.fieldName.description
                 if extensionName == protoFieldName && t == messageType {
                     return e.fieldNumber
                 }
@@ -70,8 +52,20 @@ public struct ExtensionSet: CustomDebugStringConvertible, ExpressibleByArrayLite
         return nil
     }
 
-    public mutating func insert(_ e: Element) {
-        self[e.messageType, e.fieldNumber] = e
+    public mutating func insert(_ newValue: Element) {
+        let messageType = newValue.messageType
+        let fieldNumber = newValue.fieldNumber
+        if let l = fields[fieldNumber] {
+            var newL = l.flatMap {
+                pair -> (Message.Type, MessageExtensionBase)? in
+                if pair.0 == messageType { return nil }
+                else { return pair }
+            }
+            newL.append((messageType, newValue))
+            fields[fieldNumber] = newL
+        } else {
+            fields[fieldNumber] = [(messageType, newValue)]
+        }
     }
 
     public mutating func insert(contentsOf: [Element]) {
@@ -80,19 +74,7 @@ public struct ExtensionSet: CustomDebugStringConvertible, ExpressibleByArrayLite
         }
     }
 
-    public var debugDescription: String {
-        var names = [String]()
-        for (_, list) in fields {
-            for (_, e) in list {
-                let extensionName = e._protobuf_fieldNames.protoStaticStringName.description
-                names.append("\(extensionName)(\(e.fieldNumber))")
-            }
-        }
-        let d = names.joined(separator: ",")
-        return "ExtensionSet(\(d))"
-    }
-
-    public mutating func union(_ other: ExtensionSet) -> ExtensionSet {
+    public mutating func union(_ other: SimpleExtensionMap) -> SimpleExtensionMap {
         var out = self
         for (_, list) in other.fields {
             for (_, e) in list {
@@ -101,4 +83,17 @@ public struct ExtensionSet: CustomDebugStringConvertible, ExpressibleByArrayLite
         }
         return out
     }
+
+    public var debugDescription: String {
+        var names = [String]()
+        for (_, list) in fields {
+            for (_, e) in list {
+                let extensionName = e.fieldName
+                names.append("\(extensionName)(\(e.fieldNumber))")
+            }
+        }
+        let d = names.joined(separator: ",")
+        return "SimpleExtensionMap(\(d))"
+    }
+
 }

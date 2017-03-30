@@ -55,12 +55,13 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _1
 }
 
-struct ProtobufUnittest_TestEmbedOptimizedForSize: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "TestEmbedOptimizedForSize"
-  static let protoPackageName: String = "protobuf_unittest"
+fileprivate let _protobuf_package = "protobuf_unittest"
+
+struct ProtobufUnittest_TestEmbedOptimizedForSize: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".TestEmbedOptimizedForSize"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .unique(proto: "optional_message", json: "optionalMessage"),
-    2: .unique(proto: "repeated_message", json: "repeatedMessage"),
+    1: .standard(proto: "optional_message"),
+    2: .standard(proto: "repeated_message"),
   ]
 
   private class _StorageClass {
@@ -69,11 +70,9 @@ struct ProtobufUnittest_TestEmbedOptimizedForSize: SwiftProtobuf.Proto2Message, 
 
     init() {}
 
-    func copy() -> _StorageClass {
-      let clone = _StorageClass()
-      clone._optionalMessage = _optionalMessage
-      clone._repeatedMessage = _repeatedMessage
-      return clone
+    init(copying source: _StorageClass) {
+      _optionalMessage = source._optionalMessage
+      _repeatedMessage = source._repeatedMessage
     }
   }
 
@@ -81,7 +80,7 @@ struct ProtobufUnittest_TestEmbedOptimizedForSize: SwiftProtobuf.Proto2Message, 
 
   private mutating func _uniqueStorage() -> _StorageClass {
     if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _storage.copy()
+      _storage = _StorageClass(copying: _storage)
     }
     return _storage
   }
@@ -116,24 +115,20 @@ struct ProtobufUnittest_TestEmbedOptimizedForSize: SwiftProtobuf.Proto2Message, 
     }
   }
 
-  mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
-        try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+        switch fieldNumber {
+        case 1: try decoder.decodeSingularMessageField(value: &_storage._optionalMessage)
+        case 2: try decoder.decodeRepeatedMessageField(value: &_storage._repeatedMessage)
+        default: break
+        }
       }
     }
   }
 
-  mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
-    switch fieldNumber {
-    case 1: try decoder.decodeSingularMessageField(value: &_storage._optionalMessage)
-    case 2: try decoder.decodeRepeatedMessageField(value: &_storage._repeatedMessage)
-    default: break
-    }
-  }
-
-  func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       if let v = _storage._optionalMessage {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
@@ -141,18 +136,20 @@ struct ProtobufUnittest_TestEmbedOptimizedForSize: SwiftProtobuf.Proto2Message, 
       if !_storage._repeatedMessage.isEmpty {
         try visitor.visitRepeatedMessageField(value: _storage._repeatedMessage, fieldNumber: 2)
       }
-      try unknownFields.traverse(visitor: &visitor)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestEmbedOptimizedForSize) -> Bool {
-    return withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
-      if _storage !== other_storage {
+    if _storage !== other._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
         if _storage._optionalMessage != other_storage._optionalMessage {return false}
         if _storage._repeatedMessage != other_storage._repeatedMessage {return false}
+        return true
       }
-      if unknownFields != other.unknownFields {return false}
-      return true
+      if !storagesAreEqual {return false}
     }
+    if unknownFields != other.unknownFields {return false}
+    return true
   }
 }

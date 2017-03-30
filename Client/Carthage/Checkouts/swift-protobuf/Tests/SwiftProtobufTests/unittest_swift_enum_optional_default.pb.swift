@@ -35,19 +35,19 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _1
 }
 
-struct ProtobufUnittest_Extend_EnumOptionalDefault: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "EnumOptionalDefault"
-  static let protoPackageName: String = "protobuf_unittest.extend"
+fileprivate let _protobuf_package = "protobuf_unittest.extend"
+
+struct ProtobufUnittest_Extend_EnumOptionalDefault: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".EnumOptionalDefault"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  struct NestedMessage: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-    static let protoMessageName: String = "NestedMessage"
-    static let protoPackageName: String = "protobuf_unittest.extend"
+  struct NestedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+    static let protoMessageName: String = ProtobufUnittest_Extend_EnumOptionalDefault.protoMessageName + ".NestedMessage"
     static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
       1: .same(proto: "message"),
-      17: .unique(proto: "optional_enum", json: "optionalEnum"),
+      17: .standard(proto: "optional_enum"),
     ]
 
     private class _StorageClass {
@@ -56,11 +56,9 @@ struct ProtobufUnittest_Extend_EnumOptionalDefault: SwiftProtobuf.Proto2Message,
 
       init() {}
 
-      func copy() -> _StorageClass {
-        let clone = _StorageClass()
-        clone._message = _message
-        clone._optionalEnum = _optionalEnum
-        return clone
+      init(copying source: _StorageClass) {
+        _message = source._message
+        _optionalEnum = source._optionalEnum
       }
     }
 
@@ -68,7 +66,7 @@ struct ProtobufUnittest_Extend_EnumOptionalDefault: SwiftProtobuf.Proto2Message,
 
     private mutating func _uniqueStorage() -> _StorageClass {
       if !isKnownUniquelyReferenced(&_storage) {
-        _storage = _storage.copy()
+        _storage = _StorageClass(copying: _storage)
       }
       return _storage
     }
@@ -128,24 +126,20 @@ struct ProtobufUnittest_Extend_EnumOptionalDefault: SwiftProtobuf.Proto2Message,
 
     init() {}
 
-    mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       _ = _uniqueStorage()
       try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
         while let fieldNumber = try decoder.nextFieldNumber() {
-          try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+          switch fieldNumber {
+          case 1: try decoder.decodeSingularMessageField(value: &_storage._message)
+          case 17: try decoder.decodeSingularEnumField(value: &_storage._optionalEnum)
+          default: break
+          }
         }
       }
     }
 
-    mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
-      switch fieldNumber {
-      case 1: try decoder.decodeSingularMessageField(value: &_storage._message)
-      case 17: try decoder.decodeSingularEnumField(value: &_storage._optionalEnum)
-      default: break
-      }
-    }
-
-    func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
         if let v = _storage._message {
           try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
@@ -153,27 +147,28 @@ struct ProtobufUnittest_Extend_EnumOptionalDefault: SwiftProtobuf.Proto2Message,
         if let v = _storage._optionalEnum {
           try visitor.visitSingularEnumField(value: v, fieldNumber: 17)
         }
-        try unknownFields.traverse(visitor: &visitor)
       }
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protobuf_generated_isEqualTo(other: ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage) -> Bool {
-      return withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
-        if _storage !== other_storage {
+      if _storage !== other._storage {
+        let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
           if _storage._message != other_storage._message {return false}
           if _storage._optionalEnum != other_storage._optionalEnum {return false}
+          return true
         }
-        if unknownFields != other.unknownFields {return false}
-        return true
+        if !storagesAreEqual {return false}
       }
+      if unknownFields != other.unknownFields {return false}
+      return true
     }
   }
 
-  struct NestedMessage2: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-    static let protoMessageName: String = "NestedMessage2"
-    static let protoPackageName: String = "protobuf_unittest.extend"
+  struct NestedMessage2: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+    static let protoMessageName: String = ProtobufUnittest_Extend_EnumOptionalDefault.protoMessageName + ".NestedMessage2"
     static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      17: .unique(proto: "optional_enum", json: "optionalEnum"),
+      17: .standard(proto: "optional_enum"),
     ]
 
     private var _optionalEnum: ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage2.Enum? = nil
@@ -219,20 +214,16 @@ struct ProtobufUnittest_Extend_EnumOptionalDefault: SwiftProtobuf.Proto2Message,
 
     init() {}
 
-    mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
-        try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+        switch fieldNumber {
+        case 17: try decoder.decodeSingularEnumField(value: &_optionalEnum)
+        default: break
+        }
       }
     }
 
-    mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
-      switch fieldNumber {
-      case 17: try decoder.decodeSingularEnumField(value: &_optionalEnum)
-      default: break
-      }
-    }
-
-    func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _optionalEnum {
         try visitor.visitSingularEnumField(value: v, fieldNumber: 17)
       }
@@ -248,16 +239,12 @@ struct ProtobufUnittest_Extend_EnumOptionalDefault: SwiftProtobuf.Proto2Message,
 
   init() {}
 
-  mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let _ = try decoder.nextFieldNumber() {
     }
   }
 
-  mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
-  }
-
-  func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try unknownFields.traverse(visitor: &visitor)
   }
 

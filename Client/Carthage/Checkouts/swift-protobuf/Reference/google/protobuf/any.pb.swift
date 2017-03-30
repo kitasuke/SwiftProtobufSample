@@ -48,6 +48,8 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _1
 }
 
+fileprivate let _protobuf_package = "google.protobuf"
+
 ///   `Any` contains an arbitrary serialized protocol buffer message along with a
 ///   URL that describes the type of the serialized message.
 ///  
@@ -117,13 +119,23 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 ///         "@type": "type.googleapis.com/google.protobuf.Duration",
 ///         "value": "1.212s"
 ///       }
-struct Google_Protobuf_Any: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "Any"
-  static let protoPackageName: String = "google.protobuf"
+struct Google_Protobuf_Any: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".Any"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .unique(proto: "type_url", json: "typeUrl"),
+    1: .standard(proto: "type_url"),
     2: .same(proto: "value"),
   ]
+
+  typealias _StorageClass = AnyMessageStorage
+
+  internal var _storage = _StorageClass()
+
+  internal mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
 
   ///   A URL/resource name whose content describes the type of the
   ///   serialized protocol buffer message.
@@ -146,39 +158,53 @@ struct Google_Protobuf_Any: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageI
   ///  
   ///   Schemes other than `http`, `https` (or the empty scheme) might be
   ///   used with implementation specific semantics.
-  var typeURL: String = ""
+  var typeURL: String {
+    get {return _storage._typeURL}
+    set {_uniqueStorage()._typeURL = newValue}
+  }
 
   ///   Must be a valid serialized protocol buffer of the above specified type.
-  var value: Data = Data()
+  var value: Data {
+    get {return _storage._value}
+    set {_uniqueStorage()._value = newValue}
+  }
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
   init() {}
 
-  mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    _ = _uniqueStorage()
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        switch fieldNumber {
+        case 1: try decoder.decodeSingularStringField(value: &_storage._typeURL)
+        case 2: try decoder.decodeSingularBytesField(value: &_storage._value)
+        default: break
+        }
+      }
     }
   }
 
-  mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
-    switch fieldNumber {
-    case 1: try decoder.decodeSingularStringField(value: &typeURL)
-    case 2: try decoder.decodeSingularBytesField(value: &value)
-    default: break
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      try _storage.preTraverse()
+      if !_storage._typeURL.isEmpty {
+        try visitor.visitSingularStringField(value: _storage._typeURL, fieldNumber: 1)
+      }
+      if !_storage._value.isEmpty {
+        try visitor.visitSingularBytesField(value: _storage._value, fieldNumber: 2)
+      }
     }
-  }
-
-  func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if !typeURL.isEmpty {
-      try visitor.visitSingularStringField(value: typeURL, fieldNumber: 1)
-    }
-    if !value.isEmpty {
-      try visitor.visitSingularBytesField(value: value, fieldNumber: 2)
-    }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: Google_Protobuf_Any) -> Bool {
-    if typeURL != other.typeURL {return false}
-    if value != other.value {return false}
+    if _storage !== other._storage {
+      let storagesAreEqual: Bool = _storage.isEqualTo(other: other._storage)
+      if !storagesAreEqual {return false}
+    }
+    if unknownFields != other.unknownFields {return false}
     return true
   }
 }

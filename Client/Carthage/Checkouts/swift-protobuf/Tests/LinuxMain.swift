@@ -107,7 +107,9 @@ extension Test_AllTypes {
             ("testDebugDescription3", {try run_test(test:($0 as! Test_AllTypes).testDebugDescription3)}),
             ("testDebugDescription4", {try run_test(test:($0 as! Test_AllTypes).testDebugDescription4)}),
             ("testWithFactoryHelper", {try run_test(test:($0 as! Test_AllTypes).testWithFactoryHelper)}),
-            ("testWithFactoryHelperRethrows", {try run_test(test:($0 as! Test_AllTypes).testWithFactoryHelperRethrows)})
+            ("testWithFactoryHelperRethrows", {try run_test(test:($0 as! Test_AllTypes).testWithFactoryHelperRethrows)}),
+            ("testUnknownFields_Success", {try run_test(test:($0 as! Test_AllTypes).testUnknownFields_Success)}),
+            ("testUnknownFields_Failures", {try run_test(test:($0 as! Test_AllTypes).testUnknownFields_Failures)})
         ]
     }
 }
@@ -202,7 +204,11 @@ extension Test_Any {
             ("test_Any_Value_int_JSON_roundtrip", {try run_test(test:($0 as! Test_Any).test_Any_Value_int_JSON_roundtrip)}),
             ("test_Any_Value_int_transcode", {try run_test(test:($0 as! Test_Any).test_Any_Value_int_transcode)}),
             ("test_Any_Value_string_JSON_roundtrip", {try run_test(test:($0 as! Test_Any).test_Any_Value_string_JSON_roundtrip)}),
-            ("test_Any_Value_string_transcode", {try run_test(test:($0 as! Test_Any).test_Any_Value_string_transcode)})
+            ("test_Any_Value_string_transcode", {try run_test(test:($0 as! Test_Any).test_Any_Value_string_transcode)}),
+            ("test_Any_OddTypeURL_FromValue", {try run_test(test:($0 as! Test_Any).test_Any_OddTypeURL_FromValue)}),
+            ("test_Any_OddTypeURL_FromMessage", {try run_test(test:($0 as! Test_Any).test_Any_OddTypeURL_FromMessage)}),
+            ("test_IsA", {try run_test(test:($0 as! Test_Any).test_IsA)}),
+            ("test_Any_Registery", {try run_test(test:($0 as! Test_Any).test_Any_Registery)})
         ]
     }
 }
@@ -379,7 +385,9 @@ extension Test_Duration {
             ("testConformance", {try run_test(test:($0 as! Test_Duration).testConformance)}),
             ("testBasicArithmetic", {try run_test(test:($0 as! Test_Duration).testBasicArithmetic)}),
             ("testArithmeticNormalizes", {try run_test(test:($0 as! Test_Duration).testArithmeticNormalizes)}),
-            ("testFloatLiteralConvertible", {try run_test(test:($0 as! Test_Duration).testFloatLiteralConvertible)})
+            ("testFloatLiteralConvertible", {try run_test(test:($0 as! Test_Duration).testFloatLiteralConvertible)}),
+            ("testInitializationByTimeIntervals", {try run_test(test:($0 as! Test_Duration).testInitializationByTimeIntervals)}),
+            ("testGetters", {try run_test(test:($0 as! Test_Duration).testGetters)})
         ]
     }
 }
@@ -398,7 +406,19 @@ extension Test_Enum {
             ("testEqual", {try run_test(test:($0 as! Test_Enum).testEqual)}),
             ("testJSONsingular", {try run_test(test:($0 as! Test_Enum).testJSONsingular)}),
             ("testJSONrepeated", {try run_test(test:($0 as! Test_Enum).testJSONrepeated)}),
-            ("testEnumPrefix", {try run_test(test:($0 as! Test_Enum).testEnumPrefix)})
+            ("testEnumPrefix", {try run_test(test:($0 as! Test_Enum).testEnumPrefix)}),
+            ("testUnknownValues", {try run_test(test:($0 as! Test_Enum).testUnknownValues)})
+        ]
+    }
+}
+
+extension Test_EnumWithAliases {
+    static var allTests: [(String, (XCTestCase) throws -> ())] {
+        return [
+            ("testJSONEncodeUsesOriginalNames", {try run_test(test:($0 as! Test_EnumWithAliases).testJSONEncodeUsesOriginalNames)}),
+            ("testJSONDecodeAcceptsAllNames", {try run_test(test:($0 as! Test_EnumWithAliases).testJSONDecodeAcceptsAllNames)}),
+            ("testTextFormatEncodeUsesOriginalNames", {try run_test(test:($0 as! Test_EnumWithAliases).testTextFormatEncodeUsesOriginalNames)}),
+            ("testTextFormatDecodeAcceptsAllNames", {try run_test(test:($0 as! Test_EnumWithAliases).testTextFormatDecodeAcceptsAllNames)})
         ]
     }
 }
@@ -410,7 +430,8 @@ extension Test_Enum_Proto2 {
             ("testUnknownIgnored", {try run_test(test:($0 as! Test_Enum_Proto2).testUnknownIgnored)}),
             ("testJSONsingular", {try run_test(test:($0 as! Test_Enum_Proto2).testJSONsingular)}),
             ("testJSONrepeated", {try run_test(test:($0 as! Test_Enum_Proto2).testJSONrepeated)}),
-            ("testEnumPrefix", {try run_test(test:($0 as! Test_Enum_Proto2).testEnumPrefix)})
+            ("testEnumPrefix", {try run_test(test:($0 as! Test_Enum_Proto2).testEnumPrefix)}),
+            ("testUnknownValues", {try run_test(test:($0 as! Test_Enum_Proto2).testUnknownValues)})
         ]
     }
 }
@@ -482,6 +503,15 @@ extension Test_FieldOrdering {
     static var allTests: [(String, (XCTestCase) throws -> ())] {
         return [
             ("test_FieldOrdering", {try run_test(test:($0 as! Test_FieldOrdering).test_FieldOrdering)})
+        ]
+    }
+}
+
+extension Test_GroupWithinGroup {
+    static var allTests: [(String, (XCTestCase) throws -> ())] {
+        return [
+            ("testGroupWithGroup_Single", {try run_test(test:($0 as! Test_GroupWithinGroup).testGroupWithGroup_Single)}),
+            ("testGroupWithGroup_Repeated", {try run_test(test:($0 as! Test_GroupWithinGroup).testGroupWithGroup_Repeated)})
         ]
     }
 }
@@ -584,7 +614,9 @@ extension Test_Map {
             ("test_mapInt32Bytes", {try run_test(test:($0 as! Test_Map).test_mapInt32Bytes)}),
             ("test_mapInt32Enum", {try run_test(test:($0 as! Test_Map).test_mapInt32Enum)}),
             ("test_mapInt32ForeignMessage", {try run_test(test:($0 as! Test_Map).test_mapInt32ForeignMessage)}),
-            ("test_mapStringForeignMessage", {try run_test(test:($0 as! Test_Map).test_mapStringForeignMessage)})
+            ("test_mapStringForeignMessage", {try run_test(test:($0 as! Test_Map).test_mapStringForeignMessage)}),
+            ("test_mapEnumUnknowns_Proto2", {try run_test(test:($0 as! Test_Map).test_mapEnumUnknowns_Proto2)}),
+            ("test_mapEnumUnknowns_Proto3", {try run_test(test:($0 as! Test_Map).test_mapEnumUnknowns_Proto3)})
         ]
     }
 }
@@ -689,6 +721,16 @@ extension Test_ExtensionNamingInitials_GlobalScoped {
             ("testLowers", {try run_test(test:($0 as! Test_ExtensionNamingInitials_GlobalScoped).testLowers)}),
             ("testUppers", {try run_test(test:($0 as! Test_ExtensionNamingInitials_GlobalScoped).testUppers)}),
             ("testWordCase", {try run_test(test:($0 as! Test_ExtensionNamingInitials_GlobalScoped).testWordCase)})
+        ]
+    }
+}
+
+extension Test_ExtensionNamingInitials_GlobalScoped_NoPrefix {
+    static var allTests: [(String, (XCTestCase) throws -> ())] {
+        return [
+            ("testLowers", {try run_test(test:($0 as! Test_ExtensionNamingInitials_GlobalScoped_NoPrefix).testLowers)}),
+            ("testUppers", {try run_test(test:($0 as! Test_ExtensionNamingInitials_GlobalScoped_NoPrefix).testUppers)}),
+            ("testWordCase", {try run_test(test:($0 as! Test_ExtensionNamingInitials_GlobalScoped_NoPrefix).testWordCase)})
         ]
     }
 }
@@ -818,7 +860,8 @@ extension Test_Reserved {
         return [
             ("testEnumNaming", {try run_test(test:($0 as! Test_Reserved).testEnumNaming)}),
             ("testMessageNames", {try run_test(test:($0 as! Test_Reserved).testMessageNames)}),
-            ("testFieldNamesMatchingMetadata", {try run_test(test:($0 as! Test_Reserved).testFieldNamesMatchingMetadata)})
+            ("testFieldNamesMatchingMetadata", {try run_test(test:($0 as! Test_Reserved).testFieldNamesMatchingMetadata)}),
+            ("testExtensionNamesMatching", {try run_test(test:($0 as! Test_Reserved).testExtensionNamesMatching)})
         ]
     }
 }
@@ -845,10 +888,18 @@ extension Test_JSON_ListValue {
     }
 }
 
+extension Test_Value {
+    static var allTests: [(String, (XCTestCase) throws -> ())] {
+        return [
+            ("testValue_empty", {try run_test(test:($0 as! Test_Value).testValue_empty)})
+        ]
+    }
+}
+
 extension Test_JSON_Value {
     static var allTests: [(String, (XCTestCase) throws -> ())] {
         return [
-            ("testValue_default", {try run_test(test:($0 as! Test_JSON_Value).testValue_default)}),
+            ("testValue_emptyShouldThrow", {try run_test(test:($0 as! Test_JSON_Value).testValue_emptyShouldThrow)}),
             ("testValue_null", {try run_test(test:($0 as! Test_JSON_Value).testValue_null)}),
             ("testValue_number", {try run_test(test:($0 as! Test_JSON_Value).testValue_number)}),
             ("testValue_string", {try run_test(test:($0 as! Test_JSON_Value).testValue_string)}),
@@ -1001,7 +1052,11 @@ extension Test_Timestamp {
             ("testJSON_conformance", {try run_test(test:($0 as! Test_Timestamp).testJSON_conformance)}),
             ("testSerializationFailure", {try run_test(test:($0 as! Test_Timestamp).testSerializationFailure)}),
             ("testBasicArithmetic", {try run_test(test:($0 as! Test_Timestamp).testBasicArithmetic)}),
-            ("testArithmeticNormalizes", {try run_test(test:($0 as! Test_Timestamp).testArithmeticNormalizes)})
+            ("testArithmeticNormalizes", {try run_test(test:($0 as! Test_Timestamp).testArithmeticNormalizes)}),
+            ("testInitializationByTimestamps", {try run_test(test:($0 as! Test_Timestamp).testInitializationByTimestamps)}),
+            ("testInitializationByReferenceTimestamp", {try run_test(test:($0 as! Test_Timestamp).testInitializationByReferenceTimestamp)}),
+            ("testInitializationByDates", {try run_test(test:($0 as! Test_Timestamp).testInitializationByDates)}),
+            ("testTimestampGetters", {try run_test(test:($0 as! Test_Timestamp).testTimestampGetters)})
         ]
     }
 }
@@ -1029,7 +1084,9 @@ extension Test_Unknown_proto3 {
     static var allTests: [(String, (XCTestCase) throws -> ())] {
         return [
             ("testBinaryPB", {try run_test(test:($0 as! Test_Unknown_proto3).testBinaryPB)}),
-            ("testJSON", {try run_test(test:($0 as! Test_Unknown_proto3).testJSON)})
+            ("testJSON", {try run_test(test:($0 as! Test_Unknown_proto3).testJSON)}),
+            ("test_MessageNoStorageClass", {try run_test(test:($0 as! Test_Unknown_proto3).test_MessageNoStorageClass)}),
+            ("test_MessageUsingStorageClass", {try run_test(test:($0 as! Test_Unknown_proto3).test_MessageUsingStorageClass)})
         ]
     }
 }
@@ -1063,11 +1120,13 @@ XCTMain(
         (testCaseClass: Test_Duration.self, allTests: Test_Duration.allTests),
         (testCaseClass: Test_Empty.self, allTests: Test_Empty.allTests),
         (testCaseClass: Test_Enum.self, allTests: Test_Enum.allTests),
+        (testCaseClass: Test_EnumWithAliases.self, allTests: Test_EnumWithAliases.allTests),
         (testCaseClass: Test_Enum_Proto2.self, allTests: Test_Enum_Proto2.allTests),
         (testCaseClass: Test_Extensions.self, allTests: Test_Extensions.allTests),
         (testCaseClass: Test_ExtremeDefaultValues.self, allTests: Test_ExtremeDefaultValues.allTests),
         (testCaseClass: Test_FieldMask.self, allTests: Test_FieldMask.allTests),
         (testCaseClass: Test_FieldOrdering.self, allTests: Test_FieldOrdering.allTests),
+        (testCaseClass: Test_GroupWithinGroup.self, allTests: Test_GroupWithinGroup.allTests),
         (testCaseClass: Test_JSON.self, allTests: Test_JSON.allTests),
         (testCaseClass: Test_JSONPacked.self, allTests: Test_JSONPacked.allTests),
         (testCaseClass: Test_JSONUnpacked.self, allTests: Test_JSONUnpacked.allTests),
@@ -1081,6 +1140,7 @@ XCTMain(
         (testCaseClass: Test_FieldNamingInitials.self, allTests: Test_FieldNamingInitials.allTests),
         (testCaseClass: Test_ExtensionNamingInitials_MessageScoped.self, allTests: Test_ExtensionNamingInitials_MessageScoped.allTests),
         (testCaseClass: Test_ExtensionNamingInitials_GlobalScoped.self, allTests: Test_ExtensionNamingInitials_GlobalScoped.allTests),
+        (testCaseClass: Test_ExtensionNamingInitials_GlobalScoped_NoPrefix.self, allTests: Test_ExtensionNamingInitials_GlobalScoped_NoPrefix.allTests),
         (testCaseClass: Test_OneofFields_Access_Proto2.self, allTests: Test_OneofFields_Access_Proto2.allTests),
         (testCaseClass: Test_OneofFields_Access_Proto3.self, allTests: Test_OneofFields_Access_Proto3.allTests),
         (testCaseClass: Test_Packed.self, allTests: Test_Packed.allTests),
@@ -1092,6 +1152,7 @@ XCTMain(
         (testCaseClass: Test_Reserved.self, allTests: Test_Reserved.allTests),
         (testCaseClass: Test_Struct.self, allTests: Test_Struct.allTests),
         (testCaseClass: Test_JSON_ListValue.self, allTests: Test_JSON_ListValue.allTests),
+        (testCaseClass: Test_Value.self, allTests: Test_Value.allTests),
         (testCaseClass: Test_JSON_Value.self, allTests: Test_JSON_Value.allTests),
         (testCaseClass: Test_TextFormat_Map_proto3.self, allTests: Test_TextFormat_Map_proto3.allTests),
         (testCaseClass: Test_TextFormat_Unknown.self, allTests: Test_TextFormat_Unknown.allTests),

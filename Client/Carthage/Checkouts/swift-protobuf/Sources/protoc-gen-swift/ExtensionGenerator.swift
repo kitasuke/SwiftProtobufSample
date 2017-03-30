@@ -22,10 +22,12 @@ struct ExtensionGenerator {
     let descriptor: Google_Protobuf_FieldDescriptorProto
     let generatorOptions: GeneratorOptions
     let path: [Int32]
-    let protoPath: String
+    let protoPackageName: String
     let swiftDeclaringMessageName: String?
     let context: Context
     let comments: String
+    let fieldName: String
+    let fieldNamePath: String
     let apiType: String
     let swiftFieldName: String
     let swiftHasPropertyName: String
@@ -69,16 +71,20 @@ struct ExtensionGenerator {
         self.descriptor = descriptor
         self.generatorOptions = file.generatorOptions
         self.path = path
+        self.protoPackageName = file.protoPackageName
         self.swiftDeclaringMessageName = swiftDeclaringMessageName
         self.swiftExtendedMessageName = context.getMessageNameForPath(path: descriptor.extendee)!
         self.context = context
         self.apiType = descriptor.getSwiftApiType(context: context, isProto3: false)
         self.comments = file.commentsFor(path: path)
-        let fieldName = descriptor.isGroup ? descriptor.bareTypeName : descriptor.name
-        if let parentProtoPath = parentProtoPath {
-            self.protoPath = parentProtoPath + "." + fieldName
+        self.fieldName = descriptor.isGroup ? descriptor.bareTypeName : descriptor.name
+        if let parentProtoPath = parentProtoPath, !parentProtoPath.isEmpty {
+            var p = parentProtoPath
+            assert(p.hasPrefix("."))
+            p.remove(at: p.startIndex)
+            self.fieldNamePath = p + "." + fieldName
         } else {
-            self.protoPath = fieldName
+            self.fieldNamePath = fieldName
         }
 
         let baseName: String
@@ -91,38 +97,58 @@ struct ExtensionGenerator {
         let fieldBaseName = toLowerCamelCase(baseName)
 
         if let msg = swiftDeclaringMessageName {
-            self.swiftRelativeExtensionName = baseName
-            self.swiftFullExtensionName = msg + ".Extensions." + baseName
+            // Since the name is used within the "Extensions" struct, reserved words
+            // could be a problem.  When declared, we might need backticks, but when
+            // using the qualified name, backticks aren't needed.
+            let cleanedBaseName = sanitizeMessageScopedExtensionName(baseName)
+            let cleanedBaseNameNoBackticks = sanitizeMessageScopedExtensionName(baseName, skipBackticks: true)
+            self.swiftRelativeExtensionName = cleanedBaseName
+            self.swiftFullExtensionName = msg + ".Extensions." + cleanedBaseNameNoBackticks
+            // The rest of these have enough things put together, we assume they
+            // can never run into reserved words.
+            //
+            // fieldBaseName is the lowerCase name even though we put more on the
+            // front, this seems to help make the field name stick out a little
+            // compared to the message name scoping it on the front.
             self.swiftFieldName = periodsToUnderscores(msg + "_" + fieldBaseName)
+            self.swiftHasPropertyName = "has" + uppercaseFirst(swiftFieldName)
+            self.swiftClearMethodName = "clear" + uppercaseFirst(swiftFieldName)
         } else {
             let swiftPrefix = file.swiftPrefix
             self.swiftRelativeExtensionName = swiftPrefix + "Extensions_" + baseName
             self.swiftFullExtensionName = self.swiftRelativeExtensionName
-            self.swiftFieldName = periodsToUnderscores(swiftPrefix + fieldBaseName)
+            // If there was no package and no prefix, fieldBaseName could be a reserved
+            // word, so sanitize. These's also the slim chance the prefix plus the
+            // extension name resulted in a reserved word, so the sanitize is always
+            // needed.
+            self.swiftFieldName = sanitizeFieldName(swiftPrefix + fieldBaseName)
+            if swiftPrefix.isEmpty {
+                // No prefix, so got back to UpperCamelCasing the extension name, and then
+                // sanitize it like we did for the lower form.
+                let upperCleaned = sanitizeFieldName(toUpperCamelCase(baseName), basedOn: fieldBaseName)
+                self.swiftHasPropertyName = "has" + upperCleaned
+                self.swiftClearMethodName = "clear" + upperCleaned
+            } else {
+                // Since there was a prefix, just add has/clear and ensure the first letter
+                // was capitalized.
+                self.swiftHasPropertyName = "has" + uppercaseFirst(swiftFieldName)
+                self.swiftClearMethodName = "clear" + uppercaseFirst(swiftFieldName)
+            }
         }
-        self.swiftHasPropertyName = "has" + uppercaseFirst(swiftFieldName)
-        self.swiftClearMethodName = "clear" + uppercaseFirst(swiftFieldName)
     }
 
     func generateNested(printer p: inout CodePrinter) {
         p.print("\n")
-        if comments != "" {
+        if !comments.isEmpty {
             p.print(comments)
         }
         let scope = swiftDeclaringMessageName == nil ? "" : "static "
         let traitsType = descriptor.getTraitsType(context: context)
 
-        // JSON can't support extensions, so don't bother with a JSON name here
-        var protoPath = self.protoPath
-        if protoPath.hasPrefix(".") {
-            protoPath.remove(at: protoPath.startIndex)
-        }
-        let nameCase = ".same(proto: \"\(protoPath)\")"
-
         p.print("\(scope)let \(swiftRelativeExtensionName) = SwiftProtobuf.MessageExtension<\(extensionFieldType)<\(traitsType)>, \(swiftExtendedMessageName)>(\n")
         p.indent()
         p.print("_protobuf_fieldNumber: \(descriptor.number),\n")
-        p.print("fieldNames: \(nameCase),\n")
+        p.print("fieldName: \"\(fieldNamePath)\",\n")
         p.print("defaultValue: \(defaultValue)\n")
         p.outdent()
         p.print(")\n")
@@ -132,7 +158,7 @@ struct ExtensionGenerator {
         p.print("\n")
         p.print("extension \(swiftExtendedMessageName) {\n")
         p.indent()
-        if comments != "" {
+        if !comments.isEmpty {
             p.print(comments)
         }
         p.print("\(generatorOptions.visibilitySourceSnippet)var \(swiftFieldName): \(apiType) {\n")

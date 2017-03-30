@@ -49,9 +49,10 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _1
 }
 
-struct ProtobufUnittest_SwiftEnumTest: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "SwiftEnumTest"
-  static let protoPackageName: String = "protobuf_unittest"
+fileprivate let _protobuf_package = "protobuf_unittest"
+
+struct ProtobufUnittest_SwiftEnumTest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".SwiftEnumTest"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -182,20 +183,84 @@ struct ProtobufUnittest_SwiftEnumTest: SwiftProtobuf.Proto2Message, SwiftProtobu
 
   init() {}
 
-  mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let _ = try decoder.nextFieldNumber() {
     }
   }
 
-  mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
-  }
-
-  func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_SwiftEnumTest) -> Bool {
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+struct ProtobufUnittest_SwiftEnumWithAliasTest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".SwiftEnumWithAliasTest"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "values"),
+  ]
+
+  var values: [ProtobufUnittest_SwiftEnumWithAliasTest.EnumWithAlias] = []
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  enum EnumWithAlias: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+    typealias RawValue = Int
+    case foo1 // = 1
+    static let foo2 = foo1
+    case bar1 // = 2
+    static let bar2 = bar1
+
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+      1: .aliased(proto: "FOO1", aliases: ["FOO2"]),
+      2: .aliased(proto: "BAR1", aliases: ["BAR2"]),
+    ]
+
+    init() {
+      self = .foo1
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 1: self = .foo1
+      case 2: self = .bar1
+      default: return nil
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .foo1: return 1
+      case .bar1: return 2
+      }
+    }
+
+  }
+
+  init() {}
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeRepeatedEnumField(value: &values)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !values.isEmpty {
+      try visitor.visitPackedEnumField(value: values, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_SwiftEnumWithAliasTest) -> Bool {
+    if values != other.values {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }

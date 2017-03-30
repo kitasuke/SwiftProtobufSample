@@ -55,14 +55,15 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _1
 }
 
-struct ProtobufUnittest_TestOptimizedForSize: SwiftProtobuf.Proto2Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "TestOptimizedForSize"
-  static let protoPackageName: String = "protobuf_unittest"
+fileprivate let _protobuf_package = "protobuf_unittest"
+
+struct ProtobufUnittest_TestOptimizedForSize: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".TestOptimizedForSize"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "i"),
     19: .same(proto: "msg"),
-    2: .unique(proto: "integer_field", json: "integerField"),
-    3: .unique(proto: "string_field", json: "stringField"),
+    2: .standard(proto: "integer_field"),
+    3: .standard(proto: "string_field"),
   ]
 
   private class _StorageClass {
@@ -72,12 +73,10 @@ struct ProtobufUnittest_TestOptimizedForSize: SwiftProtobuf.Proto2Message, Swift
 
     init() {}
 
-    func copy() -> _StorageClass {
-      let clone = _StorageClass()
-      clone._i = _i
-      clone._msg = _msg
-      clone._foo = _foo
-      return clone
+    init(copying source: _StorageClass) {
+      _i = source._i
+      _msg = source._msg
+      _foo = source._foo
     }
   }
 
@@ -85,7 +84,7 @@ struct ProtobufUnittest_TestOptimizedForSize: SwiftProtobuf.Proto2Message, Swift
 
   private mutating func _uniqueStorage() -> _StorageClass {
     if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _storage.copy()
+      _storage = _StorageClass(copying: _storage)
     }
     return _storage
   }
@@ -197,13 +196,13 @@ struct ProtobufUnittest_TestOptimizedForSize: SwiftProtobuf.Proto2Message, Swift
 
     static let test_extension = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, ProtobufUnittest_TestOptimizedForSize>(
       _protobuf_fieldNumber: 1234,
-      fieldNames: .same(proto: "protobuf_unittest.TestOptimizedForSize.test_extension"),
+      fieldName: "protobuf_unittest.TestOptimizedForSize.test_extension",
       defaultValue: 0
     )
 
     static let test_extension2 = SwiftProtobuf.MessageExtension<OptionalMessageExtensionField<ProtobufUnittest_TestRequiredOptimizedForSize>, ProtobufUnittest_TestOptimizedForSize>(
       _protobuf_fieldNumber: 1235,
-      fieldNames: .same(proto: "protobuf_unittest.TestOptimizedForSize.test_extension2"),
+      fieldName: "protobuf_unittest.TestOptimizedForSize.test_extension2",
       defaultValue: ProtobufUnittest_TestRequiredOptimizedForSize()
     )
   }
@@ -211,37 +210,31 @@ struct ProtobufUnittest_TestOptimizedForSize: SwiftProtobuf.Proto2Message, Swift
   init() {}
 
   public var isInitialized: Bool {
-    return withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      if !_extensionFieldValues.isInitialized {return false}
-      return true
-    }
+    if !_protobuf_extensionFieldValues.isInitialized {return false}
+    return true
   }
 
-  mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
-        try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+        switch fieldNumber {
+        case 1: try decoder.decodeSingularInt32Field(value: &_storage._i)
+        case 19: try decoder.decodeSingularMessageField(value: &_storage._msg)
+        case 2, 3:
+          if _storage._foo != nil {
+            try decoder.handleConflictingOneOf()
+          }
+          _storage._foo = try ProtobufUnittest_TestOptimizedForSize.OneOf_Foo(byDecodingFrom: &decoder, fieldNumber: fieldNumber)
+        case 1000..<536870912:
+          try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: ProtobufUnittest_TestOptimizedForSize.self, fieldNumber: fieldNumber)
+        default: break
+        }
       }
     }
   }
 
-  mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
-    switch fieldNumber {
-    case 1: try decoder.decodeSingularInt32Field(value: &_storage._i)
-    case 19: try decoder.decodeSingularMessageField(value: &_storage._msg)
-    case 2, 3:
-      if _storage._foo != nil {
-        try decoder.handleConflictingOneOf()
-      }
-      _storage._foo = try ProtobufUnittest_TestOptimizedForSize.OneOf_Foo(byDecodingFrom: &decoder, fieldNumber: fieldNumber)
-    default: if (1000 <= fieldNumber && fieldNumber < 536870912) {
-        try decoder.decodeExtensionField(values: &_extensionFieldValues, messageType: ProtobufUnittest_TestOptimizedForSize.self, fieldNumber: fieldNumber)
-      }
-    }
-  }
-
-  func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       if let v = _storage._i {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
@@ -250,52 +243,31 @@ struct ProtobufUnittest_TestOptimizedForSize: SwiftProtobuf.Proto2Message, Swift
       if let v = _storage._msg {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 19)
       }
-      try visitor.visitExtensionFields(fields: _extensionFieldValues, start: 1000, end: 536870912)
-      try unknownFields.traverse(visitor: &visitor)
+      try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 1000, end: 536870912)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestOptimizedForSize) -> Bool {
-    return withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
-      if _storage !== other_storage {
+    if _storage !== other._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
         if _storage._i != other_storage._i {return false}
         if _storage._msg != other_storage._msg {return false}
         if _storage._foo != other_storage._foo {return false}
+        return true
       }
-      if unknownFields != other.unknownFields {return false}
-      if _extensionFieldValues != other._extensionFieldValues {return false}
-      return true
+      if !storagesAreEqual {return false}
     }
+    if unknownFields != other.unknownFields {return false}
+    if _protobuf_extensionFieldValues != other._protobuf_extensionFieldValues {return false}
+    return true
   }
 
-  private var _extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
-
-  mutating func setExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, ProtobufUnittest_TestOptimizedForSize>, value: F.ValueType) {
-    _extensionFieldValues[ext.fieldNumber] = ext._protobuf_set(value: value)
-  }
-
-  mutating func clearExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, ProtobufUnittest_TestOptimizedForSize>) {
-    _extensionFieldValues[ext.fieldNumber] = nil
-  }
-
-  func getExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, ProtobufUnittest_TestOptimizedForSize>) -> F.ValueType {
-    if let fieldValue = _extensionFieldValues[ext.fieldNumber] as? F {
-      return fieldValue.value
-    }
-    return ext.defaultValue
-  }
-
-  func hasExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, ProtobufUnittest_TestOptimizedForSize>) -> Bool {
-    return _extensionFieldValues[ext.fieldNumber] is F
-  }
-  func _protobuf_names(for number: Int) -> _NameMap.Names? {
-    return ProtobufUnittest_TestOptimizedForSize._protobuf_nameMap.names(for: number) ?? _extensionFieldValues._protobuf_fieldNames(for: number)
-  }
+  var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
 }
 
-struct ProtobufUnittest_TestRequiredOptimizedForSize: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "TestRequiredOptimizedForSize"
-  static let protoPackageName: String = "protobuf_unittest"
+struct ProtobufUnittest_TestRequiredOptimizedForSize: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".TestRequiredOptimizedForSize"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "x"),
   ]
@@ -321,20 +293,16 @@ struct ProtobufUnittest_TestRequiredOptimizedForSize: SwiftProtobuf.Proto2Messag
     return true
   }
 
-  mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
-      try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &_x)
+      default: break
+      }
     }
   }
 
-  mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
-    switch fieldNumber {
-    case 1: try decoder.decodeSingularInt32Field(value: &_x)
-    default: break
-    }
-  }
-
-  func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if let v = _x {
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
     }
@@ -348,9 +316,8 @@ struct ProtobufUnittest_TestRequiredOptimizedForSize: SwiftProtobuf.Proto2Messag
   }
 }
 
-struct ProtobufUnittest_TestOptionalOptimizedForSize: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "TestOptionalOptimizedForSize"
-  static let protoPackageName: String = "protobuf_unittest"
+struct ProtobufUnittest_TestOptionalOptimizedForSize: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".TestOptionalOptimizedForSize"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "o"),
   ]
@@ -360,10 +327,8 @@ struct ProtobufUnittest_TestOptionalOptimizedForSize: SwiftProtobuf.Proto2Messag
 
     init() {}
 
-    func copy() -> _StorageClass {
-      let clone = _StorageClass()
-      clone._o = _o
-      return clone
+    init(copying source: _StorageClass) {
+      _o = source._o
     }
   }
 
@@ -371,7 +336,7 @@ struct ProtobufUnittest_TestOptionalOptimizedForSize: SwiftProtobuf.Proto2Messag
 
   private mutating func _uniqueStorage() -> _StorageClass {
     if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _storage.copy()
+      _storage = _StorageClass(copying: _storage)
     }
     return _storage
   }
@@ -398,39 +363,37 @@ struct ProtobufUnittest_TestOptionalOptimizedForSize: SwiftProtobuf.Proto2Messag
     }
   }
 
-  mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
-        try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+        switch fieldNumber {
+        case 1: try decoder.decodeSingularMessageField(value: &_storage._o)
+        default: break
+        }
       }
     }
   }
 
-  mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
-    switch fieldNumber {
-    case 1: try decoder.decodeSingularMessageField(value: &_storage._o)
-    default: break
-    }
-  }
-
-  func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       if let v = _storage._o {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
       }
-      try unknownFields.traverse(visitor: &visitor)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestOptionalOptimizedForSize) -> Bool {
-    return withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
-      if _storage !== other_storage {
+    if _storage !== other._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
         if _storage._o != other_storage._o {return false}
+        return true
       }
-      if unknownFields != other.unknownFields {return false}
-      return true
+      if !storagesAreEqual {return false}
     }
+    if unknownFields != other.unknownFields {return false}
+    return true
   }
 }
 
@@ -460,7 +423,7 @@ extension ProtobufUnittest_TestOptimizedForSize {
   }
 }
 
-let ProtobufUnittest_UnittestOptimizeFor_Extensions: SwiftProtobuf.ExtensionSet = [
+let ProtobufUnittest_UnittestOptimizeFor_Extensions: SwiftProtobuf.SimpleExtensionMap = [
   ProtobufUnittest_TestOptimizedForSize.Extensions.test_extension,
   ProtobufUnittest_TestOptimizedForSize.Extensions.test_extension2
 ]

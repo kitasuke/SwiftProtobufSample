@@ -28,6 +28,7 @@ class EnumGenerator {
   private let swiftRelativeName: String
   private let swiftFullName: String
   private let enumCases: [EnumCaseGenerator]
+  private let enumCasesSortedByNumber: [EnumCaseGenerator]
   private let defaultCase: EnumCaseGenerator
   private let path: [Int32]
   private let comments: String
@@ -52,15 +53,31 @@ class EnumGenerator {
 
     let stripLength: Int = descriptor.stripPrefixLength
     var i: Int32 = 0
+    var firstCases = [Int32: EnumCaseGenerator]()
     var enumCases = [EnumCaseGenerator]()
     for v in descriptor.value {
       var casePath = path
-      casePath.append(2)
+      casePath.append(Google_Protobuf_EnumValueDescriptorProto.FieldNumbers.number)
       casePath.append(i)
       i += 1
-      enumCases.append(EnumCaseGenerator(descriptor: v, path: casePath, file: file, stripLength: stripLength))
+
+      // Keep track of aliases by recording them as we build the generators.
+      let firstCase = firstCases[v.number]
+      let generator = EnumCaseGenerator(descriptor: v,
+                                        path: casePath,
+                                        file: file,
+                                        stripLength: stripLength,
+                                        aliasing: firstCase)
+      enumCases.append(generator)
+
+      if let firstCase = firstCase {
+        firstCase.registerAlias(generator)
+      } else {
+        firstCases[v.number] = generator
+      }
     }
     self.enumCases = enumCases
+    enumCasesSortedByNumber = enumCases.sorted {$0.number < $1.number}
     self.defaultCase = self.enumCases[0]
     self.path = path
     self.comments = file.commentsFor(path: path)
@@ -75,7 +92,7 @@ class EnumGenerator {
 
     // Cases
     for c in enumCases {
-      c.generateCase(printer: &p)
+      c.generateCaseOrAlias(printer: &p)
     }
     if isProto3 {
       p.print("case \(unrecognizedCaseName)(Int)\n")
@@ -113,8 +130,8 @@ class EnumGenerator {
     } else {
       p.print("\(visibility)static let _protobuf_nameMap: SwiftProtobuf._NameMap = [\n")
       p.indent()
-      for c in enumCases {
-        p.print("\(c.number): .same(proto: \"\(c.protoName)\"),\n")
+      for c in enumCasesSortedByNumber where !c.isAlias {
+        c.generateNameMapEntry(printer: &p)
       }
       p.outdent()
       p.print("]\n")
@@ -128,10 +145,8 @@ class EnumGenerator {
     p.print("\(visibility)init?(rawValue: Int) {\n")
     p.indent()
     p.print("switch rawValue {\n")
-    var uniqueCaseNumbers = Set<Int>()
-    for c in enumCases where !uniqueCaseNumbers.contains(c.number) {
+    for c in enumCasesSortedByNumber where !c.isAlias {
       p.print("case \(c.number): self = .\(c.swiftName)\n")
-      uniqueCaseNumbers.insert(c.number)
     }
     if isProto3 {
       p.print("default: self = .\(unrecognizedCaseName)(rawValue)\n")
@@ -150,7 +165,7 @@ class EnumGenerator {
     p.print("\(visibility)var rawValue: Int {\n")
     p.indent()
     p.print("switch self {\n")
-    for c in enumCases {
+    for c in enumCasesSortedByNumber where !c.isAlias {
       p.print("case .\(c.swiftName): return \(c.number)\n")
     }
     if isProto3 {

@@ -49,9 +49,10 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _1
 }
 
-struct Proto2ArenaUnittest_NestedMessage: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "NestedMessage"
-  static let protoPackageName: String = "proto2_arena_unittest"
+fileprivate let _protobuf_package = "proto2_arena_unittest"
+
+struct Proto2ArenaUnittest_NestedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".NestedMessage"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "d"),
   ]
@@ -72,20 +73,16 @@ struct Proto2ArenaUnittest_NestedMessage: SwiftProtobuf.Proto2Message, SwiftProt
 
   init() {}
 
-  mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
-      try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &_d)
+      default: break
+      }
     }
   }
 
-  mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
-    switch fieldNumber {
-    case 1: try decoder.decodeSingularInt32Field(value: &_d)
-    default: break
-    }
-  }
-
-  func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if let v = _d {
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
     }
@@ -99,12 +96,11 @@ struct Proto2ArenaUnittest_NestedMessage: SwiftProtobuf.Proto2Message, SwiftProt
   }
 }
 
-struct Proto2ArenaUnittest_ArenaMessage: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "ArenaMessage"
-  static let protoPackageName: String = "proto2_arena_unittest"
+struct Proto2ArenaUnittest_ArenaMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".ArenaMessage"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .unique(proto: "repeated_nested_message", json: "repeatedNestedMessage"),
-    2: .unique(proto: "repeated_import_no_arena_message", json: "repeatedImportNoArenaMessage"),
+    1: .standard(proto: "repeated_nested_message"),
+    2: .standard(proto: "repeated_import_no_arena_message"),
   ]
 
   var repeatedNestedMessage: [Proto2ArenaUnittest_NestedMessage] = []
@@ -115,21 +111,17 @@ struct Proto2ArenaUnittest_ArenaMessage: SwiftProtobuf.Proto2Message, SwiftProto
 
   init() {}
 
-  mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
-      try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+      switch fieldNumber {
+      case 1: try decoder.decodeRepeatedMessageField(value: &repeatedNestedMessage)
+      case 2: try decoder.decodeRepeatedMessageField(value: &repeatedImportNoArenaMessage)
+      default: break
+      }
     }
   }
 
-  mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
-    switch fieldNumber {
-    case 1: try decoder.decodeRepeatedMessageField(value: &repeatedNestedMessage)
-    case 2: try decoder.decodeRepeatedMessageField(value: &repeatedImportNoArenaMessage)
-    default: break
-    }
-  }
-
-  func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !repeatedNestedMessage.isEmpty {
       try visitor.visitRepeatedMessageField(value: repeatedNestedMessage, fieldNumber: 1)
     }

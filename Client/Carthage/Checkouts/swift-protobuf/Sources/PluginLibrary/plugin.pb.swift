@@ -65,10 +65,11 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _1
 }
 
+fileprivate let _protobuf_package = "google.protobuf.compiler"
+
 ///   The version number of protocol compiler.
-public struct Google_Protobuf_Compiler_Version: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = "Version"
-  public static let protoPackageName: String = "google.protobuf.compiler"
+public struct Google_Protobuf_Compiler_Version: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".Version"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "major"),
     2: .same(proto: "minor"),
@@ -130,23 +131,19 @@ public struct Google_Protobuf_Compiler_Version: SwiftProtobuf.Proto2Message, Swi
 
   public init() {}
 
-  public mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
-      try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &_major)
+      case 2: try decoder.decodeSingularInt32Field(value: &_minor)
+      case 3: try decoder.decodeSingularInt32Field(value: &_patch)
+      case 4: try decoder.decodeSingularStringField(value: &_suffix)
+      default: break
+      }
     }
   }
 
-  public mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
-    switch fieldNumber {
-    case 1: try decoder.decodeSingularInt32Field(value: &_major)
-    case 2: try decoder.decodeSingularInt32Field(value: &_minor)
-    case 3: try decoder.decodeSingularInt32Field(value: &_patch)
-    case 4: try decoder.decodeSingularStringField(value: &_suffix)
-    default: break
-    }
-  }
-
-  public func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if let v = _major {
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
     }
@@ -173,14 +170,13 @@ public struct Google_Protobuf_Compiler_Version: SwiftProtobuf.Proto2Message, Swi
 }
 
 ///   An encoded CodeGeneratorRequest is written to the plugin's stdin.
-public struct Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = "CodeGeneratorRequest"
-  public static let protoPackageName: String = "google.protobuf.compiler"
+public struct Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".CodeGeneratorRequest"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .unique(proto: "file_to_generate", json: "fileToGenerate"),
+    1: .standard(proto: "file_to_generate"),
     2: .same(proto: "parameter"),
-    15: .unique(proto: "proto_file", json: "protoFile"),
-    3: .unique(proto: "compiler_version", json: "compilerVersion"),
+    15: .standard(proto: "proto_file"),
+    3: .standard(proto: "compiler_version"),
   ]
 
   private class _StorageClass {
@@ -191,13 +187,11 @@ public struct Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf.Proto
 
     init() {}
 
-    func copy() -> _StorageClass {
-      let clone = _StorageClass()
-      clone._fileToGenerate = _fileToGenerate
-      clone._parameter = _parameter
-      clone._protoFile = _protoFile
-      clone._compilerVersion = _compilerVersion
-      return clone
+    init(copying source: _StorageClass) {
+      _fileToGenerate = source._fileToGenerate
+      _parameter = source._parameter
+      _protoFile = source._protoFile
+      _compilerVersion = source._compilerVersion
     }
   }
 
@@ -205,7 +199,7 @@ public struct Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf.Proto
 
   private mutating func _uniqueStorage() -> _StorageClass {
     if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _storage.copy()
+      _storage = _StorageClass(copying: _storage)
     }
     return _storage
   }
@@ -269,26 +263,22 @@ public struct Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf.Proto
     }
   }
 
-  public mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
-        try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+        switch fieldNumber {
+        case 1: try decoder.decodeRepeatedStringField(value: &_storage._fileToGenerate)
+        case 2: try decoder.decodeSingularStringField(value: &_storage._parameter)
+        case 15: try decoder.decodeRepeatedMessageField(value: &_storage._protoFile)
+        case 3: try decoder.decodeSingularMessageField(value: &_storage._compilerVersion)
+        default: break
+        }
       }
     }
   }
 
-  public mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
-    switch fieldNumber {
-    case 1: try decoder.decodeRepeatedStringField(value: &_storage._fileToGenerate)
-    case 2: try decoder.decodeSingularStringField(value: &_storage._parameter)
-    case 15: try decoder.decodeRepeatedMessageField(value: &_storage._protoFile)
-    case 3: try decoder.decodeSingularMessageField(value: &_storage._compilerVersion)
-    default: break
-    }
-  }
-
-  public func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       if !_storage._fileToGenerate.isEmpty {
         try visitor.visitRepeatedStringField(value: _storage._fileToGenerate, fieldNumber: 1)
@@ -302,28 +292,29 @@ public struct Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf.Proto
       if !_storage._protoFile.isEmpty {
         try visitor.visitRepeatedMessageField(value: _storage._protoFile, fieldNumber: 15)
       }
-      try unknownFields.traverse(visitor: &visitor)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   public func _protobuf_generated_isEqualTo(other: Google_Protobuf_Compiler_CodeGeneratorRequest) -> Bool {
-    return withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
-      if _storage !== other_storage {
+    if _storage !== other._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
         if _storage._fileToGenerate != other_storage._fileToGenerate {return false}
         if _storage._parameter != other_storage._parameter {return false}
         if _storage._protoFile != other_storage._protoFile {return false}
         if _storage._compilerVersion != other_storage._compilerVersion {return false}
+        return true
       }
-      if unknownFields != other.unknownFields {return false}
-      return true
+      if !storagesAreEqual {return false}
     }
+    if unknownFields != other.unknownFields {return false}
+    return true
   }
 }
 
 ///   The plugin writes an encoded CodeGeneratorResponse to stdout.
-public struct Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = "CodeGeneratorResponse"
-  public static let protoPackageName: String = "google.protobuf.compiler"
+public struct Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".CodeGeneratorResponse"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "error"),
     15: .same(proto: "file"),
@@ -354,12 +345,11 @@ public struct Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Prot
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   ///   Represents a single generated file.
-  public struct File: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-    public static let protoMessageName: String = "File"
-    public static let protoPackageName: String = "google.protobuf.compiler"
+  public struct File: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+    public static let protoMessageName: String = Google_Protobuf_Compiler_CodeGeneratorResponse.protoMessageName + ".File"
     public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
       1: .same(proto: "name"),
-      2: .unique(proto: "insertion_point", json: "insertionPoint"),
+      2: .standard(proto: "insertion_point"),
       15: .same(proto: "content"),
     ]
 
@@ -452,22 +442,18 @@ public struct Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Prot
 
     public init() {}
 
-    public mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
-        try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+        switch fieldNumber {
+        case 1: try decoder.decodeSingularStringField(value: &_name)
+        case 2: try decoder.decodeSingularStringField(value: &_insertionPoint)
+        case 15: try decoder.decodeSingularStringField(value: &_content)
+        default: break
+        }
       }
     }
 
-    public mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
-      switch fieldNumber {
-      case 1: try decoder.decodeSingularStringField(value: &_name)
-      case 2: try decoder.decodeSingularStringField(value: &_insertionPoint)
-      case 15: try decoder.decodeSingularStringField(value: &_content)
-      default: break
-      }
-    }
-
-    public func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _name {
         try visitor.visitSingularStringField(value: v, fieldNumber: 1)
       }
@@ -491,21 +477,17 @@ public struct Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Prot
 
   public init() {}
 
-  public mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
-      try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularStringField(value: &_error)
+      case 15: try decoder.decodeRepeatedMessageField(value: &file)
+      default: break
+      }
     }
   }
 
-  public mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
-    switch fieldNumber {
-    case 1: try decoder.decodeSingularStringField(value: &_error)
-    case 15: try decoder.decodeRepeatedMessageField(value: &file)
-    default: break
-    }
-  }
-
-  public func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if let v = _error {
       try visitor.visitSingularStringField(value: v, fieldNumber: 1)
     }
