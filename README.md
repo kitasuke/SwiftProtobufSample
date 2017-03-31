@@ -15,7 +15,7 @@ Web framework, [Kitura](http://www.kitura.io/) provides HTTP server with [swift-
 
 Swift 3.1  
 Xcode 8.3    
-protoc 3.1  
+protoc 3.2  
 swift-protobuf 0.9.29  
 Kitura 1.3  
 
