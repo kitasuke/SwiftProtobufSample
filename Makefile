@@ -1,4 +1,4 @@
-proto:
+generate:
 	cd protos; protoc --swift_out=. *.proto
 	cp protos/*.pb.swift Server/Sources/
 	cp protos/*.pb.swift Client/Client/

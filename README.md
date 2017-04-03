@@ -1,15 +1,15 @@
 # SwiftProtobufSample
-Sample project for client/server in Swift with Protocol Buffers
+Sample project with Protocol Buffers for client/server in Swift
 
-## Sample app
+## Sample apps
 
-### Client side
+### Client app
 
 APIClient uses `URLSession` with [swift-protobuf](https://github.com/apple/swift-protobuf)
 
-### Server side
+### Server app
 
-Web framework, [Kitura](http://www.kitura.io/) provides HTTP server with [swift-protobuf](https://github.com/apple/swift-protobuf) 
+Web framework, [Kitura](http://www.kitura.io/) provides HTTP server with [swift-protobuf](https://github.com/apple/swift-protobuf)
 
 ## Requirements
 
@@ -19,40 +19,45 @@ protoc 3.2
 swift-protobuf 0.9.29  
 Kitura 1.3  
 
+## Setup
+
+### Protocol Buffers
+
+Follow [this instruction](https://github.com/google/) to install protoc
+
+### Plugin for Swift
+
+Follow [this instruction](https://github.com/apple/swift-protobuf#build-and-install) to install swift-protobuf
+
+### Code Generator
+
+Run command below to generate swift files from proto files
+
+```
+$ make generate
+```
+
+### Dependencies
+
+Run command below to install libraries for Server/Client app
+
+```
+$ make setup
+```
+
 ## Usage
 
-### Install protobuf
-
-Follow [this instruction](https://github.com/apple/swift-protobuf#build-and-install)
-
-Generate Swift output then
-
-```
-$ cd protos
-$ protoc --swift_out=. *.proto
-```
-
 ### Server app
-```
-$ cd Server
-$ swift build
-$ ./.build/debug/Server
-```
 
-Generate xcode project if needed
+Run command below to run server app
 
 ```
-$ swift package generate-xcodeproj
+$ make run-server
 ```
 
 ### Client app
 
-```
-$ cd Client
-$ carthage update
-```
-
-Open and Run `Client.xcodeproj`
+Open `Client.xcodeproj` and simply run it.
 
 ### Docs
 
