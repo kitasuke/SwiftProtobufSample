@@ -6,35 +6,35 @@
  *
  */
 
-//  Protocol Buffers - Google's data interchange format
-//  Copyright 2008 Google Inc.  All rights reserved.
-//  https://developers.google.com/protocol-buffers/
-// 
-//  Redistribution and use in source and binary forms, with or without
-//  modification, are permitted provided that the following conditions are
-//  met:
-// 
-//      * Redistributions of source code must retain the above copyright
-//  notice, this list of conditions and the following disclaimer.
-//      * Redistributions in binary form must reproduce the above
-//  copyright notice, this list of conditions and the following disclaimer
-//  in the documentation and/or other materials provided with the
-//  distribution.
-//      * Neither the name of Google Inc. nor the names of its
-//  contributors may be used to endorse or promote products derived from
-//  this software without specific prior written permission.
-// 
-//  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-//  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-//  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
-//  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
-//  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-//  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
-//  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
-//  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
-//  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-//  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-//  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+// Protocol Buffers - Google's data interchange format
+// Copyright 2008 Google Inc.  All rights reserved.
+// https://developers.google.com/protocol-buffers/
+//
+// Redistribution and use in source and binary forms, with or without
+// modification, are permitted provided that the following conditions are
+// met:
+//
+//     * Redistributions of source code must retain the above copyright
+// notice, this list of conditions and the following disclaimer.
+//     * Redistributions in binary form must reproduce the above
+// copyright notice, this list of conditions and the following disclaimer
+// in the documentation and/or other materials provided with the
+// distribution.
+//     * Neither the name of Google Inc. nor the names of its
+// contributors may be used to endorse or promote products derived from
+// this software without specific prior written permission.
+//
+// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+// "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+// A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+// OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 import Foundation
 
@@ -48,23 +48,16 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _1
 }
 
-fileprivate let _protobuf_package = "google.protobuf"
-
-///   The syntax in which a protocol buffer element is defined.
-public enum Google_Protobuf_Syntax: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+/// The syntax in which a protocol buffer element is defined.
+public enum Google_Protobuf_Syntax: SwiftProtobuf.Enum {
   public typealias RawValue = Int
 
-  ///   Syntax `proto2`.
+  /// Syntax `proto2`.
   case proto2 // = 0
 
-  ///   Syntax `proto3`.
+  /// Syntax `proto3`.
   case proto3 // = 1
   case UNRECOGNIZED(Int)
-
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "SYNTAX_PROTO2"),
-    1: .same(proto: "SYNTAX_PROTO3"),
-  ]
 
   public init() {
     self = .proto2
@@ -88,72 +81,35 @@ public enum Google_Protobuf_Syntax: SwiftProtobuf.Enum, SwiftProtobuf._ProtoName
 
 }
 
-///   A protocol buffer message type.
-public struct Google_Protobuf_Type: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+/// A protocol buffer message type.
+public struct Google_Protobuf_Type: SwiftProtobuf.Message {
   public static let protoMessageName: String = _protobuf_package + ".Type"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "name"),
-    2: .same(proto: "fields"),
-    3: .same(proto: "oneofs"),
-    4: .same(proto: "options"),
-    5: .standard(proto: "source_context"),
-    6: .same(proto: "syntax"),
-  ]
 
-  private class _StorageClass {
-    var _name: String = ""
-    var _fields: [Google_Protobuf_Field] = []
-    var _oneofs: [String] = []
-    var _options: [Google_Protobuf_Option] = []
-    var _sourceContext: Google_Protobuf_SourceContext? = nil
-    var _syntax: Google_Protobuf_Syntax = Google_Protobuf_Syntax.proto2
-
-    init() {}
-
-    init(copying source: _StorageClass) {
-      _name = source._name
-      _fields = source._fields
-      _oneofs = source._oneofs
-      _options = source._options
-      _sourceContext = source._sourceContext
-      _syntax = source._syntax
-    }
-  }
-
-  private var _storage = _StorageClass()
-
-  private mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(copying: _storage)
-    }
-    return _storage
-  }
-
-  ///   The fully qualified message name.
+  /// The fully qualified message name.
   public var name: String {
     get {return _storage._name}
     set {_uniqueStorage()._name = newValue}
   }
 
-  ///   The list of fields.
+  /// The list of fields.
   public var fields: [Google_Protobuf_Field] {
     get {return _storage._fields}
     set {_uniqueStorage()._fields = newValue}
   }
 
-  ///   The list of types appearing in `oneof` definitions in this type.
+  /// The list of types appearing in `oneof` definitions in this type.
   public var oneofs: [String] {
     get {return _storage._oneofs}
     set {_uniqueStorage()._oneofs = newValue}
   }
 
-  ///   The protocol buffer options.
+  /// The protocol buffer options.
   public var options: [Google_Protobuf_Option] {
     get {return _storage._options}
     set {_uniqueStorage()._options = newValue}
   }
 
-  ///   The source context.
+  /// The source context.
   public var sourceContext: Google_Protobuf_SourceContext {
     get {return _storage._sourceContext ?? Google_Protobuf_SourceContext()}
     set {_uniqueStorage()._sourceContext = newValue}
@@ -162,10 +118,10 @@ public struct Google_Protobuf_Type: SwiftProtobuf.Message, SwiftProtobuf._Messag
     return _storage._sourceContext != nil
   }
   public mutating func clearSourceContext() {
-    return _storage._sourceContext = nil
+    _storage._sourceContext = nil
   }
 
-  ///   The source syntax.
+  /// The source syntax.
   public var syntax: Google_Protobuf_Syntax {
     get {return _storage._syntax}
     set {_uniqueStorage()._syntax = newValue}
@@ -216,157 +172,108 @@ public struct Google_Protobuf_Type: SwiftProtobuf.Message, SwiftProtobuf._Messag
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public func _protobuf_generated_isEqualTo(other: Google_Protobuf_Type) -> Bool {
-    if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
-        if _storage._name != other_storage._name {return false}
-        if _storage._fields != other_storage._fields {return false}
-        if _storage._oneofs != other_storage._oneofs {return false}
-        if _storage._options != other_storage._options {return false}
-        if _storage._sourceContext != other_storage._sourceContext {return false}
-        if _storage._syntax != other_storage._syntax {return false}
-        return true
-      }
-      if !storagesAreEqual {return false}
-    }
-    if unknownFields != other.unknownFields {return false}
-    return true
-  }
+  fileprivate var _storage = _StorageClass()
 }
 
-///   A single field of a message type.
-public struct Google_Protobuf_Field: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+/// A single field of a message type.
+public struct Google_Protobuf_Field: SwiftProtobuf.Message {
   public static let protoMessageName: String = _protobuf_package + ".Field"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "kind"),
-    2: .same(proto: "cardinality"),
-    3: .same(proto: "number"),
-    4: .same(proto: "name"),
-    6: .standard(proto: "type_url"),
-    7: .standard(proto: "oneof_index"),
-    8: .same(proto: "packed"),
-    9: .same(proto: "options"),
-    10: .standard(proto: "json_name"),
-    11: .standard(proto: "default_value"),
-  ]
 
-  ///   The field type.
+  /// The field type.
   public var kind: Google_Protobuf_Field.Kind = Google_Protobuf_Field.Kind.typeUnknown
 
-  ///   The field cardinality.
+  /// The field cardinality.
   public var cardinality: Google_Protobuf_Field.Cardinality = Google_Protobuf_Field.Cardinality.unknown
 
-  ///   The field number.
+  /// The field number.
   public var number: Int32 = 0
 
-  ///   The field name.
-  public var name: String = ""
+  /// The field name.
+  public var name: String = String()
 
-  ///   The field type URL, without the scheme, for message or enumeration
-  ///   types. Example: `"type.googleapis.com/google.protobuf.Timestamp"`.
-  public var typeURL: String = ""
+  /// The field type URL, without the scheme, for message or enumeration
+  /// types. Example: `"type.googleapis.com/google.protobuf.Timestamp"`.
+  public var typeURL: String = String()
 
-  ///   The index of the field type in `Type.oneofs`, for message or enumeration
-  ///   types. The first type has index 1; zero means the type is not in the list.
+  /// The index of the field type in `Type.oneofs`, for message or enumeration
+  /// types. The first type has index 1; zero means the type is not in the list.
   public var oneofIndex: Int32 = 0
 
-  ///   Whether to use alternative packed wire representation.
+  /// Whether to use alternative packed wire representation.
   public var packed: Bool = false
 
-  ///   The protocol buffer options.
+  /// The protocol buffer options.
   public var options: [Google_Protobuf_Option] = []
 
-  ///   The field JSON name.
-  public var jsonName: String = ""
+  /// The field JSON name.
+  public var jsonName: String = String()
 
-  ///   The string value of the default value of this field. Proto2 syntax only.
-  public var defaultValue: String = ""
+  /// The string value of the default value of this field. Proto2 syntax only.
+  public var defaultValue: String = String()
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  ///   Basic field types.
-  public enum Kind: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  /// Basic field types.
+  public enum Kind: SwiftProtobuf.Enum {
     public typealias RawValue = Int
 
-    ///   Field type unknown.
+    /// Field type unknown.
     case typeUnknown // = 0
 
-    ///   Field type double.
+    /// Field type double.
     case typeDouble // = 1
 
-    ///   Field type float.
+    /// Field type float.
     case typeFloat // = 2
 
-    ///   Field type int64.
+    /// Field type int64.
     case typeInt64 // = 3
 
-    ///   Field type uint64.
+    /// Field type uint64.
     case typeUint64 // = 4
 
-    ///   Field type int32.
+    /// Field type int32.
     case typeInt32 // = 5
 
-    ///   Field type fixed64.
+    /// Field type fixed64.
     case typeFixed64 // = 6
 
-    ///   Field type fixed32.
+    /// Field type fixed32.
     case typeFixed32 // = 7
 
-    ///   Field type bool.
+    /// Field type bool.
     case typeBool // = 8
 
-    ///   Field type string.
+    /// Field type string.
     case typeString // = 9
 
-    ///   Field type group. Proto2 syntax only, and deprecated.
+    /// Field type group. Proto2 syntax only, and deprecated.
     case typeGroup // = 10
 
-    ///   Field type message.
+    /// Field type message.
     case typeMessage // = 11
 
-    ///   Field type bytes.
+    /// Field type bytes.
     case typeBytes // = 12
 
-    ///   Field type uint32.
+    /// Field type uint32.
     case typeUint32 // = 13
 
-    ///   Field type enum.
+    /// Field type enum.
     case typeEnum // = 14
 
-    ///   Field type sfixed32.
+    /// Field type sfixed32.
     case typeSfixed32 // = 15
 
-    ///   Field type sfixed64.
+    /// Field type sfixed64.
     case typeSfixed64 // = 16
 
-    ///   Field type sint32.
+    /// Field type sint32.
     case typeSint32 // = 17
 
-    ///   Field type sint64.
+    /// Field type sint64.
     case typeSint64 // = 18
     case UNRECOGNIZED(Int)
-
-    public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "TYPE_UNKNOWN"),
-      1: .same(proto: "TYPE_DOUBLE"),
-      2: .same(proto: "TYPE_FLOAT"),
-      3: .same(proto: "TYPE_INT64"),
-      4: .same(proto: "TYPE_UINT64"),
-      5: .same(proto: "TYPE_INT32"),
-      6: .same(proto: "TYPE_FIXED64"),
-      7: .same(proto: "TYPE_FIXED32"),
-      8: .same(proto: "TYPE_BOOL"),
-      9: .same(proto: "TYPE_STRING"),
-      10: .same(proto: "TYPE_GROUP"),
-      11: .same(proto: "TYPE_MESSAGE"),
-      12: .same(proto: "TYPE_BYTES"),
-      13: .same(proto: "TYPE_UINT32"),
-      14: .same(proto: "TYPE_ENUM"),
-      15: .same(proto: "TYPE_SFIXED32"),
-      16: .same(proto: "TYPE_SFIXED64"),
-      17: .same(proto: "TYPE_SINT32"),
-      18: .same(proto: "TYPE_SINT64"),
-    ]
 
     public init() {
       self = .typeUnknown
@@ -424,29 +331,22 @@ public struct Google_Protobuf_Field: SwiftProtobuf.Message, SwiftProtobuf._Messa
 
   }
 
-  ///   Whether a field is optional, required, or repeated.
-  public enum Cardinality: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  /// Whether a field is optional, required, or repeated.
+  public enum Cardinality: SwiftProtobuf.Enum {
     public typealias RawValue = Int
 
-    ///   For fields with unknown cardinality.
+    /// For fields with unknown cardinality.
     case unknown // = 0
 
-    ///   For optional fields.
+    /// For optional fields.
     case `optional` // = 1
 
-    ///   For required fields. Proto2 syntax only.
+    /// For required fields. Proto2 syntax only.
     case `required` // = 2
 
-    ///   For repeated fields.
+    /// For repeated fields.
     case repeated // = 3
     case UNRECOGNIZED(Int)
-
-    public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "CARDINALITY_UNKNOWN"),
-      1: .same(proto: "CARDINALITY_OPTIONAL"),
-      2: .same(proto: "CARDINALITY_REQUIRED"),
-      3: .same(proto: "CARDINALITY_REPEATED"),
-    ]
 
     public init() {
       self = .unknown
@@ -479,128 +379,79 @@ public struct Google_Protobuf_Field: SwiftProtobuf.Message, SwiftProtobuf._Messa
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
-      case 1: try decoder.decodeSingularEnumField(value: &kind)
-      case 2: try decoder.decodeSingularEnumField(value: &cardinality)
-      case 3: try decoder.decodeSingularInt32Field(value: &number)
-      case 4: try decoder.decodeSingularStringField(value: &name)
-      case 6: try decoder.decodeSingularStringField(value: &typeURL)
-      case 7: try decoder.decodeSingularInt32Field(value: &oneofIndex)
-      case 8: try decoder.decodeSingularBoolField(value: &packed)
-      case 9: try decoder.decodeRepeatedMessageField(value: &options)
-      case 10: try decoder.decodeSingularStringField(value: &jsonName)
-      case 11: try decoder.decodeSingularStringField(value: &defaultValue)
+      case 1: try decoder.decodeSingularEnumField(value: &self.kind)
+      case 2: try decoder.decodeSingularEnumField(value: &self.cardinality)
+      case 3: try decoder.decodeSingularInt32Field(value: &self.number)
+      case 4: try decoder.decodeSingularStringField(value: &self.name)
+      case 6: try decoder.decodeSingularStringField(value: &self.typeURL)
+      case 7: try decoder.decodeSingularInt32Field(value: &self.oneofIndex)
+      case 8: try decoder.decodeSingularBoolField(value: &self.packed)
+      case 9: try decoder.decodeRepeatedMessageField(value: &self.options)
+      case 10: try decoder.decodeSingularStringField(value: &self.jsonName)
+      case 11: try decoder.decodeSingularStringField(value: &self.defaultValue)
       default: break
       }
     }
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if kind != Google_Protobuf_Field.Kind.typeUnknown {
-      try visitor.visitSingularEnumField(value: kind, fieldNumber: 1)
+    if self.kind != Google_Protobuf_Field.Kind.typeUnknown {
+      try visitor.visitSingularEnumField(value: self.kind, fieldNumber: 1)
     }
-    if cardinality != Google_Protobuf_Field.Cardinality.unknown {
-      try visitor.visitSingularEnumField(value: cardinality, fieldNumber: 2)
+    if self.cardinality != Google_Protobuf_Field.Cardinality.unknown {
+      try visitor.visitSingularEnumField(value: self.cardinality, fieldNumber: 2)
     }
-    if number != 0 {
-      try visitor.visitSingularInt32Field(value: number, fieldNumber: 3)
+    if self.number != 0 {
+      try visitor.visitSingularInt32Field(value: self.number, fieldNumber: 3)
     }
-    if !name.isEmpty {
-      try visitor.visitSingularStringField(value: name, fieldNumber: 4)
+    if !self.name.isEmpty {
+      try visitor.visitSingularStringField(value: self.name, fieldNumber: 4)
     }
-    if !typeURL.isEmpty {
-      try visitor.visitSingularStringField(value: typeURL, fieldNumber: 6)
+    if !self.typeURL.isEmpty {
+      try visitor.visitSingularStringField(value: self.typeURL, fieldNumber: 6)
     }
-    if oneofIndex != 0 {
-      try visitor.visitSingularInt32Field(value: oneofIndex, fieldNumber: 7)
+    if self.oneofIndex != 0 {
+      try visitor.visitSingularInt32Field(value: self.oneofIndex, fieldNumber: 7)
     }
-    if packed != false {
-      try visitor.visitSingularBoolField(value: packed, fieldNumber: 8)
+    if self.packed != false {
+      try visitor.visitSingularBoolField(value: self.packed, fieldNumber: 8)
     }
-    if !options.isEmpty {
-      try visitor.visitRepeatedMessageField(value: options, fieldNumber: 9)
+    if !self.options.isEmpty {
+      try visitor.visitRepeatedMessageField(value: self.options, fieldNumber: 9)
     }
-    if !jsonName.isEmpty {
-      try visitor.visitSingularStringField(value: jsonName, fieldNumber: 10)
+    if !self.jsonName.isEmpty {
+      try visitor.visitSingularStringField(value: self.jsonName, fieldNumber: 10)
     }
-    if !defaultValue.isEmpty {
-      try visitor.visitSingularStringField(value: defaultValue, fieldNumber: 11)
+    if !self.defaultValue.isEmpty {
+      try visitor.visitSingularStringField(value: self.defaultValue, fieldNumber: 11)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
-
-  public func _protobuf_generated_isEqualTo(other: Google_Protobuf_Field) -> Bool {
-    if kind != other.kind {return false}
-    if cardinality != other.cardinality {return false}
-    if number != other.number {return false}
-    if name != other.name {return false}
-    if typeURL != other.typeURL {return false}
-    if oneofIndex != other.oneofIndex {return false}
-    if packed != other.packed {return false}
-    if options != other.options {return false}
-    if jsonName != other.jsonName {return false}
-    if defaultValue != other.defaultValue {return false}
-    if unknownFields != other.unknownFields {return false}
-    return true
-  }
 }
 
-///   Enum type definition.
-public struct Google_Protobuf_Enum: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+/// Enum type definition.
+public struct Google_Protobuf_Enum: SwiftProtobuf.Message {
   public static let protoMessageName: String = _protobuf_package + ".Enum"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "name"),
-    2: .same(proto: "enumvalue"),
-    3: .same(proto: "options"),
-    4: .standard(proto: "source_context"),
-    5: .same(proto: "syntax"),
-  ]
 
-  private class _StorageClass {
-    var _name: String = ""
-    var _enumvalue: [Google_Protobuf_EnumValue] = []
-    var _options: [Google_Protobuf_Option] = []
-    var _sourceContext: Google_Protobuf_SourceContext? = nil
-    var _syntax: Google_Protobuf_Syntax = Google_Protobuf_Syntax.proto2
-
-    init() {}
-
-    init(copying source: _StorageClass) {
-      _name = source._name
-      _enumvalue = source._enumvalue
-      _options = source._options
-      _sourceContext = source._sourceContext
-      _syntax = source._syntax
-    }
-  }
-
-  private var _storage = _StorageClass()
-
-  private mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(copying: _storage)
-    }
-    return _storage
-  }
-
-  ///   Enum type name.
+  /// Enum type name.
   public var name: String {
     get {return _storage._name}
     set {_uniqueStorage()._name = newValue}
   }
 
-  ///   Enum value definitions.
+  /// Enum value definitions.
   public var enumvalue: [Google_Protobuf_EnumValue] {
     get {return _storage._enumvalue}
     set {_uniqueStorage()._enumvalue = newValue}
   }
 
-  ///   Protocol buffer options.
+  /// Protocol buffer options.
   public var options: [Google_Protobuf_Option] {
     get {return _storage._options}
     set {_uniqueStorage()._options = newValue}
   }
 
-  ///   The source context.
+  /// The source context.
   public var sourceContext: Google_Protobuf_SourceContext {
     get {return _storage._sourceContext ?? Google_Protobuf_SourceContext()}
     set {_uniqueStorage()._sourceContext = newValue}
@@ -609,10 +460,10 @@ public struct Google_Protobuf_Enum: SwiftProtobuf.Message, SwiftProtobuf._Messag
     return _storage._sourceContext != nil
   }
   public mutating func clearSourceContext() {
-    return _storage._sourceContext = nil
+    _storage._sourceContext = nil
   }
 
-  ///   The source syntax.
+  /// The source syntax.
   public var syntax: Google_Protobuf_Syntax {
     get {return _storage._syntax}
     set {_uniqueStorage()._syntax = newValue}
@@ -659,39 +510,20 @@ public struct Google_Protobuf_Enum: SwiftProtobuf.Message, SwiftProtobuf._Messag
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public func _protobuf_generated_isEqualTo(other: Google_Protobuf_Enum) -> Bool {
-    if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
-        if _storage._name != other_storage._name {return false}
-        if _storage._enumvalue != other_storage._enumvalue {return false}
-        if _storage._options != other_storage._options {return false}
-        if _storage._sourceContext != other_storage._sourceContext {return false}
-        if _storage._syntax != other_storage._syntax {return false}
-        return true
-      }
-      if !storagesAreEqual {return false}
-    }
-    if unknownFields != other.unknownFields {return false}
-    return true
-  }
+  fileprivate var _storage = _StorageClass()
 }
 
-///   Enum value definition.
-public struct Google_Protobuf_EnumValue: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+/// Enum value definition.
+public struct Google_Protobuf_EnumValue: SwiftProtobuf.Message {
   public static let protoMessageName: String = _protobuf_package + ".EnumValue"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "name"),
-    2: .same(proto: "number"),
-    3: .same(proto: "options"),
-  ]
 
-  ///   Enum value name.
-  public var name: String = ""
+  /// Enum value name.
+  public var name: String = String()
 
-  ///   Enum value number.
+  /// Enum value number.
   public var number: Int32 = 0
 
-  ///   Protocol buffer options.
+  /// Protocol buffer options.
   public var options: [Google_Protobuf_Option] = []
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -701,79 +533,46 @@ public struct Google_Protobuf_EnumValue: SwiftProtobuf.Message, SwiftProtobuf._M
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
-      case 1: try decoder.decodeSingularStringField(value: &name)
-      case 2: try decoder.decodeSingularInt32Field(value: &number)
-      case 3: try decoder.decodeRepeatedMessageField(value: &options)
+      case 1: try decoder.decodeSingularStringField(value: &self.name)
+      case 2: try decoder.decodeSingularInt32Field(value: &self.number)
+      case 3: try decoder.decodeRepeatedMessageField(value: &self.options)
       default: break
       }
     }
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if !name.isEmpty {
-      try visitor.visitSingularStringField(value: name, fieldNumber: 1)
+    if !self.name.isEmpty {
+      try visitor.visitSingularStringField(value: self.name, fieldNumber: 1)
     }
-    if number != 0 {
-      try visitor.visitSingularInt32Field(value: number, fieldNumber: 2)
+    if self.number != 0 {
+      try visitor.visitSingularInt32Field(value: self.number, fieldNumber: 2)
     }
-    if !options.isEmpty {
-      try visitor.visitRepeatedMessageField(value: options, fieldNumber: 3)
+    if !self.options.isEmpty {
+      try visitor.visitRepeatedMessageField(value: self.options, fieldNumber: 3)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
-
-  public func _protobuf_generated_isEqualTo(other: Google_Protobuf_EnumValue) -> Bool {
-    if name != other.name {return false}
-    if number != other.number {return false}
-    if options != other.options {return false}
-    if unknownFields != other.unknownFields {return false}
-    return true
-  }
 }
 
-///   A protocol buffer option, which can be attached to a message, field,
-///   enumeration, etc.
-public struct Google_Protobuf_Option: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+/// A protocol buffer option, which can be attached to a message, field,
+/// enumeration, etc.
+public struct Google_Protobuf_Option: SwiftProtobuf.Message {
   public static let protoMessageName: String = _protobuf_package + ".Option"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "name"),
-    2: .same(proto: "value"),
-  ]
 
-  private class _StorageClass {
-    var _name: String = ""
-    var _value: Google_Protobuf_Any? = nil
-
-    init() {}
-
-    init(copying source: _StorageClass) {
-      _name = source._name
-      _value = source._value
-    }
-  }
-
-  private var _storage = _StorageClass()
-
-  private mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(copying: _storage)
-    }
-    return _storage
-  }
-
-  ///   The option's name. For protobuf built-in options (options defined in
-  ///   descriptor.proto), this is the short name. For example, `"map_entry"`.
-  ///   For custom options, it should be the fully-qualified name. For example,
-  ///   `"google.api.http"`.
+  /// The option's name. For protobuf built-in options (options defined in
+  /// descriptor.proto), this is the short name. For example, `"map_entry"`.
+  /// For custom options, it should be the fully-qualified name. For example,
+  /// `"google.api.http"`.
   public var name: String {
     get {return _storage._name}
     set {_uniqueStorage()._name = newValue}
   }
 
-  ///   The option's value packed in an Any message. If the value is a primitive,
-  ///   the corresponding wrapper type defined in google/protobuf/wrappers.proto
-  ///   should be used. If the value is an enum, it should be stored as an int32
-  ///   value using the google.protobuf.Int32Value type.
+  /// The option's value packed in an Any message. If the value is a primitive,
+  /// the corresponding wrapper type defined in google/protobuf/wrappers.proto
+  /// should be used. If the value is an enum, it should be stored as an int32
+  /// value using the google.protobuf.Int32Value type.
   public var value: Google_Protobuf_Any {
     get {return _storage._value ?? Google_Protobuf_Any()}
     set {_uniqueStorage()._value = newValue}
@@ -782,7 +581,7 @@ public struct Google_Protobuf_Option: SwiftProtobuf.Message, SwiftProtobuf._Mess
     return _storage._value != nil
   }
   public mutating func clearValue() {
-    return _storage._value = nil
+    _storage._value = nil
   }
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -812,6 +611,230 @@ public struct Google_Protobuf_Option: SwiftProtobuf.Message, SwiftProtobuf._Mess
       }
     }
     try unknownFields.traverse(visitor: &visitor)
+  }
+
+  fileprivate var _storage = _StorageClass()
+}
+
+// MARK: - Code below here is support for the SwiftProtobuf runtime.
+
+fileprivate let _protobuf_package = "google.protobuf"
+
+extension Google_Protobuf_Syntax: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "SYNTAX_PROTO2"),
+    1: .same(proto: "SYNTAX_PROTO3"),
+  ]
+}
+
+extension Google_Protobuf_Type: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "name"),
+    2: .same(proto: "fields"),
+    3: .same(proto: "oneofs"),
+    4: .same(proto: "options"),
+    5: .standard(proto: "source_context"),
+    6: .same(proto: "syntax"),
+  ]
+
+  fileprivate class _StorageClass {
+    var _name: String = String()
+    var _fields: [Google_Protobuf_Field] = []
+    var _oneofs: [String] = []
+    var _options: [Google_Protobuf_Option] = []
+    var _sourceContext: Google_Protobuf_SourceContext? = nil
+    var _syntax: Google_Protobuf_Syntax = Google_Protobuf_Syntax.proto2
+
+    init() {}
+
+    init(copying source: _StorageClass) {
+      _name = source._name
+      _fields = source._fields
+      _oneofs = source._oneofs
+      _options = source._options
+      _sourceContext = source._sourceContext
+      _syntax = source._syntax
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
+  public func _protobuf_generated_isEqualTo(other: Google_Protobuf_Type) -> Bool {
+    if _storage !== other._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+        if _storage._name != other_storage._name {return false}
+        if _storage._fields != other_storage._fields {return false}
+        if _storage._oneofs != other_storage._oneofs {return false}
+        if _storage._options != other_storage._options {return false}
+        if _storage._sourceContext != other_storage._sourceContext {return false}
+        if _storage._syntax != other_storage._syntax {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension Google_Protobuf_Field: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "kind"),
+    2: .same(proto: "cardinality"),
+    3: .same(proto: "number"),
+    4: .same(proto: "name"),
+    6: .standard(proto: "type_url"),
+    7: .standard(proto: "oneof_index"),
+    8: .same(proto: "packed"),
+    9: .same(proto: "options"),
+    10: .standard(proto: "json_name"),
+    11: .standard(proto: "default_value"),
+  ]
+
+  public func _protobuf_generated_isEqualTo(other: Google_Protobuf_Field) -> Bool {
+    if self.kind != other.kind {return false}
+    if self.cardinality != other.cardinality {return false}
+    if self.number != other.number {return false}
+    if self.name != other.name {return false}
+    if self.typeURL != other.typeURL {return false}
+    if self.oneofIndex != other.oneofIndex {return false}
+    if self.packed != other.packed {return false}
+    if self.options != other.options {return false}
+    if self.jsonName != other.jsonName {return false}
+    if self.defaultValue != other.defaultValue {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension Google_Protobuf_Field.Kind: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "TYPE_UNKNOWN"),
+    1: .same(proto: "TYPE_DOUBLE"),
+    2: .same(proto: "TYPE_FLOAT"),
+    3: .same(proto: "TYPE_INT64"),
+    4: .same(proto: "TYPE_UINT64"),
+    5: .same(proto: "TYPE_INT32"),
+    6: .same(proto: "TYPE_FIXED64"),
+    7: .same(proto: "TYPE_FIXED32"),
+    8: .same(proto: "TYPE_BOOL"),
+    9: .same(proto: "TYPE_STRING"),
+    10: .same(proto: "TYPE_GROUP"),
+    11: .same(proto: "TYPE_MESSAGE"),
+    12: .same(proto: "TYPE_BYTES"),
+    13: .same(proto: "TYPE_UINT32"),
+    14: .same(proto: "TYPE_ENUM"),
+    15: .same(proto: "TYPE_SFIXED32"),
+    16: .same(proto: "TYPE_SFIXED64"),
+    17: .same(proto: "TYPE_SINT32"),
+    18: .same(proto: "TYPE_SINT64"),
+  ]
+}
+
+extension Google_Protobuf_Field.Cardinality: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "CARDINALITY_UNKNOWN"),
+    1: .same(proto: "CARDINALITY_OPTIONAL"),
+    2: .same(proto: "CARDINALITY_REQUIRED"),
+    3: .same(proto: "CARDINALITY_REPEATED"),
+  ]
+}
+
+extension Google_Protobuf_Enum: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "name"),
+    2: .same(proto: "enumvalue"),
+    3: .same(proto: "options"),
+    4: .standard(proto: "source_context"),
+    5: .same(proto: "syntax"),
+  ]
+
+  fileprivate class _StorageClass {
+    var _name: String = String()
+    var _enumvalue: [Google_Protobuf_EnumValue] = []
+    var _options: [Google_Protobuf_Option] = []
+    var _sourceContext: Google_Protobuf_SourceContext? = nil
+    var _syntax: Google_Protobuf_Syntax = Google_Protobuf_Syntax.proto2
+
+    init() {}
+
+    init(copying source: _StorageClass) {
+      _name = source._name
+      _enumvalue = source._enumvalue
+      _options = source._options
+      _sourceContext = source._sourceContext
+      _syntax = source._syntax
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
+  public func _protobuf_generated_isEqualTo(other: Google_Protobuf_Enum) -> Bool {
+    if _storage !== other._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+        if _storage._name != other_storage._name {return false}
+        if _storage._enumvalue != other_storage._enumvalue {return false}
+        if _storage._options != other_storage._options {return false}
+        if _storage._sourceContext != other_storage._sourceContext {return false}
+        if _storage._syntax != other_storage._syntax {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension Google_Protobuf_EnumValue: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "name"),
+    2: .same(proto: "number"),
+    3: .same(proto: "options"),
+  ]
+
+  public func _protobuf_generated_isEqualTo(other: Google_Protobuf_EnumValue) -> Bool {
+    if self.name != other.name {return false}
+    if self.number != other.number {return false}
+    if self.options != other.options {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension Google_Protobuf_Option: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "name"),
+    2: .same(proto: "value"),
+  ]
+
+  fileprivate class _StorageClass {
+    var _name: String = String()
+    var _value: Google_Protobuf_Any? = nil
+
+    init() {}
+
+    init(copying source: _StorageClass) {
+      _name = source._name
+      _value = source._value
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
   }
 
   public func _protobuf_generated_isEqualTo(other: Google_Protobuf_Option) -> Bool {

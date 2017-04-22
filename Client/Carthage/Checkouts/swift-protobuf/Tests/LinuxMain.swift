@@ -529,6 +529,7 @@ extension Test_JSON {
             ("testSingleFloat_NaN", {try run_test(test:($0 as! Test_JSON).testSingleFloat_NaN)}),
             ("testSingleBool", {try run_test(test:($0 as! Test_JSON).testSingleBool)}),
             ("testSingleString", {try run_test(test:($0 as! Test_JSON).testSingleString)}),
+            ("testSingleString_controlCharacters", {try run_test(test:($0 as! Test_JSON).testSingleString_controlCharacters)}),
             ("testSingleBytes", {try run_test(test:($0 as! Test_JSON).testSingleBytes)}),
             ("testSingleBytes2", {try run_test(test:($0 as! Test_JSON).testSingleBytes2)}),
             ("testSingleBytes_roundtrip", {try run_test(test:($0 as! Test_JSON).testSingleBytes_roundtrip)}),
@@ -698,6 +699,7 @@ extension Test_Merge {
 extension Test_FieldNamingInitials {
     static var allTests: [(String, (XCTestCase) throws -> ())] {
         return [
+            ("testHidingFunctions", {try run_test(test:($0 as! Test_FieldNamingInitials).testHidingFunctions)}),
             ("testLowers", {try run_test(test:($0 as! Test_FieldNamingInitials).testLowers)}),
             ("testUppers", {try run_test(test:($0 as! Test_FieldNamingInitials).testUppers)}),
             ("testWordCase", {try run_test(test:($0 as! Test_FieldNamingInitials).testWordCase)})
@@ -1000,6 +1002,7 @@ extension Test_TextFormat_proto3 {
             ("testEncoding_singleDouble", {try run_test(test:($0 as! Test_TextFormat_proto3).testEncoding_singleDouble)}),
             ("testEncoding_singleBool", {try run_test(test:($0 as! Test_TextFormat_proto3).testEncoding_singleBool)}),
             ("testEncoding_singleString", {try run_test(test:($0 as! Test_TextFormat_proto3).testEncoding_singleString)}),
+            ("testEncoding_singleString_controlCharacters", {try run_test(test:($0 as! Test_TextFormat_proto3).testEncoding_singleString_controlCharacters)}),
             ("testEncoding_singleString_UTF8", {try run_test(test:($0 as! Test_TextFormat_proto3).testEncoding_singleString_UTF8)}),
             ("testEncoding_singleBytes", {try run_test(test:($0 as! Test_TextFormat_proto3).testEncoding_singleBytes)}),
             ("testEncoding_singleBytes_roundtrip", {try run_test(test:($0 as! Test_TextFormat_proto3).testEncoding_singleBytes_roundtrip)}),

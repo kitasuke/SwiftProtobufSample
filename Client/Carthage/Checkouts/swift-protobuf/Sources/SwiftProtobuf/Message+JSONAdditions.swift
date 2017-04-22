@@ -24,14 +24,28 @@ public extension Message {
   /// - Returns: A string containing the JSON serialization of the message.
   /// - Throws: `JSONEncodingError` if encoding fails.
   func jsonString() throws -> String {
+    let data = try jsonUTF8Data()
+    return String(data: data, encoding: String.Encoding.utf8)!
+  }
+
+  /// Returns a Data containing the UTF-8 JSON serialization of the message.
+  ///
+  /// Unlike binary encoding, presence of required fields is not enforced when
+  /// serializing to JSON.
+  ///
+  /// - Returns: A Data containing the JSON serialization of the message.
+  /// - Throws: `JSONEncodingError` if encoding fails.
+  func jsonUTF8Data() throws -> Data {
     if let m = self as? _CustomJSONCodable {
-      return try m.encodedJSONString()
+      let string = try m.encodedJSONString()
+      let data = string.data(using: String.Encoding.utf8)! // Cannot fail!
+      return data
     }
     var visitor = try JSONEncodingVisitor(message: self)
     visitor.startObject()
     try traverse(visitor: &visitor)
     visitor.endObject()
-    return visitor.stringResult
+    return visitor.dataResult
   }
 
   /// Creates a new message by decoding the given string containing a
@@ -60,8 +74,8 @@ public extension Message {
   public init(jsonUTF8Data: Data) throws {
     self.init()
     try jsonUTF8Data.withUnsafeBytes { (bytes:UnsafePointer<UInt8>) in
-      var decoder = JSONDecoder(utf8Pointer: bytes,
-                                count: jsonUTF8Data.count)
+      let buffer = UnsafeBufferPointer(start: bytes, count: jsonUTF8Data.count)
+      var decoder = JSONDecoder(source: buffer)
       if !decoder.scanner.skipOptionalNull() {
         try decoder.decodeFullObject(message: &self)
       } else if Self.self is _CustomJSONCodable.Type {

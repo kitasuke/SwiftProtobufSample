@@ -6,23 +6,23 @@
  *
  */
 
-//  Protos/unittest_swift_reserved.proto - test proto
-// 
-//  This source file is part of the Swift.org open source project
-// 
-//  Copyright (c) 2014 - 2016 Apple Inc. and the Swift project authors
-//  Licensed under Apache License v2.0 with Runtime Library Exception
-// 
-//  See http://swift.org/LICENSE.txt for license information
-//  See http://swift.org/CONTRIBUTORS.txt for the list of Swift project authors
-// 
-//  -----------------------------------------------------------------------------
-// /
-// / Test Swift reserved words used as enum or message names
-// /
-//  -----------------------------------------------------------------------------
+// Protos/unittest_swift_reserved.proto - test proto
+//
+// This source file is part of the Swift.org open source project
+//
+// Copyright (c) 2014 - 2016 Apple Inc. and the Swift project authors
+// Licensed under Apache License v2.0 with Runtime Library Exception
+//
+// See http://swift.org/LICENSE.txt for license information
+// See http://swift.org/CONTRIBUTORS.txt for the list of Swift project authors
+//
+// -----------------------------------------------------------------------------
+///
+/// Test Swift reserved words used as enum or message names
+///
+// -----------------------------------------------------------------------------
 
-///   proto2 syntax is used so the has*/clear* names also get generated.
+/// proto2 syntax is used so the has*/clear* names also get generated.
 
 import Foundation
 import SwiftProtobuf
@@ -37,9 +37,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _1
 }
 
-fileprivate let _protobuf_package = "swift_unittest.names"
-
-enum SwiftUnittest_Names_EnumFieldNames: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+enum SwiftUnittest_Names_EnumFieldNames: SwiftProtobuf.Enum {
   typealias RawValue = Int
   case a // = 0
   case string // = 1
@@ -48,7 +46,7 @@ enum SwiftUnittest_Names_EnumFieldNames: SwiftProtobuf.Enum, SwiftProtobuf._Prot
   case float // = 4
   case uint // = 5
   case hashValue_ // = 6
-  case description // = 7
+  case description_ // = 7
   case debugDescription_ // = 8
   case swift // = 9
   case unrecognized // = 10
@@ -90,7 +88,7 @@ enum SwiftUnittest_Names_EnumFieldNames: SwiftProtobuf.Enum, SwiftProtobuf._Prot
   case `while` // = 46
   case `as` // = 47
   case `catch` // = 48
-  case `dynamicType` // = 49
+  case dynamicType_ // = 49
   case `false` // = 50
   case `is` // = 51
   case `nil` // = 52
@@ -249,217 +247,7 @@ enum SwiftUnittest_Names_EnumFieldNames: SwiftProtobuf.Enum, SwiftProtobuf._Prot
   case timeScale // = 241
   case timeBase // = 242
   case timeRecord // = 243
-
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "A"),
-    1: .same(proto: "String"),
-    2: .same(proto: "Int"),
-    3: .same(proto: "Double"),
-    4: .same(proto: "Float"),
-    5: .same(proto: "UInt"),
-    6: .same(proto: "hashValue"),
-    7: .same(proto: "description"),
-    8: .same(proto: "debugDescription"),
-    9: .same(proto: "Swift"),
-    10: .same(proto: "UNRECOGNIZED"),
-    11: .same(proto: "class"),
-    12: .same(proto: "deinit"),
-    13: .same(proto: "enum"),
-    14: .same(proto: "extension"),
-    15: .same(proto: "func"),
-    16: .same(proto: "import"),
-    17: .same(proto: "init"),
-    18: .same(proto: "inout"),
-    19: .same(proto: "internal"),
-    20: .same(proto: "let"),
-    21: .same(proto: "operator"),
-    22: .same(proto: "private"),
-    23: .same(proto: "protocol"),
-    24: .same(proto: "public"),
-    25: .same(proto: "static"),
-    26: .same(proto: "struct"),
-    27: .same(proto: "subscript"),
-    28: .same(proto: "typealias"),
-    29: .same(proto: "var"),
-    30: .same(proto: "break"),
-    31: .same(proto: "case"),
-    32: .same(proto: "continue"),
-    33: .same(proto: "default"),
-    34: .same(proto: "defer"),
-    35: .same(proto: "do"),
-    36: .same(proto: "else"),
-    37: .same(proto: "fallthrough"),
-    38: .same(proto: "for"),
-    39: .same(proto: "guard"),
-    40: .same(proto: "if"),
-    41: .same(proto: "in"),
-    42: .same(proto: "repeat"),
-    43: .same(proto: "return"),
-    44: .same(proto: "switch"),
-    45: .same(proto: "where"),
-    46: .same(proto: "while"),
-    47: .same(proto: "as"),
-    48: .same(proto: "catch"),
-    49: .same(proto: "dynamicType"),
-    50: .same(proto: "false"),
-    51: .same(proto: "is"),
-    52: .same(proto: "nil"),
-    53: .same(proto: "rethrows"),
-    54: .same(proto: "super"),
-    55: .same(proto: "self"),
-    57: .same(proto: "throw"),
-    58: .same(proto: "throws"),
-    59: .same(proto: "true"),
-    60: .same(proto: "try"),
-    61: .same(proto: "__COLUMN__"),
-    62: .same(proto: "__FILE__"),
-    63: .same(proto: "__FUNCTION__"),
-    64: .same(proto: "__LINE__"),
-    65: .same(proto: "_"),
-    66: .same(proto: "associativity"),
-    67: .same(proto: "convenience"),
-    68: .same(proto: "dynamic"),
-    69: .same(proto: "didSet"),
-    70: .same(proto: "final"),
-    71: .same(proto: "get"),
-    72: .same(proto: "infix"),
-    73: .same(proto: "indirect"),
-    74: .same(proto: "lazy"),
-    75: .same(proto: "left"),
-    76: .same(proto: "mutating"),
-    77: .same(proto: "none"),
-    78: .same(proto: "nonmutating"),
-    79: .same(proto: "optional"),
-    80: .same(proto: "override"),
-    81: .same(proto: "postfix"),
-    82: .same(proto: "precedence"),
-    83: .same(proto: "prefix"),
-    85: .same(proto: "required"),
-    86: .same(proto: "right"),
-    87: .same(proto: "set"),
-    88: .same(proto: "Type"),
-    89: .same(proto: "unowned"),
-    90: .same(proto: "weak"),
-    91: .same(proto: "willSet"),
-    92: .same(proto: "id"),
-    93: .same(proto: "_cmd"),
-    96: .same(proto: "out"),
-    98: .same(proto: "bycopy"),
-    99: .same(proto: "byref"),
-    100: .same(proto: "oneway"),
-    102: .same(proto: "and"),
-    103: .same(proto: "and_eq"),
-    104: .same(proto: "alignas"),
-    105: .same(proto: "alignof"),
-    106: .same(proto: "asm"),
-    107: .same(proto: "auto"),
-    108: .same(proto: "bitand"),
-    109: .same(proto: "bitor"),
-    110: .same(proto: "bool"),
-    114: .same(proto: "char"),
-    115: .same(proto: "char16_t"),
-    116: .same(proto: "char32_t"),
-    118: .same(proto: "compl"),
-    119: .same(proto: "const"),
-    120: .same(proto: "constexpr"),
-    121: .same(proto: "const_cast"),
-    123: .same(proto: "decltype"),
-    125: .same(proto: "delete"),
-    127: .same(proto: "dynamic_cast"),
-    130: .same(proto: "explicit"),
-    131: .same(proto: "export"),
-    132: .same(proto: "extern"),
-    136: .same(proto: "friend"),
-    137: .same(proto: "goto"),
-    139: .same(proto: "inline"),
-    141: .same(proto: "long"),
-    142: .same(proto: "mutable"),
-    143: .same(proto: "namespace"),
-    144: .same(proto: "new"),
-    145: .same(proto: "noexcept"),
-    146: .same(proto: "not"),
-    147: .same(proto: "not_eq"),
-    148: .same(proto: "nullptr"),
-    150: .same(proto: "or"),
-    151: .same(proto: "or_eq"),
-    153: .same(proto: "protected"),
-    155: .same(proto: "register"),
-    156: .same(proto: "reinterpret_cast"),
-    158: .same(proto: "short"),
-    159: .same(proto: "signed"),
-    160: .same(proto: "sizeof"),
-    162: .same(proto: "static_assert"),
-    163: .same(proto: "static_cast"),
-    166: .same(proto: "template"),
-    167: .same(proto: "this"),
-    168: .same(proto: "thread_local"),
-    172: .same(proto: "typedef"),
-    173: .same(proto: "typeid"),
-    174: .same(proto: "typename"),
-    175: .same(proto: "union"),
-    176: .same(proto: "unsigned"),
-    177: .same(proto: "using"),
-    178: .same(proto: "virtual"),
-    179: .same(proto: "void"),
-    180: .same(proto: "volatile"),
-    181: .same(proto: "wchar_t"),
-    183: .same(proto: "xor"),
-    184: .same(proto: "xor_eq"),
-    185: .same(proto: "restrict"),
-    186: .same(proto: "Category"),
-    187: .same(proto: "Ivar"),
-    188: .same(proto: "Method"),
-    192: .same(proto: "finalize"),
-    193: .same(proto: "hash"),
-    194: .same(proto: "dealloc"),
-    197: .same(proto: "superclass"),
-    198: .same(proto: "retain"),
-    199: .same(proto: "release"),
-    200: .same(proto: "autorelease"),
-    201: .same(proto: "retainCount"),
-    202: .same(proto: "zone"),
-    203: .same(proto: "isProxy"),
-    204: .same(proto: "copy"),
-    205: .same(proto: "mutableCopy"),
-    206: .same(proto: "classForCoder"),
-    207: .same(proto: "clear"),
-    208: .same(proto: "data"),
-    209: .same(proto: "delimitedData"),
-    210: .same(proto: "descriptor"),
-    211: .same(proto: "extensionRegistry"),
-    212: .same(proto: "extensionsCurrentlySet"),
-    213: .same(proto: "isInitialized"),
-    214: .same(proto: "serializedSize"),
-    215: .same(proto: "sortedExtensionsInUse"),
-    216: .same(proto: "unknownFields"),
-    217: .same(proto: "Fixed"),
-    218: .same(proto: "Fract"),
-    219: .same(proto: "Size"),
-    220: .same(proto: "LogicalAddress"),
-    221: .same(proto: "PhysicalAddress"),
-    222: .same(proto: "ByteCount"),
-    223: .same(proto: "ByteOffset"),
-    224: .same(proto: "Duration"),
-    225: .same(proto: "AbsoluteTime"),
-    226: .same(proto: "OptionBits"),
-    227: .same(proto: "ItemCount"),
-    228: .same(proto: "PBVersion"),
-    229: .same(proto: "ScriptCode"),
-    230: .same(proto: "LangCode"),
-    231: .same(proto: "RegionCode"),
-    232: .same(proto: "OSType"),
-    233: .same(proto: "ProcessSerialNumber"),
-    234: .same(proto: "Point"),
-    235: .same(proto: "Rect"),
-    236: .same(proto: "FixedPoint"),
-    237: .same(proto: "FixedRect"),
-    238: .same(proto: "Style"),
-    239: .same(proto: "StyleParameter"),
-    240: .same(proto: "StyleField"),
-    241: .same(proto: "TimeScale"),
-    242: .same(proto: "TimeBase"),
-    243: .same(proto: "TimeRecord"),
-  ]
+  case extensions // = 244
 
   init() {
     self = .a
@@ -474,7 +262,7 @@ enum SwiftUnittest_Names_EnumFieldNames: SwiftProtobuf.Enum, SwiftProtobuf._Prot
     case 4: self = .float
     case 5: self = .uint
     case 6: self = .hashValue_
-    case 7: self = .description
+    case 7: self = .description_
     case 8: self = .debugDescription_
     case 9: self = .swift
     case 10: self = .unrecognized
@@ -516,7 +304,7 @@ enum SwiftUnittest_Names_EnumFieldNames: SwiftProtobuf.Enum, SwiftProtobuf._Prot
     case 46: self = .`while`
     case 47: self = .`as`
     case 48: self = .`catch`
-    case 49: self = .`dynamicType`
+    case 49: self = .dynamicType_
     case 50: self = .`false`
     case 51: self = .`is`
     case 52: self = .`nil`
@@ -675,6 +463,7 @@ enum SwiftUnittest_Names_EnumFieldNames: SwiftProtobuf.Enum, SwiftProtobuf._Prot
     case 241: self = .timeScale
     case 242: self = .timeBase
     case 243: self = .timeRecord
+    case 244: self = .extensions
     default: return nil
     }
   }
@@ -688,7 +477,7 @@ enum SwiftUnittest_Names_EnumFieldNames: SwiftProtobuf.Enum, SwiftProtobuf._Prot
     case .float: return 4
     case .uint: return 5
     case .hashValue_: return 6
-    case .description: return 7
+    case .description_: return 7
     case .debugDescription_: return 8
     case .swift: return 9
     case .unrecognized: return 10
@@ -730,7 +519,7 @@ enum SwiftUnittest_Names_EnumFieldNames: SwiftProtobuf.Enum, SwiftProtobuf._Prot
     case .`while`: return 46
     case .`as`: return 47
     case .`catch`: return 48
-    case .`dynamicType`: return 49
+    case .dynamicType_: return 49
     case .`false`: return 50
     case .`is`: return 51
     case .`nil`: return 52
@@ -889,28 +678,24 @@ enum SwiftUnittest_Names_EnumFieldNames: SwiftProtobuf.Enum, SwiftProtobuf._Prot
     case .timeScale: return 241
     case .timeBase: return 242
     case .timeRecord: return 243
+    case .extensions: return 244
     }
   }
 
 }
 
-enum SwiftUnittest_Names_EnumFieldNames2: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+enum SwiftUnittest_Names_EnumFieldNames2: SwiftProtobuf.Enum {
   typealias RawValue = Int
   case aa // = 0
 
-  ///   protoc no longer allows enum naming that would differ only in underscores.
-  ///   Initial commit:
-  ///     https://github.com/google/protobuf/commit/cc8ca5b6a5478b40546d4206392eb1471454460d
-  ///   Change keep proto3 as error, but proto2 to just a warning:
-  ///     https://github.com/google/protobuf/pull/2204
-  ///   So this is in a second enum so it won't cause issues with the '_' one;
-  ///   but still ensure things generator correctly.
+  /// protoc no longer allows enum naming that would differ only in underscores.
+  /// Initial commit:
+  ///   https://github.com/google/protobuf/commit/cc8ca5b6a5478b40546d4206392eb1471454460d
+  /// Change keep proto3 as error, but proto2 to just a warning:
+  ///   https://github.com/google/protobuf/pull/2204
+  /// So this is in a second enum so it won't cause issues with the '_' one;
+  /// but still ensure things generator correctly.
   case ____ // = 1065
-
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "AA"),
-    1065: .same(proto: "__"),
-  ]
 
   init() {
     self = .aa
@@ -933,675 +718,36 @@ enum SwiftUnittest_Names_EnumFieldNames2: SwiftProtobuf.Enum, SwiftProtobuf._Pro
 
 }
 
-struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+struct SwiftUnittest_Names_Foo: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage {
+  static let protoMessageName: String = _protobuf_package + ".Foo"
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+
+  public var isInitialized: Bool {
+    if !_protobuf_extensionFieldValues.isInitialized {return false}
+    return true
+  }
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      if (1 <= fieldNumber && fieldNumber < 5001) {
+        try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: SwiftUnittest_Names_Foo.self, fieldNumber: fieldNumber)
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 1, end: 5001)
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
+}
+
+struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".FieldNames"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "String"),
-    2: .same(proto: "Int"),
-    3: .same(proto: "Double"),
-    4: .same(proto: "Float"),
-    5: .same(proto: "UInt"),
-    6: .same(proto: "hashValue"),
-    7: .same(proto: "description"),
-    8: .same(proto: "debugDescription"),
-    9: .same(proto: "Swift"),
-    10: .same(proto: "UNRECOGNIZED"),
-    11: .same(proto: "class"),
-    12: .same(proto: "deinit"),
-    13: .same(proto: "enum"),
-    14: .same(proto: "extension"),
-    15: .same(proto: "func"),
-    16: .same(proto: "import"),
-    17: .same(proto: "init"),
-    18: .same(proto: "inout"),
-    19: .same(proto: "internal"),
-    20: .same(proto: "let"),
-    21: .same(proto: "operator"),
-    22: .same(proto: "private"),
-    23: .same(proto: "protocol"),
-    24: .same(proto: "public"),
-    25: .same(proto: "static"),
-    26: .same(proto: "struct"),
-    27: .same(proto: "subscript"),
-    28: .same(proto: "typealias"),
-    29: .same(proto: "var"),
-    30: .same(proto: "break"),
-    31: .same(proto: "case"),
-    32: .same(proto: "continue"),
-    33: .same(proto: "default"),
-    34: .same(proto: "defer"),
-    35: .same(proto: "do"),
-    36: .same(proto: "else"),
-    37: .same(proto: "fallthrough"),
-    38: .same(proto: "for"),
-    39: .same(proto: "guard"),
-    40: .same(proto: "if"),
-    41: .same(proto: "in"),
-    42: .same(proto: "repeat"),
-    43: .same(proto: "return"),
-    44: .same(proto: "switch"),
-    45: .same(proto: "where"),
-    46: .same(proto: "while"),
-    47: .same(proto: "as"),
-    48: .same(proto: "catch"),
-    49: .same(proto: "dynamicType"),
-    50: .same(proto: "false"),
-    51: .same(proto: "is"),
-    52: .same(proto: "nil"),
-    53: .same(proto: "rethrows"),
-    54: .same(proto: "super"),
-    55: .same(proto: "self"),
-    57: .same(proto: "throw"),
-    58: .same(proto: "throws"),
-    59: .same(proto: "true"),
-    60: .same(proto: "try"),
-    61: .standard(proto: "__COLUMN__"),
-    62: .standard(proto: "__FILE__"),
-    63: .standard(proto: "__FUNCTION__"),
-    64: .standard(proto: "__LINE__"),
-    65: .standard(proto: "_"),
-    66: .same(proto: "associativity"),
-    67: .same(proto: "convenience"),
-    68: .same(proto: "dynamic"),
-    69: .same(proto: "didSet"),
-    70: .same(proto: "final"),
-    71: .same(proto: "get"),
-    72: .same(proto: "infix"),
-    73: .same(proto: "indirect"),
-    74: .same(proto: "lazy"),
-    75: .same(proto: "left"),
-    76: .same(proto: "mutating"),
-    77: .same(proto: "none"),
-    78: .same(proto: "nonmutating"),
-    79: .same(proto: "optional"),
-    80: .same(proto: "override"),
-    81: .same(proto: "postfix"),
-    82: .same(proto: "precedence"),
-    83: .same(proto: "prefix"),
-    85: .same(proto: "required"),
-    86: .same(proto: "right"),
-    87: .same(proto: "set"),
-    88: .same(proto: "Type"),
-    89: .same(proto: "unowned"),
-    90: .same(proto: "weak"),
-    91: .same(proto: "willSet"),
-    92: .same(proto: "id"),
-    93: .standard(proto: "_cmd"),
-    96: .same(proto: "out"),
-    98: .same(proto: "bycopy"),
-    99: .same(proto: "byref"),
-    100: .same(proto: "oneway"),
-    102: .same(proto: "and"),
-    103: .standard(proto: "and_eq"),
-    104: .same(proto: "alignas"),
-    105: .same(proto: "alignof"),
-    106: .same(proto: "asm"),
-    107: .same(proto: "auto"),
-    108: .same(proto: "bitand"),
-    109: .same(proto: "bitor"),
-    110: .same(proto: "bool"),
-    114: .same(proto: "char"),
-    115: .standard(proto: "char16_t"),
-    116: .standard(proto: "char32_t"),
-    118: .same(proto: "compl"),
-    119: .same(proto: "const"),
-    120: .same(proto: "constexpr"),
-    121: .standard(proto: "const_cast"),
-    123: .same(proto: "decltype"),
-    125: .same(proto: "delete"),
-    127: .standard(proto: "dynamic_cast"),
-    130: .same(proto: "explicit"),
-    131: .same(proto: "export"),
-    132: .same(proto: "extern"),
-    136: .same(proto: "friend"),
-    137: .same(proto: "goto"),
-    139: .same(proto: "inline"),
-    141: .same(proto: "long"),
-    142: .same(proto: "mutable"),
-    143: .same(proto: "namespace"),
-    144: .same(proto: "new"),
-    145: .same(proto: "noexcept"),
-    146: .same(proto: "not"),
-    147: .standard(proto: "not_eq"),
-    148: .same(proto: "nullptr"),
-    150: .same(proto: "or"),
-    151: .standard(proto: "or_eq"),
-    153: .same(proto: "protected"),
-    155: .same(proto: "register"),
-    156: .standard(proto: "reinterpret_cast"),
-    158: .same(proto: "short"),
-    159: .same(proto: "signed"),
-    160: .same(proto: "sizeof"),
-    162: .standard(proto: "static_assert"),
-    163: .standard(proto: "static_cast"),
-    166: .same(proto: "template"),
-    167: .same(proto: "this"),
-    168: .standard(proto: "thread_local"),
-    172: .same(proto: "typedef"),
-    173: .same(proto: "typeid"),
-    174: .same(proto: "typename"),
-    175: .same(proto: "union"),
-    176: .same(proto: "unsigned"),
-    177: .same(proto: "using"),
-    178: .same(proto: "virtual"),
-    179: .same(proto: "void"),
-    180: .same(proto: "volatile"),
-    181: .standard(proto: "wchar_t"),
-    183: .same(proto: "xor"),
-    184: .standard(proto: "xor_eq"),
-    185: .same(proto: "restrict"),
-    186: .same(proto: "Category"),
-    187: .same(proto: "Ivar"),
-    188: .same(proto: "Method"),
-    192: .same(proto: "finalize"),
-    193: .same(proto: "hash"),
-    194: .same(proto: "dealloc"),
-    197: .same(proto: "superclass"),
-    198: .same(proto: "retain"),
-    199: .same(proto: "release"),
-    200: .same(proto: "autorelease"),
-    201: .same(proto: "retainCount"),
-    202: .same(proto: "zone"),
-    203: .same(proto: "isProxy"),
-    204: .same(proto: "copy"),
-    205: .same(proto: "mutableCopy"),
-    206: .same(proto: "classForCoder"),
-    207: .same(proto: "clear"),
-    208: .same(proto: "data"),
-    209: .same(proto: "delimitedData"),
-    210: .same(proto: "descriptor"),
-    211: .same(proto: "extensionRegistry"),
-    212: .same(proto: "extensionsCurrentlySet"),
-    213: .same(proto: "isInitialized"),
-    214: .same(proto: "serializedSize"),
-    215: .same(proto: "sortedExtensionsInUse"),
-    216: .same(proto: "unknownFields"),
-    217: .same(proto: "Fixed"),
-    218: .same(proto: "Fract"),
-    219: .same(proto: "Size"),
-    220: .same(proto: "LogicalAddress"),
-    221: .same(proto: "PhysicalAddress"),
-    222: .same(proto: "ByteCount"),
-    223: .same(proto: "ByteOffset"),
-    224: .same(proto: "Duration"),
-    225: .same(proto: "AbsoluteTime"),
-    226: .same(proto: "OptionBits"),
-    227: .same(proto: "ItemCount"),
-    228: .same(proto: "PBVersion"),
-    229: .same(proto: "ScriptCode"),
-    230: .same(proto: "LangCode"),
-    231: .same(proto: "RegionCode"),
-    232: .same(proto: "OSType"),
-    233: .same(proto: "ProcessSerialNumber"),
-    234: .same(proto: "Point"),
-    235: .same(proto: "Rect"),
-    236: .same(proto: "FixedPoint"),
-    237: .same(proto: "FixedRect"),
-    238: .same(proto: "Style"),
-    239: .same(proto: "StyleParameter"),
-    240: .same(proto: "StyleField"),
-    241: .same(proto: "TimeScale"),
-    242: .same(proto: "TimeBase"),
-    243: .same(proto: "TimeRecord"),
-    244: .unique(proto: "json_should_be_overriden", json: "json_was_overridden"),
-    245: .same(proto: "Any"),
-    246: .same(proto: "Int32"),
-    247: .same(proto: "Int64"),
-    250: .same(proto: "UInt32"),
-    251: .same(proto: "UInt64"),
-    252: .same(proto: "associatedtype"),
-    253: .same(proto: "fileprivate"),
-    254: .same(proto: "open"),
-  ]
-
-  private class _StorageClass {
-    var _string: Int32? = nil
-    var _int: Int32? = nil
-    var _double: Int32? = nil
-    var _float: Int32? = nil
-    var _uint: Int32? = nil
-    var _hashValue_p: Int32? = nil
-    var _description_p: Int32? = nil
-    var _debugDescription_p: Int32? = nil
-    var _swift: Int32? = nil
-    var _unrecognized: Int32? = nil
-    var _class_p: Int32? = nil
-    var _deinit_p: Int32? = nil
-    var _enum_p: Int32? = nil
-    var _extension_p: Int32? = nil
-    var _func_p: Int32? = nil
-    var _import_p: Int32? = nil
-    var _init_p: Int32? = nil
-    var _inout_p: Int32? = nil
-    var _internal_p: Int32? = nil
-    var _let_p: Int32? = nil
-    var _operator_p: Int32? = nil
-    var _private_p: Int32? = nil
-    var _protocol_p: Int32? = nil
-    var _public_p: Int32? = nil
-    var _static_p: Int32? = nil
-    var _struct_p: Int32? = nil
-    var _subscript_p: Int32? = nil
-    var _typealias_p: Int32? = nil
-    var _var_p: Int32? = nil
-    var _break_p: Int32? = nil
-    var _case_p: Int32? = nil
-    var _continue_p: Int32? = nil
-    var _default_p: Int32? = nil
-    var _defer_p: Int32? = nil
-    var _do_p: Int32? = nil
-    var _else_p: Int32? = nil
-    var _fallthrough_p: Int32? = nil
-    var _for_p: Int32? = nil
-    var _guard_p: Int32? = nil
-    var _if_p: Int32? = nil
-    var _in_p: Int32? = nil
-    var _repeat_p: Int32? = nil
-    var _return_p: Int32? = nil
-    var _switch_p: Int32? = nil
-    var _where_p: Int32? = nil
-    var _while_p: Int32? = nil
-    var _as_p: Int32? = nil
-    var _catch_p: Int32? = nil
-    var _dynamicType_p: Int32? = nil
-    var _false_p: Int32? = nil
-    var _is_p: Int32? = nil
-    var _nil_p: Int32? = nil
-    var _rethrows_p: Int32? = nil
-    var _super_p: Int32? = nil
-    var _self_p: Int32? = nil
-    var _throw_p: Int32? = nil
-    var _throws_p: Int32? = nil
-    var _true_p: Int32? = nil
-    var _try_p: Int32? = nil
-    var __Column__: Int32? = nil
-    var __File__: Int32? = nil
-    var __Function__: Int32? = nil
-    var __Line__: Int32? = nil
-    var ____: Int32? = nil
-    var _associativity: Int32? = nil
-    var _convenience: Int32? = nil
-    var _dynamic: Int32? = nil
-    var _didSet: Int32? = nil
-    var _final: Int32? = nil
-    var _get: Int32? = nil
-    var _infix: Int32? = nil
-    var _indirect: Int32? = nil
-    var _lazy: Int32? = nil
-    var _left: Int32? = nil
-    var _mutating: Int32? = nil
-    var _none: Int32? = nil
-    var _nonmutating: Int32? = nil
-    var _optional: Int32? = nil
-    var _override: Int32? = nil
-    var _postfix: Int32? = nil
-    var _precedence: Int32? = nil
-    var _prefix: Int32? = nil
-    var _required: Int32? = nil
-    var _right: Int32? = nil
-    var _set: Int32? = nil
-    var _type: Int32? = nil
-    var _unowned: Int32? = nil
-    var _weak: Int32? = nil
-    var _willSet: Int32? = nil
-    var _id: Int32? = nil
-    var _cmd: Int32? = nil
-    var _out: Int32? = nil
-    var _bycopy: Int32? = nil
-    var _byref: Int32? = nil
-    var _oneway: Int32? = nil
-    var _and: Int32? = nil
-    var _andEq: Int32? = nil
-    var _alignas: Int32? = nil
-    var _alignof: Int32? = nil
-    var _asm: Int32? = nil
-    var _auto: Int32? = nil
-    var _bitand: Int32? = nil
-    var _bitor: Int32? = nil
-    var _bool: Int32? = nil
-    var _char: Int32? = nil
-    var _char16T: Int32? = nil
-    var _char32T: Int32? = nil
-    var _compl: Int32? = nil
-    var _const: Int32? = nil
-    var _constexpr: Int32? = nil
-    var _constCast: Int32? = nil
-    var _decltype: Int32? = nil
-    var _delete: Int32? = nil
-    var _dynamicCast: Int32? = nil
-    var _explicit: Int32? = nil
-    var _export: Int32? = nil
-    var _extern: Int32? = nil
-    var _friend: Int32? = nil
-    var _goto: Int32? = nil
-    var _inline: Int32? = nil
-    var _long: Int32? = nil
-    var _mutable: Int32? = nil
-    var _namespace: Int32? = nil
-    var _new: Int32? = nil
-    var _noexcept: Int32? = nil
-    var _not: Int32? = nil
-    var _notEq: Int32? = nil
-    var _nullptr: Int32? = nil
-    var _or: Int32? = nil
-    var _orEq: Int32? = nil
-    var _protected: Int32? = nil
-    var _register: Int32? = nil
-    var _reinterpretCast: Int32? = nil
-    var _short: Int32? = nil
-    var _signed: Int32? = nil
-    var _sizeof: Int32? = nil
-    var _staticAssert: Int32? = nil
-    var _staticCast: Int32? = nil
-    var _template: Int32? = nil
-    var _this: Int32? = nil
-    var _threadLocal: Int32? = nil
-    var _typedef: Int32? = nil
-    var _typeid: Int32? = nil
-    var _typename: Int32? = nil
-    var _union: Int32? = nil
-    var _unsigned: Int32? = nil
-    var _using: Int32? = nil
-    var _virtual: Int32? = nil
-    var _void: Int32? = nil
-    var _volatile: Int32? = nil
-    var _wcharT: Int32? = nil
-    var _xor: Int32? = nil
-    var _xorEq: Int32? = nil
-    var _restrict: Int32? = nil
-    var _category: Int32? = nil
-    var _ivar: Int32? = nil
-    var _method: Int32? = nil
-    var _finalize: Int32? = nil
-    var _hash: Int32? = nil
-    var _dealloc: Int32? = nil
-    var _superclass: Int32? = nil
-    var _retain: Int32? = nil
-    var _release: Int32? = nil
-    var _autorelease: Int32? = nil
-    var _retainCount: Int32? = nil
-    var _zone: Int32? = nil
-    var _isProxy: Int32? = nil
-    var _copy: Int32? = nil
-    var _mutableCopy: Int32? = nil
-    var _classForCoder: Int32? = nil
-    var _clear: Int32? = nil
-    var _data: Int32? = nil
-    var _delimitedData: Int32? = nil
-    var _descriptor: Int32? = nil
-    var _extensionRegistry: Int32? = nil
-    var _extensionsCurrentlySet: Int32? = nil
-    var _isInitialized_p: Int32? = nil
-    var _serializedSize: Int32? = nil
-    var _sortedExtensionsInUse: Int32? = nil
-    var _unknownFields_p: Int32? = nil
-    var _fixed: Int32? = nil
-    var _fract: Int32? = nil
-    var _size: Int32? = nil
-    var _logicalAddress: Int32? = nil
-    var _physicalAddress: Int32? = nil
-    var _byteCount: Int32? = nil
-    var _byteOffset: Int32? = nil
-    var _duration: Int32? = nil
-    var _absoluteTime: Int32? = nil
-    var _optionBits: Int32? = nil
-    var _itemCount: Int32? = nil
-    var _pbversion: Int32? = nil
-    var _scriptCode: Int32? = nil
-    var _langCode: Int32? = nil
-    var _regionCode: Int32? = nil
-    var _ostype: Int32? = nil
-    var _processSerialNumber: Int32? = nil
-    var _point: Int32? = nil
-    var _rect: Int32? = nil
-    var _fixedPoint: Int32? = nil
-    var _fixedRect: Int32? = nil
-    var _style: Int32? = nil
-    var _styleParameter: Int32? = nil
-    var _styleField: Int32? = nil
-    var _timeScale: Int32? = nil
-    var _timeBase: Int32? = nil
-    var _timeRecord: Int32? = nil
-    var _jsonShouldBeOverriden: Int32? = nil
-    var _any: Int32? = nil
-    var _int32: Int32? = nil
-    var _int64: Int32? = nil
-    var _uint32: Int32? = nil
-    var _uint64: Int32? = nil
-    var _associatedtype_p: Int32? = nil
-    var _fileprivate_p: Int32? = nil
-    var _open_p: Int32? = nil
-
-    init() {}
-
-    init(copying source: _StorageClass) {
-      _string = source._string
-      _int = source._int
-      _double = source._double
-      _float = source._float
-      _uint = source._uint
-      _hashValue_p = source._hashValue_p
-      _description_p = source._description_p
-      _debugDescription_p = source._debugDescription_p
-      _swift = source._swift
-      _unrecognized = source._unrecognized
-      _class_p = source._class_p
-      _deinit_p = source._deinit_p
-      _enum_p = source._enum_p
-      _extension_p = source._extension_p
-      _func_p = source._func_p
-      _import_p = source._import_p
-      _init_p = source._init_p
-      _inout_p = source._inout_p
-      _internal_p = source._internal_p
-      _let_p = source._let_p
-      _operator_p = source._operator_p
-      _private_p = source._private_p
-      _protocol_p = source._protocol_p
-      _public_p = source._public_p
-      _static_p = source._static_p
-      _struct_p = source._struct_p
-      _subscript_p = source._subscript_p
-      _typealias_p = source._typealias_p
-      _var_p = source._var_p
-      _break_p = source._break_p
-      _case_p = source._case_p
-      _continue_p = source._continue_p
-      _default_p = source._default_p
-      _defer_p = source._defer_p
-      _do_p = source._do_p
-      _else_p = source._else_p
-      _fallthrough_p = source._fallthrough_p
-      _for_p = source._for_p
-      _guard_p = source._guard_p
-      _if_p = source._if_p
-      _in_p = source._in_p
-      _repeat_p = source._repeat_p
-      _return_p = source._return_p
-      _switch_p = source._switch_p
-      _where_p = source._where_p
-      _while_p = source._while_p
-      _as_p = source._as_p
-      _catch_p = source._catch_p
-      _dynamicType_p = source._dynamicType_p
-      _false_p = source._false_p
-      _is_p = source._is_p
-      _nil_p = source._nil_p
-      _rethrows_p = source._rethrows_p
-      _super_p = source._super_p
-      _self_p = source._self_p
-      _throw_p = source._throw_p
-      _throws_p = source._throws_p
-      _true_p = source._true_p
-      _try_p = source._try_p
-      __Column__ = source.__Column__
-      __File__ = source.__File__
-      __Function__ = source.__Function__
-      __Line__ = source.__Line__
-      ____ = source.____
-      _associativity = source._associativity
-      _convenience = source._convenience
-      _dynamic = source._dynamic
-      _didSet = source._didSet
-      _final = source._final
-      _get = source._get
-      _infix = source._infix
-      _indirect = source._indirect
-      _lazy = source._lazy
-      _left = source._left
-      _mutating = source._mutating
-      _none = source._none
-      _nonmutating = source._nonmutating
-      _optional = source._optional
-      _override = source._override
-      _postfix = source._postfix
-      _precedence = source._precedence
-      _prefix = source._prefix
-      _required = source._required
-      _right = source._right
-      _set = source._set
-      _type = source._type
-      _unowned = source._unowned
-      _weak = source._weak
-      _willSet = source._willSet
-      _id = source._id
-      _cmd = source._cmd
-      _out = source._out
-      _bycopy = source._bycopy
-      _byref = source._byref
-      _oneway = source._oneway
-      _and = source._and
-      _andEq = source._andEq
-      _alignas = source._alignas
-      _alignof = source._alignof
-      _asm = source._asm
-      _auto = source._auto
-      _bitand = source._bitand
-      _bitor = source._bitor
-      _bool = source._bool
-      _char = source._char
-      _char16T = source._char16T
-      _char32T = source._char32T
-      _compl = source._compl
-      _const = source._const
-      _constexpr = source._constexpr
-      _constCast = source._constCast
-      _decltype = source._decltype
-      _delete = source._delete
-      _dynamicCast = source._dynamicCast
-      _explicit = source._explicit
-      _export = source._export
-      _extern = source._extern
-      _friend = source._friend
-      _goto = source._goto
-      _inline = source._inline
-      _long = source._long
-      _mutable = source._mutable
-      _namespace = source._namespace
-      _new = source._new
-      _noexcept = source._noexcept
-      _not = source._not
-      _notEq = source._notEq
-      _nullptr = source._nullptr
-      _or = source._or
-      _orEq = source._orEq
-      _protected = source._protected
-      _register = source._register
-      _reinterpretCast = source._reinterpretCast
-      _short = source._short
-      _signed = source._signed
-      _sizeof = source._sizeof
-      _staticAssert = source._staticAssert
-      _staticCast = source._staticCast
-      _template = source._template
-      _this = source._this
-      _threadLocal = source._threadLocal
-      _typedef = source._typedef
-      _typeid = source._typeid
-      _typename = source._typename
-      _union = source._union
-      _unsigned = source._unsigned
-      _using = source._using
-      _virtual = source._virtual
-      _void = source._void
-      _volatile = source._volatile
-      _wcharT = source._wcharT
-      _xor = source._xor
-      _xorEq = source._xorEq
-      _restrict = source._restrict
-      _category = source._category
-      _ivar = source._ivar
-      _method = source._method
-      _finalize = source._finalize
-      _hash = source._hash
-      _dealloc = source._dealloc
-      _superclass = source._superclass
-      _retain = source._retain
-      _release = source._release
-      _autorelease = source._autorelease
-      _retainCount = source._retainCount
-      _zone = source._zone
-      _isProxy = source._isProxy
-      _copy = source._copy
-      _mutableCopy = source._mutableCopy
-      _classForCoder = source._classForCoder
-      _clear = source._clear
-      _data = source._data
-      _delimitedData = source._delimitedData
-      _descriptor = source._descriptor
-      _extensionRegistry = source._extensionRegistry
-      _extensionsCurrentlySet = source._extensionsCurrentlySet
-      _isInitialized_p = source._isInitialized_p
-      _serializedSize = source._serializedSize
-      _sortedExtensionsInUse = source._sortedExtensionsInUse
-      _unknownFields_p = source._unknownFields_p
-      _fixed = source._fixed
-      _fract = source._fract
-      _size = source._size
-      _logicalAddress = source._logicalAddress
-      _physicalAddress = source._physicalAddress
-      _byteCount = source._byteCount
-      _byteOffset = source._byteOffset
-      _duration = source._duration
-      _absoluteTime = source._absoluteTime
-      _optionBits = source._optionBits
-      _itemCount = source._itemCount
-      _pbversion = source._pbversion
-      _scriptCode = source._scriptCode
-      _langCode = source._langCode
-      _regionCode = source._regionCode
-      _ostype = source._ostype
-      _processSerialNumber = source._processSerialNumber
-      _point = source._point
-      _rect = source._rect
-      _fixedPoint = source._fixedPoint
-      _fixedRect = source._fixedRect
-      _style = source._style
-      _styleParameter = source._styleParameter
-      _styleField = source._styleField
-      _timeScale = source._timeScale
-      _timeBase = source._timeBase
-      _timeRecord = source._timeRecord
-      _jsonShouldBeOverriden = source._jsonShouldBeOverriden
-      _any = source._any
-      _int32 = source._int32
-      _int64 = source._int64
-      _uint32 = source._uint32
-      _uint64 = source._uint64
-      _associatedtype_p = source._associatedtype_p
-      _fileprivate_p = source._fileprivate_p
-      _open_p = source._open_p
-    }
-  }
-
-  private var _storage = _StorageClass()
-
-  private mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(copying: _storage)
-    }
-    return _storage
-  }
 
   var string: Int32 {
     get {return _storage._string ?? 0}
@@ -1611,7 +757,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._string != nil
   }
   mutating func clearString() {
-    return _storage._string = nil
+    _storage._string = nil
   }
 
   var int: Int32 {
@@ -1622,7 +768,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._int != nil
   }
   mutating func clearInt() {
-    return _storage._int = nil
+    _storage._int = nil
   }
 
   var double: Int32 {
@@ -1633,7 +779,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._double != nil
   }
   mutating func clearDouble() {
-    return _storage._double = nil
+    _storage._double = nil
   }
 
   var float: Int32 {
@@ -1644,7 +790,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._float != nil
   }
   mutating func clearFloat() {
-    return _storage._float = nil
+    _storage._float = nil
   }
 
   var uint: Int32 {
@@ -1655,7 +801,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._uint != nil
   }
   mutating func clearUint() {
-    return _storage._uint = nil
+    _storage._uint = nil
   }
 
   var hashValue_p: Int32 {
@@ -1666,7 +812,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._hashValue_p != nil
   }
   mutating func clearHashValue_p() {
-    return _storage._hashValue_p = nil
+    _storage._hashValue_p = nil
   }
 
   var description_p: Int32 {
@@ -1677,7 +823,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._description_p != nil
   }
   mutating func clearDescription_p() {
-    return _storage._description_p = nil
+    _storage._description_p = nil
   }
 
   var debugDescription_p: Int32 {
@@ -1688,7 +834,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._debugDescription_p != nil
   }
   mutating func clearDebugDescription_p() {
-    return _storage._debugDescription_p = nil
+    _storage._debugDescription_p = nil
   }
 
   var swift: Int32 {
@@ -1699,7 +845,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._swift != nil
   }
   mutating func clearSwift() {
-    return _storage._swift = nil
+    _storage._swift = nil
   }
 
   var unrecognized: Int32 {
@@ -1710,7 +856,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._unrecognized != nil
   }
   mutating func clearUnrecognized() {
-    return _storage._unrecognized = nil
+    _storage._unrecognized = nil
   }
 
   var class_p: Int32 {
@@ -1721,7 +867,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._class_p != nil
   }
   mutating func clearClass_p() {
-    return _storage._class_p = nil
+    _storage._class_p = nil
   }
 
   var deinit_p: Int32 {
@@ -1732,7 +878,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._deinit_p != nil
   }
   mutating func clearDeinit_p() {
-    return _storage._deinit_p = nil
+    _storage._deinit_p = nil
   }
 
   var enum_p: Int32 {
@@ -1743,18 +889,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._enum_p != nil
   }
   mutating func clearEnum_p() {
-    return _storage._enum_p = nil
-  }
-
-  var extension_p: Int32 {
-    get {return _storage._extension_p ?? 0}
-    set {_uniqueStorage()._extension_p = newValue}
-  }
-  var hasExtension_p: Bool {
-    return _storage._extension_p != nil
-  }
-  mutating func clearExtension_p() {
-    return _storage._extension_p = nil
+    _storage._enum_p = nil
   }
 
   var func_p: Int32 {
@@ -1765,7 +900,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._func_p != nil
   }
   mutating func clearFunc_p() {
-    return _storage._func_p = nil
+    _storage._func_p = nil
   }
 
   var import_p: Int32 {
@@ -1776,7 +911,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._import_p != nil
   }
   mutating func clearImport_p() {
-    return _storage._import_p = nil
+    _storage._import_p = nil
   }
 
   var init_p: Int32 {
@@ -1787,7 +922,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._init_p != nil
   }
   mutating func clearInit_p() {
-    return _storage._init_p = nil
+    _storage._init_p = nil
   }
 
   var inout_p: Int32 {
@@ -1798,7 +933,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._inout_p != nil
   }
   mutating func clearInout_p() {
-    return _storage._inout_p = nil
+    _storage._inout_p = nil
   }
 
   var internal_p: Int32 {
@@ -1809,7 +944,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._internal_p != nil
   }
   mutating func clearInternal_p() {
-    return _storage._internal_p = nil
+    _storage._internal_p = nil
   }
 
   var let_p: Int32 {
@@ -1820,7 +955,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._let_p != nil
   }
   mutating func clearLet_p() {
-    return _storage._let_p = nil
+    _storage._let_p = nil
   }
 
   var operator_p: Int32 {
@@ -1831,7 +966,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._operator_p != nil
   }
   mutating func clearOperator_p() {
-    return _storage._operator_p = nil
+    _storage._operator_p = nil
   }
 
   var private_p: Int32 {
@@ -1842,7 +977,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._private_p != nil
   }
   mutating func clearPrivate_p() {
-    return _storage._private_p = nil
+    _storage._private_p = nil
   }
 
   var protocol_p: Int32 {
@@ -1853,7 +988,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._protocol_p != nil
   }
   mutating func clearProtocol_p() {
-    return _storage._protocol_p = nil
+    _storage._protocol_p = nil
   }
 
   var public_p: Int32 {
@@ -1864,7 +999,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._public_p != nil
   }
   mutating func clearPublic_p() {
-    return _storage._public_p = nil
+    _storage._public_p = nil
   }
 
   var static_p: Int32 {
@@ -1875,7 +1010,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._static_p != nil
   }
   mutating func clearStatic_p() {
-    return _storage._static_p = nil
+    _storage._static_p = nil
   }
 
   var struct_p: Int32 {
@@ -1886,7 +1021,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._struct_p != nil
   }
   mutating func clearStruct_p() {
-    return _storage._struct_p = nil
+    _storage._struct_p = nil
   }
 
   var subscript_p: Int32 {
@@ -1897,7 +1032,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._subscript_p != nil
   }
   mutating func clearSubscript_p() {
-    return _storage._subscript_p = nil
+    _storage._subscript_p = nil
   }
 
   var typealias_p: Int32 {
@@ -1908,7 +1043,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._typealias_p != nil
   }
   mutating func clearTypealias_p() {
-    return _storage._typealias_p = nil
+    _storage._typealias_p = nil
   }
 
   var var_p: Int32 {
@@ -1919,7 +1054,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._var_p != nil
   }
   mutating func clearVar_p() {
-    return _storage._var_p = nil
+    _storage._var_p = nil
   }
 
   var break_p: Int32 {
@@ -1930,7 +1065,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._break_p != nil
   }
   mutating func clearBreak_p() {
-    return _storage._break_p = nil
+    _storage._break_p = nil
   }
 
   var case_p: Int32 {
@@ -1941,7 +1076,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._case_p != nil
   }
   mutating func clearCase_p() {
-    return _storage._case_p = nil
+    _storage._case_p = nil
   }
 
   var continue_p: Int32 {
@@ -1952,7 +1087,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._continue_p != nil
   }
   mutating func clearContinue_p() {
-    return _storage._continue_p = nil
+    _storage._continue_p = nil
   }
 
   var default_p: Int32 {
@@ -1963,7 +1098,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._default_p != nil
   }
   mutating func clearDefault_p() {
-    return _storage._default_p = nil
+    _storage._default_p = nil
   }
 
   var defer_p: Int32 {
@@ -1974,7 +1109,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._defer_p != nil
   }
   mutating func clearDefer_p() {
-    return _storage._defer_p = nil
+    _storage._defer_p = nil
   }
 
   var do_p: Int32 {
@@ -1985,7 +1120,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._do_p != nil
   }
   mutating func clearDo_p() {
-    return _storage._do_p = nil
+    _storage._do_p = nil
   }
 
   var else_p: Int32 {
@@ -1996,7 +1131,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._else_p != nil
   }
   mutating func clearElse_p() {
-    return _storage._else_p = nil
+    _storage._else_p = nil
   }
 
   var fallthrough_p: Int32 {
@@ -2007,7 +1142,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._fallthrough_p != nil
   }
   mutating func clearFallthrough_p() {
-    return _storage._fallthrough_p = nil
+    _storage._fallthrough_p = nil
   }
 
   var for_p: Int32 {
@@ -2018,7 +1153,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._for_p != nil
   }
   mutating func clearFor_p() {
-    return _storage._for_p = nil
+    _storage._for_p = nil
   }
 
   var guard_p: Int32 {
@@ -2029,7 +1164,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._guard_p != nil
   }
   mutating func clearGuard_p() {
-    return _storage._guard_p = nil
+    _storage._guard_p = nil
   }
 
   var if_p: Int32 {
@@ -2040,7 +1175,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._if_p != nil
   }
   mutating func clearIf_p() {
-    return _storage._if_p = nil
+    _storage._if_p = nil
   }
 
   var in_p: Int32 {
@@ -2051,7 +1186,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._in_p != nil
   }
   mutating func clearIn_p() {
-    return _storage._in_p = nil
+    _storage._in_p = nil
   }
 
   var repeat_p: Int32 {
@@ -2062,7 +1197,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._repeat_p != nil
   }
   mutating func clearRepeat_p() {
-    return _storage._repeat_p = nil
+    _storage._repeat_p = nil
   }
 
   var return_p: Int32 {
@@ -2073,7 +1208,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._return_p != nil
   }
   mutating func clearReturn_p() {
-    return _storage._return_p = nil
+    _storage._return_p = nil
   }
 
   var switch_p: Int32 {
@@ -2084,7 +1219,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._switch_p != nil
   }
   mutating func clearSwitch_p() {
-    return _storage._switch_p = nil
+    _storage._switch_p = nil
   }
 
   var where_p: Int32 {
@@ -2095,7 +1230,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._where_p != nil
   }
   mutating func clearWhere_p() {
-    return _storage._where_p = nil
+    _storage._where_p = nil
   }
 
   var while_p: Int32 {
@@ -2106,7 +1241,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._while_p != nil
   }
   mutating func clearWhile_p() {
-    return _storage._while_p = nil
+    _storage._while_p = nil
   }
 
   var as_p: Int32 {
@@ -2117,7 +1252,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._as_p != nil
   }
   mutating func clearAs_p() {
-    return _storage._as_p = nil
+    _storage._as_p = nil
   }
 
   var catch_p: Int32 {
@@ -2128,7 +1263,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._catch_p != nil
   }
   mutating func clearCatch_p() {
-    return _storage._catch_p = nil
+    _storage._catch_p = nil
   }
 
   var dynamicType_p: Int32 {
@@ -2139,7 +1274,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._dynamicType_p != nil
   }
   mutating func clearDynamicType_p() {
-    return _storage._dynamicType_p = nil
+    _storage._dynamicType_p = nil
   }
 
   var false_p: Int32 {
@@ -2150,7 +1285,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._false_p != nil
   }
   mutating func clearFalse_p() {
-    return _storage._false_p = nil
+    _storage._false_p = nil
   }
 
   var is_p: Int32 {
@@ -2161,7 +1296,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._is_p != nil
   }
   mutating func clearIs_p() {
-    return _storage._is_p = nil
+    _storage._is_p = nil
   }
 
   var nil_p: Int32 {
@@ -2172,7 +1307,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._nil_p != nil
   }
   mutating func clearNil_p() {
-    return _storage._nil_p = nil
+    _storage._nil_p = nil
   }
 
   var rethrows_p: Int32 {
@@ -2183,7 +1318,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._rethrows_p != nil
   }
   mutating func clearRethrows_p() {
-    return _storage._rethrows_p = nil
+    _storage._rethrows_p = nil
   }
 
   var super_p: Int32 {
@@ -2194,7 +1329,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._super_p != nil
   }
   mutating func clearSuper_p() {
-    return _storage._super_p = nil
+    _storage._super_p = nil
   }
 
   var self_p: Int32 {
@@ -2205,7 +1340,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._self_p != nil
   }
   mutating func clearSelf_p() {
-    return _storage._self_p = nil
+    _storage._self_p = nil
   }
 
   var throw_p: Int32 {
@@ -2216,7 +1351,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._throw_p != nil
   }
   mutating func clearThrow_p() {
-    return _storage._throw_p = nil
+    _storage._throw_p = nil
   }
 
   var throws_p: Int32 {
@@ -2227,7 +1362,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._throws_p != nil
   }
   mutating func clearThrows_p() {
-    return _storage._throws_p = nil
+    _storage._throws_p = nil
   }
 
   var true_p: Int32 {
@@ -2238,7 +1373,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._true_p != nil
   }
   mutating func clearTrue_p() {
-    return _storage._true_p = nil
+    _storage._true_p = nil
   }
 
   var try_p: Int32 {
@@ -2249,7 +1384,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._try_p != nil
   }
   mutating func clearTry_p() {
-    return _storage._try_p = nil
+    _storage._try_p = nil
   }
 
   var _Column__: Int32 {
@@ -2260,7 +1395,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage.__Column__ != nil
   }
   mutating func clear_Column__() {
-    return _storage.__Column__ = nil
+    _storage.__Column__ = nil
   }
 
   var _File__: Int32 {
@@ -2271,7 +1406,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage.__File__ != nil
   }
   mutating func clear_File__() {
-    return _storage.__File__ = nil
+    _storage.__File__ = nil
   }
 
   var _Function__: Int32 {
@@ -2282,7 +1417,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage.__Function__ != nil
   }
   mutating func clear_Function__() {
-    return _storage.__Function__ = nil
+    _storage.__Function__ = nil
   }
 
   var _Line__: Int32 {
@@ -2293,7 +1428,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage.__Line__ != nil
   }
   mutating func clear_Line__() {
-    return _storage.__Line__ = nil
+    _storage.__Line__ = nil
   }
 
   var ___: Int32 {
@@ -2304,7 +1439,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage.____ != nil
   }
   mutating func clear___() {
-    return _storage.____ = nil
+    _storage.____ = nil
   }
 
   var associativity: Int32 {
@@ -2315,7 +1450,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._associativity != nil
   }
   mutating func clearAssociativity() {
-    return _storage._associativity = nil
+    _storage._associativity = nil
   }
 
   var convenience: Int32 {
@@ -2326,7 +1461,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._convenience != nil
   }
   mutating func clearConvenience() {
-    return _storage._convenience = nil
+    _storage._convenience = nil
   }
 
   var dynamic: Int32 {
@@ -2337,7 +1472,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._dynamic != nil
   }
   mutating func clearDynamic() {
-    return _storage._dynamic = nil
+    _storage._dynamic = nil
   }
 
   var didSet: Int32 {
@@ -2348,7 +1483,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._didSet != nil
   }
   mutating func clearDidSet() {
-    return _storage._didSet = nil
+    _storage._didSet = nil
   }
 
   var final: Int32 {
@@ -2359,7 +1494,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._final != nil
   }
   mutating func clearFinal() {
-    return _storage._final = nil
+    _storage._final = nil
   }
 
   var get: Int32 {
@@ -2370,7 +1505,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._get != nil
   }
   mutating func clearGet() {
-    return _storage._get = nil
+    _storage._get = nil
   }
 
   var infix: Int32 {
@@ -2381,7 +1516,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._infix != nil
   }
   mutating func clearInfix() {
-    return _storage._infix = nil
+    _storage._infix = nil
   }
 
   var indirect: Int32 {
@@ -2392,7 +1527,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._indirect != nil
   }
   mutating func clearIndirect() {
-    return _storage._indirect = nil
+    _storage._indirect = nil
   }
 
   var lazy: Int32 {
@@ -2403,7 +1538,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._lazy != nil
   }
   mutating func clearLazy() {
-    return _storage._lazy = nil
+    _storage._lazy = nil
   }
 
   var left: Int32 {
@@ -2414,7 +1549,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._left != nil
   }
   mutating func clearLeft() {
-    return _storage._left = nil
+    _storage._left = nil
   }
 
   var mutating: Int32 {
@@ -2425,7 +1560,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._mutating != nil
   }
   mutating func clearMutating() {
-    return _storage._mutating = nil
+    _storage._mutating = nil
   }
 
   var none: Int32 {
@@ -2436,7 +1571,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._none != nil
   }
   mutating func clearNone() {
-    return _storage._none = nil
+    _storage._none = nil
   }
 
   var nonmutating: Int32 {
@@ -2447,7 +1582,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._nonmutating != nil
   }
   mutating func clearNonmutating() {
-    return _storage._nonmutating = nil
+    _storage._nonmutating = nil
   }
 
   var optional: Int32 {
@@ -2458,7 +1593,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._optional != nil
   }
   mutating func clearOptional() {
-    return _storage._optional = nil
+    _storage._optional = nil
   }
 
   var override: Int32 {
@@ -2469,7 +1604,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._override != nil
   }
   mutating func clearOverride() {
-    return _storage._override = nil
+    _storage._override = nil
   }
 
   var postfix: Int32 {
@@ -2480,7 +1615,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._postfix != nil
   }
   mutating func clearPostfix() {
-    return _storage._postfix = nil
+    _storage._postfix = nil
   }
 
   var precedence: Int32 {
@@ -2491,7 +1626,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._precedence != nil
   }
   mutating func clearPrecedence() {
-    return _storage._precedence = nil
+    _storage._precedence = nil
   }
 
   var prefix: Int32 {
@@ -2502,7 +1637,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._prefix != nil
   }
   mutating func clearPrefix() {
-    return _storage._prefix = nil
+    _storage._prefix = nil
   }
 
   var required: Int32 {
@@ -2513,7 +1648,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._required != nil
   }
   mutating func clearRequired() {
-    return _storage._required = nil
+    _storage._required = nil
   }
 
   var right: Int32 {
@@ -2524,7 +1659,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._right != nil
   }
   mutating func clearRight() {
-    return _storage._right = nil
+    _storage._right = nil
   }
 
   var set: Int32 {
@@ -2535,7 +1670,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._set != nil
   }
   mutating func clearSet() {
-    return _storage._set = nil
+    _storage._set = nil
   }
 
   var type: Int32 {
@@ -2546,7 +1681,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._type != nil
   }
   mutating func clearType() {
-    return _storage._type = nil
+    _storage._type = nil
   }
 
   var unowned: Int32 {
@@ -2557,7 +1692,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._unowned != nil
   }
   mutating func clearUnowned() {
-    return _storage._unowned = nil
+    _storage._unowned = nil
   }
 
   var weak: Int32 {
@@ -2568,7 +1703,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._weak != nil
   }
   mutating func clearWeak() {
-    return _storage._weak = nil
+    _storage._weak = nil
   }
 
   var willSet: Int32 {
@@ -2579,7 +1714,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._willSet != nil
   }
   mutating func clearWillSet() {
-    return _storage._willSet = nil
+    _storage._willSet = nil
   }
 
   var id: Int32 {
@@ -2590,7 +1725,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._id != nil
   }
   mutating func clearId() {
-    return _storage._id = nil
+    _storage._id = nil
   }
 
   var cmd: Int32 {
@@ -2601,7 +1736,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._cmd != nil
   }
   mutating func clearCmd() {
-    return _storage._cmd = nil
+    _storage._cmd = nil
   }
 
   var out: Int32 {
@@ -2612,7 +1747,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._out != nil
   }
   mutating func clearOut() {
-    return _storage._out = nil
+    _storage._out = nil
   }
 
   var bycopy: Int32 {
@@ -2623,7 +1758,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._bycopy != nil
   }
   mutating func clearBycopy() {
-    return _storage._bycopy = nil
+    _storage._bycopy = nil
   }
 
   var byref: Int32 {
@@ -2634,7 +1769,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._byref != nil
   }
   mutating func clearByref() {
-    return _storage._byref = nil
+    _storage._byref = nil
   }
 
   var oneway: Int32 {
@@ -2645,7 +1780,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._oneway != nil
   }
   mutating func clearOneway() {
-    return _storage._oneway = nil
+    _storage._oneway = nil
   }
 
   var and: Int32 {
@@ -2656,7 +1791,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._and != nil
   }
   mutating func clearAnd() {
-    return _storage._and = nil
+    _storage._and = nil
   }
 
   var andEq: Int32 {
@@ -2667,7 +1802,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._andEq != nil
   }
   mutating func clearAndEq() {
-    return _storage._andEq = nil
+    _storage._andEq = nil
   }
 
   var alignas: Int32 {
@@ -2678,7 +1813,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._alignas != nil
   }
   mutating func clearAlignas() {
-    return _storage._alignas = nil
+    _storage._alignas = nil
   }
 
   var alignof: Int32 {
@@ -2689,7 +1824,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._alignof != nil
   }
   mutating func clearAlignof() {
-    return _storage._alignof = nil
+    _storage._alignof = nil
   }
 
   var asm: Int32 {
@@ -2700,7 +1835,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._asm != nil
   }
   mutating func clearAsm() {
-    return _storage._asm = nil
+    _storage._asm = nil
   }
 
   var auto: Int32 {
@@ -2711,7 +1846,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._auto != nil
   }
   mutating func clearAuto() {
-    return _storage._auto = nil
+    _storage._auto = nil
   }
 
   var bitand: Int32 {
@@ -2722,7 +1857,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._bitand != nil
   }
   mutating func clearBitand() {
-    return _storage._bitand = nil
+    _storage._bitand = nil
   }
 
   var bitor: Int32 {
@@ -2733,7 +1868,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._bitor != nil
   }
   mutating func clearBitor() {
-    return _storage._bitor = nil
+    _storage._bitor = nil
   }
 
   var bool: Int32 {
@@ -2744,7 +1879,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._bool != nil
   }
   mutating func clearBool() {
-    return _storage._bool = nil
+    _storage._bool = nil
   }
 
   var char: Int32 {
@@ -2755,7 +1890,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._char != nil
   }
   mutating func clearChar() {
-    return _storage._char = nil
+    _storage._char = nil
   }
 
   var char16T: Int32 {
@@ -2766,7 +1901,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._char16T != nil
   }
   mutating func clearChar16T() {
-    return _storage._char16T = nil
+    _storage._char16T = nil
   }
 
   var char32T: Int32 {
@@ -2777,7 +1912,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._char32T != nil
   }
   mutating func clearChar32T() {
-    return _storage._char32T = nil
+    _storage._char32T = nil
   }
 
   var compl: Int32 {
@@ -2788,7 +1923,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._compl != nil
   }
   mutating func clearCompl() {
-    return _storage._compl = nil
+    _storage._compl = nil
   }
 
   var const: Int32 {
@@ -2799,7 +1934,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._const != nil
   }
   mutating func clearConst() {
-    return _storage._const = nil
+    _storage._const = nil
   }
 
   var constexpr: Int32 {
@@ -2810,7 +1945,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._constexpr != nil
   }
   mutating func clearConstexpr() {
-    return _storage._constexpr = nil
+    _storage._constexpr = nil
   }
 
   var constCast: Int32 {
@@ -2821,7 +1956,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._constCast != nil
   }
   mutating func clearConstCast() {
-    return _storage._constCast = nil
+    _storage._constCast = nil
   }
 
   var decltype: Int32 {
@@ -2832,7 +1967,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._decltype != nil
   }
   mutating func clearDecltype() {
-    return _storage._decltype = nil
+    _storage._decltype = nil
   }
 
   var delete: Int32 {
@@ -2843,7 +1978,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._delete != nil
   }
   mutating func clearDelete() {
-    return _storage._delete = nil
+    _storage._delete = nil
   }
 
   var dynamicCast: Int32 {
@@ -2854,7 +1989,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._dynamicCast != nil
   }
   mutating func clearDynamicCast() {
-    return _storage._dynamicCast = nil
+    _storage._dynamicCast = nil
   }
 
   var explicit: Int32 {
@@ -2865,7 +2000,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._explicit != nil
   }
   mutating func clearExplicit() {
-    return _storage._explicit = nil
+    _storage._explicit = nil
   }
 
   var export: Int32 {
@@ -2876,7 +2011,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._export != nil
   }
   mutating func clearExport() {
-    return _storage._export = nil
+    _storage._export = nil
   }
 
   var extern: Int32 {
@@ -2887,7 +2022,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._extern != nil
   }
   mutating func clearExtern() {
-    return _storage._extern = nil
+    _storage._extern = nil
   }
 
   var friend: Int32 {
@@ -2898,7 +2033,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._friend != nil
   }
   mutating func clearFriend() {
-    return _storage._friend = nil
+    _storage._friend = nil
   }
 
   var goto: Int32 {
@@ -2909,7 +2044,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._goto != nil
   }
   mutating func clearGoto() {
-    return _storage._goto = nil
+    _storage._goto = nil
   }
 
   var inline: Int32 {
@@ -2920,7 +2055,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._inline != nil
   }
   mutating func clearInline() {
-    return _storage._inline = nil
+    _storage._inline = nil
   }
 
   var long: Int32 {
@@ -2931,7 +2066,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._long != nil
   }
   mutating func clearLong() {
-    return _storage._long = nil
+    _storage._long = nil
   }
 
   var mutable: Int32 {
@@ -2942,7 +2077,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._mutable != nil
   }
   mutating func clearMutable() {
-    return _storage._mutable = nil
+    _storage._mutable = nil
   }
 
   var namespace: Int32 {
@@ -2953,7 +2088,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._namespace != nil
   }
   mutating func clearNamespace() {
-    return _storage._namespace = nil
+    _storage._namespace = nil
   }
 
   var new: Int32 {
@@ -2964,7 +2099,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._new != nil
   }
   mutating func clearNew() {
-    return _storage._new = nil
+    _storage._new = nil
   }
 
   var noexcept: Int32 {
@@ -2975,7 +2110,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._noexcept != nil
   }
   mutating func clearNoexcept() {
-    return _storage._noexcept = nil
+    _storage._noexcept = nil
   }
 
   var not: Int32 {
@@ -2986,7 +2121,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._not != nil
   }
   mutating func clearNot() {
-    return _storage._not = nil
+    _storage._not = nil
   }
 
   var notEq: Int32 {
@@ -2997,7 +2132,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._notEq != nil
   }
   mutating func clearNotEq() {
-    return _storage._notEq = nil
+    _storage._notEq = nil
   }
 
   var nullptr: Int32 {
@@ -3008,7 +2143,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._nullptr != nil
   }
   mutating func clearNullptr() {
-    return _storage._nullptr = nil
+    _storage._nullptr = nil
   }
 
   var or: Int32 {
@@ -3019,7 +2154,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._or != nil
   }
   mutating func clearOr() {
-    return _storage._or = nil
+    _storage._or = nil
   }
 
   var orEq: Int32 {
@@ -3030,7 +2165,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._orEq != nil
   }
   mutating func clearOrEq() {
-    return _storage._orEq = nil
+    _storage._orEq = nil
   }
 
   var protected: Int32 {
@@ -3041,7 +2176,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._protected != nil
   }
   mutating func clearProtected() {
-    return _storage._protected = nil
+    _storage._protected = nil
   }
 
   var register: Int32 {
@@ -3052,7 +2187,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._register != nil
   }
   mutating func clearRegister() {
-    return _storage._register = nil
+    _storage._register = nil
   }
 
   var reinterpretCast: Int32 {
@@ -3063,7 +2198,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._reinterpretCast != nil
   }
   mutating func clearReinterpretCast() {
-    return _storage._reinterpretCast = nil
+    _storage._reinterpretCast = nil
   }
 
   var short: Int32 {
@@ -3074,7 +2209,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._short != nil
   }
   mutating func clearShort() {
-    return _storage._short = nil
+    _storage._short = nil
   }
 
   var signed: Int32 {
@@ -3085,7 +2220,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._signed != nil
   }
   mutating func clearSigned() {
-    return _storage._signed = nil
+    _storage._signed = nil
   }
 
   var sizeof: Int32 {
@@ -3096,7 +2231,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._sizeof != nil
   }
   mutating func clearSizeof() {
-    return _storage._sizeof = nil
+    _storage._sizeof = nil
   }
 
   var staticAssert: Int32 {
@@ -3107,7 +2242,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._staticAssert != nil
   }
   mutating func clearStaticAssert() {
-    return _storage._staticAssert = nil
+    _storage._staticAssert = nil
   }
 
   var staticCast: Int32 {
@@ -3118,7 +2253,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._staticCast != nil
   }
   mutating func clearStaticCast() {
-    return _storage._staticCast = nil
+    _storage._staticCast = nil
   }
 
   var template: Int32 {
@@ -3129,7 +2264,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._template != nil
   }
   mutating func clearTemplate() {
-    return _storage._template = nil
+    _storage._template = nil
   }
 
   var this: Int32 {
@@ -3140,7 +2275,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._this != nil
   }
   mutating func clearThis() {
-    return _storage._this = nil
+    _storage._this = nil
   }
 
   var threadLocal: Int32 {
@@ -3151,7 +2286,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._threadLocal != nil
   }
   mutating func clearThreadLocal() {
-    return _storage._threadLocal = nil
+    _storage._threadLocal = nil
   }
 
   var typedef: Int32 {
@@ -3162,7 +2297,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._typedef != nil
   }
   mutating func clearTypedef() {
-    return _storage._typedef = nil
+    _storage._typedef = nil
   }
 
   var typeid: Int32 {
@@ -3173,7 +2308,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._typeid != nil
   }
   mutating func clearTypeid() {
-    return _storage._typeid = nil
+    _storage._typeid = nil
   }
 
   var typename: Int32 {
@@ -3184,7 +2319,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._typename != nil
   }
   mutating func clearTypename() {
-    return _storage._typename = nil
+    _storage._typename = nil
   }
 
   var union: Int32 {
@@ -3195,7 +2330,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._union != nil
   }
   mutating func clearUnion() {
-    return _storage._union = nil
+    _storage._union = nil
   }
 
   var unsigned: Int32 {
@@ -3206,7 +2341,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._unsigned != nil
   }
   mutating func clearUnsigned() {
-    return _storage._unsigned = nil
+    _storage._unsigned = nil
   }
 
   var using: Int32 {
@@ -3217,7 +2352,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._using != nil
   }
   mutating func clearUsing() {
-    return _storage._using = nil
+    _storage._using = nil
   }
 
   var virtual: Int32 {
@@ -3228,7 +2363,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._virtual != nil
   }
   mutating func clearVirtual() {
-    return _storage._virtual = nil
+    _storage._virtual = nil
   }
 
   var void: Int32 {
@@ -3239,7 +2374,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._void != nil
   }
   mutating func clearVoid() {
-    return _storage._void = nil
+    _storage._void = nil
   }
 
   var volatile: Int32 {
@@ -3250,7 +2385,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._volatile != nil
   }
   mutating func clearVolatile() {
-    return _storage._volatile = nil
+    _storage._volatile = nil
   }
 
   var wcharT: Int32 {
@@ -3261,7 +2396,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._wcharT != nil
   }
   mutating func clearWcharT() {
-    return _storage._wcharT = nil
+    _storage._wcharT = nil
   }
 
   var xor: Int32 {
@@ -3272,7 +2407,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._xor != nil
   }
   mutating func clearXor() {
-    return _storage._xor = nil
+    _storage._xor = nil
   }
 
   var xorEq: Int32 {
@@ -3283,7 +2418,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._xorEq != nil
   }
   mutating func clearXorEq() {
-    return _storage._xorEq = nil
+    _storage._xorEq = nil
   }
 
   var restrict: Int32 {
@@ -3294,7 +2429,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._restrict != nil
   }
   mutating func clearRestrict() {
-    return _storage._restrict = nil
+    _storage._restrict = nil
   }
 
   var category: Int32 {
@@ -3305,7 +2440,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._category != nil
   }
   mutating func clearCategory() {
-    return _storage._category = nil
+    _storage._category = nil
   }
 
   var ivar: Int32 {
@@ -3316,7 +2451,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._ivar != nil
   }
   mutating func clearIvar() {
-    return _storage._ivar = nil
+    _storage._ivar = nil
   }
 
   var method: Int32 {
@@ -3327,7 +2462,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._method != nil
   }
   mutating func clearMethod() {
-    return _storage._method = nil
+    _storage._method = nil
   }
 
   var finalize: Int32 {
@@ -3338,18 +2473,18 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._finalize != nil
   }
   mutating func clearFinalize() {
-    return _storage._finalize = nil
+    _storage._finalize = nil
   }
 
-  var hash: Int32 {
-    get {return _storage._hash ?? 0}
-    set {_uniqueStorage()._hash = newValue}
+  var hash_p: Int32 {
+    get {return _storage._hash_p ?? 0}
+    set {_uniqueStorage()._hash_p = newValue}
   }
-  var hasHash: Bool {
-    return _storage._hash != nil
+  var hasHash_p: Bool {
+    return _storage._hash_p != nil
   }
-  mutating func clearHash() {
-    return _storage._hash = nil
+  mutating func clearHash_p() {
+    _storage._hash_p = nil
   }
 
   var dealloc: Int32 {
@@ -3360,7 +2495,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._dealloc != nil
   }
   mutating func clearDealloc() {
-    return _storage._dealloc = nil
+    _storage._dealloc = nil
   }
 
   var superclass: Int32 {
@@ -3371,7 +2506,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._superclass != nil
   }
   mutating func clearSuperclass() {
-    return _storage._superclass = nil
+    _storage._superclass = nil
   }
 
   var retain: Int32 {
@@ -3382,7 +2517,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._retain != nil
   }
   mutating func clearRetain() {
-    return _storage._retain = nil
+    _storage._retain = nil
   }
 
   var release: Int32 {
@@ -3393,7 +2528,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._release != nil
   }
   mutating func clearRelease() {
-    return _storage._release = nil
+    _storage._release = nil
   }
 
   var autorelease: Int32 {
@@ -3404,7 +2539,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._autorelease != nil
   }
   mutating func clearAutorelease() {
-    return _storage._autorelease = nil
+    _storage._autorelease = nil
   }
 
   var retainCount: Int32 {
@@ -3415,7 +2550,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._retainCount != nil
   }
   mutating func clearRetainCount() {
-    return _storage._retainCount = nil
+    _storage._retainCount = nil
   }
 
   var zone: Int32 {
@@ -3426,7 +2561,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._zone != nil
   }
   mutating func clearZone() {
-    return _storage._zone = nil
+    _storage._zone = nil
   }
 
   var isProxy: Int32 {
@@ -3437,7 +2572,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._isProxy != nil
   }
   mutating func clearIsProxy() {
-    return _storage._isProxy = nil
+    _storage._isProxy = nil
   }
 
   var copy: Int32 {
@@ -3448,7 +2583,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._copy != nil
   }
   mutating func clearCopy() {
-    return _storage._copy = nil
+    _storage._copy = nil
   }
 
   var mutableCopy: Int32 {
@@ -3459,7 +2594,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._mutableCopy != nil
   }
   mutating func clearMutableCopy() {
-    return _storage._mutableCopy = nil
+    _storage._mutableCopy = nil
   }
 
   var classForCoder: Int32 {
@@ -3470,18 +2605,18 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._classForCoder != nil
   }
   mutating func clearClassForCoder() {
-    return _storage._classForCoder = nil
+    _storage._classForCoder = nil
   }
 
-  var clear: Int32 {
-    get {return _storage._clear ?? 0}
-    set {_uniqueStorage()._clear = newValue}
+  var clear_p: Int32 {
+    get {return _storage._clear_p ?? 0}
+    set {_uniqueStorage()._clear_p = newValue}
   }
-  var hasClear: Bool {
-    return _storage._clear != nil
+  var hasClear_p: Bool {
+    return _storage._clear_p != nil
   }
-  mutating func clearClear() {
-    return _storage._clear = nil
+  mutating func clearClear_p() {
+    _storage._clear_p = nil
   }
 
   var data: Int32 {
@@ -3492,7 +2627,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._data != nil
   }
   mutating func clearData() {
-    return _storage._data = nil
+    _storage._data = nil
   }
 
   var delimitedData: Int32 {
@@ -3503,7 +2638,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._delimitedData != nil
   }
   mutating func clearDelimitedData() {
-    return _storage._delimitedData = nil
+    _storage._delimitedData = nil
   }
 
   var descriptor: Int32 {
@@ -3514,7 +2649,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._descriptor != nil
   }
   mutating func clearDescriptor() {
-    return _storage._descriptor = nil
+    _storage._descriptor = nil
   }
 
   var extensionRegistry: Int32 {
@@ -3525,7 +2660,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._extensionRegistry != nil
   }
   mutating func clearExtensionRegistry() {
-    return _storage._extensionRegistry = nil
+    _storage._extensionRegistry = nil
   }
 
   var extensionsCurrentlySet: Int32 {
@@ -3536,7 +2671,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._extensionsCurrentlySet != nil
   }
   mutating func clearExtensionsCurrentlySet() {
-    return _storage._extensionsCurrentlySet = nil
+    _storage._extensionsCurrentlySet = nil
   }
 
   var isInitialized_p: Int32 {
@@ -3547,7 +2682,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._isInitialized_p != nil
   }
   mutating func clearIsInitialized_p() {
-    return _storage._isInitialized_p = nil
+    _storage._isInitialized_p = nil
   }
 
   var serializedSize: Int32 {
@@ -3558,7 +2693,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._serializedSize != nil
   }
   mutating func clearSerializedSize() {
-    return _storage._serializedSize = nil
+    _storage._serializedSize = nil
   }
 
   var sortedExtensionsInUse: Int32 {
@@ -3569,7 +2704,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._sortedExtensionsInUse != nil
   }
   mutating func clearSortedExtensionsInUse() {
-    return _storage._sortedExtensionsInUse = nil
+    _storage._sortedExtensionsInUse = nil
   }
 
   var unknownFields_p: Int32 {
@@ -3580,7 +2715,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._unknownFields_p != nil
   }
   mutating func clearUnknownFields_p() {
-    return _storage._unknownFields_p = nil
+    _storage._unknownFields_p = nil
   }
 
   var fixed: Int32 {
@@ -3591,7 +2726,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._fixed != nil
   }
   mutating func clearFixed() {
-    return _storage._fixed = nil
+    _storage._fixed = nil
   }
 
   var fract: Int32 {
@@ -3602,7 +2737,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._fract != nil
   }
   mutating func clearFract() {
-    return _storage._fract = nil
+    _storage._fract = nil
   }
 
   var size: Int32 {
@@ -3613,7 +2748,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._size != nil
   }
   mutating func clearSize() {
-    return _storage._size = nil
+    _storage._size = nil
   }
 
   var logicalAddress: Int32 {
@@ -3624,7 +2759,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._logicalAddress != nil
   }
   mutating func clearLogicalAddress() {
-    return _storage._logicalAddress = nil
+    _storage._logicalAddress = nil
   }
 
   var physicalAddress: Int32 {
@@ -3635,7 +2770,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._physicalAddress != nil
   }
   mutating func clearPhysicalAddress() {
-    return _storage._physicalAddress = nil
+    _storage._physicalAddress = nil
   }
 
   var byteCount: Int32 {
@@ -3646,7 +2781,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._byteCount != nil
   }
   mutating func clearByteCount() {
-    return _storage._byteCount = nil
+    _storage._byteCount = nil
   }
 
   var byteOffset: Int32 {
@@ -3657,7 +2792,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._byteOffset != nil
   }
   mutating func clearByteOffset() {
-    return _storage._byteOffset = nil
+    _storage._byteOffset = nil
   }
 
   var duration: Int32 {
@@ -3668,7 +2803,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._duration != nil
   }
   mutating func clearDuration() {
-    return _storage._duration = nil
+    _storage._duration = nil
   }
 
   var absoluteTime: Int32 {
@@ -3679,7 +2814,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._absoluteTime != nil
   }
   mutating func clearAbsoluteTime() {
-    return _storage._absoluteTime = nil
+    _storage._absoluteTime = nil
   }
 
   var optionBits: Int32 {
@@ -3690,7 +2825,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._optionBits != nil
   }
   mutating func clearOptionBits() {
-    return _storage._optionBits = nil
+    _storage._optionBits = nil
   }
 
   var itemCount: Int32 {
@@ -3701,7 +2836,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._itemCount != nil
   }
   mutating func clearItemCount() {
-    return _storage._itemCount = nil
+    _storage._itemCount = nil
   }
 
   var pbversion: Int32 {
@@ -3712,7 +2847,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._pbversion != nil
   }
   mutating func clearPbversion() {
-    return _storage._pbversion = nil
+    _storage._pbversion = nil
   }
 
   var scriptCode: Int32 {
@@ -3723,7 +2858,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._scriptCode != nil
   }
   mutating func clearScriptCode() {
-    return _storage._scriptCode = nil
+    _storage._scriptCode = nil
   }
 
   var langCode: Int32 {
@@ -3734,7 +2869,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._langCode != nil
   }
   mutating func clearLangCode() {
-    return _storage._langCode = nil
+    _storage._langCode = nil
   }
 
   var regionCode: Int32 {
@@ -3745,7 +2880,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._regionCode != nil
   }
   mutating func clearRegionCode() {
-    return _storage._regionCode = nil
+    _storage._regionCode = nil
   }
 
   var ostype: Int32 {
@@ -3756,7 +2891,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._ostype != nil
   }
   mutating func clearOstype() {
-    return _storage._ostype = nil
+    _storage._ostype = nil
   }
 
   var processSerialNumber: Int32 {
@@ -3767,7 +2902,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._processSerialNumber != nil
   }
   mutating func clearProcessSerialNumber() {
-    return _storage._processSerialNumber = nil
+    _storage._processSerialNumber = nil
   }
 
   var point: Int32 {
@@ -3778,7 +2913,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._point != nil
   }
   mutating func clearPoint() {
-    return _storage._point = nil
+    _storage._point = nil
   }
 
   var rect: Int32 {
@@ -3789,7 +2924,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._rect != nil
   }
   mutating func clearRect() {
-    return _storage._rect = nil
+    _storage._rect = nil
   }
 
   var fixedPoint: Int32 {
@@ -3800,7 +2935,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._fixedPoint != nil
   }
   mutating func clearFixedPoint() {
-    return _storage._fixedPoint = nil
+    _storage._fixedPoint = nil
   }
 
   var fixedRect: Int32 {
@@ -3811,7 +2946,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._fixedRect != nil
   }
   mutating func clearFixedRect() {
-    return _storage._fixedRect = nil
+    _storage._fixedRect = nil
   }
 
   var style: Int32 {
@@ -3822,7 +2957,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._style != nil
   }
   mutating func clearStyle() {
-    return _storage._style = nil
+    _storage._style = nil
   }
 
   var styleParameter: Int32 {
@@ -3833,7 +2968,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._styleParameter != nil
   }
   mutating func clearStyleParameter() {
-    return _storage._styleParameter = nil
+    _storage._styleParameter = nil
   }
 
   var styleField: Int32 {
@@ -3844,7 +2979,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._styleField != nil
   }
   mutating func clearStyleField() {
-    return _storage._styleField = nil
+    _storage._styleField = nil
   }
 
   var timeScale: Int32 {
@@ -3855,7 +2990,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._timeScale != nil
   }
   mutating func clearTimeScale() {
-    return _storage._timeScale = nil
+    _storage._timeScale = nil
   }
 
   var timeBase: Int32 {
@@ -3866,7 +3001,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._timeBase != nil
   }
   mutating func clearTimeBase() {
-    return _storage._timeBase = nil
+    _storage._timeBase = nil
   }
 
   var timeRecord: Int32 {
@@ -3877,7 +3012,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._timeRecord != nil
   }
   mutating func clearTimeRecord() {
-    return _storage._timeRecord = nil
+    _storage._timeRecord = nil
   }
 
   var jsonShouldBeOverriden: Int32 {
@@ -3888,7 +3023,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._jsonShouldBeOverriden != nil
   }
   mutating func clearJsonShouldBeOverriden() {
-    return _storage._jsonShouldBeOverriden = nil
+    _storage._jsonShouldBeOverriden = nil
   }
 
   var any: Int32 {
@@ -3899,7 +3034,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._any != nil
   }
   mutating func clearAny() {
-    return _storage._any = nil
+    _storage._any = nil
   }
 
   var int32: Int32 {
@@ -3910,7 +3045,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._int32 != nil
   }
   mutating func clearInt32() {
-    return _storage._int32 = nil
+    _storage._int32 = nil
   }
 
   var int64: Int32 {
@@ -3921,7 +3056,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._int64 != nil
   }
   mutating func clearInt64() {
-    return _storage._int64 = nil
+    _storage._int64 = nil
   }
 
   var uint32: Int32 {
@@ -3932,7 +3067,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._uint32 != nil
   }
   mutating func clearUint32() {
-    return _storage._uint32 = nil
+    _storage._uint32 = nil
   }
 
   var uint64: Int32 {
@@ -3943,7 +3078,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._uint64 != nil
   }
   mutating func clearUint64() {
-    return _storage._uint64 = nil
+    _storage._uint64 = nil
   }
 
   var associatedtype_p: Int32 {
@@ -3954,7 +3089,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._associatedtype_p != nil
   }
   mutating func clearAssociatedtype_p() {
-    return _storage._associatedtype_p = nil
+    _storage._associatedtype_p = nil
   }
 
   var fileprivate_p: Int32 {
@@ -3965,7 +3100,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._fileprivate_p != nil
   }
   mutating func clearFileprivate_p() {
-    return _storage._fileprivate_p = nil
+    _storage._fileprivate_p = nil
   }
 
   var open_p: Int32 {
@@ -3976,7 +3111,84 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._open_p != nil
   }
   mutating func clearOpen_p() {
-    return _storage._open_p = nil
+    _storage._open_p = nil
+  }
+
+  var serializedData: Int32 {
+    get {return _storage._serializedData ?? 0}
+    set {_uniqueStorage()._serializedData = newValue}
+  }
+  var hasSerializedData: Bool {
+    return _storage._serializedData != nil
+  }
+  mutating func clearSerializedData() {
+    _storage._serializedData = nil
+  }
+
+  var hasSerializedData_p: Int32 {
+    get {return _storage._hasSerializedData_p ?? 0}
+    set {_uniqueStorage()._hasSerializedData_p = newValue}
+  }
+  var hasHasSerializedData_p: Bool {
+    return _storage._hasSerializedData_p != nil
+  }
+  mutating func clearHasSerializedData_p() {
+    _storage._hasSerializedData_p = nil
+  }
+
+  var clearSerializedData_p: Int32 {
+    get {return _storage._clearSerializedData_p ?? 0}
+    set {_uniqueStorage()._clearSerializedData_p = newValue}
+  }
+  var hasClearSerializedData_p: Bool {
+    return _storage._clearSerializedData_p != nil
+  }
+  mutating func clearClearSerializedData_p() {
+    _storage._clearSerializedData_p = nil
+  }
+
+  var jsonUtf8Data: Int32 {
+    get {return _storage._jsonUtf8Data ?? 0}
+    set {_uniqueStorage()._jsonUtf8Data = newValue}
+  }
+  var hasJsonUtf8Data: Bool {
+    return _storage._jsonUtf8Data != nil
+  }
+  mutating func clearJsonUtf8Data() {
+    _storage._jsonUtf8Data = nil
+  }
+
+  var jsonString: Int32 {
+    get {return _storage._jsonString ?? 0}
+    set {_uniqueStorage()._jsonString = newValue}
+  }
+  var hasJsonString: Bool {
+    return _storage._jsonString != nil
+  }
+  mutating func clearJsonString() {
+    _storage._jsonString = nil
+  }
+
+  var extension_p: Int32 {
+    get {return _storage._extension_p ?? 0}
+    set {_uniqueStorage()._extension_p = newValue}
+  }
+  var hasExtension_p: Bool {
+    return _storage._extension_p != nil
+  }
+  mutating func clearExtension_p() {
+    _storage._extension_p = nil
+  }
+
+  var extensions: Int32 {
+    get {return _storage._extensions ?? 0}
+    set {_uniqueStorage()._extensions = newValue}
+  }
+  var hasExtensions: Bool {
+    return _storage._extensions != nil
+  }
+  mutating func clearExtensions() {
+    _storage._extensions = nil
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -4001,7 +3213,6 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
         case 11: try decoder.decodeSingularInt32Field(value: &_storage._class_p)
         case 12: try decoder.decodeSingularInt32Field(value: &_storage._deinit_p)
         case 13: try decoder.decodeSingularInt32Field(value: &_storage._enum_p)
-        case 14: try decoder.decodeSingularInt32Field(value: &_storage._extension_p)
         case 15: try decoder.decodeSingularInt32Field(value: &_storage._func_p)
         case 16: try decoder.decodeSingularInt32Field(value: &_storage._import_p)
         case 17: try decoder.decodeSingularInt32Field(value: &_storage._init_p)
@@ -4146,7 +3357,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
         case 187: try decoder.decodeSingularInt32Field(value: &_storage._ivar)
         case 188: try decoder.decodeSingularInt32Field(value: &_storage._method)
         case 192: try decoder.decodeSingularInt32Field(value: &_storage._finalize)
-        case 193: try decoder.decodeSingularInt32Field(value: &_storage._hash)
+        case 193: try decoder.decodeSingularInt32Field(value: &_storage._hash_p)
         case 194: try decoder.decodeSingularInt32Field(value: &_storage._dealloc)
         case 197: try decoder.decodeSingularInt32Field(value: &_storage._superclass)
         case 198: try decoder.decodeSingularInt32Field(value: &_storage._retain)
@@ -4158,7 +3369,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
         case 204: try decoder.decodeSingularInt32Field(value: &_storage._copy)
         case 205: try decoder.decodeSingularInt32Field(value: &_storage._mutableCopy)
         case 206: try decoder.decodeSingularInt32Field(value: &_storage._classForCoder)
-        case 207: try decoder.decodeSingularInt32Field(value: &_storage._clear)
+        case 207: try decoder.decodeSingularInt32Field(value: &_storage._clear_p)
         case 208: try decoder.decodeSingularInt32Field(value: &_storage._data)
         case 209: try decoder.decodeSingularInt32Field(value: &_storage._delimitedData)
         case 210: try decoder.decodeSingularInt32Field(value: &_storage._descriptor)
@@ -4204,6 +3415,13 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
         case 252: try decoder.decodeSingularInt32Field(value: &_storage._associatedtype_p)
         case 253: try decoder.decodeSingularInt32Field(value: &_storage._fileprivate_p)
         case 254: try decoder.decodeSingularInt32Field(value: &_storage._open_p)
+        case 255: try decoder.decodeSingularInt32Field(value: &_storage._serializedData)
+        case 256: try decoder.decodeSingularInt32Field(value: &_storage._hasSerializedData_p)
+        case 257: try decoder.decodeSingularInt32Field(value: &_storage._clearSerializedData_p)
+        case 258: try decoder.decodeSingularInt32Field(value: &_storage._jsonUtf8Data)
+        case 259: try decoder.decodeSingularInt32Field(value: &_storage._jsonString)
+        case 260: try decoder.decodeSingularInt32Field(value: &_storage._extension_p)
+        case 261: try decoder.decodeSingularInt32Field(value: &_storage._extensions)
         default: break
         }
       }
@@ -4250,9 +3468,6 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
       }
       if let v = _storage._enum_p {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 13)
-      }
-      if let v = _storage._extension_p {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 14)
       }
       if let v = _storage._func_p {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 15)
@@ -4686,7 +3901,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
       if let v = _storage._finalize {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 192)
       }
-      if let v = _storage._hash {
+      if let v = _storage._hash_p {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 193)
       }
       if let v = _storage._dealloc {
@@ -4722,7 +3937,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
       if let v = _storage._classForCoder {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 206)
       }
-      if let v = _storage._clear {
+      if let v = _storage._clear_p {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 207)
       }
       if let v = _storage._data {
@@ -4860,260 +4075,52 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
       if let v = _storage._open_p {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 254)
       }
+      if let v = _storage._serializedData {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 255)
+      }
+      if let v = _storage._hasSerializedData_p {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 256)
+      }
+      if let v = _storage._clearSerializedData_p {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 257)
+      }
+      if let v = _storage._jsonUtf8Data {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 258)
+      }
+      if let v = _storage._jsonString {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 259)
+      }
+      if let v = _storage._extension_p {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 260)
+      }
+      if let v = _storage._extensions {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 261)
+      }
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_FieldNames) -> Bool {
-    if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
-        if _storage._string != other_storage._string {return false}
-        if _storage._int != other_storage._int {return false}
-        if _storage._double != other_storage._double {return false}
-        if _storage._float != other_storage._float {return false}
-        if _storage._uint != other_storage._uint {return false}
-        if _storage._hashValue_p != other_storage._hashValue_p {return false}
-        if _storage._description_p != other_storage._description_p {return false}
-        if _storage._debugDescription_p != other_storage._debugDescription_p {return false}
-        if _storage._swift != other_storage._swift {return false}
-        if _storage._unrecognized != other_storage._unrecognized {return false}
-        if _storage._class_p != other_storage._class_p {return false}
-        if _storage._deinit_p != other_storage._deinit_p {return false}
-        if _storage._enum_p != other_storage._enum_p {return false}
-        if _storage._extension_p != other_storage._extension_p {return false}
-        if _storage._func_p != other_storage._func_p {return false}
-        if _storage._import_p != other_storage._import_p {return false}
-        if _storage._init_p != other_storage._init_p {return false}
-        if _storage._inout_p != other_storage._inout_p {return false}
-        if _storage._internal_p != other_storage._internal_p {return false}
-        if _storage._let_p != other_storage._let_p {return false}
-        if _storage._operator_p != other_storage._operator_p {return false}
-        if _storage._private_p != other_storage._private_p {return false}
-        if _storage._protocol_p != other_storage._protocol_p {return false}
-        if _storage._public_p != other_storage._public_p {return false}
-        if _storage._static_p != other_storage._static_p {return false}
-        if _storage._struct_p != other_storage._struct_p {return false}
-        if _storage._subscript_p != other_storage._subscript_p {return false}
-        if _storage._typealias_p != other_storage._typealias_p {return false}
-        if _storage._var_p != other_storage._var_p {return false}
-        if _storage._break_p != other_storage._break_p {return false}
-        if _storage._case_p != other_storage._case_p {return false}
-        if _storage._continue_p != other_storage._continue_p {return false}
-        if _storage._default_p != other_storage._default_p {return false}
-        if _storage._defer_p != other_storage._defer_p {return false}
-        if _storage._do_p != other_storage._do_p {return false}
-        if _storage._else_p != other_storage._else_p {return false}
-        if _storage._fallthrough_p != other_storage._fallthrough_p {return false}
-        if _storage._for_p != other_storage._for_p {return false}
-        if _storage._guard_p != other_storage._guard_p {return false}
-        if _storage._if_p != other_storage._if_p {return false}
-        if _storage._in_p != other_storage._in_p {return false}
-        if _storage._repeat_p != other_storage._repeat_p {return false}
-        if _storage._return_p != other_storage._return_p {return false}
-        if _storage._switch_p != other_storage._switch_p {return false}
-        if _storage._where_p != other_storage._where_p {return false}
-        if _storage._while_p != other_storage._while_p {return false}
-        if _storage._as_p != other_storage._as_p {return false}
-        if _storage._catch_p != other_storage._catch_p {return false}
-        if _storage._dynamicType_p != other_storage._dynamicType_p {return false}
-        if _storage._false_p != other_storage._false_p {return false}
-        if _storage._is_p != other_storage._is_p {return false}
-        if _storage._nil_p != other_storage._nil_p {return false}
-        if _storage._rethrows_p != other_storage._rethrows_p {return false}
-        if _storage._super_p != other_storage._super_p {return false}
-        if _storage._self_p != other_storage._self_p {return false}
-        if _storage._throw_p != other_storage._throw_p {return false}
-        if _storage._throws_p != other_storage._throws_p {return false}
-        if _storage._true_p != other_storage._true_p {return false}
-        if _storage._try_p != other_storage._try_p {return false}
-        if _storage.__Column__ != other_storage.__Column__ {return false}
-        if _storage.__File__ != other_storage.__File__ {return false}
-        if _storage.__Function__ != other_storage.__Function__ {return false}
-        if _storage.__Line__ != other_storage.__Line__ {return false}
-        if _storage.____ != other_storage.____ {return false}
-        if _storage._associativity != other_storage._associativity {return false}
-        if _storage._convenience != other_storage._convenience {return false}
-        if _storage._dynamic != other_storage._dynamic {return false}
-        if _storage._didSet != other_storage._didSet {return false}
-        if _storage._final != other_storage._final {return false}
-        if _storage._get != other_storage._get {return false}
-        if _storage._infix != other_storage._infix {return false}
-        if _storage._indirect != other_storage._indirect {return false}
-        if _storage._lazy != other_storage._lazy {return false}
-        if _storage._left != other_storage._left {return false}
-        if _storage._mutating != other_storage._mutating {return false}
-        if _storage._none != other_storage._none {return false}
-        if _storage._nonmutating != other_storage._nonmutating {return false}
-        if _storage._optional != other_storage._optional {return false}
-        if _storage._override != other_storage._override {return false}
-        if _storage._postfix != other_storage._postfix {return false}
-        if _storage._precedence != other_storage._precedence {return false}
-        if _storage._prefix != other_storage._prefix {return false}
-        if _storage._required != other_storage._required {return false}
-        if _storage._right != other_storage._right {return false}
-        if _storage._set != other_storage._set {return false}
-        if _storage._type != other_storage._type {return false}
-        if _storage._unowned != other_storage._unowned {return false}
-        if _storage._weak != other_storage._weak {return false}
-        if _storage._willSet != other_storage._willSet {return false}
-        if _storage._id != other_storage._id {return false}
-        if _storage._cmd != other_storage._cmd {return false}
-        if _storage._out != other_storage._out {return false}
-        if _storage._bycopy != other_storage._bycopy {return false}
-        if _storage._byref != other_storage._byref {return false}
-        if _storage._oneway != other_storage._oneway {return false}
-        if _storage._and != other_storage._and {return false}
-        if _storage._andEq != other_storage._andEq {return false}
-        if _storage._alignas != other_storage._alignas {return false}
-        if _storage._alignof != other_storage._alignof {return false}
-        if _storage._asm != other_storage._asm {return false}
-        if _storage._auto != other_storage._auto {return false}
-        if _storage._bitand != other_storage._bitand {return false}
-        if _storage._bitor != other_storage._bitor {return false}
-        if _storage._bool != other_storage._bool {return false}
-        if _storage._char != other_storage._char {return false}
-        if _storage._char16T != other_storage._char16T {return false}
-        if _storage._char32T != other_storage._char32T {return false}
-        if _storage._compl != other_storage._compl {return false}
-        if _storage._const != other_storage._const {return false}
-        if _storage._constexpr != other_storage._constexpr {return false}
-        if _storage._constCast != other_storage._constCast {return false}
-        if _storage._decltype != other_storage._decltype {return false}
-        if _storage._delete != other_storage._delete {return false}
-        if _storage._dynamicCast != other_storage._dynamicCast {return false}
-        if _storage._explicit != other_storage._explicit {return false}
-        if _storage._export != other_storage._export {return false}
-        if _storage._extern != other_storage._extern {return false}
-        if _storage._friend != other_storage._friend {return false}
-        if _storage._goto != other_storage._goto {return false}
-        if _storage._inline != other_storage._inline {return false}
-        if _storage._long != other_storage._long {return false}
-        if _storage._mutable != other_storage._mutable {return false}
-        if _storage._namespace != other_storage._namespace {return false}
-        if _storage._new != other_storage._new {return false}
-        if _storage._noexcept != other_storage._noexcept {return false}
-        if _storage._not != other_storage._not {return false}
-        if _storage._notEq != other_storage._notEq {return false}
-        if _storage._nullptr != other_storage._nullptr {return false}
-        if _storage._or != other_storage._or {return false}
-        if _storage._orEq != other_storage._orEq {return false}
-        if _storage._protected != other_storage._protected {return false}
-        if _storage._register != other_storage._register {return false}
-        if _storage._reinterpretCast != other_storage._reinterpretCast {return false}
-        if _storage._short != other_storage._short {return false}
-        if _storage._signed != other_storage._signed {return false}
-        if _storage._sizeof != other_storage._sizeof {return false}
-        if _storage._staticAssert != other_storage._staticAssert {return false}
-        if _storage._staticCast != other_storage._staticCast {return false}
-        if _storage._template != other_storage._template {return false}
-        if _storage._this != other_storage._this {return false}
-        if _storage._threadLocal != other_storage._threadLocal {return false}
-        if _storage._typedef != other_storage._typedef {return false}
-        if _storage._typeid != other_storage._typeid {return false}
-        if _storage._typename != other_storage._typename {return false}
-        if _storage._union != other_storage._union {return false}
-        if _storage._unsigned != other_storage._unsigned {return false}
-        if _storage._using != other_storage._using {return false}
-        if _storage._virtual != other_storage._virtual {return false}
-        if _storage._void != other_storage._void {return false}
-        if _storage._volatile != other_storage._volatile {return false}
-        if _storage._wcharT != other_storage._wcharT {return false}
-        if _storage._xor != other_storage._xor {return false}
-        if _storage._xorEq != other_storage._xorEq {return false}
-        if _storage._restrict != other_storage._restrict {return false}
-        if _storage._category != other_storage._category {return false}
-        if _storage._ivar != other_storage._ivar {return false}
-        if _storage._method != other_storage._method {return false}
-        if _storage._finalize != other_storage._finalize {return false}
-        if _storage._hash != other_storage._hash {return false}
-        if _storage._dealloc != other_storage._dealloc {return false}
-        if _storage._superclass != other_storage._superclass {return false}
-        if _storage._retain != other_storage._retain {return false}
-        if _storage._release != other_storage._release {return false}
-        if _storage._autorelease != other_storage._autorelease {return false}
-        if _storage._retainCount != other_storage._retainCount {return false}
-        if _storage._zone != other_storage._zone {return false}
-        if _storage._isProxy != other_storage._isProxy {return false}
-        if _storage._copy != other_storage._copy {return false}
-        if _storage._mutableCopy != other_storage._mutableCopy {return false}
-        if _storage._classForCoder != other_storage._classForCoder {return false}
-        if _storage._clear != other_storage._clear {return false}
-        if _storage._data != other_storage._data {return false}
-        if _storage._delimitedData != other_storage._delimitedData {return false}
-        if _storage._descriptor != other_storage._descriptor {return false}
-        if _storage._extensionRegistry != other_storage._extensionRegistry {return false}
-        if _storage._extensionsCurrentlySet != other_storage._extensionsCurrentlySet {return false}
-        if _storage._isInitialized_p != other_storage._isInitialized_p {return false}
-        if _storage._serializedSize != other_storage._serializedSize {return false}
-        if _storage._sortedExtensionsInUse != other_storage._sortedExtensionsInUse {return false}
-        if _storage._unknownFields_p != other_storage._unknownFields_p {return false}
-        if _storage._fixed != other_storage._fixed {return false}
-        if _storage._fract != other_storage._fract {return false}
-        if _storage._size != other_storage._size {return false}
-        if _storage._logicalAddress != other_storage._logicalAddress {return false}
-        if _storage._physicalAddress != other_storage._physicalAddress {return false}
-        if _storage._byteCount != other_storage._byteCount {return false}
-        if _storage._byteOffset != other_storage._byteOffset {return false}
-        if _storage._duration != other_storage._duration {return false}
-        if _storage._absoluteTime != other_storage._absoluteTime {return false}
-        if _storage._optionBits != other_storage._optionBits {return false}
-        if _storage._itemCount != other_storage._itemCount {return false}
-        if _storage._pbversion != other_storage._pbversion {return false}
-        if _storage._scriptCode != other_storage._scriptCode {return false}
-        if _storage._langCode != other_storage._langCode {return false}
-        if _storage._regionCode != other_storage._regionCode {return false}
-        if _storage._ostype != other_storage._ostype {return false}
-        if _storage._processSerialNumber != other_storage._processSerialNumber {return false}
-        if _storage._point != other_storage._point {return false}
-        if _storage._rect != other_storage._rect {return false}
-        if _storage._fixedPoint != other_storage._fixedPoint {return false}
-        if _storage._fixedRect != other_storage._fixedRect {return false}
-        if _storage._style != other_storage._style {return false}
-        if _storage._styleParameter != other_storage._styleParameter {return false}
-        if _storage._styleField != other_storage._styleField {return false}
-        if _storage._timeScale != other_storage._timeScale {return false}
-        if _storage._timeBase != other_storage._timeBase {return false}
-        if _storage._timeRecord != other_storage._timeRecord {return false}
-        if _storage._jsonShouldBeOverriden != other_storage._jsonShouldBeOverriden {return false}
-        if _storage._any != other_storage._any {return false}
-        if _storage._int32 != other_storage._int32 {return false}
-        if _storage._int64 != other_storage._int64 {return false}
-        if _storage._uint32 != other_storage._uint32 {return false}
-        if _storage._uint64 != other_storage._uint64 {return false}
-        if _storage._associatedtype_p != other_storage._associatedtype_p {return false}
-        if _storage._fileprivate_p != other_storage._fileprivate_p {return false}
-        if _storage._open_p != other_storage._open_p {return false}
-        return true
-      }
-      if !storagesAreEqual {return false}
-    }
-    if unknownFields != other.unknownFields {return false}
-    return true
-  }
+  fileprivate var _storage = _StorageClass()
 }
 
-struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".MessageNames"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  struct StringMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct StringMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".String"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _string: Int32? = nil
+    var string: Int32 {
+      get {return _string ?? 0}
+      set {_string = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasString: Bool {
+      return self._string != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearString() {
+      self._string = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -5123,42 +4130,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._string)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._string {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.StringMessage) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct ProtocolMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct ProtocolMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".Protocol"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _protocol_p: Int32? = nil
+    var protocol_p: Int32 {
+      get {return _protocol_p ?? 0}
+      set {_protocol_p = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasProtocol_p: Bool {
+      return self._protocol_p != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearProtocol_p() {
+      self._protocol_p = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -5168,42 +4166,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._protocol_p)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._protocol_p {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.ProtocolMessage) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct IntMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct IntMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".Int"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _int: Int32? = nil
+    var int: Int32 {
+      get {return _int ?? 0}
+      set {_int = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasInt: Bool {
+      return self._int != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearInt() {
+      self._int = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -5213,42 +4202,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._int)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._int {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.IntMessage) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct DoubleMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct DoubleMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".Double"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _double: Int32? = nil
+    var double: Int32 {
+      get {return _double ?? 0}
+      set {_double = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasDouble: Bool {
+      return self._double != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearDouble() {
+      self._double = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -5258,42 +4238,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._double)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._double {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.DoubleMessage) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct FloatMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct FloatMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".Float"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _float: Int32? = nil
+    var float: Int32 {
+      get {return _float ?? 0}
+      set {_float = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasFloat: Bool {
+      return self._float != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearFloat() {
+      self._float = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -5303,42 +4274,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._float)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._float {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.FloatMessage) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct UIntMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct UIntMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".UInt"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _uint: Int32? = nil
+    var uint: Int32 {
+      get {return _uint ?? 0}
+      set {_uint = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasUint: Bool {
+      return self._uint != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearUint() {
+      self._uint = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -5348,42 +4310,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._uint)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._uint {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.UIntMessage) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct hashValueMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct hashValueMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".hashValue"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _hashValue_p: Int32? = nil
+    var hashValue_p: Int32 {
+      get {return _hashValue_p ?? 0}
+      set {_hashValue_p = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasHashValue_p: Bool {
+      return self._hashValue_p != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearHashValue_p() {
+      self._hashValue_p = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -5393,42 +4346,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._hashValue_p)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._hashValue_p {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.hashValueMessage) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct descriptionMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct descriptionMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".description"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _description_p: Int32? = nil
+    var description_p: Int32 {
+      get {return _description_p ?? 0}
+      set {_description_p = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasDescription_p: Bool {
+      return self._description_p != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearDescription_p() {
+      self._description_p = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -5438,42 +4382,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._description_p)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._description_p {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.descriptionMessage) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct debugDescriptionMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct debugDescriptionMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".debugDescription"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _debugDescription_p: Int32? = nil
+    var debugDescription_p: Int32 {
+      get {return _debugDescription_p ?? 0}
+      set {_debugDescription_p = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasDebugDescription_p: Bool {
+      return self._debugDescription_p != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearDebugDescription_p() {
+      self._debugDescription_p = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -5483,42 +4418,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._debugDescription_p)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._debugDescription_p {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.debugDescriptionMessage) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct Swift: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct Swift: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".Swift"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _swift: Int32? = nil
+    var swift: Int32 {
+      get {return _swift ?? 0}
+      set {_swift = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasSwift: Bool {
+      return self._swift != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearSwift() {
+      self._swift = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -5528,42 +4454,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._swift)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._swift {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.Swift) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct UNRECOGNIZED: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct UNRECOGNIZED: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".UNRECOGNIZED"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _unrecognized: Int32? = nil
+    var unrecognized: Int32 {
+      get {return _unrecognized ?? 0}
+      set {_unrecognized = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasUnrecognized: Bool {
+      return self._unrecognized != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearUnrecognized() {
+      self._unrecognized = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -5573,42 +4490,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._unrecognized)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._unrecognized {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.UNRECOGNIZED) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct classMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct classMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".class"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _class_p: Int32? = nil
+    var class_p: Int32 {
+      get {return _class_p ?? 0}
+      set {_class_p = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasClass_p: Bool {
+      return self._class_p != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearClass_p() {
+      self._class_p = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -5618,42 +4526,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._class_p)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._class_p {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.classMessage) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct deinitMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct deinitMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".deinit"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _deinit_p: Int32? = nil
+    var deinit_p: Int32 {
+      get {return _deinit_p ?? 0}
+      set {_deinit_p = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasDeinit_p: Bool {
+      return self._deinit_p != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearDeinit_p() {
+      self._deinit_p = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -5663,42 +4562,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._deinit_p)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._deinit_p {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.deinitMessage) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct enumMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct enumMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".enum"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _enum_p: Int32? = nil
+    var enum_p: Int32 {
+      get {return _enum_p ?? 0}
+      set {_enum_p = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasEnum_p: Bool {
+      return self._enum_p != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearEnum_p() {
+      self._enum_p = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -5708,42 +4598,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._enum_p)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._enum_p {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.enumMessage) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct extensionMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct extensionMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".extension"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _extension_p: Int32? = nil
+    var extension_p: Int32 {
+      get {return _extension_p ?? 0}
+      set {_extension_p = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasExtension_p: Bool {
+      return self._extension_p != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearExtension_p() {
+      self._extension_p = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -5753,42 +4634,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._extension_p)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._extension_p {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.extensionMessage) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct funcMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct funcMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".func"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _func_p: Int32? = nil
+    var func_p: Int32 {
+      get {return _func_p ?? 0}
+      set {_func_p = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasFunc_p: Bool {
+      return self._func_p != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearFunc_p() {
+      self._func_p = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -5798,42 +4670,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._func_p)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._func_p {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.funcMessage) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct importMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct importMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".import"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _import_p: Int32? = nil
+    var import_p: Int32 {
+      get {return _import_p ?? 0}
+      set {_import_p = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasImport_p: Bool {
+      return self._import_p != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearImport_p() {
+      self._import_p = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -5843,42 +4706,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._import_p)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._import_p {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.importMessage) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct initMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct initMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".init"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _init_p: Int32? = nil
+    var init_p: Int32 {
+      get {return _init_p ?? 0}
+      set {_init_p = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasInit_p: Bool {
+      return self._init_p != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearInit_p() {
+      self._init_p = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -5888,42 +4742,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._init_p)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._init_p {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.initMessage) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct inoutMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct inoutMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".inout"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _inout_p: Int32? = nil
+    var inout_p: Int32 {
+      get {return _inout_p ?? 0}
+      set {_inout_p = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasInout_p: Bool {
+      return self._inout_p != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearInout_p() {
+      self._inout_p = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -5933,42 +4778,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._inout_p)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._inout_p {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.inoutMessage) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct internalMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct internalMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".internal"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _internal_p: Int32? = nil
+    var internal_p: Int32 {
+      get {return _internal_p ?? 0}
+      set {_internal_p = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasInternal_p: Bool {
+      return self._internal_p != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearInternal_p() {
+      self._internal_p = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -5978,42 +4814,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._internal_p)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._internal_p {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.internalMessage) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct letMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct letMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".let"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _let_p: Int32? = nil
+    var let_p: Int32 {
+      get {return _let_p ?? 0}
+      set {_let_p = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasLet_p: Bool {
+      return self._let_p != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearLet_p() {
+      self._let_p = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -6023,42 +4850,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._let_p)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._let_p {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.letMessage) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct operatorMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct operatorMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".operator"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _operator_p: Int32? = nil
+    var operator_p: Int32 {
+      get {return _operator_p ?? 0}
+      set {_operator_p = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasOperator_p: Bool {
+      return self._operator_p != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearOperator_p() {
+      self._operator_p = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -6068,42 +4886,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._operator_p)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._operator_p {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.operatorMessage) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct privateMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct privateMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".private"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _private_p: Int32? = nil
+    var private_p: Int32 {
+      get {return _private_p ?? 0}
+      set {_private_p = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasPrivate_p: Bool {
+      return self._private_p != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearPrivate_p() {
+      self._private_p = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -6113,42 +4922,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._private_p)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._private_p {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.privateMessage) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct protocolMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct protocolMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".protocol"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _protocol_p: Int32? = nil
+    var protocol_p: Int32 {
+      get {return _protocol_p ?? 0}
+      set {_protocol_p = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasProtocol_p: Bool {
+      return self._protocol_p != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearProtocol_p() {
+      self._protocol_p = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -6158,42 +4958,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._protocol_p)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._protocol_p {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.protocolMessage) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct publicMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct publicMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".public"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _public_p: Int32? = nil
+    var public_p: Int32 {
+      get {return _public_p ?? 0}
+      set {_public_p = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasPublic_p: Bool {
+      return self._public_p != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearPublic_p() {
+      self._public_p = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -6203,42 +4994,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._public_p)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._public_p {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.publicMessage) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct staticMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct staticMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".static"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _static_p: Int32? = nil
+    var static_p: Int32 {
+      get {return _static_p ?? 0}
+      set {_static_p = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasStatic_p: Bool {
+      return self._static_p != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearStatic_p() {
+      self._static_p = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -6248,42 +5030,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._static_p)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._static_p {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.staticMessage) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct structMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct structMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".struct"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _struct_p: Int32? = nil
+    var struct_p: Int32 {
+      get {return _struct_p ?? 0}
+      set {_struct_p = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasStruct_p: Bool {
+      return self._struct_p != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearStruct_p() {
+      self._struct_p = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -6293,42 +5066,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._struct_p)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._struct_p {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.structMessage) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct subscriptMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct subscriptMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".subscript"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _subscript_p: Int32? = nil
+    var subscript_p: Int32 {
+      get {return _subscript_p ?? 0}
+      set {_subscript_p = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasSubscript_p: Bool {
+      return self._subscript_p != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearSubscript_p() {
+      self._subscript_p = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -6338,42 +5102,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._subscript_p)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._subscript_p {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.subscriptMessage) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct typealiasMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct typealiasMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".typealias"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _typealias_p: Int32? = nil
+    var typealias_p: Int32 {
+      get {return _typealias_p ?? 0}
+      set {_typealias_p = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasTypealias_p: Bool {
+      return self._typealias_p != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearTypealias_p() {
+      self._typealias_p = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -6383,42 +5138,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._typealias_p)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._typealias_p {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.typealiasMessage) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct varMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct varMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".var"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _var_p: Int32? = nil
+    var var_p: Int32 {
+      get {return _var_p ?? 0}
+      set {_var_p = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasVar_p: Bool {
+      return self._var_p != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearVar_p() {
+      self._var_p = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -6428,42 +5174,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._var_p)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._var_p {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.varMessage) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct breakMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct breakMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".break"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _break_p: Int32? = nil
+    var break_p: Int32 {
+      get {return _break_p ?? 0}
+      set {_break_p = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasBreak_p: Bool {
+      return self._break_p != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearBreak_p() {
+      self._break_p = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -6473,42 +5210,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._break_p)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._break_p {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.breakMessage) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct caseMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct caseMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".case"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _case_p: Int32? = nil
+    var case_p: Int32 {
+      get {return _case_p ?? 0}
+      set {_case_p = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasCase_p: Bool {
+      return self._case_p != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearCase_p() {
+      self._case_p = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -6518,42 +5246,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._case_p)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._case_p {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.caseMessage) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct continueMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct continueMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".continue"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _continue_p: Int32? = nil
+    var continue_p: Int32 {
+      get {return _continue_p ?? 0}
+      set {_continue_p = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasContinue_p: Bool {
+      return self._continue_p != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearContinue_p() {
+      self._continue_p = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -6563,42 +5282,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._continue_p)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._continue_p {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.continueMessage) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct defaultMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct defaultMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".default"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _default_p: Int32? = nil
+    var default_p: Int32 {
+      get {return _default_p ?? 0}
+      set {_default_p = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasDefault_p: Bool {
+      return self._default_p != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearDefault_p() {
+      self._default_p = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -6608,42 +5318,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._default_p)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._default_p {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.defaultMessage) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct deferMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct deferMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".defer"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _defer_p: Int32? = nil
+    var defer_p: Int32 {
+      get {return _defer_p ?? 0}
+      set {_defer_p = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasDefer_p: Bool {
+      return self._defer_p != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearDefer_p() {
+      self._defer_p = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -6653,42 +5354,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._defer_p)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._defer_p {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.deferMessage) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct doMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct doMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".do"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _do_p: Int32? = nil
+    var do_p: Int32 {
+      get {return _do_p ?? 0}
+      set {_do_p = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasDo_p: Bool {
+      return self._do_p != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearDo_p() {
+      self._do_p = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -6698,42 +5390,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._do_p)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._do_p {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.doMessage) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct elseMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct elseMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".else"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _else_p: Int32? = nil
+    var else_p: Int32 {
+      get {return _else_p ?? 0}
+      set {_else_p = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasElse_p: Bool {
+      return self._else_p != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearElse_p() {
+      self._else_p = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -6743,42 +5426,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._else_p)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._else_p {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.elseMessage) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct fallthroughMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct fallthroughMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".fallthrough"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _fallthrough_p: Int32? = nil
+    var fallthrough_p: Int32 {
+      get {return _fallthrough_p ?? 0}
+      set {_fallthrough_p = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasFallthrough_p: Bool {
+      return self._fallthrough_p != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearFallthrough_p() {
+      self._fallthrough_p = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -6788,42 +5462,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._fallthrough_p)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._fallthrough_p {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.fallthroughMessage) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct forMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct forMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".for"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _for_p: Int32? = nil
+    var for_p: Int32 {
+      get {return _for_p ?? 0}
+      set {_for_p = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasFor_p: Bool {
+      return self._for_p != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearFor_p() {
+      self._for_p = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -6833,42 +5498,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._for_p)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._for_p {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.forMessage) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct guardMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct guardMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".guard"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _guard_p: Int32? = nil
+    var guard_p: Int32 {
+      get {return _guard_p ?? 0}
+      set {_guard_p = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasGuard_p: Bool {
+      return self._guard_p != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearGuard_p() {
+      self._guard_p = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -6878,42 +5534,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._guard_p)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._guard_p {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.guardMessage) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct ifMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct ifMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".if"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _if_p: Int32? = nil
+    var if_p: Int32 {
+      get {return _if_p ?? 0}
+      set {_if_p = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasIf_p: Bool {
+      return self._if_p != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearIf_p() {
+      self._if_p = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -6923,42 +5570,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._if_p)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._if_p {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.ifMessage) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct inMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct inMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".in"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _in_p: Int32? = nil
+    var in_p: Int32 {
+      get {return _in_p ?? 0}
+      set {_in_p = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasIn_p: Bool {
+      return self._in_p != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearIn_p() {
+      self._in_p = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -6968,42 +5606,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._in_p)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._in_p {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.inMessage) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct repeatMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct repeatMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".repeat"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _repeat_p: Int32? = nil
+    var repeat_p: Int32 {
+      get {return _repeat_p ?? 0}
+      set {_repeat_p = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasRepeat_p: Bool {
+      return self._repeat_p != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearRepeat_p() {
+      self._repeat_p = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -7013,42 +5642,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._repeat_p)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._repeat_p {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.repeatMessage) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct returnMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct returnMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".return"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _return_p: Int32? = nil
+    var return_p: Int32 {
+      get {return _return_p ?? 0}
+      set {_return_p = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasReturn_p: Bool {
+      return self._return_p != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearReturn_p() {
+      self._return_p = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -7058,42 +5678,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._return_p)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._return_p {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.returnMessage) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct switchMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct switchMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".switch"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _switch_p: Int32? = nil
+    var switch_p: Int32 {
+      get {return _switch_p ?? 0}
+      set {_switch_p = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasSwitch_p: Bool {
+      return self._switch_p != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearSwitch_p() {
+      self._switch_p = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -7103,42 +5714,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._switch_p)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._switch_p {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.switchMessage) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct whereMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct whereMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".where"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _where_p: Int32? = nil
+    var where_p: Int32 {
+      get {return _where_p ?? 0}
+      set {_where_p = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasWhere_p: Bool {
+      return self._where_p != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearWhere_p() {
+      self._where_p = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -7148,42 +5750,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._where_p)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._where_p {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.whereMessage) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct whileMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct whileMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".while"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _while_p: Int32? = nil
+    var while_p: Int32 {
+      get {return _while_p ?? 0}
+      set {_while_p = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasWhile_p: Bool {
+      return self._while_p != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearWhile_p() {
+      self._while_p = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -7193,42 +5786,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._while_p)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._while_p {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.whileMessage) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct asMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct asMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".as"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _as_p: Int32? = nil
+    var as_p: Int32 {
+      get {return _as_p ?? 0}
+      set {_as_p = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasAs_p: Bool {
+      return self._as_p != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearAs_p() {
+      self._as_p = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -7238,42 +5822,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._as_p)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._as_p {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.asMessage) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct catchMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct catchMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".catch"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _catch_p: Int32? = nil
+    var catch_p: Int32 {
+      get {return _catch_p ?? 0}
+      set {_catch_p = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasCatch_p: Bool {
+      return self._catch_p != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearCatch_p() {
+      self._catch_p = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -7283,42 +5858,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._catch_p)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._catch_p {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.catchMessage) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct dynamicTypeMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct dynamicTypeMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".dynamicType"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _dynamicType_p: Int32? = nil
+    var dynamicType_p: Int32 {
+      get {return _dynamicType_p ?? 0}
+      set {_dynamicType_p = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasDynamicType_p: Bool {
+      return self._dynamicType_p != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearDynamicType_p() {
+      self._dynamicType_p = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -7328,42 +5894,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._dynamicType_p)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._dynamicType_p {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.dynamicTypeMessage) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct falseMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct falseMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".false"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _false_p: Int32? = nil
+    var false_p: Int32 {
+      get {return _false_p ?? 0}
+      set {_false_p = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasFalse_p: Bool {
+      return self._false_p != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearFalse_p() {
+      self._false_p = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -7373,42 +5930,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._false_p)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._false_p {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.falseMessage) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct isMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct isMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".is"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _is_p: Int32? = nil
+    var is_p: Int32 {
+      get {return _is_p ?? 0}
+      set {_is_p = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasIs_p: Bool {
+      return self._is_p != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearIs_p() {
+      self._is_p = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -7418,42 +5966,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._is_p)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._is_p {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.isMessage) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct nilMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct nilMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".nil"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _nil_p: Int32? = nil
+    var nil_p: Int32 {
+      get {return _nil_p ?? 0}
+      set {_nil_p = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasNil_p: Bool {
+      return self._nil_p != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearNil_p() {
+      self._nil_p = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -7463,42 +6002,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._nil_p)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._nil_p {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.nilMessage) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct rethrowsMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct rethrowsMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".rethrows"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _rethrows_p: Int32? = nil
+    var rethrows_p: Int32 {
+      get {return _rethrows_p ?? 0}
+      set {_rethrows_p = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasRethrows_p: Bool {
+      return self._rethrows_p != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearRethrows_p() {
+      self._rethrows_p = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -7508,42 +6038,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._rethrows_p)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._rethrows_p {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.rethrowsMessage) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct superMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct superMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".super"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _super_p: Int32? = nil
+    var super_p: Int32 {
+      get {return _super_p ?? 0}
+      set {_super_p = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasSuper_p: Bool {
+      return self._super_p != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearSuper_p() {
+      self._super_p = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -7553,42 +6074,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._super_p)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._super_p {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.superMessage) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct selfMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct selfMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".self"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _self_p: Int32? = nil
+    var self_p: Int32 {
+      get {return _self_p ?? 0}
+      set {_self_p = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasSelf_p: Bool {
+      return self._self_p != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearSelf_p() {
+      self._self_p = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -7598,42 +6110,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._self_p)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._self_p {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.selfMessage) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct throwMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct throwMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".throw"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _throw_p: Int32? = nil
+    var throw_p: Int32 {
+      get {return _throw_p ?? 0}
+      set {_throw_p = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasThrow_p: Bool {
+      return self._throw_p != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearThrow_p() {
+      self._throw_p = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -7643,42 +6146,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._throw_p)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._throw_p {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.throwMessage) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct throwsMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct throwsMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".throws"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _throws_p: Int32? = nil
+    var throws_p: Int32 {
+      get {return _throws_p ?? 0}
+      set {_throws_p = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasThrows_p: Bool {
+      return self._throws_p != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearThrows_p() {
+      self._throws_p = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -7688,42 +6182,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._throws_p)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._throws_p {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.throwsMessage) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct trueMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct trueMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".true"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _true_p: Int32? = nil
+    var true_p: Int32 {
+      get {return _true_p ?? 0}
+      set {_true_p = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasTrue_p: Bool {
+      return self._true_p != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearTrue_p() {
+      self._true_p = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -7733,42 +6218,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._true_p)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._true_p {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.trueMessage) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct tryMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct tryMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".try"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _try_p: Int32? = nil
+    var try_p: Int32 {
+      get {return _try_p ?? 0}
+      set {_try_p = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasTry_p: Bool {
+      return self._try_p != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearTry_p() {
+      self._try_p = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -7778,42 +6254,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._try_p)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._try_p {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.tryMessage) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct __COLUMN__Message: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct __COLUMN__Message: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".__COLUMN__"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var __Column__: Int32? = nil
+    var _Column__: Int32 {
+      get {return __Column__ ?? 0}
+      set {__Column__ = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var has_Column__: Bool {
+      return self.__Column__ != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clear_Column__() {
+      self.__Column__ = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -7823,42 +6290,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self.__Column__)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self.__Column__ {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.__COLUMN__Message) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct __FILE__Message: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct __FILE__Message: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".__FILE__"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var __File__: Int32? = nil
+    var _File__: Int32 {
+      get {return __File__ ?? 0}
+      set {__File__ = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var has_File__: Bool {
+      return self.__File__ != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clear_File__() {
+      self.__File__ = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -7868,42 +6326,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self.__File__)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self.__File__ {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.__FILE__Message) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct __FUNCTION__Message: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct __FUNCTION__Message: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".__FUNCTION__"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var __Function__: Int32? = nil
+    var _Function__: Int32 {
+      get {return __Function__ ?? 0}
+      set {__Function__ = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var has_Function__: Bool {
+      return self.__Function__ != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clear_Function__() {
+      self.__Function__ = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -7913,42 +6362,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self.__Function__)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self.__Function__ {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.__FUNCTION__Message) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct __LINE__Message: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct __LINE__Message: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".__LINE__"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var __Line__: Int32? = nil
+    var _Line__: Int32 {
+      get {return __Line__ ?? 0}
+      set {__Line__ = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var has_Line__: Bool {
+      return self.__Line__ != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clear_Line__() {
+      self.__Line__ = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -7958,42 +6398,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self.__Line__)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self.__Line__ {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.__LINE__Message) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct _Message: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct _Message: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + "._"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var ____: Int32? = nil
+    var ___: Int32 {
+      get {return ____ ?? 0}
+      set {____ = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var has___: Bool {
+      return self.____ != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clear___() {
+      self.____ = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -8003,42 +6434,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self.____)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self.____ {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames._Message) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct __Message: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct __Message: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".__"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _____: Int32? = nil
+    var ____: Int32 {
+      get {return _____ ?? 0}
+      set {_____ = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var has____: Bool {
+      return self._____ != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clear____() {
+      self._____ = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -8048,42 +6470,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._____)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._____ {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.__Message) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct associativity: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct associativity: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".associativity"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _associativity: Int32? = nil
+    var associativity: Int32 {
+      get {return _associativity ?? 0}
+      set {_associativity = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasAssociativity: Bool {
+      return self._associativity != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearAssociativity() {
+      self._associativity = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -8093,42 +6506,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._associativity)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._associativity {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.associativity) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct convenience: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct convenience: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".convenience"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _convenience: Int32? = nil
+    var convenience: Int32 {
+      get {return _convenience ?? 0}
+      set {_convenience = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasConvenience: Bool {
+      return self._convenience != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearConvenience() {
+      self._convenience = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -8138,42 +6542,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._convenience)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._convenience {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.convenience) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct dynamic: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct dynamic: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".dynamic"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _dynamic: Int32? = nil
+    var dynamic: Int32 {
+      get {return _dynamic ?? 0}
+      set {_dynamic = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasDynamic: Bool {
+      return self._dynamic != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearDynamic() {
+      self._dynamic = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -8183,42 +6578,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._dynamic)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._dynamic {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.dynamic) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct didSet: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct didSet: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".didSet"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _didSet: Int32? = nil
+    var didSet: Int32 {
+      get {return _didSet ?? 0}
+      set {_didSet = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasDidSet: Bool {
+      return self._didSet != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearDidSet() {
+      self._didSet = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -8228,42 +6614,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._didSet)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._didSet {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.didSet) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct final: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct final: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".final"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _final: Int32? = nil
+    var final: Int32 {
+      get {return _final ?? 0}
+      set {_final = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasFinal: Bool {
+      return self._final != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearFinal() {
+      self._final = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -8273,42 +6650,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._final)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._final {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.final) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct get: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct get: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".get"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _get: Int32? = nil
+    var get: Int32 {
+      get {return _get ?? 0}
+      set {_get = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasGet: Bool {
+      return self._get != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearGet() {
+      self._get = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -8318,42 +6686,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._get)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._get {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.get) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct infix: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct infix: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".infix"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _infix: Int32? = nil
+    var infix: Int32 {
+      get {return _infix ?? 0}
+      set {_infix = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasInfix: Bool {
+      return self._infix != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearInfix() {
+      self._infix = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -8363,42 +6722,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._infix)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._infix {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.infix) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct indirect: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct indirect: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".indirect"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _indirect: Int32? = nil
+    var indirect: Int32 {
+      get {return _indirect ?? 0}
+      set {_indirect = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasIndirect: Bool {
+      return self._indirect != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearIndirect() {
+      self._indirect = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -8408,42 +6758,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._indirect)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._indirect {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.indirect) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct lazy: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct lazy: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".lazy"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _lazy: Int32? = nil
+    var lazy: Int32 {
+      get {return _lazy ?? 0}
+      set {_lazy = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasLazy: Bool {
+      return self._lazy != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearLazy() {
+      self._lazy = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -8453,42 +6794,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._lazy)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._lazy {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.lazy) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct left: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct left: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".left"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _left: Int32? = nil
+    var left: Int32 {
+      get {return _left ?? 0}
+      set {_left = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasLeft: Bool {
+      return self._left != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearLeft() {
+      self._left = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -8498,42 +6830,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._left)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._left {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.left) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct mutating: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct mutating: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".mutating"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _mutating: Int32? = nil
+    var mutating: Int32 {
+      get {return _mutating ?? 0}
+      set {_mutating = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasMutating: Bool {
+      return self._mutating != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearMutating() {
+      self._mutating = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -8543,42 +6866,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._mutating)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._mutating {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.mutating) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct none: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct none: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".none"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _none: Int32? = nil
+    var none: Int32 {
+      get {return _none ?? 0}
+      set {_none = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasNone: Bool {
+      return self._none != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearNone() {
+      self._none = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -8588,42 +6902,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._none)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._none {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.none) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct nonmutating: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct nonmutating: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".nonmutating"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _nonmutating: Int32? = nil
+    var nonmutating: Int32 {
+      get {return _nonmutating ?? 0}
+      set {_nonmutating = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasNonmutating: Bool {
+      return self._nonmutating != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearNonmutating() {
+      self._nonmutating = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -8633,42 +6938,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._nonmutating)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._nonmutating {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.nonmutating) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct optional: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct optional: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".optional"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _optional: Int32? = nil
+    var optional: Int32 {
+      get {return _optional ?? 0}
+      set {_optional = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasOptional: Bool {
+      return self._optional != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearOptional() {
+      self._optional = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -8678,42 +6974,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._optional)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._optional {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.optional) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct override: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct override: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".override"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _override: Int32? = nil
+    var override: Int32 {
+      get {return _override ?? 0}
+      set {_override = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasOverride: Bool {
+      return self._override != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearOverride() {
+      self._override = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -8723,42 +7010,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._override)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._override {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.override) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct postfix: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct postfix: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".postfix"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _postfix: Int32? = nil
+    var postfix: Int32 {
+      get {return _postfix ?? 0}
+      set {_postfix = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasPostfix: Bool {
+      return self._postfix != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearPostfix() {
+      self._postfix = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -8768,42 +7046,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._postfix)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._postfix {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.postfix) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct precedence: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct precedence: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".precedence"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _precedence: Int32? = nil
+    var precedence: Int32 {
+      get {return _precedence ?? 0}
+      set {_precedence = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasPrecedence: Bool {
+      return self._precedence != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearPrecedence() {
+      self._precedence = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -8813,42 +7082,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._precedence)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._precedence {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.precedence) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct prefix: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct prefix: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".prefix"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _prefix: Int32? = nil
+    var prefix: Int32 {
+      get {return _prefix ?? 0}
+      set {_prefix = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasPrefix: Bool {
+      return self._prefix != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearPrefix() {
+      self._prefix = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -8858,42 +7118,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._prefix)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._prefix {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.prefix) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct required: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct required: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".required"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _required: Int32? = nil
+    var required: Int32 {
+      get {return _required ?? 0}
+      set {_required = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasRequired: Bool {
+      return self._required != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearRequired() {
+      self._required = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -8903,42 +7154,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._required)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._required {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.required) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct right: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct right: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".right"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _right: Int32? = nil
+    var right: Int32 {
+      get {return _right ?? 0}
+      set {_right = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasRight: Bool {
+      return self._right != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearRight() {
+      self._right = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -8948,42 +7190,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._right)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._right {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.right) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct set: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct set: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".set"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _set: Int32? = nil
+    var set: Int32 {
+      get {return _set ?? 0}
+      set {_set = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasSet: Bool {
+      return self._set != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearSet() {
+      self._set = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -8993,42 +7226,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._set)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._set {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.set) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct TypeMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct TypeMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".Type"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _type: Int32? = nil
+    var type: Int32 {
+      get {return _type ?? 0}
+      set {_type = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasType: Bool {
+      return self._type != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearType() {
+      self._type = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -9038,42 +7262,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._type)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._type {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.TypeMessage) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct unowned: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct unowned: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".unowned"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _unowned: Int32? = nil
+    var unowned: Int32 {
+      get {return _unowned ?? 0}
+      set {_unowned = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasUnowned: Bool {
+      return self._unowned != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearUnowned() {
+      self._unowned = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -9083,42 +7298,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._unowned)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._unowned {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.unowned) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct weak: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct weak: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".weak"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _weak: Int32? = nil
+    var weak: Int32 {
+      get {return _weak ?? 0}
+      set {_weak = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasWeak: Bool {
+      return self._weak != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearWeak() {
+      self._weak = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -9128,42 +7334,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._weak)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._weak {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.weak) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct willSet: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct willSet: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".willSet"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _willSet: Int32? = nil
+    var willSet: Int32 {
+      get {return _willSet ?? 0}
+      set {_willSet = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasWillSet: Bool {
+      return self._willSet != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearWillSet() {
+      self._willSet = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -9173,42 +7370,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._willSet)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._willSet {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.willSet) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct id: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct id: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".id"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _id: Int32? = nil
+    var id: Int32 {
+      get {return _id ?? 0}
+      set {_id = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasId: Bool {
+      return self._id != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearId() {
+      self._id = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -9218,42 +7406,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._id)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._id {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.id) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct _cmd: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct _cmd: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + "._cmd"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _cmd: Int32? = nil
+    var cmd: Int32 {
+      get {return _cmd ?? 0}
+      set {_cmd = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasCmd: Bool {
+      return self._cmd != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearCmd() {
+      self._cmd = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -9263,42 +7442,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._cmd)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._cmd {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames._cmd) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct out: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct out: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".out"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _out: Int32? = nil
+    var out: Int32 {
+      get {return _out ?? 0}
+      set {_out = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasOut: Bool {
+      return self._out != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearOut() {
+      self._out = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -9308,42 +7478,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._out)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._out {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.out) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct bycopy: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct bycopy: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".bycopy"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _bycopy: Int32? = nil
+    var bycopy: Int32 {
+      get {return _bycopy ?? 0}
+      set {_bycopy = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasBycopy: Bool {
+      return self._bycopy != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearBycopy() {
+      self._bycopy = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -9353,42 +7514,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._bycopy)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._bycopy {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.bycopy) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct byref: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct byref: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".byref"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _byref: Int32? = nil
+    var byref: Int32 {
+      get {return _byref ?? 0}
+      set {_byref = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasByref: Bool {
+      return self._byref != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearByref() {
+      self._byref = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -9398,42 +7550,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._byref)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._byref {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.byref) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct oneway: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct oneway: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".oneway"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _oneway: Int32? = nil
+    var oneway: Int32 {
+      get {return _oneway ?? 0}
+      set {_oneway = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasOneway: Bool {
+      return self._oneway != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearOneway() {
+      self._oneway = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -9443,42 +7586,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._oneway)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._oneway {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.oneway) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct and: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct and: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".and"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _and: Int32? = nil
+    var and: Int32 {
+      get {return _and ?? 0}
+      set {_and = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasAnd: Bool {
+      return self._and != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearAnd() {
+      self._and = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -9488,42 +7622,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._and)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._and {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.and) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct and_eq: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct and_eq: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".and_eq"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _andEq: Int32? = nil
+    var andEq: Int32 {
+      get {return _andEq ?? 0}
+      set {_andEq = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasAndEq: Bool {
+      return self._andEq != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearAndEq() {
+      self._andEq = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -9533,42 +7658,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._andEq)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._andEq {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.and_eq) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct alignas: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct alignas: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".alignas"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _alignas: Int32? = nil
+    var alignas: Int32 {
+      get {return _alignas ?? 0}
+      set {_alignas = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasAlignas: Bool {
+      return self._alignas != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearAlignas() {
+      self._alignas = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -9578,42 +7694,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._alignas)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._alignas {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.alignas) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct alignof: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct alignof: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".alignof"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _alignof: Int32? = nil
+    var alignof: Int32 {
+      get {return _alignof ?? 0}
+      set {_alignof = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasAlignof: Bool {
+      return self._alignof != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearAlignof() {
+      self._alignof = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -9623,42 +7730,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._alignof)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._alignof {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.alignof) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct asm: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct asm: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".asm"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _asm: Int32? = nil
+    var asm: Int32 {
+      get {return _asm ?? 0}
+      set {_asm = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasAsm: Bool {
+      return self._asm != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearAsm() {
+      self._asm = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -9668,42 +7766,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._asm)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._asm {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.asm) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct auto: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct auto: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".auto"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _auto: Int32? = nil
+    var auto: Int32 {
+      get {return _auto ?? 0}
+      set {_auto = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasAuto: Bool {
+      return self._auto != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearAuto() {
+      self._auto = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -9713,42 +7802,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._auto)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._auto {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.auto) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct bitand: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct bitand: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".bitand"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _bitand: Int32? = nil
+    var bitand: Int32 {
+      get {return _bitand ?? 0}
+      set {_bitand = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasBitand: Bool {
+      return self._bitand != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearBitand() {
+      self._bitand = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -9758,42 +7838,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._bitand)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._bitand {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.bitand) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct bitor: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct bitor: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".bitor"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _bitor: Int32? = nil
+    var bitor: Int32 {
+      get {return _bitor ?? 0}
+      set {_bitor = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasBitor: Bool {
+      return self._bitor != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearBitor() {
+      self._bitor = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -9803,42 +7874,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._bitor)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._bitor {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.bitor) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct bool: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct bool: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".bool"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _bool: Int32? = nil
+    var bool: Int32 {
+      get {return _bool ?? 0}
+      set {_bool = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasBool: Bool {
+      return self._bool != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearBool() {
+      self._bool = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -9848,42 +7910,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._bool)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._bool {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.bool) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct char: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct char: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".char"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _char: Int32? = nil
+    var char: Int32 {
+      get {return _char ?? 0}
+      set {_char = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasChar: Bool {
+      return self._char != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearChar() {
+      self._char = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -9893,42 +7946,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._char)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._char {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.char) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct char16_t: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct char16_t: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".char16_t"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _char16T: Int32? = nil
+    var char16T: Int32 {
+      get {return _char16T ?? 0}
+      set {_char16T = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasChar16T: Bool {
+      return self._char16T != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearChar16T() {
+      self._char16T = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -9938,42 +7982,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._char16T)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._char16T {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.char16_t) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct char32_t: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct char32_t: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".char32_t"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _char32T: Int32? = nil
+    var char32T: Int32 {
+      get {return _char32T ?? 0}
+      set {_char32T = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasChar32T: Bool {
+      return self._char32T != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearChar32T() {
+      self._char32T = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -9983,42 +8018,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._char32T)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._char32T {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.char32_t) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct compl: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct compl: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".compl"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _compl: Int32? = nil
+    var compl: Int32 {
+      get {return _compl ?? 0}
+      set {_compl = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasCompl: Bool {
+      return self._compl != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearCompl() {
+      self._compl = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -10028,42 +8054,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._compl)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._compl {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.compl) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct const: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct const: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".const"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _const: Int32? = nil
+    var const: Int32 {
+      get {return _const ?? 0}
+      set {_const = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasConst: Bool {
+      return self._const != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearConst() {
+      self._const = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -10073,42 +8090,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._const)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._const {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.const) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct constexpr: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct constexpr: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".constexpr"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _constexpr: Int32? = nil
+    var constexpr: Int32 {
+      get {return _constexpr ?? 0}
+      set {_constexpr = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasConstexpr: Bool {
+      return self._constexpr != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearConstexpr() {
+      self._constexpr = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -10118,42 +8126,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._constexpr)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._constexpr {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.constexpr) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct const_cast: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct const_cast: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".const_cast"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _constCast: Int32? = nil
+    var constCast: Int32 {
+      get {return _constCast ?? 0}
+      set {_constCast = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasConstCast: Bool {
+      return self._constCast != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearConstCast() {
+      self._constCast = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -10163,42 +8162,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._constCast)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._constCast {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.const_cast) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct decltype: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct decltype: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".decltype"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _decltype: Int32? = nil
+    var decltype: Int32 {
+      get {return _decltype ?? 0}
+      set {_decltype = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasDecltype: Bool {
+      return self._decltype != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearDecltype() {
+      self._decltype = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -10208,42 +8198,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._decltype)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._decltype {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.decltype) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct delete: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct delete: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".delete"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _delete: Int32? = nil
+    var delete: Int32 {
+      get {return _delete ?? 0}
+      set {_delete = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasDelete: Bool {
+      return self._delete != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearDelete() {
+      self._delete = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -10253,42 +8234,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._delete)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._delete {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.delete) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct dynamic_cast: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct dynamic_cast: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".dynamic_cast"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _dynamicCast: Int32? = nil
+    var dynamicCast: Int32 {
+      get {return _dynamicCast ?? 0}
+      set {_dynamicCast = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasDynamicCast: Bool {
+      return self._dynamicCast != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearDynamicCast() {
+      self._dynamicCast = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -10298,42 +8270,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._dynamicCast)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._dynamicCast {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.dynamic_cast) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct explicit: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct explicit: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".explicit"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _explicit: Int32? = nil
+    var explicit: Int32 {
+      get {return _explicit ?? 0}
+      set {_explicit = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasExplicit: Bool {
+      return self._explicit != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearExplicit() {
+      self._explicit = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -10343,42 +8306,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._explicit)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._explicit {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.explicit) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct export: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct export: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".export"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _export: Int32? = nil
+    var export: Int32 {
+      get {return _export ?? 0}
+      set {_export = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasExport: Bool {
+      return self._export != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearExport() {
+      self._export = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -10388,42 +8342,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._export)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._export {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.export) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct extern: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct extern: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".extern"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _extern: Int32? = nil
+    var extern: Int32 {
+      get {return _extern ?? 0}
+      set {_extern = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasExtern: Bool {
+      return self._extern != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearExtern() {
+      self._extern = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -10433,42 +8378,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._extern)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._extern {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.extern) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct friend: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct friend: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".friend"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _friend: Int32? = nil
+    var friend: Int32 {
+      get {return _friend ?? 0}
+      set {_friend = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasFriend: Bool {
+      return self._friend != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearFriend() {
+      self._friend = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -10478,42 +8414,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._friend)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._friend {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.friend) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct goto: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct goto: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".goto"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _goto: Int32? = nil
+    var goto: Int32 {
+      get {return _goto ?? 0}
+      set {_goto = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasGoto: Bool {
+      return self._goto != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearGoto() {
+      self._goto = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -10523,42 +8450,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._goto)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._goto {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.goto) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct inline: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct inline: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".inline"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _inline: Int32? = nil
+    var inline: Int32 {
+      get {return _inline ?? 0}
+      set {_inline = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasInline: Bool {
+      return self._inline != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearInline() {
+      self._inline = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -10568,42 +8486,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._inline)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._inline {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.inline) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct long: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct long: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".long"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _long: Int32? = nil
+    var long: Int32 {
+      get {return _long ?? 0}
+      set {_long = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasLong: Bool {
+      return self._long != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearLong() {
+      self._long = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -10613,42 +8522,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._long)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._long {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.long) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct mutable: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct mutable: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".mutable"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _mutable: Int32? = nil
+    var mutable: Int32 {
+      get {return _mutable ?? 0}
+      set {_mutable = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasMutable: Bool {
+      return self._mutable != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearMutable() {
+      self._mutable = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -10658,42 +8558,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._mutable)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._mutable {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.mutable) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct namespace: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct namespace: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".namespace"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _namespace: Int32? = nil
+    var namespace: Int32 {
+      get {return _namespace ?? 0}
+      set {_namespace = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasNamespace: Bool {
+      return self._namespace != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearNamespace() {
+      self._namespace = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -10703,42 +8594,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._namespace)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._namespace {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.namespace) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct new: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct new: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".new"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _new: Int32? = nil
+    var new: Int32 {
+      get {return _new ?? 0}
+      set {_new = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasNew: Bool {
+      return self._new != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearNew() {
+      self._new = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -10748,42 +8630,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._new)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._new {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.new) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct noexcept: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct noexcept: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".noexcept"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _noexcept: Int32? = nil
+    var noexcept: Int32 {
+      get {return _noexcept ?? 0}
+      set {_noexcept = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasNoexcept: Bool {
+      return self._noexcept != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearNoexcept() {
+      self._noexcept = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -10793,42 +8666,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._noexcept)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._noexcept {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.noexcept) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct not: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct not: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".not"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _not: Int32? = nil
+    var not: Int32 {
+      get {return _not ?? 0}
+      set {_not = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasNot: Bool {
+      return self._not != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearNot() {
+      self._not = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -10838,42 +8702,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._not)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._not {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.not) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct not_eq: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct not_eq: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".not_eq"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _notEq: Int32? = nil
+    var notEq: Int32 {
+      get {return _notEq ?? 0}
+      set {_notEq = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasNotEq: Bool {
+      return self._notEq != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearNotEq() {
+      self._notEq = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -10883,42 +8738,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._notEq)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._notEq {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.not_eq) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct nullptr: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct nullptr: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".nullptr"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _nullptr: Int32? = nil
+    var nullptr: Int32 {
+      get {return _nullptr ?? 0}
+      set {_nullptr = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasNullptr: Bool {
+      return self._nullptr != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearNullptr() {
+      self._nullptr = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -10928,42 +8774,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._nullptr)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._nullptr {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.nullptr) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct or: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct or: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".or"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _or: Int32? = nil
+    var or: Int32 {
+      get {return _or ?? 0}
+      set {_or = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasOr: Bool {
+      return self._or != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearOr() {
+      self._or = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -10973,42 +8810,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._or)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._or {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.or) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct or_eq: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct or_eq: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".or_eq"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _orEq: Int32? = nil
+    var orEq: Int32 {
+      get {return _orEq ?? 0}
+      set {_orEq = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasOrEq: Bool {
+      return self._orEq != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearOrEq() {
+      self._orEq = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -11018,42 +8846,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._orEq)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._orEq {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.or_eq) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct protected: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct protected: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".protected"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _protected: Int32? = nil
+    var protected: Int32 {
+      get {return _protected ?? 0}
+      set {_protected = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasProtected: Bool {
+      return self._protected != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearProtected() {
+      self._protected = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -11063,42 +8882,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._protected)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._protected {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.protected) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct register: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct register: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".register"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _register: Int32? = nil
+    var register: Int32 {
+      get {return _register ?? 0}
+      set {_register = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasRegister: Bool {
+      return self._register != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearRegister() {
+      self._register = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -11108,42 +8918,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._register)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._register {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.register) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct reinterpret_cast: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct reinterpret_cast: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".reinterpret_cast"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _reinterpretCast: Int32? = nil
+    var reinterpretCast: Int32 {
+      get {return _reinterpretCast ?? 0}
+      set {_reinterpretCast = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasReinterpretCast: Bool {
+      return self._reinterpretCast != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearReinterpretCast() {
+      self._reinterpretCast = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -11153,42 +8954,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._reinterpretCast)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._reinterpretCast {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.reinterpret_cast) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct short: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct short: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".short"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _short: Int32? = nil
+    var short: Int32 {
+      get {return _short ?? 0}
+      set {_short = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasShort: Bool {
+      return self._short != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearShort() {
+      self._short = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -11198,42 +8990,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._short)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._short {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.short) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct signed: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct signed: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".signed"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _signed: Int32? = nil
+    var signed: Int32 {
+      get {return _signed ?? 0}
+      set {_signed = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasSigned: Bool {
+      return self._signed != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearSigned() {
+      self._signed = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -11243,42 +9026,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._signed)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._signed {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.signed) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct sizeof: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct sizeof: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".sizeof"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _sizeof: Int32? = nil
+    var sizeof: Int32 {
+      get {return _sizeof ?? 0}
+      set {_sizeof = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasSizeof: Bool {
+      return self._sizeof != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearSizeof() {
+      self._sizeof = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -11288,42 +9062,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._sizeof)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._sizeof {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.sizeof) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct static_assert: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct static_assert: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".static_assert"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _staticAssert: Int32? = nil
+    var staticAssert: Int32 {
+      get {return _staticAssert ?? 0}
+      set {_staticAssert = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasStaticAssert: Bool {
+      return self._staticAssert != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearStaticAssert() {
+      self._staticAssert = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -11333,42 +9098,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._staticAssert)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._staticAssert {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.static_assert) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct static_cast: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct static_cast: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".static_cast"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _staticCast: Int32? = nil
+    var staticCast: Int32 {
+      get {return _staticCast ?? 0}
+      set {_staticCast = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasStaticCast: Bool {
+      return self._staticCast != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearStaticCast() {
+      self._staticCast = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -11378,42 +9134,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._staticCast)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._staticCast {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.static_cast) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct template: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct template: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".template"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _template: Int32? = nil
+    var template: Int32 {
+      get {return _template ?? 0}
+      set {_template = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasTemplate: Bool {
+      return self._template != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearTemplate() {
+      self._template = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -11423,42 +9170,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._template)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._template {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.template) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct this: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct this: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".this"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _this: Int32? = nil
+    var this: Int32 {
+      get {return _this ?? 0}
+      set {_this = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasThis: Bool {
+      return self._this != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearThis() {
+      self._this = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -11468,42 +9206,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._this)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._this {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.this) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct thread_local: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct thread_local: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".thread_local"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _threadLocal: Int32? = nil
+    var threadLocal: Int32 {
+      get {return _threadLocal ?? 0}
+      set {_threadLocal = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasThreadLocal: Bool {
+      return self._threadLocal != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearThreadLocal() {
+      self._threadLocal = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -11513,42 +9242,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._threadLocal)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._threadLocal {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.thread_local) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct typedef: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct typedef: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".typedef"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _typedef: Int32? = nil
+    var typedef: Int32 {
+      get {return _typedef ?? 0}
+      set {_typedef = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasTypedef: Bool {
+      return self._typedef != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearTypedef() {
+      self._typedef = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -11558,42 +9278,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._typedef)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._typedef {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.typedef) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct typeid: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct typeid: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".typeid"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _typeid: Int32? = nil
+    var typeid: Int32 {
+      get {return _typeid ?? 0}
+      set {_typeid = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasTypeid: Bool {
+      return self._typeid != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearTypeid() {
+      self._typeid = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -11603,42 +9314,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._typeid)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._typeid {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.typeid) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct typename: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct typename: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".typename"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _typename: Int32? = nil
+    var typename: Int32 {
+      get {return _typename ?? 0}
+      set {_typename = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasTypename: Bool {
+      return self._typename != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearTypename() {
+      self._typename = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -11648,42 +9350,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._typename)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._typename {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.typename) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct union: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct union: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".union"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _union: Int32? = nil
+    var union: Int32 {
+      get {return _union ?? 0}
+      set {_union = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasUnion: Bool {
+      return self._union != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearUnion() {
+      self._union = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -11693,42 +9386,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._union)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._union {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.union) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct unsigned: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct unsigned: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".unsigned"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _unsigned: Int32? = nil
+    var unsigned: Int32 {
+      get {return _unsigned ?? 0}
+      set {_unsigned = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasUnsigned: Bool {
+      return self._unsigned != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearUnsigned() {
+      self._unsigned = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -11738,42 +9422,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._unsigned)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._unsigned {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.unsigned) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct using: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct using: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".using"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _using: Int32? = nil
+    var using: Int32 {
+      get {return _using ?? 0}
+      set {_using = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasUsing: Bool {
+      return self._using != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearUsing() {
+      self._using = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -11783,42 +9458,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._using)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._using {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.using) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct virtual: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct virtual: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".virtual"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _virtual: Int32? = nil
+    var virtual: Int32 {
+      get {return _virtual ?? 0}
+      set {_virtual = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasVirtual: Bool {
+      return self._virtual != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearVirtual() {
+      self._virtual = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -11828,42 +9494,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._virtual)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._virtual {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.virtual) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct void: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct void: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".void"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _void: Int32? = nil
+    var void: Int32 {
+      get {return _void ?? 0}
+      set {_void = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasVoid: Bool {
+      return self._void != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearVoid() {
+      self._void = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -11873,42 +9530,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._void)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._void {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.void) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct volatile: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct volatile: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".volatile"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _volatile: Int32? = nil
+    var volatile: Int32 {
+      get {return _volatile ?? 0}
+      set {_volatile = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasVolatile: Bool {
+      return self._volatile != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearVolatile() {
+      self._volatile = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -11918,42 +9566,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._volatile)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._volatile {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.volatile) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct wchar_t: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct wchar_t: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".wchar_t"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _wcharT: Int32? = nil
+    var wcharT: Int32 {
+      get {return _wcharT ?? 0}
+      set {_wcharT = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasWcharT: Bool {
+      return self._wcharT != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearWcharT() {
+      self._wcharT = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -11963,42 +9602,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._wcharT)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._wcharT {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.wchar_t) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct xor: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct xor: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".xor"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _xor: Int32? = nil
+    var xor: Int32 {
+      get {return _xor ?? 0}
+      set {_xor = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasXor: Bool {
+      return self._xor != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearXor() {
+      self._xor = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -12008,42 +9638,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._xor)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._xor {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.xor) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct xor_eq: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct xor_eq: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".xor_eq"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _xorEq: Int32? = nil
+    var xorEq: Int32 {
+      get {return _xorEq ?? 0}
+      set {_xorEq = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasXorEq: Bool {
+      return self._xorEq != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearXorEq() {
+      self._xorEq = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -12053,42 +9674,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._xorEq)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._xorEq {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.xor_eq) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct restrict: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct restrict: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".restrict"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _restrict: Int32? = nil
+    var restrict: Int32 {
+      get {return _restrict ?? 0}
+      set {_restrict = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasRestrict: Bool {
+      return self._restrict != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearRestrict() {
+      self._restrict = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -12098,42 +9710,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._restrict)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._restrict {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.restrict) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct Category: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct Category: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".Category"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _category: Int32? = nil
+    var category: Int32 {
+      get {return _category ?? 0}
+      set {_category = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasCategory: Bool {
+      return self._category != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearCategory() {
+      self._category = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -12143,42 +9746,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._category)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._category {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.Category) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct Ivar: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct Ivar: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".Ivar"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _ivar: Int32? = nil
+    var ivar: Int32 {
+      get {return _ivar ?? 0}
+      set {_ivar = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasIvar: Bool {
+      return self._ivar != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearIvar() {
+      self._ivar = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -12188,42 +9782,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._ivar)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._ivar {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.Ivar) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct Method: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct Method: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".Method"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _method: Int32? = nil
+    var method: Int32 {
+      get {return _method ?? 0}
+      set {_method = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasMethod: Bool {
+      return self._method != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearMethod() {
+      self._method = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -12233,42 +9818,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._method)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._method {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.Method) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct finalize: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct finalize: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".finalize"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _finalize: Int32? = nil
+    var finalize: Int32 {
+      get {return _finalize ?? 0}
+      set {_finalize = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasFinalize: Bool {
+      return self._finalize != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearFinalize() {
+      self._finalize = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -12278,42 +9854,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._finalize)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._finalize {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.finalize) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct hash: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct hash: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".hash"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _hash_p: Int32? = nil
+    var hash_p: Int32 {
+      get {return _hash_p ?? 0}
+      set {_hash_p = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasHash_p: Bool {
+      return self._hash_p != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearHash_p() {
+      self._hash_p = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -12323,42 +9890,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._hash_p)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._hash_p {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.hash) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct dealloc: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct dealloc: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".dealloc"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _dealloc: Int32? = nil
+    var dealloc: Int32 {
+      get {return _dealloc ?? 0}
+      set {_dealloc = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasDealloc: Bool {
+      return self._dealloc != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearDealloc() {
+      self._dealloc = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -12368,42 +9926,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._dealloc)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._dealloc {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.dealloc) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct superclass: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct superclass: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".superclass"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _superclass: Int32? = nil
+    var superclass: Int32 {
+      get {return _superclass ?? 0}
+      set {_superclass = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasSuperclass: Bool {
+      return self._superclass != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearSuperclass() {
+      self._superclass = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -12413,42 +9962,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._superclass)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._superclass {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.superclass) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct retain: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct retain: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".retain"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _retain: Int32? = nil
+    var retain: Int32 {
+      get {return _retain ?? 0}
+      set {_retain = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasRetain: Bool {
+      return self._retain != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearRetain() {
+      self._retain = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -12458,42 +9998,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._retain)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._retain {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.retain) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct release: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct release: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".release"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _release: Int32? = nil
+    var release: Int32 {
+      get {return _release ?? 0}
+      set {_release = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasRelease: Bool {
+      return self._release != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearRelease() {
+      self._release = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -12503,42 +10034,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._release)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._release {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.release) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct autorelease: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct autorelease: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".autorelease"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _autorelease: Int32? = nil
+    var autorelease: Int32 {
+      get {return _autorelease ?? 0}
+      set {_autorelease = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasAutorelease: Bool {
+      return self._autorelease != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearAutorelease() {
+      self._autorelease = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -12548,42 +10070,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._autorelease)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._autorelease {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.autorelease) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct retainCount: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct retainCount: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".retainCount"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _retainCount: Int32? = nil
+    var retainCount: Int32 {
+      get {return _retainCount ?? 0}
+      set {_retainCount = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasRetainCount: Bool {
+      return self._retainCount != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearRetainCount() {
+      self._retainCount = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -12593,42 +10106,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._retainCount)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._retainCount {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.retainCount) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct zone: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct zone: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".zone"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _zone: Int32? = nil
+    var zone: Int32 {
+      get {return _zone ?? 0}
+      set {_zone = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasZone: Bool {
+      return self._zone != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearZone() {
+      self._zone = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -12638,42 +10142,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._zone)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._zone {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.zone) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct isProxy: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct isProxy: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".isProxy"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _isProxy: Int32? = nil
+    var isProxy: Int32 {
+      get {return _isProxy ?? 0}
+      set {_isProxy = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasIsProxy: Bool {
+      return self._isProxy != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearIsProxy() {
+      self._isProxy = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -12683,42 +10178,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._isProxy)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._isProxy {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.isProxy) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct copy: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct copy: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".copy"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _copy: Int32? = nil
+    var copy: Int32 {
+      get {return _copy ?? 0}
+      set {_copy = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasCopy: Bool {
+      return self._copy != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearCopy() {
+      self._copy = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -12728,42 +10214,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._copy)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._copy {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.copy) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct mutableCopy: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct mutableCopy: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".mutableCopy"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _mutableCopy: Int32? = nil
+    var mutableCopy: Int32 {
+      get {return _mutableCopy ?? 0}
+      set {_mutableCopy = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasMutableCopy: Bool {
+      return self._mutableCopy != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearMutableCopy() {
+      self._mutableCopy = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -12773,42 +10250,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._mutableCopy)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._mutableCopy {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.mutableCopy) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct classForCoder: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct classForCoder: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".classForCoder"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _classForCoder: Int32? = nil
+    var classForCoder: Int32 {
+      get {return _classForCoder ?? 0}
+      set {_classForCoder = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasClassForCoder: Bool {
+      return self._classForCoder != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearClassForCoder() {
+      self._classForCoder = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -12818,42 +10286,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._classForCoder)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._classForCoder {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.classForCoder) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct clear: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct clear: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".clear"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _clear_p: Int32? = nil
+    var clear_p: Int32 {
+      get {return _clear_p ?? 0}
+      set {_clear_p = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasClear_p: Bool {
+      return self._clear_p != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearClear_p() {
+      self._clear_p = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -12863,42 +10322,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._clear_p)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._clear_p {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.clear) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct data: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct data: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".data"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _data: Int32? = nil
+    var data: Int32 {
+      get {return _data ?? 0}
+      set {_data = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasData: Bool {
+      return self._data != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearData() {
+      self._data = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -12908,42 +10358,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._data)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._data {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.data) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct delimitedData: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct delimitedData: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".delimitedData"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _delimitedData: Int32? = nil
+    var delimitedData: Int32 {
+      get {return _delimitedData ?? 0}
+      set {_delimitedData = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasDelimitedData: Bool {
+      return self._delimitedData != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearDelimitedData() {
+      self._delimitedData = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -12953,42 +10394,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._delimitedData)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._delimitedData {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.delimitedData) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct descriptor: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct descriptor: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".descriptor"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _descriptor: Int32? = nil
+    var descriptor: Int32 {
+      get {return _descriptor ?? 0}
+      set {_descriptor = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasDescriptor: Bool {
+      return self._descriptor != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearDescriptor() {
+      self._descriptor = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -12998,42 +10430,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._descriptor)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._descriptor {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.descriptor) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct extensionRegistry: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct extensionRegistry: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".extensionRegistry"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _extensionRegistry: Int32? = nil
+    var extensionRegistry: Int32 {
+      get {return _extensionRegistry ?? 0}
+      set {_extensionRegistry = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasExtensionRegistry: Bool {
+      return self._extensionRegistry != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearExtensionRegistry() {
+      self._extensionRegistry = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -13043,42 +10466,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._extensionRegistry)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._extensionRegistry {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.extensionRegistry) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct extensionsCurrentlySet: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct extensionsCurrentlySet: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".extensionsCurrentlySet"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _extensionsCurrentlySet: Int32? = nil
+    var extensionsCurrentlySet: Int32 {
+      get {return _extensionsCurrentlySet ?? 0}
+      set {_extensionsCurrentlySet = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasExtensionsCurrentlySet: Bool {
+      return self._extensionsCurrentlySet != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearExtensionsCurrentlySet() {
+      self._extensionsCurrentlySet = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -13088,42 +10502,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._extensionsCurrentlySet)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._extensionsCurrentlySet {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.extensionsCurrentlySet) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct isInitialized: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct isInitializedMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".isInitialized"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _isInitialized_p: Int32? = nil
+    var isInitialized_p: Int32 {
+      get {return _isInitialized_p ?? 0}
+      set {_isInitialized_p = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasIsInitialized_p: Bool {
+      return self._isInitialized_p != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearIsInitialized_p() {
+      self._isInitialized_p = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -13133,42 +10538,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._isInitialized_p)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._isInitialized_p {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.isInitialized) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct serializedSize: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct serializedSize: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".serializedSize"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _serializedSize: Int32? = nil
+    var serializedSize: Int32 {
+      get {return _serializedSize ?? 0}
+      set {_serializedSize = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasSerializedSize: Bool {
+      return self._serializedSize != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearSerializedSize() {
+      self._serializedSize = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -13178,42 +10574,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._serializedSize)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._serializedSize {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.serializedSize) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct sortedExtensionsInUse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct sortedExtensionsInUse: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".sortedExtensionsInUse"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _sortedExtensionsInUse: Int32? = nil
+    var sortedExtensionsInUse: Int32 {
+      get {return _sortedExtensionsInUse ?? 0}
+      set {_sortedExtensionsInUse = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasSortedExtensionsInUse: Bool {
+      return self._sortedExtensionsInUse != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearSortedExtensionsInUse() {
+      self._sortedExtensionsInUse = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -13223,42 +10610,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._sortedExtensionsInUse)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._sortedExtensionsInUse {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.sortedExtensionsInUse) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct unknownFieldsMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct unknownFieldsMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".unknownFields"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _unknownFields_p: Int32? = nil
+    var unknownFields_p: Int32 {
+      get {return _unknownFields_p ?? 0}
+      set {_unknownFields_p = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasUnknownFields_p: Bool {
+      return self._unknownFields_p != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearUnknownFields_p() {
+      self._unknownFields_p = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -13268,42 +10646,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._unknownFields_p)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._unknownFields_p {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.unknownFieldsMessage) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct Fixed: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct Fixed: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".Fixed"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _fixed: Int32? = nil
+    var fixed: Int32 {
+      get {return _fixed ?? 0}
+      set {_fixed = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasFixed: Bool {
+      return self._fixed != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearFixed() {
+      self._fixed = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -13313,42 +10682,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._fixed)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._fixed {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.Fixed) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct Fract: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct Fract: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".Fract"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _fract: Int32? = nil
+    var fract: Int32 {
+      get {return _fract ?? 0}
+      set {_fract = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasFract: Bool {
+      return self._fract != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearFract() {
+      self._fract = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -13358,42 +10718,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._fract)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._fract {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.Fract) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct Size: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct Size: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".Size"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _size: Int32? = nil
+    var size: Int32 {
+      get {return _size ?? 0}
+      set {_size = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasSize: Bool {
+      return self._size != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearSize() {
+      self._size = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -13403,42 +10754,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._size)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._size {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.Size) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct LogicalAddress: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct LogicalAddress: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".LogicalAddress"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _logicalAddress: Int32? = nil
+    var logicalAddress: Int32 {
+      get {return _logicalAddress ?? 0}
+      set {_logicalAddress = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasLogicalAddress: Bool {
+      return self._logicalAddress != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearLogicalAddress() {
+      self._logicalAddress = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -13448,42 +10790,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._logicalAddress)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._logicalAddress {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.LogicalAddress) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct PhysicalAddress: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct PhysicalAddress: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".PhysicalAddress"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _physicalAddress: Int32? = nil
+    var physicalAddress: Int32 {
+      get {return _physicalAddress ?? 0}
+      set {_physicalAddress = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasPhysicalAddress: Bool {
+      return self._physicalAddress != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearPhysicalAddress() {
+      self._physicalAddress = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -13493,42 +10826,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._physicalAddress)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._physicalAddress {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.PhysicalAddress) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct ByteCount: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct ByteCount: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".ByteCount"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _byteCount: Int32? = nil
+    var byteCount: Int32 {
+      get {return _byteCount ?? 0}
+      set {_byteCount = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasByteCount: Bool {
+      return self._byteCount != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearByteCount() {
+      self._byteCount = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -13538,42 +10862,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._byteCount)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._byteCount {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.ByteCount) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct ByteOffset: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct ByteOffset: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".ByteOffset"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _byteOffset: Int32? = nil
+    var byteOffset: Int32 {
+      get {return _byteOffset ?? 0}
+      set {_byteOffset = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasByteOffset: Bool {
+      return self._byteOffset != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearByteOffset() {
+      self._byteOffset = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -13583,42 +10898,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._byteOffset)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._byteOffset {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.ByteOffset) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct Duration: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct Duration: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".Duration"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _duration: Int32? = nil
+    var duration: Int32 {
+      get {return _duration ?? 0}
+      set {_duration = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasDuration: Bool {
+      return self._duration != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearDuration() {
+      self._duration = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -13628,42 +10934,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._duration)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._duration {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.Duration) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct AbsoluteTime: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct AbsoluteTime: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".AbsoluteTime"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _absoluteTime: Int32? = nil
+    var absoluteTime: Int32 {
+      get {return _absoluteTime ?? 0}
+      set {_absoluteTime = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasAbsoluteTime: Bool {
+      return self._absoluteTime != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearAbsoluteTime() {
+      self._absoluteTime = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -13673,42 +10970,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._absoluteTime)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._absoluteTime {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.AbsoluteTime) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct OptionBits: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct OptionBits: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".OptionBits"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _optionBits: Int32? = nil
+    var optionBits: Int32 {
+      get {return _optionBits ?? 0}
+      set {_optionBits = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasOptionBits: Bool {
+      return self._optionBits != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearOptionBits() {
+      self._optionBits = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -13718,42 +11006,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._optionBits)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._optionBits {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.OptionBits) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct ItemCount: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct ItemCount: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".ItemCount"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _itemCount: Int32? = nil
+    var itemCount: Int32 {
+      get {return _itemCount ?? 0}
+      set {_itemCount = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasItemCount: Bool {
+      return self._itemCount != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearItemCount() {
+      self._itemCount = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -13763,42 +11042,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._itemCount)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._itemCount {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.ItemCount) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct PBVersion: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct PBVersion: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".PBVersion"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _pbversion: Int32? = nil
+    var pbversion: Int32 {
+      get {return _pbversion ?? 0}
+      set {_pbversion = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasPbversion: Bool {
+      return self._pbversion != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearPbversion() {
+      self._pbversion = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -13808,42 +11078,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._pbversion)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._pbversion {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.PBVersion) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct ScriptCode: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct ScriptCode: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".ScriptCode"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _scriptCode: Int32? = nil
+    var scriptCode: Int32 {
+      get {return _scriptCode ?? 0}
+      set {_scriptCode = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasScriptCode: Bool {
+      return self._scriptCode != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearScriptCode() {
+      self._scriptCode = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -13853,42 +11114,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._scriptCode)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._scriptCode {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.ScriptCode) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct LangCode: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct LangCode: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".LangCode"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _langCode: Int32? = nil
+    var langCode: Int32 {
+      get {return _langCode ?? 0}
+      set {_langCode = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasLangCode: Bool {
+      return self._langCode != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearLangCode() {
+      self._langCode = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -13898,42 +11150,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._langCode)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._langCode {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.LangCode) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct RegionCode: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct RegionCode: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".RegionCode"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _regionCode: Int32? = nil
+    var regionCode: Int32 {
+      get {return _regionCode ?? 0}
+      set {_regionCode = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasRegionCode: Bool {
+      return self._regionCode != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearRegionCode() {
+      self._regionCode = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -13943,42 +11186,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._regionCode)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._regionCode {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.RegionCode) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct OSType: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct OSType: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".OSType"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _ostype: Int32? = nil
+    var ostype: Int32 {
+      get {return _ostype ?? 0}
+      set {_ostype = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasOstype: Bool {
+      return self._ostype != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearOstype() {
+      self._ostype = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -13988,42 +11222,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._ostype)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._ostype {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.OSType) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct ProcessSerialNumber: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct ProcessSerialNumber: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".ProcessSerialNumber"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _processSerialNumber: Int32? = nil
+    var processSerialNumber: Int32 {
+      get {return _processSerialNumber ?? 0}
+      set {_processSerialNumber = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasProcessSerialNumber: Bool {
+      return self._processSerialNumber != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearProcessSerialNumber() {
+      self._processSerialNumber = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -14033,42 +11258,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._processSerialNumber)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._processSerialNumber {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.ProcessSerialNumber) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct Point: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct Point: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".Point"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _point: Int32? = nil
+    var point: Int32 {
+      get {return _point ?? 0}
+      set {_point = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasPoint: Bool {
+      return self._point != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearPoint() {
+      self._point = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -14078,42 +11294,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._point)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._point {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.Point) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct Rect: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct Rect: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".Rect"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _rect: Int32? = nil
+    var rect: Int32 {
+      get {return _rect ?? 0}
+      set {_rect = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasRect: Bool {
+      return self._rect != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearRect() {
+      self._rect = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -14123,42 +11330,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._rect)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._rect {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.Rect) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct FixedPoint: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct FixedPoint: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".FixedPoint"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _fixedPoint: Int32? = nil
+    var fixedPoint: Int32 {
+      get {return _fixedPoint ?? 0}
+      set {_fixedPoint = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasFixedPoint: Bool {
+      return self._fixedPoint != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearFixedPoint() {
+      self._fixedPoint = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -14168,42 +11366,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._fixedPoint)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._fixedPoint {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.FixedPoint) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct FixedRect: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct FixedRect: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".FixedRect"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _fixedRect: Int32? = nil
+    var fixedRect: Int32 {
+      get {return _fixedRect ?? 0}
+      set {_fixedRect = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasFixedRect: Bool {
+      return self._fixedRect != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearFixedRect() {
+      self._fixedRect = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -14213,42 +11402,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._fixedRect)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._fixedRect {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.FixedRect) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct Style: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct Style: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".Style"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _style: Int32? = nil
+    var style: Int32 {
+      get {return _style ?? 0}
+      set {_style = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasStyle: Bool {
+      return self._style != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearStyle() {
+      self._style = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -14258,42 +11438,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._style)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._style {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.Style) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct StyleParameter: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct StyleParameter: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".StyleParameter"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _styleParameter: Int32? = nil
+    var styleParameter: Int32 {
+      get {return _styleParameter ?? 0}
+      set {_styleParameter = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasStyleParameter: Bool {
+      return self._styleParameter != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearStyleParameter() {
+      self._styleParameter = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -14303,42 +11474,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._styleParameter)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._styleParameter {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.StyleParameter) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct StyleField: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct StyleField: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".StyleField"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _styleField: Int32? = nil
+    var styleField: Int32 {
+      get {return _styleField ?? 0}
+      set {_styleField = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasStyleField: Bool {
+      return self._styleField != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearStyleField() {
+      self._styleField = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -14348,42 +11510,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._styleField)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._styleField {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.StyleField) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct TimeScale: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct TimeScale: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".TimeScale"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _timeScale: Int32? = nil
+    var timeScale: Int32 {
+      get {return _timeScale ?? 0}
+      set {_timeScale = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasTimeScale: Bool {
+      return self._timeScale != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearTimeScale() {
+      self._timeScale = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -14393,42 +11546,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._timeScale)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._timeScale {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.TimeScale) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct TimeBase: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct TimeBase: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".TimeBase"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _timeBase: Int32? = nil
+    var timeBase: Int32 {
+      get {return _timeBase ?? 0}
+      set {_timeBase = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasTimeBase: Bool {
+      return self._timeBase != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearTimeBase() {
+      self._timeBase = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -14438,42 +11582,33 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._timeBase)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._timeBase {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
-    }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.TimeBase) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
     }
   }
 
-  struct TimeRecord: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct TimeRecord: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".TimeRecord"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
-    var a: Int32 {
-      get {return _a ?? 0}
-      set {_a = newValue}
+    fileprivate var _timeRecord: Int32? = nil
+    var timeRecord: Int32 {
+      get {return _timeRecord ?? 0}
+      set {_timeRecord = newValue}
     }
-    var hasA: Bool {
-      return _a != nil
+    var hasTimeRecord: Bool {
+      return self._timeRecord != nil
     }
-    mutating func clearA() {
-      return _a = nil
+    mutating func clearTimeRecord() {
+      self._timeRecord = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -14483,23 +11618,197 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._timeRecord)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._timeRecord {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+  }
 
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.TimeRecord) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
+  struct serializedData: SwiftProtobuf.Message {
+    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".serializedData"
+
+    fileprivate var _serializedData: Int32? = nil
+    var serializedData: Int32 {
+      get {return _serializedData ?? 0}
+      set {_serializedData = newValue}
+    }
+    var hasSerializedData: Bool {
+      return self._serializedData != nil
+    }
+    mutating func clearSerializedData() {
+      self._serializedData = nil
+    }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
+
+    init() {}
+
+    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        switch fieldNumber {
+        case 1: try decoder.decodeSingularInt32Field(value: &self._serializedData)
+        default: break
+        }
+      }
+    }
+
+    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+      if let v = self._serializedData {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+      }
+      try unknownFields.traverse(visitor: &visitor)
+    }
+  }
+
+  struct jsonUTF8Data: SwiftProtobuf.Message {
+    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".jsonUTF8Data"
+
+    fileprivate var _jsonUtf8Data: Int32? = nil
+    var jsonUtf8Data: Int32 {
+      get {return _jsonUtf8Data ?? 0}
+      set {_jsonUtf8Data = newValue}
+    }
+    var hasJsonUtf8Data: Bool {
+      return self._jsonUtf8Data != nil
+    }
+    mutating func clearJsonUtf8Data() {
+      self._jsonUtf8Data = nil
+    }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
+
+    init() {}
+
+    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        switch fieldNumber {
+        case 1: try decoder.decodeSingularInt32Field(value: &self._jsonUtf8Data)
+        default: break
+        }
+      }
+    }
+
+    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+      if let v = self._jsonUtf8Data {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+      }
+      try unknownFields.traverse(visitor: &visitor)
+    }
+  }
+
+  struct jsonString: SwiftProtobuf.Message {
+    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".jsonString"
+
+    fileprivate var _jsonString: Int32? = nil
+    var jsonString: Int32 {
+      get {return _jsonString ?? 0}
+      set {_jsonString = newValue}
+    }
+    var hasJsonString: Bool {
+      return self._jsonString != nil
+    }
+    mutating func clearJsonString() {
+      self._jsonString = nil
+    }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
+
+    init() {}
+
+    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        switch fieldNumber {
+        case 1: try decoder.decodeSingularInt32Field(value: &self._jsonString)
+        default: break
+        }
+      }
+    }
+
+    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+      if let v = self._jsonString {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+      }
+      try unknownFields.traverse(visitor: &visitor)
+    }
+  }
+
+  struct Extension: SwiftProtobuf.Message {
+    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".Extension"
+
+    fileprivate var _extension_p: Int32? = nil
+    var extension_p: Int32 {
+      get {return _extension_p ?? 0}
+      set {_extension_p = newValue}
+    }
+    var hasExtension_p: Bool {
+      return self._extension_p != nil
+    }
+    mutating func clearExtension_p() {
+      self._extension_p = nil
+    }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
+
+    init() {}
+
+    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        switch fieldNumber {
+        case 1: try decoder.decodeSingularInt32Field(value: &self._extension_p)
+        default: break
+        }
+      }
+    }
+
+    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+      if let v = self._extension_p {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+      }
+      try unknownFields.traverse(visitor: &visitor)
+    }
+  }
+
+  struct ExtensionsMessage: SwiftProtobuf.Message {
+    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".Extensions"
+
+    fileprivate var _extensions: Int32? = nil
+    var extensions: Int32 {
+      get {return _extensions ?? 0}
+      set {_extensions = newValue}
+    }
+    var hasExtensions: Bool {
+      return self._extensions != nil
+    }
+    mutating func clearExtensions() {
+      self._extensions = nil
+    }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
+
+    init() {}
+
+    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        switch fieldNumber {
+        case 1: try decoder.decodeSingularInt32Field(value: &self._extensions)
+        default: break
+        }
+      }
+    }
+
+    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+      if let v = self._extensions {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+      }
+      try unknownFields.traverse(visitor: &visitor)
     }
   }
 
@@ -14513,26 +11822,16 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._M
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try unknownFields.traverse(visitor: &visitor)
   }
-
-  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames) -> Bool {
-    if unknownFields != other.unknownFields {return false}
-    return true
-  }
 }
 
-struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".EnumNames"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum StringEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum StringEnum: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case aString // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "aString"),
-    ]
 
     init() {
       self = .aString
@@ -14553,13 +11852,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum ProtocolEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum ProtocolEnum: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case aProtocol // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "aProtocol"),
-    ]
 
     init() {
       self = .aProtocol
@@ -14580,13 +11875,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum IntEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum IntEnum: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case aInt // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "aInt"),
-    ]
 
     init() {
       self = .aInt
@@ -14607,13 +11898,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum DoubleEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum DoubleEnum: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case aDouble // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "aDouble"),
-    ]
 
     init() {
       self = .aDouble
@@ -14634,13 +11921,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum FloatEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum FloatEnum: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case aFloat // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "aFloat"),
-    ]
 
     init() {
       self = .aFloat
@@ -14661,13 +11944,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum UIntEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum UIntEnum: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case aUint // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "aUInt"),
-    ]
 
     init() {
       self = .aUint
@@ -14688,13 +11967,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum hashValueEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum hashValueEnum: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case ahashValue // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "ahashValue"),
-    ]
 
     init() {
       self = .ahashValue
@@ -14715,13 +11990,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum descriptionEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum descriptionEnum: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case adescription // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "adescription"),
-    ]
 
     init() {
       self = .adescription
@@ -14742,13 +12013,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum debugDescriptionEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum debugDescriptionEnum: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case adebugDescription // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "adebugDescription"),
-    ]
 
     init() {
       self = .adebugDescription
@@ -14769,13 +12036,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum Swift: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum Swift: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case aSwift // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "aSwift"),
-    ]
 
     init() {
       self = .aSwift
@@ -14796,13 +12059,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum UNRECOGNIZED: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum UNRECOGNIZED: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case aUnrecognized // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "aUNRECOGNIZED"),
-    ]
 
     init() {
       self = .aUnrecognized
@@ -14823,13 +12082,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum classEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum classEnum: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case aclass // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "aclass"),
-    ]
 
     init() {
       self = .aclass
@@ -14850,13 +12105,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum deinitEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum deinitEnum: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case adeinit // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "adeinit"),
-    ]
 
     init() {
       self = .adeinit
@@ -14877,13 +12128,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum enumEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum enumEnum: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case aenum // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "aenum"),
-    ]
 
     init() {
       self = .aenum
@@ -14904,13 +12151,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum extensionEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum extensionEnum: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case aextension // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "aextension"),
-    ]
 
     init() {
       self = .aextension
@@ -14931,13 +12174,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum funcEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum funcEnum: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case afunc // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "afunc"),
-    ]
 
     init() {
       self = .afunc
@@ -14958,13 +12197,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum importEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum importEnum: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case aimport // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "aimport"),
-    ]
 
     init() {
       self = .aimport
@@ -14985,13 +12220,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum initEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum initEnum: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case ainit // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "ainit"),
-    ]
 
     init() {
       self = .ainit
@@ -15012,13 +12243,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum inoutEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum inoutEnum: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case ainout // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "ainout"),
-    ]
 
     init() {
       self = .ainout
@@ -15039,13 +12266,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum internalEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum internalEnum: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case ainternal // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "ainternal"),
-    ]
 
     init() {
       self = .ainternal
@@ -15066,13 +12289,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum letEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum letEnum: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case alet // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "alet"),
-    ]
 
     init() {
       self = .alet
@@ -15093,13 +12312,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum operatorEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum operatorEnum: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case aoperator // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "aoperator"),
-    ]
 
     init() {
       self = .aoperator
@@ -15120,13 +12335,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum privateEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum privateEnum: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case aprivate // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "aprivate"),
-    ]
 
     init() {
       self = .aprivate
@@ -15147,13 +12358,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum protocolEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum protocolEnum: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case aprotocol // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "aprotocol"),
-    ]
 
     init() {
       self = .aprotocol
@@ -15174,13 +12381,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum publicEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum publicEnum: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case apublic // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "apublic"),
-    ]
 
     init() {
       self = .apublic
@@ -15201,13 +12404,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum staticEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum staticEnum: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case astatic // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "astatic"),
-    ]
 
     init() {
       self = .astatic
@@ -15228,13 +12427,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum structEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum structEnum: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case astruct // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "astruct"),
-    ]
 
     init() {
       self = .astruct
@@ -15255,13 +12450,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum subscriptEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum subscriptEnum: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case asubscript // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "asubscript"),
-    ]
 
     init() {
       self = .asubscript
@@ -15282,13 +12473,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum typealiasEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum typealiasEnum: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case atypealias // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "atypealias"),
-    ]
 
     init() {
       self = .atypealias
@@ -15309,13 +12496,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum varEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum varEnum: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case avar // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "avar"),
-    ]
 
     init() {
       self = .avar
@@ -15336,13 +12519,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum breakEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum breakEnum: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case abreak // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "abreak"),
-    ]
 
     init() {
       self = .abreak
@@ -15363,13 +12542,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum caseEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum caseEnum: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case acase // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "acase"),
-    ]
 
     init() {
       self = .acase
@@ -15390,13 +12565,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum continueEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum continueEnum: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case acontinue // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "acontinue"),
-    ]
 
     init() {
       self = .acontinue
@@ -15417,13 +12588,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum defaultEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum defaultEnum: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case adefault // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "adefault"),
-    ]
 
     init() {
       self = .adefault
@@ -15444,13 +12611,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum deferEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum deferEnum: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case adefer // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "adefer"),
-    ]
 
     init() {
       self = .adefer
@@ -15471,13 +12634,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum doEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum doEnum: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case ado // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "ado"),
-    ]
 
     init() {
       self = .ado
@@ -15498,13 +12657,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum elseEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum elseEnum: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case aelse // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "aelse"),
-    ]
 
     init() {
       self = .aelse
@@ -15525,13 +12680,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum fallthroughEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum fallthroughEnum: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case afallthrough // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "afallthrough"),
-    ]
 
     init() {
       self = .afallthrough
@@ -15552,13 +12703,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum forEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum forEnum: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case afor // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "afor"),
-    ]
 
     init() {
       self = .afor
@@ -15579,13 +12726,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum guardEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum guardEnum: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case aguard // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "aguard"),
-    ]
 
     init() {
       self = .aguard
@@ -15606,13 +12749,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum ifEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum ifEnum: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case aif // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "aif"),
-    ]
 
     init() {
       self = .aif
@@ -15633,13 +12772,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum inEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum inEnum: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case ain // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "ain"),
-    ]
 
     init() {
       self = .ain
@@ -15660,13 +12795,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum repeatEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum repeatEnum: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case arepeat // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "arepeat"),
-    ]
 
     init() {
       self = .arepeat
@@ -15687,13 +12818,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum returnEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum returnEnum: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case areturn // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "areturn"),
-    ]
 
     init() {
       self = .areturn
@@ -15714,13 +12841,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum switchEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum switchEnum: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case aswitch // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "aswitch"),
-    ]
 
     init() {
       self = .aswitch
@@ -15741,13 +12864,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum whereEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum whereEnum: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case awhere // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "awhere"),
-    ]
 
     init() {
       self = .awhere
@@ -15768,13 +12887,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum whileEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum whileEnum: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case awhile // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "awhile"),
-    ]
 
     init() {
       self = .awhile
@@ -15795,13 +12910,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum asEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum asEnum: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case aas // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "aas"),
-    ]
 
     init() {
       self = .aas
@@ -15822,13 +12933,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum catchEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum catchEnum: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case acatch // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "acatch"),
-    ]
 
     init() {
       self = .acatch
@@ -15849,13 +12956,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum dynamicTypeEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum dynamicTypeEnum: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case adynamicType // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "adynamicType"),
-    ]
 
     init() {
       self = .adynamicType
@@ -15876,13 +12979,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum falseEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum falseEnum: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case afalse // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "afalse"),
-    ]
 
     init() {
       self = .afalse
@@ -15903,13 +13002,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum isEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum isEnum: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case ais // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "ais"),
-    ]
 
     init() {
       self = .ais
@@ -15930,13 +13025,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum nilEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum nilEnum: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case anil // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "anil"),
-    ]
 
     init() {
       self = .anil
@@ -15957,13 +13048,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum rethrowsEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum rethrowsEnum: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case arethrows // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "arethrows"),
-    ]
 
     init() {
       self = .arethrows
@@ -15984,13 +13071,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum superEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum superEnum: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case asuper // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "asuper"),
-    ]
 
     init() {
       self = .asuper
@@ -16011,13 +13094,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum selfEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum selfEnum: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case aself // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "aself"),
-    ]
 
     init() {
       self = .aself
@@ -16038,13 +13117,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum throwEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum throwEnum: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case athrow // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "athrow"),
-    ]
 
     init() {
       self = .athrow
@@ -16065,13 +13140,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum throwsEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum throwsEnum: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case athrows // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "athrows"),
-    ]
 
     init() {
       self = .athrows
@@ -16092,13 +13163,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum trueEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum trueEnum: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case atrue // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "atrue"),
-    ]
 
     init() {
       self = .atrue
@@ -16119,13 +13186,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum tryEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum tryEnum: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case atry // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "atry"),
-    ]
 
     init() {
       self = .atry
@@ -16146,13 +13209,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum __COLUMN__Enum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum __COLUMN__Enum: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case a_Column__ // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "a__COLUMN__"),
-    ]
 
     init() {
       self = .a_Column__
@@ -16173,13 +13232,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum __FILE__Enum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum __FILE__Enum: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case a_File__ // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "a__FILE__"),
-    ]
 
     init() {
       self = .a_File__
@@ -16200,13 +13255,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum __FUNCTION__Enum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum __FUNCTION__Enum: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case a_Function__ // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "a__FUNCTION__"),
-    ]
 
     init() {
       self = .a_Function__
@@ -16227,13 +13278,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum __LINE__Enum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum __LINE__Enum: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case a_Line__ // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "a__LINE__"),
-    ]
 
     init() {
       self = .a_Line__
@@ -16254,13 +13301,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum _Enum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum _Enum: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case a_ // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "a_"),
-    ]
 
     init() {
       self = .a_
@@ -16281,13 +13324,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum __Enum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum __Enum: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case a__ // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "a__"),
-    ]
 
     init() {
       self = .a__
@@ -16308,13 +13347,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum associativity: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum associativity: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case aassociativity // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "aassociativity"),
-    ]
 
     init() {
       self = .aassociativity
@@ -16335,13 +13370,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum convenience: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum convenience: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case aconvenience // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "aconvenience"),
-    ]
 
     init() {
       self = .aconvenience
@@ -16362,13 +13393,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum dynamic: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum dynamic: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case adynamic // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "adynamic"),
-    ]
 
     init() {
       self = .adynamic
@@ -16389,13 +13416,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum didSet: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum didSet: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case adidSet // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "adidSet"),
-    ]
 
     init() {
       self = .adidSet
@@ -16416,13 +13439,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum final: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum final: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case afinal // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "afinal"),
-    ]
 
     init() {
       self = .afinal
@@ -16443,13 +13462,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum get: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum get: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case aget // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "aget"),
-    ]
 
     init() {
       self = .aget
@@ -16470,13 +13485,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum infix: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum infix: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case ainfix // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "ainfix"),
-    ]
 
     init() {
       self = .ainfix
@@ -16497,13 +13508,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum indirect: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum indirect: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case aindirect // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "aindirect"),
-    ]
 
     init() {
       self = .aindirect
@@ -16524,13 +13531,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum lazy: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum lazy: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case alazy // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "alazy"),
-    ]
 
     init() {
       self = .alazy
@@ -16551,13 +13554,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum left: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum left: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case aleft // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "aleft"),
-    ]
 
     init() {
       self = .aleft
@@ -16578,13 +13577,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum mutating: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum mutating: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case amutating // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "amutating"),
-    ]
 
     init() {
       self = .amutating
@@ -16605,13 +13600,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum none: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum none: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case anone // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "anone"),
-    ]
 
     init() {
       self = .anone
@@ -16632,13 +13623,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum nonmutating: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum nonmutating: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case anonmutating // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "anonmutating"),
-    ]
 
     init() {
       self = .anonmutating
@@ -16659,13 +13646,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum optional: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum optional: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case aoptional // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "aoptional"),
-    ]
 
     init() {
       self = .aoptional
@@ -16686,13 +13669,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum override: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum override: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case aoverride // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "aoverride"),
-    ]
 
     init() {
       self = .aoverride
@@ -16713,13 +13692,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum postfix: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum postfix: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case apostfix // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "apostfix"),
-    ]
 
     init() {
       self = .apostfix
@@ -16740,13 +13715,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum precedence: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum precedence: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case aprecedence // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "aprecedence"),
-    ]
 
     init() {
       self = .aprecedence
@@ -16767,13 +13738,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum prefix: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum prefix: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case aprefix // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "aprefix"),
-    ]
 
     init() {
       self = .aprefix
@@ -16794,13 +13761,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum required: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum required: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case arequired // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "arequired"),
-    ]
 
     init() {
       self = .arequired
@@ -16821,13 +13784,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum right: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum right: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case aright // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "aright"),
-    ]
 
     init() {
       self = .aright
@@ -16848,13 +13807,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum set: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum set: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case aset // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "aset"),
-    ]
 
     init() {
       self = .aset
@@ -16875,13 +13830,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum TypeEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum TypeEnum: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case aType // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "aType"),
-    ]
 
     init() {
       self = .aType
@@ -16902,13 +13853,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum unowned: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum unowned: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case aunowned // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "aunowned"),
-    ]
 
     init() {
       self = .aunowned
@@ -16929,13 +13876,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum weak: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum weak: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case aweak // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "aweak"),
-    ]
 
     init() {
       self = .aweak
@@ -16956,13 +13899,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum willSet: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum willSet: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case awillSet // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "awillSet"),
-    ]
 
     init() {
       self = .awillSet
@@ -16983,13 +13922,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum id: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum id: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case aid // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "aid"),
-    ]
 
     init() {
       self = .aid
@@ -17010,13 +13945,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum _cmd: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum _cmd: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case aCmd // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "a_cmd"),
-    ]
 
     init() {
       self = .aCmd
@@ -17037,13 +13968,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum out: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum out: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case aout // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "aout"),
-    ]
 
     init() {
       self = .aout
@@ -17064,13 +13991,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum bycopy: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum bycopy: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case abycopy // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "abycopy"),
-    ]
 
     init() {
       self = .abycopy
@@ -17091,13 +14014,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum byref: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum byref: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case abyref // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "abyref"),
-    ]
 
     init() {
       self = .abyref
@@ -17118,13 +14037,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum oneway: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum oneway: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case aoneway // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "aoneway"),
-    ]
 
     init() {
       self = .aoneway
@@ -17145,13 +14060,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum and: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum and: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case aand // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "aand"),
-    ]
 
     init() {
       self = .aand
@@ -17172,13 +14083,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum and_eq: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum and_eq: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case aandEq // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "aand_eq"),
-    ]
 
     init() {
       self = .aandEq
@@ -17199,13 +14106,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum alignas: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum alignas: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case aalignas // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "aalignas"),
-    ]
 
     init() {
       self = .aalignas
@@ -17226,13 +14129,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum alignof: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum alignof: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case aalignof // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "aalignof"),
-    ]
 
     init() {
       self = .aalignof
@@ -17253,13 +14152,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum asm: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum asm: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case aasm // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "aasm"),
-    ]
 
     init() {
       self = .aasm
@@ -17280,13 +14175,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum auto: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum auto: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case aauto // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "aauto"),
-    ]
 
     init() {
       self = .aauto
@@ -17307,13 +14198,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum bitand: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum bitand: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case abitand // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "abitand"),
-    ]
 
     init() {
       self = .abitand
@@ -17334,13 +14221,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum bitor: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum bitor: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case abitor // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "abitor"),
-    ]
 
     init() {
       self = .abitor
@@ -17361,13 +14244,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum bool: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum bool: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case abool // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "abool"),
-    ]
 
     init() {
       self = .abool
@@ -17388,13 +14267,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum char: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum char: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case achar // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "achar"),
-    ]
 
     init() {
       self = .achar
@@ -17415,13 +14290,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum char16_t: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum char16_t: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case achar16T // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "achar16_t"),
-    ]
 
     init() {
       self = .achar16T
@@ -17442,13 +14313,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum char32_t: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum char32_t: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case achar32T // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "achar32_t"),
-    ]
 
     init() {
       self = .achar32T
@@ -17469,13 +14336,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum compl: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum compl: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case acompl // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "acompl"),
-    ]
 
     init() {
       self = .acompl
@@ -17496,13 +14359,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum const: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum const: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case aconst // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "aconst"),
-    ]
 
     init() {
       self = .aconst
@@ -17523,13 +14382,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum constexpr: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum constexpr: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case aconstexpr // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "aconstexpr"),
-    ]
 
     init() {
       self = .aconstexpr
@@ -17550,13 +14405,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum const_cast: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum const_cast: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case aconstCast // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "aconst_cast"),
-    ]
 
     init() {
       self = .aconstCast
@@ -17577,13 +14428,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum decltype: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum decltype: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case adecltype // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "adecltype"),
-    ]
 
     init() {
       self = .adecltype
@@ -17604,13 +14451,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum delete: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum delete: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case adelete // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "adelete"),
-    ]
 
     init() {
       self = .adelete
@@ -17631,13 +14474,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum dynamic_cast: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum dynamic_cast: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case adynamicCast // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "adynamic_cast"),
-    ]
 
     init() {
       self = .adynamicCast
@@ -17658,13 +14497,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum explicit: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum explicit: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case aexplicit // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "aexplicit"),
-    ]
 
     init() {
       self = .aexplicit
@@ -17685,13 +14520,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum export: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum export: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case aexport // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "aexport"),
-    ]
 
     init() {
       self = .aexport
@@ -17712,13 +14543,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum extern: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum extern: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case aextern // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "aextern"),
-    ]
 
     init() {
       self = .aextern
@@ -17739,13 +14566,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum friend: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum friend: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case afriend // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "afriend"),
-    ]
 
     init() {
       self = .afriend
@@ -17766,13 +14589,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum goto: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum goto: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case agoto // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "agoto"),
-    ]
 
     init() {
       self = .agoto
@@ -17793,13 +14612,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum inline: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum inline: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case ainline // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "ainline"),
-    ]
 
     init() {
       self = .ainline
@@ -17820,13 +14635,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum long: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum long: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case along // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "along"),
-    ]
 
     init() {
       self = .along
@@ -17847,13 +14658,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum mutable: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum mutable: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case amutable // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "amutable"),
-    ]
 
     init() {
       self = .amutable
@@ -17874,13 +14681,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum namespace: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum namespace: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case anamespace // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "anamespace"),
-    ]
 
     init() {
       self = .anamespace
@@ -17901,13 +14704,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum new: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum new: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case anew // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "anew"),
-    ]
 
     init() {
       self = .anew
@@ -17928,13 +14727,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum noexcept: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum noexcept: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case anoexcept // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "anoexcept"),
-    ]
 
     init() {
       self = .anoexcept
@@ -17955,13 +14750,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum not: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum not: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case anot // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "anot"),
-    ]
 
     init() {
       self = .anot
@@ -17982,13 +14773,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum not_eq: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum not_eq: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case anotEq // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "anot_eq"),
-    ]
 
     init() {
       self = .anotEq
@@ -18009,13 +14796,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum nullptr: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum nullptr: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case anullptr // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "anullptr"),
-    ]
 
     init() {
       self = .anullptr
@@ -18036,13 +14819,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum or: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum or: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case aor // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "aor"),
-    ]
 
     init() {
       self = .aor
@@ -18063,13 +14842,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum or_eq: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum or_eq: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case aorEq // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "aor_eq"),
-    ]
 
     init() {
       self = .aorEq
@@ -18090,13 +14865,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum protected: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum protected: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case aprotected // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "aprotected"),
-    ]
 
     init() {
       self = .aprotected
@@ -18117,13 +14888,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum register: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum register: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case aregister // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "aregister"),
-    ]
 
     init() {
       self = .aregister
@@ -18144,13 +14911,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum reinterpret_cast: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum reinterpret_cast: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case areinterpretCast // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "areinterpret_cast"),
-    ]
 
     init() {
       self = .areinterpretCast
@@ -18171,13 +14934,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum short: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum short: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case ashort // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "ashort"),
-    ]
 
     init() {
       self = .ashort
@@ -18198,13 +14957,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum signed: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum signed: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case asigned // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "asigned"),
-    ]
 
     init() {
       self = .asigned
@@ -18225,13 +14980,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum sizeof: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum sizeof: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case asizeof // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "asizeof"),
-    ]
 
     init() {
       self = .asizeof
@@ -18252,13 +15003,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum static_assert: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum static_assert: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case astaticAssert // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "astatic_assert"),
-    ]
 
     init() {
       self = .astaticAssert
@@ -18279,13 +15026,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum static_cast: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum static_cast: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case astaticCast // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "astatic_cast"),
-    ]
 
     init() {
       self = .astaticCast
@@ -18306,13 +15049,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum template: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum template: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case atemplate // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "atemplate"),
-    ]
 
     init() {
       self = .atemplate
@@ -18333,13 +15072,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum this: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum this: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case athis // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "athis"),
-    ]
 
     init() {
       self = .athis
@@ -18360,13 +15095,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum thread_local: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum thread_local: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case athreadLocal // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "athread_local"),
-    ]
 
     init() {
       self = .athreadLocal
@@ -18387,13 +15118,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum typedef: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum typedef: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case atypedef // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "atypedef"),
-    ]
 
     init() {
       self = .atypedef
@@ -18414,13 +15141,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum typeid: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum typeid: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case atypeid // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "atypeid"),
-    ]
 
     init() {
       self = .atypeid
@@ -18441,13 +15164,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum typename: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum typename: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case atypename // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "atypename"),
-    ]
 
     init() {
       self = .atypename
@@ -18468,13 +15187,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum union: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum union: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case aunion // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "aunion"),
-    ]
 
     init() {
       self = .aunion
@@ -18495,13 +15210,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum unsigned: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum unsigned: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case aunsigned // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "aunsigned"),
-    ]
 
     init() {
       self = .aunsigned
@@ -18522,13 +15233,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum using: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum using: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case ausing // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "ausing"),
-    ]
 
     init() {
       self = .ausing
@@ -18549,13 +15256,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum virtual: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum virtual: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case avirtual // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "avirtual"),
-    ]
 
     init() {
       self = .avirtual
@@ -18576,13 +15279,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum void: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum void: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case avoid // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "avoid"),
-    ]
 
     init() {
       self = .avoid
@@ -18603,13 +15302,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum volatile: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum volatile: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case avolatile // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "avolatile"),
-    ]
 
     init() {
       self = .avolatile
@@ -18630,13 +15325,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum wchar_t: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum wchar_t: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case awcharT // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "awchar_t"),
-    ]
 
     init() {
       self = .awcharT
@@ -18657,13 +15348,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum xor: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum xor: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case axor // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "axor"),
-    ]
 
     init() {
       self = .axor
@@ -18684,13 +15371,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum xor_eq: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum xor_eq: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case axorEq // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "axor_eq"),
-    ]
 
     init() {
       self = .axorEq
@@ -18711,13 +15394,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum restrict: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum restrict: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case arestrict // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "arestrict"),
-    ]
 
     init() {
       self = .arestrict
@@ -18738,13 +15417,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum Category: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum Category: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case aCategory // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "aCategory"),
-    ]
 
     init() {
       self = .aCategory
@@ -18765,13 +15440,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum Ivar: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum Ivar: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case aIvar // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "aIvar"),
-    ]
 
     init() {
       self = .aIvar
@@ -18792,13 +15463,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum Method: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum Method: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case aMethod // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "aMethod"),
-    ]
 
     init() {
       self = .aMethod
@@ -18819,13 +15486,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum finalize: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum finalize: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case afinalize // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "afinalize"),
-    ]
 
     init() {
       self = .afinalize
@@ -18846,13 +15509,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum hash: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum hash: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case ahash // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "ahash"),
-    ]
 
     init() {
       self = .ahash
@@ -18873,13 +15532,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum dealloc: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum dealloc: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case adealloc // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "adealloc"),
-    ]
 
     init() {
       self = .adealloc
@@ -18900,13 +15555,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum superclass: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum superclass: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case asuperclass // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "asuperclass"),
-    ]
 
     init() {
       self = .asuperclass
@@ -18927,13 +15578,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum retain: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum retain: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case aretain // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "aretain"),
-    ]
 
     init() {
       self = .aretain
@@ -18954,13 +15601,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum release: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum release: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case arelease // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "arelease"),
-    ]
 
     init() {
       self = .arelease
@@ -18981,13 +15624,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum autorelease: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum autorelease: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case aautorelease // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "aautorelease"),
-    ]
 
     init() {
       self = .aautorelease
@@ -19008,13 +15647,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum retainCount: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum retainCount: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case aretainCount // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "aretainCount"),
-    ]
 
     init() {
       self = .aretainCount
@@ -19035,13 +15670,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum zone: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum zone: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case azone // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "azone"),
-    ]
 
     init() {
       self = .azone
@@ -19062,13 +15693,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum isProxy: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum isProxy: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case aisProxy // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "aisProxy"),
-    ]
 
     init() {
       self = .aisProxy
@@ -19089,13 +15716,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum copy: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum copy: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case acopy // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "acopy"),
-    ]
 
     init() {
       self = .acopy
@@ -19116,13 +15739,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum mutableCopy: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum mutableCopy: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case amutableCopy // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "amutableCopy"),
-    ]
 
     init() {
       self = .amutableCopy
@@ -19143,13 +15762,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum classForCoder: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum classForCoder: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case aclassForCoder // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "aclassForCoder"),
-    ]
 
     init() {
       self = .aclassForCoder
@@ -19170,13 +15785,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum clear: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum clear: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case aclear // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "aclear"),
-    ]
 
     init() {
       self = .aclear
@@ -19197,13 +15808,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum data: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum data: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case adata // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "adata"),
-    ]
 
     init() {
       self = .adata
@@ -19224,13 +15831,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum delimitedData: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum delimitedData: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case adelimitedData // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "adelimitedData"),
-    ]
 
     init() {
       self = .adelimitedData
@@ -19251,13 +15854,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum descriptor: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum descriptor: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case adescriptor // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "adescriptor"),
-    ]
 
     init() {
       self = .adescriptor
@@ -19278,13 +15877,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum extensionRegistry: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum extensionRegistry: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case aextensionRegistry // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "aextensionRegistry"),
-    ]
 
     init() {
       self = .aextensionRegistry
@@ -19305,13 +15900,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum extensionsCurrentlySet: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum extensionsCurrentlySet: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case aextensionsCurrentlySet // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "aextensionsCurrentlySet"),
-    ]
 
     init() {
       self = .aextensionsCurrentlySet
@@ -19332,13 +15923,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum isInitialized: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum isInitializedEnum: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case aisInitialized // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "aisInitialized"),
-    ]
 
     init() {
       self = .aisInitialized
@@ -19359,13 +15946,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum serializedSize: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum serializedSize: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case aserializedSize // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "aserializedSize"),
-    ]
 
     init() {
       self = .aserializedSize
@@ -19386,13 +15969,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum sortedExtensionsInUse: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum sortedExtensionsInUse: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case asortedExtensionsInUse // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "asortedExtensionsInUse"),
-    ]
 
     init() {
       self = .asortedExtensionsInUse
@@ -19413,13 +15992,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum unknownFieldsEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum unknownFieldsEnum: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case aunknownFields // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "aunknownFields"),
-    ]
 
     init() {
       self = .aunknownFields
@@ -19440,13 +16015,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum Fixed: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum Fixed: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case aFixed // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "aFixed"),
-    ]
 
     init() {
       self = .aFixed
@@ -19467,13 +16038,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum Fract: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum Fract: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case aFract // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "aFract"),
-    ]
 
     init() {
       self = .aFract
@@ -19494,13 +16061,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum Size: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum Size: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case aSize // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "aSize"),
-    ]
 
     init() {
       self = .aSize
@@ -19521,13 +16084,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum LogicalAddress: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum LogicalAddress: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case aLogicalAddress // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "aLogicalAddress"),
-    ]
 
     init() {
       self = .aLogicalAddress
@@ -19548,13 +16107,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum PhysicalAddress: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum PhysicalAddress: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case aPhysicalAddress // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "aPhysicalAddress"),
-    ]
 
     init() {
       self = .aPhysicalAddress
@@ -19575,13 +16130,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum ByteCount: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum ByteCount: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case aByteCount // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "aByteCount"),
-    ]
 
     init() {
       self = .aByteCount
@@ -19602,13 +16153,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum ByteOffset: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum ByteOffset: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case aByteOffset // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "aByteOffset"),
-    ]
 
     init() {
       self = .aByteOffset
@@ -19629,13 +16176,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum Duration: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum Duration: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case aDuration // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "aDuration"),
-    ]
 
     init() {
       self = .aDuration
@@ -19656,13 +16199,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum AbsoluteTime: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum AbsoluteTime: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case aAbsoluteTime // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "aAbsoluteTime"),
-    ]
 
     init() {
       self = .aAbsoluteTime
@@ -19683,13 +16222,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum OptionBits: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum OptionBits: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case aOptionBits // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "aOptionBits"),
-    ]
 
     init() {
       self = .aOptionBits
@@ -19710,13 +16245,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum ItemCount: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum ItemCount: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case aItemCount // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "aItemCount"),
-    ]
 
     init() {
       self = .aItemCount
@@ -19737,13 +16268,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum PBVersion: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum PBVersion: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case aPbversion // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "aPBVersion"),
-    ]
 
     init() {
       self = .aPbversion
@@ -19764,13 +16291,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum ScriptCode: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum ScriptCode: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case aScriptCode // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "aScriptCode"),
-    ]
 
     init() {
       self = .aScriptCode
@@ -19791,13 +16314,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum LangCode: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum LangCode: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case aLangCode // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "aLangCode"),
-    ]
 
     init() {
       self = .aLangCode
@@ -19818,13 +16337,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum RegionCode: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum RegionCode: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case aRegionCode // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "aRegionCode"),
-    ]
 
     init() {
       self = .aRegionCode
@@ -19845,13 +16360,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum OSType: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum OSType: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case aOstype // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "aOSType"),
-    ]
 
     init() {
       self = .aOstype
@@ -19872,13 +16383,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum ProcessSerialNumber: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum ProcessSerialNumber: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case aProcessSerialNumber // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "aProcessSerialNumber"),
-    ]
 
     init() {
       self = .aProcessSerialNumber
@@ -19899,13 +16406,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum Point: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum Point: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case aPoint // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "aPoint"),
-    ]
 
     init() {
       self = .aPoint
@@ -19926,13 +16429,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum Rect: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum Rect: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case aRect // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "aRect"),
-    ]
 
     init() {
       self = .aRect
@@ -19953,13 +16452,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum FixedPoint: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum FixedPoint: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case aFixedPoint // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "aFixedPoint"),
-    ]
 
     init() {
       self = .aFixedPoint
@@ -19980,13 +16475,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum FixedRect: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum FixedRect: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case aFixedRect // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "aFixedRect"),
-    ]
 
     init() {
       self = .aFixedRect
@@ -20007,13 +16498,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum Style: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum Style: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case aStyle // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "aStyle"),
-    ]
 
     init() {
       self = .aStyle
@@ -20034,13 +16521,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum StyleParameter: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum StyleParameter: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case aStyleParameter // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "aStyleParameter"),
-    ]
 
     init() {
       self = .aStyleParameter
@@ -20061,13 +16544,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum StyleField: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum StyleField: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case aStyleField // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "aStyleField"),
-    ]
 
     init() {
       self = .aStyleField
@@ -20088,13 +16567,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum TimeScale: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum TimeScale: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case aTimeScale // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "aTimeScale"),
-    ]
 
     init() {
       self = .aTimeScale
@@ -20115,13 +16590,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum TimeBase: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum TimeBase: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case aTimeBase // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "aTimeBase"),
-    ]
 
     init() {
       self = .aTimeBase
@@ -20142,13 +16613,9 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
-  enum TimeRecord: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum TimeRecord: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case aTimeRecord // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "aTimeRecord"),
-    ]
 
     init() {
       self = .aTimeRecord
@@ -20169,6 +16636,52 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   }
 
+  enum Extension: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case aExtension // = 0
+
+    init() {
+      self = .aExtension
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .aExtension
+      default: return nil
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .aExtension: return 0
+      }
+    }
+
+  }
+
+  enum ExtensionsEnum: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case aExtensions // = 0
+
+    init() {
+      self = .aExtensions
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .aExtensions
+      default: return nil
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .aExtensions: return 0
+      }
+    }
+
+  }
+
   init() {}
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -20179,191 +16692,170 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try unknownFields.traverse(visitor: &visitor)
   }
-
-  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_EnumNames) -> Bool {
-    if unknownFields != other.unknownFields {return false}
-    return true
-  }
 }
 
-struct SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+struct SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".FieldNamingInitials"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  struct Lowers: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct Lowers: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_FieldNamingInitials.protoMessageName + ".Lowers"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "http"),
-      2: .standard(proto: "http_request"),
-      3: .standard(proto: "the_http_request"),
-      4: .standard(proto: "the_http"),
-      11: .same(proto: "https"),
-      12: .standard(proto: "https_request"),
-      13: .standard(proto: "the_https_request"),
-      14: .standard(proto: "the_https"),
-      21: .same(proto: "url"),
-      22: .standard(proto: "url_value"),
-      23: .standard(proto: "the_url_value"),
-      24: .standard(proto: "the_url"),
-      31: .standard(proto: "a_b_c"),
-    ]
 
-    private var _http: Int32? = nil
+    fileprivate var _http: Int32? = nil
     var http: Int32 {
       get {return _http ?? 0}
       set {_http = newValue}
     }
     var hasHTTP: Bool {
-      return _http != nil
+      return self._http != nil
     }
     mutating func clearHTTP() {
-      return _http = nil
+      self._http = nil
     }
 
-    private var _httpRequest: Int32? = nil
+    fileprivate var _httpRequest: Int32? = nil
     var httpRequest: Int32 {
       get {return _httpRequest ?? 0}
       set {_httpRequest = newValue}
     }
     var hasHTTPRequest: Bool {
-      return _httpRequest != nil
+      return self._httpRequest != nil
     }
     mutating func clearHTTPRequest() {
-      return _httpRequest = nil
+      self._httpRequest = nil
     }
 
-    private var _theHTTPRequest: Int32? = nil
+    fileprivate var _theHTTPRequest: Int32? = nil
     var theHTTPRequest: Int32 {
       get {return _theHTTPRequest ?? 0}
       set {_theHTTPRequest = newValue}
     }
     var hasTheHTTPRequest: Bool {
-      return _theHTTPRequest != nil
+      return self._theHTTPRequest != nil
     }
     mutating func clearTheHTTPRequest() {
-      return _theHTTPRequest = nil
+      self._theHTTPRequest = nil
     }
 
-    private var _theHTTP: Int32? = nil
+    fileprivate var _theHTTP: Int32? = nil
     var theHTTP: Int32 {
       get {return _theHTTP ?? 0}
       set {_theHTTP = newValue}
     }
     var hasTheHTTP: Bool {
-      return _theHTTP != nil
+      return self._theHTTP != nil
     }
     mutating func clearTheHTTP() {
-      return _theHTTP = nil
+      self._theHTTP = nil
     }
 
-    private var _https: Int32? = nil
+    fileprivate var _https: Int32? = nil
     var https: Int32 {
       get {return _https ?? 0}
       set {_https = newValue}
     }
     var hasHTTPS: Bool {
-      return _https != nil
+      return self._https != nil
     }
     mutating func clearHTTPS() {
-      return _https = nil
+      self._https = nil
     }
 
-    private var _httpsRequest: Int32? = nil
+    fileprivate var _httpsRequest: Int32? = nil
     var httpsRequest: Int32 {
       get {return _httpsRequest ?? 0}
       set {_httpsRequest = newValue}
     }
     var hasHTTPSRequest: Bool {
-      return _httpsRequest != nil
+      return self._httpsRequest != nil
     }
     mutating func clearHTTPSRequest() {
-      return _httpsRequest = nil
+      self._httpsRequest = nil
     }
 
-    private var _theHTTPSRequest: Int32? = nil
+    fileprivate var _theHTTPSRequest: Int32? = nil
     var theHTTPSRequest: Int32 {
       get {return _theHTTPSRequest ?? 0}
       set {_theHTTPSRequest = newValue}
     }
     var hasTheHTTPSRequest: Bool {
-      return _theHTTPSRequest != nil
+      return self._theHTTPSRequest != nil
     }
     mutating func clearTheHTTPSRequest() {
-      return _theHTTPSRequest = nil
+      self._theHTTPSRequest = nil
     }
 
-    private var _theHTTPS: Int32? = nil
+    fileprivate var _theHTTPS: Int32? = nil
     var theHTTPS: Int32 {
       get {return _theHTTPS ?? 0}
       set {_theHTTPS = newValue}
     }
     var hasTheHTTPS: Bool {
-      return _theHTTPS != nil
+      return self._theHTTPS != nil
     }
     mutating func clearTheHTTPS() {
-      return _theHTTPS = nil
+      self._theHTTPS = nil
     }
 
-    private var _url: Int32? = nil
+    fileprivate var _url: Int32? = nil
     var url: Int32 {
       get {return _url ?? 0}
       set {_url = newValue}
     }
     var hasURL: Bool {
-      return _url != nil
+      return self._url != nil
     }
     mutating func clearURL() {
-      return _url = nil
+      self._url = nil
     }
 
-    private var _urlValue: Int32? = nil
+    fileprivate var _urlValue: Int32? = nil
     var urlValue: Int32 {
       get {return _urlValue ?? 0}
       set {_urlValue = newValue}
     }
     var hasURLValue: Bool {
-      return _urlValue != nil
+      return self._urlValue != nil
     }
     mutating func clearURLValue() {
-      return _urlValue = nil
+      self._urlValue = nil
     }
 
-    private var _theURLValue: Int32? = nil
+    fileprivate var _theURLValue: Int32? = nil
     var theURLValue: Int32 {
       get {return _theURLValue ?? 0}
       set {_theURLValue = newValue}
     }
     var hasTheURLValue: Bool {
-      return _theURLValue != nil
+      return self._theURLValue != nil
     }
     mutating func clearTheURLValue() {
-      return _theURLValue = nil
+      self._theURLValue = nil
     }
 
-    private var _theURL: Int32? = nil
+    fileprivate var _theURL: Int32? = nil
     var theURL: Int32 {
       get {return _theURL ?? 0}
       set {_theURL = newValue}
     }
     var hasTheURL: Bool {
-      return _theURL != nil
+      return self._theURL != nil
     }
     mutating func clearTheURL() {
-      return _theURL = nil
+      self._theURL = nil
     }
 
-    private var _aBC: Int32? = nil
+    fileprivate var _aBC: Int32? = nil
     var aBC: Int32 {
       get {return _aBC ?? 0}
       set {_aBC = newValue}
     }
     var hasABC: Bool {
-      return _aBC != nil
+      return self._aBC != nil
     }
     mutating func clearABC() {
-      return _aBC = nil
+      self._aBC = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -20373,245 +16865,213 @@ struct SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Message, SwiftProt
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_http)
-        case 2: try decoder.decodeSingularInt32Field(value: &_httpRequest)
-        case 3: try decoder.decodeSingularInt32Field(value: &_theHTTPRequest)
-        case 4: try decoder.decodeSingularInt32Field(value: &_theHTTP)
-        case 11: try decoder.decodeSingularInt32Field(value: &_https)
-        case 12: try decoder.decodeSingularInt32Field(value: &_httpsRequest)
-        case 13: try decoder.decodeSingularInt32Field(value: &_theHTTPSRequest)
-        case 14: try decoder.decodeSingularInt32Field(value: &_theHTTPS)
-        case 21: try decoder.decodeSingularInt32Field(value: &_url)
-        case 22: try decoder.decodeSingularInt32Field(value: &_urlValue)
-        case 23: try decoder.decodeSingularInt32Field(value: &_theURLValue)
-        case 24: try decoder.decodeSingularInt32Field(value: &_theURL)
-        case 31: try decoder.decodeSingularInt32Field(value: &_aBC)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._http)
+        case 2: try decoder.decodeSingularInt32Field(value: &self._httpRequest)
+        case 3: try decoder.decodeSingularInt32Field(value: &self._theHTTPRequest)
+        case 4: try decoder.decodeSingularInt32Field(value: &self._theHTTP)
+        case 11: try decoder.decodeSingularInt32Field(value: &self._https)
+        case 12: try decoder.decodeSingularInt32Field(value: &self._httpsRequest)
+        case 13: try decoder.decodeSingularInt32Field(value: &self._theHTTPSRequest)
+        case 14: try decoder.decodeSingularInt32Field(value: &self._theHTTPS)
+        case 21: try decoder.decodeSingularInt32Field(value: &self._url)
+        case 22: try decoder.decodeSingularInt32Field(value: &self._urlValue)
+        case 23: try decoder.decodeSingularInt32Field(value: &self._theURLValue)
+        case 24: try decoder.decodeSingularInt32Field(value: &self._theURL)
+        case 31: try decoder.decodeSingularInt32Field(value: &self._aBC)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _http {
+      if let v = self._http {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      if let v = _httpRequest {
+      if let v = self._httpRequest {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 2)
       }
-      if let v = _theHTTPRequest {
+      if let v = self._theHTTPRequest {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 3)
       }
-      if let v = _theHTTP {
+      if let v = self._theHTTP {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 4)
       }
-      if let v = _https {
+      if let v = self._https {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 11)
       }
-      if let v = _httpsRequest {
+      if let v = self._httpsRequest {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 12)
       }
-      if let v = _theHTTPSRequest {
+      if let v = self._theHTTPSRequest {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 13)
       }
-      if let v = _theHTTPS {
+      if let v = self._theHTTPS {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 14)
       }
-      if let v = _url {
+      if let v = self._url {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 21)
       }
-      if let v = _urlValue {
+      if let v = self._urlValue {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 22)
       }
-      if let v = _theURLValue {
+      if let v = self._theURLValue {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 23)
       }
-      if let v = _theURL {
+      if let v = self._theURL {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 24)
       }
-      if let v = _aBC {
+      if let v = self._aBC {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 31)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_FieldNamingInitials.Lowers) -> Bool {
-      if _http != other._http {return false}
-      if _httpRequest != other._httpRequest {return false}
-      if _theHTTPRequest != other._theHTTPRequest {return false}
-      if _theHTTP != other._theHTTP {return false}
-      if _https != other._https {return false}
-      if _httpsRequest != other._httpsRequest {return false}
-      if _theHTTPSRequest != other._theHTTPSRequest {return false}
-      if _theHTTPS != other._theHTTPS {return false}
-      if _url != other._url {return false}
-      if _urlValue != other._urlValue {return false}
-      if _theURLValue != other._theURLValue {return false}
-      if _theURL != other._theURL {return false}
-      if _aBC != other._aBC {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct Uppers: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct Uppers: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_FieldNamingInitials.protoMessageName + ".Uppers"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "HTTP"),
-      2: .standard(proto: "HTTP_request"),
-      3: .standard(proto: "the_HTTP_request"),
-      4: .standard(proto: "the_HTTP"),
-      11: .same(proto: "HTTPS"),
-      12: .standard(proto: "HTTPS_request"),
-      13: .standard(proto: "the_HTTPS_request"),
-      14: .standard(proto: "the_HTTPS"),
-      21: .same(proto: "URL"),
-      22: .standard(proto: "URL_value"),
-      23: .standard(proto: "the_URL_value"),
-      24: .standard(proto: "the_URL"),
-    ]
 
-    private var _http: Int32? = nil
+    fileprivate var _http: Int32? = nil
     var http: Int32 {
       get {return _http ?? 0}
       set {_http = newValue}
     }
     var hasHTTP: Bool {
-      return _http != nil
+      return self._http != nil
     }
     mutating func clearHTTP() {
-      return _http = nil
+      self._http = nil
     }
 
-    private var _httpRequest: Int32? = nil
+    fileprivate var _httpRequest: Int32? = nil
     var httpRequest: Int32 {
       get {return _httpRequest ?? 0}
       set {_httpRequest = newValue}
     }
     var hasHTTPRequest: Bool {
-      return _httpRequest != nil
+      return self._httpRequest != nil
     }
     mutating func clearHTTPRequest() {
-      return _httpRequest = nil
+      self._httpRequest = nil
     }
 
-    private var _theHTTPRequest: Int32? = nil
+    fileprivate var _theHTTPRequest: Int32? = nil
     var theHTTPRequest: Int32 {
       get {return _theHTTPRequest ?? 0}
       set {_theHTTPRequest = newValue}
     }
     var hasTheHTTPRequest: Bool {
-      return _theHTTPRequest != nil
+      return self._theHTTPRequest != nil
     }
     mutating func clearTheHTTPRequest() {
-      return _theHTTPRequest = nil
+      self._theHTTPRequest = nil
     }
 
-    private var _theHTTP: Int32? = nil
+    fileprivate var _theHTTP: Int32? = nil
     var theHTTP: Int32 {
       get {return _theHTTP ?? 0}
       set {_theHTTP = newValue}
     }
     var hasTheHTTP: Bool {
-      return _theHTTP != nil
+      return self._theHTTP != nil
     }
     mutating func clearTheHTTP() {
-      return _theHTTP = nil
+      self._theHTTP = nil
     }
 
-    private var _https: Int32? = nil
+    fileprivate var _https: Int32? = nil
     var https: Int32 {
       get {return _https ?? 0}
       set {_https = newValue}
     }
     var hasHTTPS: Bool {
-      return _https != nil
+      return self._https != nil
     }
     mutating func clearHTTPS() {
-      return _https = nil
+      self._https = nil
     }
 
-    private var _httpsRequest: Int32? = nil
+    fileprivate var _httpsRequest: Int32? = nil
     var httpsRequest: Int32 {
       get {return _httpsRequest ?? 0}
       set {_httpsRequest = newValue}
     }
     var hasHTTPSRequest: Bool {
-      return _httpsRequest != nil
+      return self._httpsRequest != nil
     }
     mutating func clearHTTPSRequest() {
-      return _httpsRequest = nil
+      self._httpsRequest = nil
     }
 
-    private var _theHTTPSRequest: Int32? = nil
+    fileprivate var _theHTTPSRequest: Int32? = nil
     var theHTTPSRequest: Int32 {
       get {return _theHTTPSRequest ?? 0}
       set {_theHTTPSRequest = newValue}
     }
     var hasTheHTTPSRequest: Bool {
-      return _theHTTPSRequest != nil
+      return self._theHTTPSRequest != nil
     }
     mutating func clearTheHTTPSRequest() {
-      return _theHTTPSRequest = nil
+      self._theHTTPSRequest = nil
     }
 
-    private var _theHTTPS: Int32? = nil
+    fileprivate var _theHTTPS: Int32? = nil
     var theHTTPS: Int32 {
       get {return _theHTTPS ?? 0}
       set {_theHTTPS = newValue}
     }
     var hasTheHTTPS: Bool {
-      return _theHTTPS != nil
+      return self._theHTTPS != nil
     }
     mutating func clearTheHTTPS() {
-      return _theHTTPS = nil
+      self._theHTTPS = nil
     }
 
-    private var _url: Int32? = nil
+    fileprivate var _url: Int32? = nil
     var url: Int32 {
       get {return _url ?? 0}
       set {_url = newValue}
     }
     var hasURL: Bool {
-      return _url != nil
+      return self._url != nil
     }
     mutating func clearURL() {
-      return _url = nil
+      self._url = nil
     }
 
-    private var _urlValue: Int32? = nil
+    fileprivate var _urlValue: Int32? = nil
     var urlValue: Int32 {
       get {return _urlValue ?? 0}
       set {_urlValue = newValue}
     }
     var hasURLValue: Bool {
-      return _urlValue != nil
+      return self._urlValue != nil
     }
     mutating func clearURLValue() {
-      return _urlValue = nil
+      self._urlValue = nil
     }
 
-    private var _theURLValue: Int32? = nil
+    fileprivate var _theURLValue: Int32? = nil
     var theURLValue: Int32 {
       get {return _theURLValue ?? 0}
       set {_theURLValue = newValue}
     }
     var hasTheURLValue: Bool {
-      return _theURLValue != nil
+      return self._theURLValue != nil
     }
     mutating func clearTheURLValue() {
-      return _theURLValue = nil
+      self._theURLValue = nil
     }
 
-    private var _theURL: Int32? = nil
+    fileprivate var _theURL: Int32? = nil
     var theURL: Int32 {
       get {return _theURL ?? 0}
       set {_theURL = newValue}
     }
     var hasTheURL: Bool {
-      return _theURL != nil
+      return self._theURL != nil
     }
     mutating func clearTheURL() {
-      return _theURL = nil
+      self._theURL = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -20621,240 +17081,209 @@ struct SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Message, SwiftProt
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_http)
-        case 2: try decoder.decodeSingularInt32Field(value: &_httpRequest)
-        case 3: try decoder.decodeSingularInt32Field(value: &_theHTTPRequest)
-        case 4: try decoder.decodeSingularInt32Field(value: &_theHTTP)
-        case 11: try decoder.decodeSingularInt32Field(value: &_https)
-        case 12: try decoder.decodeSingularInt32Field(value: &_httpsRequest)
-        case 13: try decoder.decodeSingularInt32Field(value: &_theHTTPSRequest)
-        case 14: try decoder.decodeSingularInt32Field(value: &_theHTTPS)
-        case 21: try decoder.decodeSingularInt32Field(value: &_url)
-        case 22: try decoder.decodeSingularInt32Field(value: &_urlValue)
-        case 23: try decoder.decodeSingularInt32Field(value: &_theURLValue)
-        case 24: try decoder.decodeSingularInt32Field(value: &_theURL)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._http)
+        case 2: try decoder.decodeSingularInt32Field(value: &self._httpRequest)
+        case 3: try decoder.decodeSingularInt32Field(value: &self._theHTTPRequest)
+        case 4: try decoder.decodeSingularInt32Field(value: &self._theHTTP)
+        case 11: try decoder.decodeSingularInt32Field(value: &self._https)
+        case 12: try decoder.decodeSingularInt32Field(value: &self._httpsRequest)
+        case 13: try decoder.decodeSingularInt32Field(value: &self._theHTTPSRequest)
+        case 14: try decoder.decodeSingularInt32Field(value: &self._theHTTPS)
+        case 21: try decoder.decodeSingularInt32Field(value: &self._url)
+        case 22: try decoder.decodeSingularInt32Field(value: &self._urlValue)
+        case 23: try decoder.decodeSingularInt32Field(value: &self._theURLValue)
+        case 24: try decoder.decodeSingularInt32Field(value: &self._theURL)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _http {
+      if let v = self._http {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      if let v = _httpRequest {
+      if let v = self._httpRequest {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 2)
       }
-      if let v = _theHTTPRequest {
+      if let v = self._theHTTPRequest {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 3)
       }
-      if let v = _theHTTP {
+      if let v = self._theHTTP {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 4)
       }
-      if let v = _https {
+      if let v = self._https {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 11)
       }
-      if let v = _httpsRequest {
+      if let v = self._httpsRequest {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 12)
       }
-      if let v = _theHTTPSRequest {
+      if let v = self._theHTTPSRequest {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 13)
       }
-      if let v = _theHTTPS {
+      if let v = self._theHTTPS {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 14)
       }
-      if let v = _url {
+      if let v = self._url {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 21)
       }
-      if let v = _urlValue {
+      if let v = self._urlValue {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 22)
       }
-      if let v = _theURLValue {
+      if let v = self._theURLValue {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 23)
       }
-      if let v = _theURL {
+      if let v = self._theURL {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 24)
       }
       try unknownFields.traverse(visitor: &visitor)
-    }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_FieldNamingInitials.Uppers) -> Bool {
-      if _http != other._http {return false}
-      if _httpRequest != other._httpRequest {return false}
-      if _theHTTPRequest != other._theHTTPRequest {return false}
-      if _theHTTP != other._theHTTP {return false}
-      if _https != other._https {return false}
-      if _httpsRequest != other._httpsRequest {return false}
-      if _theHTTPSRequest != other._theHTTPSRequest {return false}
-      if _theHTTPS != other._theHTTPS {return false}
-      if _url != other._url {return false}
-      if _urlValue != other._urlValue {return false}
-      if _theURLValue != other._theURLValue {return false}
-      if _theURL != other._theURL {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
     }
   }
 
-  struct WordCase: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct WordCase: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_FieldNamingInitials.protoMessageName + ".WordCase"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "Http"),
-      2: .same(proto: "HttpRequest"),
-      3: .same(proto: "TheHttpRequest"),
-      4: .same(proto: "TheHttp"),
-      11: .same(proto: "Https"),
-      12: .same(proto: "HttpsRequest"),
-      13: .same(proto: "TheHttpsRequest"),
-      14: .same(proto: "TheHttps"),
-      21: .same(proto: "Url"),
-      22: .same(proto: "UrlValue"),
-      23: .same(proto: "TheUrlValue"),
-      24: .same(proto: "TheUrl"),
-    ]
 
-    private var _http: Int32? = nil
+    fileprivate var _http: Int32? = nil
     var http: Int32 {
       get {return _http ?? 0}
       set {_http = newValue}
     }
     var hasHTTP: Bool {
-      return _http != nil
+      return self._http != nil
     }
     mutating func clearHTTP() {
-      return _http = nil
+      self._http = nil
     }
 
-    private var _httpRequest: Int32? = nil
+    fileprivate var _httpRequest: Int32? = nil
     var httpRequest: Int32 {
       get {return _httpRequest ?? 0}
       set {_httpRequest = newValue}
     }
     var hasHTTPRequest: Bool {
-      return _httpRequest != nil
+      return self._httpRequest != nil
     }
     mutating func clearHTTPRequest() {
-      return _httpRequest = nil
+      self._httpRequest = nil
     }
 
-    private var _theHTTPRequest: Int32? = nil
+    fileprivate var _theHTTPRequest: Int32? = nil
     var theHTTPRequest: Int32 {
       get {return _theHTTPRequest ?? 0}
       set {_theHTTPRequest = newValue}
     }
     var hasTheHTTPRequest: Bool {
-      return _theHTTPRequest != nil
+      return self._theHTTPRequest != nil
     }
     mutating func clearTheHTTPRequest() {
-      return _theHTTPRequest = nil
+      self._theHTTPRequest = nil
     }
 
-    private var _theHTTP: Int32? = nil
+    fileprivate var _theHTTP: Int32? = nil
     var theHTTP: Int32 {
       get {return _theHTTP ?? 0}
       set {_theHTTP = newValue}
     }
     var hasTheHTTP: Bool {
-      return _theHTTP != nil
+      return self._theHTTP != nil
     }
     mutating func clearTheHTTP() {
-      return _theHTTP = nil
+      self._theHTTP = nil
     }
 
-    private var _https: Int32? = nil
+    fileprivate var _https: Int32? = nil
     var https: Int32 {
       get {return _https ?? 0}
       set {_https = newValue}
     }
     var hasHTTPS: Bool {
-      return _https != nil
+      return self._https != nil
     }
     mutating func clearHTTPS() {
-      return _https = nil
+      self._https = nil
     }
 
-    private var _httpsRequest: Int32? = nil
+    fileprivate var _httpsRequest: Int32? = nil
     var httpsRequest: Int32 {
       get {return _httpsRequest ?? 0}
       set {_httpsRequest = newValue}
     }
     var hasHTTPSRequest: Bool {
-      return _httpsRequest != nil
+      return self._httpsRequest != nil
     }
     mutating func clearHTTPSRequest() {
-      return _httpsRequest = nil
+      self._httpsRequest = nil
     }
 
-    private var _theHTTPSRequest: Int32? = nil
+    fileprivate var _theHTTPSRequest: Int32? = nil
     var theHTTPSRequest: Int32 {
       get {return _theHTTPSRequest ?? 0}
       set {_theHTTPSRequest = newValue}
     }
     var hasTheHTTPSRequest: Bool {
-      return _theHTTPSRequest != nil
+      return self._theHTTPSRequest != nil
     }
     mutating func clearTheHTTPSRequest() {
-      return _theHTTPSRequest = nil
+      self._theHTTPSRequest = nil
     }
 
-    private var _theHTTPS: Int32? = nil
+    fileprivate var _theHTTPS: Int32? = nil
     var theHTTPS: Int32 {
       get {return _theHTTPS ?? 0}
       set {_theHTTPS = newValue}
     }
     var hasTheHTTPS: Bool {
-      return _theHTTPS != nil
+      return self._theHTTPS != nil
     }
     mutating func clearTheHTTPS() {
-      return _theHTTPS = nil
+      self._theHTTPS = nil
     }
 
-    private var _url: Int32? = nil
+    fileprivate var _url: Int32? = nil
     var url: Int32 {
       get {return _url ?? 0}
       set {_url = newValue}
     }
     var hasURL: Bool {
-      return _url != nil
+      return self._url != nil
     }
     mutating func clearURL() {
-      return _url = nil
+      self._url = nil
     }
 
-    private var _urlValue: Int32? = nil
+    fileprivate var _urlValue: Int32? = nil
     var urlValue: Int32 {
       get {return _urlValue ?? 0}
       set {_urlValue = newValue}
     }
     var hasURLValue: Bool {
-      return _urlValue != nil
+      return self._urlValue != nil
     }
     mutating func clearURLValue() {
-      return _urlValue = nil
+      self._urlValue = nil
     }
 
-    private var _theURLValue: Int32? = nil
+    fileprivate var _theURLValue: Int32? = nil
     var theURLValue: Int32 {
       get {return _theURLValue ?? 0}
       set {_theURLValue = newValue}
     }
     var hasTheURLValue: Bool {
-      return _theURLValue != nil
+      return self._theURLValue != nil
     }
     mutating func clearTheURLValue() {
-      return _theURLValue = nil
+      self._theURLValue = nil
     }
 
-    private var _theURL: Int32? = nil
+    fileprivate var _theURL: Int32? = nil
     var theURL: Int32 {
       get {return _theURL ?? 0}
       set {_theURL = newValue}
     }
     var hasTheURL: Bool {
-      return _theURL != nil
+      return self._theURL != nil
     }
     mutating func clearTheURL() {
-      return _theURL = nil
+      self._theURL = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -20864,78 +17293,61 @@ struct SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Message, SwiftProt
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_http)
-        case 2: try decoder.decodeSingularInt32Field(value: &_httpRequest)
-        case 3: try decoder.decodeSingularInt32Field(value: &_theHTTPRequest)
-        case 4: try decoder.decodeSingularInt32Field(value: &_theHTTP)
-        case 11: try decoder.decodeSingularInt32Field(value: &_https)
-        case 12: try decoder.decodeSingularInt32Field(value: &_httpsRequest)
-        case 13: try decoder.decodeSingularInt32Field(value: &_theHTTPSRequest)
-        case 14: try decoder.decodeSingularInt32Field(value: &_theHTTPS)
-        case 21: try decoder.decodeSingularInt32Field(value: &_url)
-        case 22: try decoder.decodeSingularInt32Field(value: &_urlValue)
-        case 23: try decoder.decodeSingularInt32Field(value: &_theURLValue)
-        case 24: try decoder.decodeSingularInt32Field(value: &_theURL)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._http)
+        case 2: try decoder.decodeSingularInt32Field(value: &self._httpRequest)
+        case 3: try decoder.decodeSingularInt32Field(value: &self._theHTTPRequest)
+        case 4: try decoder.decodeSingularInt32Field(value: &self._theHTTP)
+        case 11: try decoder.decodeSingularInt32Field(value: &self._https)
+        case 12: try decoder.decodeSingularInt32Field(value: &self._httpsRequest)
+        case 13: try decoder.decodeSingularInt32Field(value: &self._theHTTPSRequest)
+        case 14: try decoder.decodeSingularInt32Field(value: &self._theHTTPS)
+        case 21: try decoder.decodeSingularInt32Field(value: &self._url)
+        case 22: try decoder.decodeSingularInt32Field(value: &self._urlValue)
+        case 23: try decoder.decodeSingularInt32Field(value: &self._theURLValue)
+        case 24: try decoder.decodeSingularInt32Field(value: &self._theURL)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _http {
+      if let v = self._http {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      if let v = _httpRequest {
+      if let v = self._httpRequest {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 2)
       }
-      if let v = _theHTTPRequest {
+      if let v = self._theHTTPRequest {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 3)
       }
-      if let v = _theHTTP {
+      if let v = self._theHTTP {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 4)
       }
-      if let v = _https {
+      if let v = self._https {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 11)
       }
-      if let v = _httpsRequest {
+      if let v = self._httpsRequest {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 12)
       }
-      if let v = _theHTTPSRequest {
+      if let v = self._theHTTPSRequest {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 13)
       }
-      if let v = _theHTTPS {
+      if let v = self._theHTTPS {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 14)
       }
-      if let v = _url {
+      if let v = self._url {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 21)
       }
-      if let v = _urlValue {
+      if let v = self._urlValue {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 22)
       }
-      if let v = _theURLValue {
+      if let v = self._theURLValue {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 23)
       }
-      if let v = _theURL {
+      if let v = self._theURL {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 24)
       }
       try unknownFields.traverse(visitor: &visitor)
-    }
-
-    func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_FieldNamingInitials.WordCase) -> Bool {
-      if _http != other._http {return false}
-      if _httpRequest != other._httpRequest {return false}
-      if _theHTTPRequest != other._theHTTPRequest {return false}
-      if _theHTTP != other._theHTTP {return false}
-      if _https != other._https {return false}
-      if _httpsRequest != other._httpsRequest {return false}
-      if _theHTTPSRequest != other._theHTTPSRequest {return false}
-      if _theHTTPS != other._theHTTPS {return false}
-      if _url != other._url {return false}
-      if _urlValue != other._urlValue {return false}
-      if _theURLValue != other._theURLValue {return false}
-      if _theURL != other._theURL {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
     }
   }
 
@@ -20949,16 +17361,10 @@ struct SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Message, SwiftProt
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try unknownFields.traverse(visitor: &visitor)
   }
-
-  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_FieldNamingInitials) -> Bool {
-    if unknownFields != other.unknownFields {return false}
-    return true
-  }
 }
 
-struct SwiftUnittest_Names_ExtensionNamingInitials: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+struct SwiftUnittest_Names_ExtensionNamingInitials: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage {
   static let protoMessageName: String = _protobuf_package + ".ExtensionNamingInitials"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -20982,101 +17388,13 @@ struct SwiftUnittest_Names_ExtensionNamingInitials: SwiftProtobuf.Message, Swift
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_ExtensionNamingInitials) -> Bool {
-    if unknownFields != other.unknownFields {return false}
-    if _protobuf_extensionFieldValues != other._protobuf_extensionFieldValues {return false}
-    return true
-  }
-
   var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
 }
 
-struct SwiftUnittest_Names_Lowers: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+struct SwiftUnittest_Names_Lowers: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".Lowers"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
-
-  struct Extensions {
-
-    static let http = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
-      _protobuf_fieldNumber: 1,
-      fieldName: "swift_unittest.names.Lowers.http",
-      defaultValue: 0
-    )
-
-    static let http_request = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
-      _protobuf_fieldNumber: 2,
-      fieldName: "swift_unittest.names.Lowers.http_request",
-      defaultValue: 0
-    )
-
-    static let the_http_request = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
-      _protobuf_fieldNumber: 3,
-      fieldName: "swift_unittest.names.Lowers.the_http_request",
-      defaultValue: 0
-    )
-
-    static let the_http = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
-      _protobuf_fieldNumber: 4,
-      fieldName: "swift_unittest.names.Lowers.the_http",
-      defaultValue: 0
-    )
-
-    static let https = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
-      _protobuf_fieldNumber: 11,
-      fieldName: "swift_unittest.names.Lowers.https",
-      defaultValue: 0
-    )
-
-    static let https_request = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
-      _protobuf_fieldNumber: 12,
-      fieldName: "swift_unittest.names.Lowers.https_request",
-      defaultValue: 0
-    )
-
-    static let the_https_request = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
-      _protobuf_fieldNumber: 13,
-      fieldName: "swift_unittest.names.Lowers.the_https_request",
-      defaultValue: 0
-    )
-
-    static let the_https = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
-      _protobuf_fieldNumber: 14,
-      fieldName: "swift_unittest.names.Lowers.the_https",
-      defaultValue: 0
-    )
-
-    static let url = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
-      _protobuf_fieldNumber: 21,
-      fieldName: "swift_unittest.names.Lowers.url",
-      defaultValue: 0
-    )
-
-    static let url_value = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
-      _protobuf_fieldNumber: 22,
-      fieldName: "swift_unittest.names.Lowers.url_value",
-      defaultValue: 0
-    )
-
-    static let the_url_value = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
-      _protobuf_fieldNumber: 23,
-      fieldName: "swift_unittest.names.Lowers.the_url_value",
-      defaultValue: 0
-    )
-
-    static let the_url = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
-      _protobuf_fieldNumber: 24,
-      fieldName: "swift_unittest.names.Lowers.the_url",
-      defaultValue: 0
-    )
-
-    static let a_b_c = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
-      _protobuf_fieldNumber: 31,
-      fieldName: "swift_unittest.names.Lowers.a_b_c",
-      defaultValue: 0
-    )
-  }
 
   init() {}
 
@@ -21088,93 +17406,12 @@ struct SwiftUnittest_Names_Lowers: SwiftProtobuf.Message, SwiftProtobuf._Message
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try unknownFields.traverse(visitor: &visitor)
   }
-
-  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_Lowers) -> Bool {
-    if unknownFields != other.unknownFields {return false}
-    return true
-  }
 }
 
-struct SwiftUnittest_Names_Uppers: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+struct SwiftUnittest_Names_Uppers: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".Uppers"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
-
-  struct Extensions {
-
-    static let HTTP = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
-      _protobuf_fieldNumber: 101,
-      fieldName: "swift_unittest.names.Uppers.HTTP",
-      defaultValue: 0
-    )
-
-    static let HTTP_request = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
-      _protobuf_fieldNumber: 102,
-      fieldName: "swift_unittest.names.Uppers.HTTP_request",
-      defaultValue: 0
-    )
-
-    static let the_HTTP_request = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
-      _protobuf_fieldNumber: 103,
-      fieldName: "swift_unittest.names.Uppers.the_HTTP_request",
-      defaultValue: 0
-    )
-
-    static let the_HTTP = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
-      _protobuf_fieldNumber: 104,
-      fieldName: "swift_unittest.names.Uppers.the_HTTP",
-      defaultValue: 0
-    )
-
-    static let HTTPS = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
-      _protobuf_fieldNumber: 111,
-      fieldName: "swift_unittest.names.Uppers.HTTPS",
-      defaultValue: 0
-    )
-
-    static let HTTPS_request = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
-      _protobuf_fieldNumber: 112,
-      fieldName: "swift_unittest.names.Uppers.HTTPS_request",
-      defaultValue: 0
-    )
-
-    static let the_HTTPS_request = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
-      _protobuf_fieldNumber: 113,
-      fieldName: "swift_unittest.names.Uppers.the_HTTPS_request",
-      defaultValue: 0
-    )
-
-    static let the_HTTPS = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
-      _protobuf_fieldNumber: 114,
-      fieldName: "swift_unittest.names.Uppers.the_HTTPS",
-      defaultValue: 0
-    )
-
-    static let URL = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
-      _protobuf_fieldNumber: 121,
-      fieldName: "swift_unittest.names.Uppers.URL",
-      defaultValue: 0
-    )
-
-    static let URL_value = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
-      _protobuf_fieldNumber: 122,
-      fieldName: "swift_unittest.names.Uppers.URL_value",
-      defaultValue: 0
-    )
-
-    static let the_URL_value = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
-      _protobuf_fieldNumber: 123,
-      fieldName: "swift_unittest.names.Uppers.the_URL_value",
-      defaultValue: 0
-    )
-
-    static let the_URL = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
-      _protobuf_fieldNumber: 124,
-      fieldName: "swift_unittest.names.Uppers.the_URL",
-      defaultValue: 0
-    )
-  }
 
   init() {}
 
@@ -21186,93 +17423,12 @@ struct SwiftUnittest_Names_Uppers: SwiftProtobuf.Message, SwiftProtobuf._Message
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try unknownFields.traverse(visitor: &visitor)
   }
-
-  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_Uppers) -> Bool {
-    if unknownFields != other.unknownFields {return false}
-    return true
-  }
 }
 
-struct SwiftUnittest_Names_WordCase: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+struct SwiftUnittest_Names_WordCase: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".WordCase"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
-
-  struct Extensions {
-
-    static let Http = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
-      _protobuf_fieldNumber: 201,
-      fieldName: "swift_unittest.names.WordCase.Http",
-      defaultValue: 0
-    )
-
-    static let HttpRequest = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
-      _protobuf_fieldNumber: 202,
-      fieldName: "swift_unittest.names.WordCase.HttpRequest",
-      defaultValue: 0
-    )
-
-    static let TheHttpRequest = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
-      _protobuf_fieldNumber: 203,
-      fieldName: "swift_unittest.names.WordCase.TheHttpRequest",
-      defaultValue: 0
-    )
-
-    static let TheHttp = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
-      _protobuf_fieldNumber: 204,
-      fieldName: "swift_unittest.names.WordCase.TheHttp",
-      defaultValue: 0
-    )
-
-    static let Https = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
-      _protobuf_fieldNumber: 211,
-      fieldName: "swift_unittest.names.WordCase.Https",
-      defaultValue: 0
-    )
-
-    static let HttpsRequest = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
-      _protobuf_fieldNumber: 212,
-      fieldName: "swift_unittest.names.WordCase.HttpsRequest",
-      defaultValue: 0
-    )
-
-    static let TheHttpsRequest = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
-      _protobuf_fieldNumber: 213,
-      fieldName: "swift_unittest.names.WordCase.TheHttpsRequest",
-      defaultValue: 0
-    )
-
-    static let TheHttps = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
-      _protobuf_fieldNumber: 214,
-      fieldName: "swift_unittest.names.WordCase.TheHttps",
-      defaultValue: 0
-    )
-
-    static let Url = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
-      _protobuf_fieldNumber: 221,
-      fieldName: "swift_unittest.names.WordCase.Url",
-      defaultValue: 0
-    )
-
-    static let UrlValue = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
-      _protobuf_fieldNumber: 222,
-      fieldName: "swift_unittest.names.WordCase.UrlValue",
-      defaultValue: 0
-    )
-
-    static let TheUrlValue = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
-      _protobuf_fieldNumber: 223,
-      fieldName: "swift_unittest.names.WordCase.TheUrlValue",
-      defaultValue: 0
-    )
-
-    static let TheUrl = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
-      _protobuf_fieldNumber: 224,
-      fieldName: "swift_unittest.names.WordCase.TheUrl",
-      defaultValue: 0
-    )
-  }
 
   init() {}
 
@@ -21284,16 +17440,10 @@ struct SwiftUnittest_Names_WordCase: SwiftProtobuf.Message, SwiftProtobuf._Messa
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try unknownFields.traverse(visitor: &visitor)
   }
-
-  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_WordCase) -> Bool {
-    if unknownFields != other.unknownFields {return false}
-    return true
-  }
 }
 
-struct SwiftUnittest_Names_ExtensionNamingInitialsLowers: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+struct SwiftUnittest_Names_ExtensionNamingInitialsLowers: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage {
   static let protoMessageName: String = _protobuf_package + ".ExtensionNamingInitialsLowers"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -21317,18 +17467,11 @@ struct SwiftUnittest_Names_ExtensionNamingInitialsLowers: SwiftProtobuf.Message,
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_ExtensionNamingInitialsLowers) -> Bool {
-    if unknownFields != other.unknownFields {return false}
-    if _protobuf_extensionFieldValues != other._protobuf_extensionFieldValues {return false}
-    return true
-  }
-
   var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
 }
 
-struct SwiftUnittest_Names_ExtensionNamingInitialsUppers: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+struct SwiftUnittest_Names_ExtensionNamingInitialsUppers: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage {
   static let protoMessageName: String = _protobuf_package + ".ExtensionNamingInitialsUppers"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -21352,18 +17495,11 @@ struct SwiftUnittest_Names_ExtensionNamingInitialsUppers: SwiftProtobuf.Message,
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_ExtensionNamingInitialsUppers) -> Bool {
-    if unknownFields != other.unknownFields {return false}
-    if _protobuf_extensionFieldValues != other._protobuf_extensionFieldValues {return false}
-    return true
-  }
-
   var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
 }
 
-struct SwiftUnittest_Names_ExtensionNamingInitialsWordCase: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+struct SwiftUnittest_Names_ExtensionNamingInitialsWordCase: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage {
   static let protoMessageName: String = _protobuf_package + ".ExtensionNamingInitialsWordCase"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -21387,717 +17523,10 @@ struct SwiftUnittest_Names_ExtensionNamingInitialsWordCase: SwiftProtobuf.Messag
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_ExtensionNamingInitialsWordCase) -> Bool {
-    if unknownFields != other.unknownFields {return false}
-    if _protobuf_extensionFieldValues != other._protobuf_extensionFieldValues {return false}
-    return true
-  }
-
   var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
 }
 
-let SwiftUnittest_Names_Extensions_http = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
-  _protobuf_fieldNumber: 1,
-  fieldName: "swift_unittest.names.http",
-  defaultValue: 0
-)
-
-let SwiftUnittest_Names_Extensions_http_request = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
-  _protobuf_fieldNumber: 2,
-  fieldName: "swift_unittest.names.http_request",
-  defaultValue: 0
-)
-
-let SwiftUnittest_Names_Extensions_the_http_request = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
-  _protobuf_fieldNumber: 3,
-  fieldName: "swift_unittest.names.the_http_request",
-  defaultValue: 0
-)
-
-let SwiftUnittest_Names_Extensions_the_http = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
-  _protobuf_fieldNumber: 4,
-  fieldName: "swift_unittest.names.the_http",
-  defaultValue: 0
-)
-
-let SwiftUnittest_Names_Extensions_https = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
-  _protobuf_fieldNumber: 11,
-  fieldName: "swift_unittest.names.https",
-  defaultValue: 0
-)
-
-let SwiftUnittest_Names_Extensions_https_request = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
-  _protobuf_fieldNumber: 12,
-  fieldName: "swift_unittest.names.https_request",
-  defaultValue: 0
-)
-
-let SwiftUnittest_Names_Extensions_the_https_request = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
-  _protobuf_fieldNumber: 13,
-  fieldName: "swift_unittest.names.the_https_request",
-  defaultValue: 0
-)
-
-let SwiftUnittest_Names_Extensions_the_https = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
-  _protobuf_fieldNumber: 14,
-  fieldName: "swift_unittest.names.the_https",
-  defaultValue: 0
-)
-
-let SwiftUnittest_Names_Extensions_url = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
-  _protobuf_fieldNumber: 21,
-  fieldName: "swift_unittest.names.url",
-  defaultValue: 0
-)
-
-let SwiftUnittest_Names_Extensions_url_value = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
-  _protobuf_fieldNumber: 22,
-  fieldName: "swift_unittest.names.url_value",
-  defaultValue: 0
-)
-
-let SwiftUnittest_Names_Extensions_the_url_value = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
-  _protobuf_fieldNumber: 23,
-  fieldName: "swift_unittest.names.the_url_value",
-  defaultValue: 0
-)
-
-let SwiftUnittest_Names_Extensions_the_url = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
-  _protobuf_fieldNumber: 24,
-  fieldName: "swift_unittest.names.the_url",
-  defaultValue: 0
-)
-
-let SwiftUnittest_Names_Extensions_a_b_c = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
-  _protobuf_fieldNumber: 31,
-  fieldName: "swift_unittest.names.a_b_c",
-  defaultValue: 0
-)
-
-let SwiftUnittest_Names_Extensions_HTTP = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsUppers>(
-  _protobuf_fieldNumber: 1,
-  fieldName: "swift_unittest.names.HTTP",
-  defaultValue: 0
-)
-
-let SwiftUnittest_Names_Extensions_HTTP_request = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsUppers>(
-  _protobuf_fieldNumber: 2,
-  fieldName: "swift_unittest.names.HTTP_request",
-  defaultValue: 0
-)
-
-let SwiftUnittest_Names_Extensions_the_HTTP_request = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsUppers>(
-  _protobuf_fieldNumber: 3,
-  fieldName: "swift_unittest.names.the_HTTP_request",
-  defaultValue: 0
-)
-
-let SwiftUnittest_Names_Extensions_the_HTTP = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsUppers>(
-  _protobuf_fieldNumber: 4,
-  fieldName: "swift_unittest.names.the_HTTP",
-  defaultValue: 0
-)
-
-let SwiftUnittest_Names_Extensions_HTTPS = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsUppers>(
-  _protobuf_fieldNumber: 11,
-  fieldName: "swift_unittest.names.HTTPS",
-  defaultValue: 0
-)
-
-let SwiftUnittest_Names_Extensions_HTTPS_request = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsUppers>(
-  _protobuf_fieldNumber: 12,
-  fieldName: "swift_unittest.names.HTTPS_request",
-  defaultValue: 0
-)
-
-let SwiftUnittest_Names_Extensions_the_HTTPS_request = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsUppers>(
-  _protobuf_fieldNumber: 13,
-  fieldName: "swift_unittest.names.the_HTTPS_request",
-  defaultValue: 0
-)
-
-let SwiftUnittest_Names_Extensions_the_HTTPS = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsUppers>(
-  _protobuf_fieldNumber: 14,
-  fieldName: "swift_unittest.names.the_HTTPS",
-  defaultValue: 0
-)
-
-let SwiftUnittest_Names_Extensions_URL = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsUppers>(
-  _protobuf_fieldNumber: 21,
-  fieldName: "swift_unittest.names.URL",
-  defaultValue: 0
-)
-
-let SwiftUnittest_Names_Extensions_URL_value = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsUppers>(
-  _protobuf_fieldNumber: 22,
-  fieldName: "swift_unittest.names.URL_value",
-  defaultValue: 0
-)
-
-let SwiftUnittest_Names_Extensions_the_URL_value = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsUppers>(
-  _protobuf_fieldNumber: 23,
-  fieldName: "swift_unittest.names.the_URL_value",
-  defaultValue: 0
-)
-
-let SwiftUnittest_Names_Extensions_the_URL = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsUppers>(
-  _protobuf_fieldNumber: 24,
-  fieldName: "swift_unittest.names.the_URL",
-  defaultValue: 0
-)
-
-let SwiftUnittest_Names_Extensions_Http = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>(
-  _protobuf_fieldNumber: 1,
-  fieldName: "swift_unittest.names.Http",
-  defaultValue: 0
-)
-
-let SwiftUnittest_Names_Extensions_HttpRequest = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>(
-  _protobuf_fieldNumber: 2,
-  fieldName: "swift_unittest.names.HttpRequest",
-  defaultValue: 0
-)
-
-let SwiftUnittest_Names_Extensions_TheHttpRequest = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>(
-  _protobuf_fieldNumber: 3,
-  fieldName: "swift_unittest.names.TheHttpRequest",
-  defaultValue: 0
-)
-
-let SwiftUnittest_Names_Extensions_TheHttp = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>(
-  _protobuf_fieldNumber: 4,
-  fieldName: "swift_unittest.names.TheHttp",
-  defaultValue: 0
-)
-
-let SwiftUnittest_Names_Extensions_Https = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>(
-  _protobuf_fieldNumber: 11,
-  fieldName: "swift_unittest.names.Https",
-  defaultValue: 0
-)
-
-let SwiftUnittest_Names_Extensions_HttpsRequest = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>(
-  _protobuf_fieldNumber: 12,
-  fieldName: "swift_unittest.names.HttpsRequest",
-  defaultValue: 0
-)
-
-let SwiftUnittest_Names_Extensions_TheHttpsRequest = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>(
-  _protobuf_fieldNumber: 13,
-  fieldName: "swift_unittest.names.TheHttpsRequest",
-  defaultValue: 0
-)
-
-let SwiftUnittest_Names_Extensions_TheHttps = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>(
-  _protobuf_fieldNumber: 14,
-  fieldName: "swift_unittest.names.TheHttps",
-  defaultValue: 0
-)
-
-let SwiftUnittest_Names_Extensions_Url = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>(
-  _protobuf_fieldNumber: 21,
-  fieldName: "swift_unittest.names.Url",
-  defaultValue: 0
-)
-
-let SwiftUnittest_Names_Extensions_UrlValue = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>(
-  _protobuf_fieldNumber: 22,
-  fieldName: "swift_unittest.names.UrlValue",
-  defaultValue: 0
-)
-
-let SwiftUnittest_Names_Extensions_TheUrlValue = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>(
-  _protobuf_fieldNumber: 23,
-  fieldName: "swift_unittest.names.TheUrlValue",
-  defaultValue: 0
-)
-
-let SwiftUnittest_Names_Extensions_TheUrl = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>(
-  _protobuf_fieldNumber: 24,
-  fieldName: "swift_unittest.names.TheUrl",
-  defaultValue: 0
-)
-
-extension SwiftUnittest_Names_ExtensionNamingInitials {
-  var SwiftUnittest_Names_Lowers_http: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.http) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.http, value: newValue)}
-  }
-  var hasSwiftUnittest_Names_Lowers_http: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.http)
-  }
-  mutating func clearSwiftUnittest_Names_Lowers_http() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.http)
-  }
-}
-
-extension SwiftUnittest_Names_ExtensionNamingInitials {
-  var SwiftUnittest_Names_Lowers_httpRequest: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.http_request) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.http_request, value: newValue)}
-  }
-  var hasSwiftUnittest_Names_Lowers_httpRequest: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.http_request)
-  }
-  mutating func clearSwiftUnittest_Names_Lowers_httpRequest() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.http_request)
-  }
-}
-
-extension SwiftUnittest_Names_ExtensionNamingInitials {
-  var SwiftUnittest_Names_Lowers_theHTTPRequest: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_http_request) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_http_request, value: newValue)}
-  }
-  var hasSwiftUnittest_Names_Lowers_theHTTPRequest: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_http_request)
-  }
-  mutating func clearSwiftUnittest_Names_Lowers_theHTTPRequest() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_http_request)
-  }
-}
-
-extension SwiftUnittest_Names_ExtensionNamingInitials {
-  var SwiftUnittest_Names_Lowers_theHTTP: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_http) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_http, value: newValue)}
-  }
-  var hasSwiftUnittest_Names_Lowers_theHTTP: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_http)
-  }
-  mutating func clearSwiftUnittest_Names_Lowers_theHTTP() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_http)
-  }
-}
-
-extension SwiftUnittest_Names_ExtensionNamingInitials {
-  var SwiftUnittest_Names_Lowers_https: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.https) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.https, value: newValue)}
-  }
-  var hasSwiftUnittest_Names_Lowers_https: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.https)
-  }
-  mutating func clearSwiftUnittest_Names_Lowers_https() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.https)
-  }
-}
-
-extension SwiftUnittest_Names_ExtensionNamingInitials {
-  var SwiftUnittest_Names_Lowers_httpsRequest: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.https_request) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.https_request, value: newValue)}
-  }
-  var hasSwiftUnittest_Names_Lowers_httpsRequest: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.https_request)
-  }
-  mutating func clearSwiftUnittest_Names_Lowers_httpsRequest() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.https_request)
-  }
-}
-
-extension SwiftUnittest_Names_ExtensionNamingInitials {
-  var SwiftUnittest_Names_Lowers_theHTTPSRequest: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_https_request) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_https_request, value: newValue)}
-  }
-  var hasSwiftUnittest_Names_Lowers_theHTTPSRequest: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_https_request)
-  }
-  mutating func clearSwiftUnittest_Names_Lowers_theHTTPSRequest() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_https_request)
-  }
-}
-
-extension SwiftUnittest_Names_ExtensionNamingInitials {
-  var SwiftUnittest_Names_Lowers_theHTTPS: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_https) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_https, value: newValue)}
-  }
-  var hasSwiftUnittest_Names_Lowers_theHTTPS: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_https)
-  }
-  mutating func clearSwiftUnittest_Names_Lowers_theHTTPS() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_https)
-  }
-}
-
-extension SwiftUnittest_Names_ExtensionNamingInitials {
-  var SwiftUnittest_Names_Lowers_url: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.url) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.url, value: newValue)}
-  }
-  var hasSwiftUnittest_Names_Lowers_url: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.url)
-  }
-  mutating func clearSwiftUnittest_Names_Lowers_url() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.url)
-  }
-}
-
-extension SwiftUnittest_Names_ExtensionNamingInitials {
-  var SwiftUnittest_Names_Lowers_urlValue: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.url_value) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.url_value, value: newValue)}
-  }
-  var hasSwiftUnittest_Names_Lowers_urlValue: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.url_value)
-  }
-  mutating func clearSwiftUnittest_Names_Lowers_urlValue() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.url_value)
-  }
-}
-
-extension SwiftUnittest_Names_ExtensionNamingInitials {
-  var SwiftUnittest_Names_Lowers_theURLValue: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_url_value) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_url_value, value: newValue)}
-  }
-  var hasSwiftUnittest_Names_Lowers_theURLValue: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_url_value)
-  }
-  mutating func clearSwiftUnittest_Names_Lowers_theURLValue() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_url_value)
-  }
-}
-
-extension SwiftUnittest_Names_ExtensionNamingInitials {
-  var SwiftUnittest_Names_Lowers_theURL: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_url) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_url, value: newValue)}
-  }
-  var hasSwiftUnittest_Names_Lowers_theURL: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_url)
-  }
-  mutating func clearSwiftUnittest_Names_Lowers_theURL() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_url)
-  }
-}
-
-extension SwiftUnittest_Names_ExtensionNamingInitials {
-  var SwiftUnittest_Names_Lowers_aBC: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.a_b_c) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.a_b_c, value: newValue)}
-  }
-  var hasSwiftUnittest_Names_Lowers_aBC: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.a_b_c)
-  }
-  mutating func clearSwiftUnittest_Names_Lowers_aBC() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.a_b_c)
-  }
-}
-
-extension SwiftUnittest_Names_ExtensionNamingInitials {
-  var SwiftUnittest_Names_Uppers_http: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.HTTP) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.HTTP, value: newValue)}
-  }
-  var hasSwiftUnittest_Names_Uppers_http: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.HTTP)
-  }
-  mutating func clearSwiftUnittest_Names_Uppers_http() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.HTTP)
-  }
-}
-
-extension SwiftUnittest_Names_ExtensionNamingInitials {
-  var SwiftUnittest_Names_Uppers_httpRequest: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.HTTP_request) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.HTTP_request, value: newValue)}
-  }
-  var hasSwiftUnittest_Names_Uppers_httpRequest: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.HTTP_request)
-  }
-  mutating func clearSwiftUnittest_Names_Uppers_httpRequest() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.HTTP_request)
-  }
-}
-
-extension SwiftUnittest_Names_ExtensionNamingInitials {
-  var SwiftUnittest_Names_Uppers_theHTTPRequest: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_HTTP_request) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_HTTP_request, value: newValue)}
-  }
-  var hasSwiftUnittest_Names_Uppers_theHTTPRequest: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_HTTP_request)
-  }
-  mutating func clearSwiftUnittest_Names_Uppers_theHTTPRequest() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_HTTP_request)
-  }
-}
-
-extension SwiftUnittest_Names_ExtensionNamingInitials {
-  var SwiftUnittest_Names_Uppers_theHTTP: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_HTTP) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_HTTP, value: newValue)}
-  }
-  var hasSwiftUnittest_Names_Uppers_theHTTP: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_HTTP)
-  }
-  mutating func clearSwiftUnittest_Names_Uppers_theHTTP() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_HTTP)
-  }
-}
-
-extension SwiftUnittest_Names_ExtensionNamingInitials {
-  var SwiftUnittest_Names_Uppers_https: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.HTTPS) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.HTTPS, value: newValue)}
-  }
-  var hasSwiftUnittest_Names_Uppers_https: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.HTTPS)
-  }
-  mutating func clearSwiftUnittest_Names_Uppers_https() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.HTTPS)
-  }
-}
-
-extension SwiftUnittest_Names_ExtensionNamingInitials {
-  var SwiftUnittest_Names_Uppers_httpsRequest: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.HTTPS_request) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.HTTPS_request, value: newValue)}
-  }
-  var hasSwiftUnittest_Names_Uppers_httpsRequest: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.HTTPS_request)
-  }
-  mutating func clearSwiftUnittest_Names_Uppers_httpsRequest() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.HTTPS_request)
-  }
-}
-
-extension SwiftUnittest_Names_ExtensionNamingInitials {
-  var SwiftUnittest_Names_Uppers_theHTTPSRequest: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_HTTPS_request) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_HTTPS_request, value: newValue)}
-  }
-  var hasSwiftUnittest_Names_Uppers_theHTTPSRequest: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_HTTPS_request)
-  }
-  mutating func clearSwiftUnittest_Names_Uppers_theHTTPSRequest() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_HTTPS_request)
-  }
-}
-
-extension SwiftUnittest_Names_ExtensionNamingInitials {
-  var SwiftUnittest_Names_Uppers_theHTTPS: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_HTTPS) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_HTTPS, value: newValue)}
-  }
-  var hasSwiftUnittest_Names_Uppers_theHTTPS: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_HTTPS)
-  }
-  mutating func clearSwiftUnittest_Names_Uppers_theHTTPS() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_HTTPS)
-  }
-}
-
-extension SwiftUnittest_Names_ExtensionNamingInitials {
-  var SwiftUnittest_Names_Uppers_url: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.URL) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.URL, value: newValue)}
-  }
-  var hasSwiftUnittest_Names_Uppers_url: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.URL)
-  }
-  mutating func clearSwiftUnittest_Names_Uppers_url() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.URL)
-  }
-}
-
-extension SwiftUnittest_Names_ExtensionNamingInitials {
-  var SwiftUnittest_Names_Uppers_urlValue: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.URL_value) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.URL_value, value: newValue)}
-  }
-  var hasSwiftUnittest_Names_Uppers_urlValue: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.URL_value)
-  }
-  mutating func clearSwiftUnittest_Names_Uppers_urlValue() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.URL_value)
-  }
-}
-
-extension SwiftUnittest_Names_ExtensionNamingInitials {
-  var SwiftUnittest_Names_Uppers_theURLValue: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_URL_value) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_URL_value, value: newValue)}
-  }
-  var hasSwiftUnittest_Names_Uppers_theURLValue: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_URL_value)
-  }
-  mutating func clearSwiftUnittest_Names_Uppers_theURLValue() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_URL_value)
-  }
-}
-
-extension SwiftUnittest_Names_ExtensionNamingInitials {
-  var SwiftUnittest_Names_Uppers_theURL: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_URL) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_URL, value: newValue)}
-  }
-  var hasSwiftUnittest_Names_Uppers_theURL: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_URL)
-  }
-  mutating func clearSwiftUnittest_Names_Uppers_theURL() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_URL)
-  }
-}
-
-extension SwiftUnittest_Names_ExtensionNamingInitials {
-  var SwiftUnittest_Names_WordCase_http: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.Http) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.Http, value: newValue)}
-  }
-  var hasSwiftUnittest_Names_WordCase_http: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.Http)
-  }
-  mutating func clearSwiftUnittest_Names_WordCase_http() {
-    clearExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.Http)
-  }
-}
-
-extension SwiftUnittest_Names_ExtensionNamingInitials {
-  var SwiftUnittest_Names_WordCase_httpRequest: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.HttpRequest) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.HttpRequest, value: newValue)}
-  }
-  var hasSwiftUnittest_Names_WordCase_httpRequest: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.HttpRequest)
-  }
-  mutating func clearSwiftUnittest_Names_WordCase_httpRequest() {
-    clearExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.HttpRequest)
-  }
-}
-
-extension SwiftUnittest_Names_ExtensionNamingInitials {
-  var SwiftUnittest_Names_WordCase_theHTTPRequest: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheHttpRequest) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheHttpRequest, value: newValue)}
-  }
-  var hasSwiftUnittest_Names_WordCase_theHTTPRequest: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheHttpRequest)
-  }
-  mutating func clearSwiftUnittest_Names_WordCase_theHTTPRequest() {
-    clearExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheHttpRequest)
-  }
-}
-
-extension SwiftUnittest_Names_ExtensionNamingInitials {
-  var SwiftUnittest_Names_WordCase_theHTTP: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheHttp) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheHttp, value: newValue)}
-  }
-  var hasSwiftUnittest_Names_WordCase_theHTTP: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheHttp)
-  }
-  mutating func clearSwiftUnittest_Names_WordCase_theHTTP() {
-    clearExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheHttp)
-  }
-}
-
-extension SwiftUnittest_Names_ExtensionNamingInitials {
-  var SwiftUnittest_Names_WordCase_https: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.Https) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.Https, value: newValue)}
-  }
-  var hasSwiftUnittest_Names_WordCase_https: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.Https)
-  }
-  mutating func clearSwiftUnittest_Names_WordCase_https() {
-    clearExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.Https)
-  }
-}
-
-extension SwiftUnittest_Names_ExtensionNamingInitials {
-  var SwiftUnittest_Names_WordCase_httpsRequest: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.HttpsRequest) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.HttpsRequest, value: newValue)}
-  }
-  var hasSwiftUnittest_Names_WordCase_httpsRequest: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.HttpsRequest)
-  }
-  mutating func clearSwiftUnittest_Names_WordCase_httpsRequest() {
-    clearExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.HttpsRequest)
-  }
-}
-
-extension SwiftUnittest_Names_ExtensionNamingInitials {
-  var SwiftUnittest_Names_WordCase_theHTTPSRequest: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheHttpsRequest) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheHttpsRequest, value: newValue)}
-  }
-  var hasSwiftUnittest_Names_WordCase_theHTTPSRequest: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheHttpsRequest)
-  }
-  mutating func clearSwiftUnittest_Names_WordCase_theHTTPSRequest() {
-    clearExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheHttpsRequest)
-  }
-}
-
-extension SwiftUnittest_Names_ExtensionNamingInitials {
-  var SwiftUnittest_Names_WordCase_theHTTPS: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheHttps) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheHttps, value: newValue)}
-  }
-  var hasSwiftUnittest_Names_WordCase_theHTTPS: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheHttps)
-  }
-  mutating func clearSwiftUnittest_Names_WordCase_theHTTPS() {
-    clearExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheHttps)
-  }
-}
-
-extension SwiftUnittest_Names_ExtensionNamingInitials {
-  var SwiftUnittest_Names_WordCase_url: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.Url) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.Url, value: newValue)}
-  }
-  var hasSwiftUnittest_Names_WordCase_url: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.Url)
-  }
-  mutating func clearSwiftUnittest_Names_WordCase_url() {
-    clearExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.Url)
-  }
-}
-
-extension SwiftUnittest_Names_ExtensionNamingInitials {
-  var SwiftUnittest_Names_WordCase_urlValue: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.UrlValue) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.UrlValue, value: newValue)}
-  }
-  var hasSwiftUnittest_Names_WordCase_urlValue: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.UrlValue)
-  }
-  mutating func clearSwiftUnittest_Names_WordCase_urlValue() {
-    clearExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.UrlValue)
-  }
-}
-
-extension SwiftUnittest_Names_ExtensionNamingInitials {
-  var SwiftUnittest_Names_WordCase_theURLValue: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheUrlValue) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheUrlValue, value: newValue)}
-  }
-  var hasSwiftUnittest_Names_WordCase_theURLValue: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheUrlValue)
-  }
-  mutating func clearSwiftUnittest_Names_WordCase_theURLValue() {
-    clearExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheUrlValue)
-  }
-}
-
-extension SwiftUnittest_Names_ExtensionNamingInitials {
-  var SwiftUnittest_Names_WordCase_theURL: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheUrl) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheUrl, value: newValue)}
-  }
-  var hasSwiftUnittest_Names_WordCase_theURL: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheUrl)
-  }
-  mutating func clearSwiftUnittest_Names_WordCase_theURL() {
-    clearExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheUrl)
-  }
-}
+// MARK: - Extension support defined in unittest_swift_naming.proto.
 
 extension SwiftUnittest_Names_ExtensionNamingInitialsLowers {
   var SwiftUnittest_Names_http: Int32 {
@@ -22580,6 +18009,543 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsWordCase {
   }
 }
 
+extension SwiftUnittest_Names_Foo {
+  var SwiftUnittest_Names_FieldNames_foo1: Int32 {
+    get {return getExtensionValue(ext: SwiftUnittest_Names_FieldNames.Extensions.foo1) ?? 0}
+    set {setExtensionValue(ext: SwiftUnittest_Names_FieldNames.Extensions.foo1, value: newValue)}
+  }
+  var hasSwiftUnittest_Names_FieldNames_foo1: Bool {
+    return hasExtensionValue(ext: SwiftUnittest_Names_FieldNames.Extensions.foo1)
+  }
+  mutating func clearSwiftUnittest_Names_FieldNames_foo1() {
+    clearExtensionValue(ext: SwiftUnittest_Names_FieldNames.Extensions.foo1)
+  }
+}
+
+extension SwiftUnittest_Names_Foo {
+  var SwiftUnittest_Names_MessageNames_foo2: Int32 {
+    get {return getExtensionValue(ext: SwiftUnittest_Names_MessageNames.Extensions.foo2) ?? 0}
+    set {setExtensionValue(ext: SwiftUnittest_Names_MessageNames.Extensions.foo2, value: newValue)}
+  }
+  var hasSwiftUnittest_Names_MessageNames_foo2: Bool {
+    return hasExtensionValue(ext: SwiftUnittest_Names_MessageNames.Extensions.foo2)
+  }
+  mutating func clearSwiftUnittest_Names_MessageNames_foo2() {
+    clearExtensionValue(ext: SwiftUnittest_Names_MessageNames.Extensions.foo2)
+  }
+}
+
+extension SwiftUnittest_Names_Foo {
+  var SwiftUnittest_Names_MessageNames_foo4: Int32 {
+    get {return getExtensionValue(ext: SwiftUnittest_Names_MessageNames.Extensions.foo4) ?? 0}
+    set {setExtensionValue(ext: SwiftUnittest_Names_MessageNames.Extensions.foo4, value: newValue)}
+  }
+  var hasSwiftUnittest_Names_MessageNames_foo4: Bool {
+    return hasExtensionValue(ext: SwiftUnittest_Names_MessageNames.Extensions.foo4)
+  }
+  mutating func clearSwiftUnittest_Names_MessageNames_foo4() {
+    clearExtensionValue(ext: SwiftUnittest_Names_MessageNames.Extensions.foo4)
+  }
+}
+
+extension SwiftUnittest_Names_Foo {
+  var SwiftUnittest_Names_MessageNames_StringMessage_foo3: Int32 {
+    get {return getExtensionValue(ext: SwiftUnittest_Names_MessageNames.StringMessage.Extensions.foo3) ?? 0}
+    set {setExtensionValue(ext: SwiftUnittest_Names_MessageNames.StringMessage.Extensions.foo3, value: newValue)}
+  }
+  var hasSwiftUnittest_Names_MessageNames_StringMessage_foo3: Bool {
+    return hasExtensionValue(ext: SwiftUnittest_Names_MessageNames.StringMessage.Extensions.foo3)
+  }
+  mutating func clearSwiftUnittest_Names_MessageNames_StringMessage_foo3() {
+    clearExtensionValue(ext: SwiftUnittest_Names_MessageNames.StringMessage.Extensions.foo3)
+  }
+}
+
+extension SwiftUnittest_Names_ExtensionNamingInitials {
+  var SwiftUnittest_Names_Lowers_http: Int32 {
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.http) ?? 0}
+    set {setExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.http, value: newValue)}
+  }
+  var hasSwiftUnittest_Names_Lowers_http: Bool {
+    return hasExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.http)
+  }
+  mutating func clearSwiftUnittest_Names_Lowers_http() {
+    clearExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.http)
+  }
+}
+
+extension SwiftUnittest_Names_ExtensionNamingInitials {
+  var SwiftUnittest_Names_Lowers_httpRequest: Int32 {
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.http_request) ?? 0}
+    set {setExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.http_request, value: newValue)}
+  }
+  var hasSwiftUnittest_Names_Lowers_httpRequest: Bool {
+    return hasExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.http_request)
+  }
+  mutating func clearSwiftUnittest_Names_Lowers_httpRequest() {
+    clearExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.http_request)
+  }
+}
+
+extension SwiftUnittest_Names_ExtensionNamingInitials {
+  var SwiftUnittest_Names_Lowers_theHTTPRequest: Int32 {
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_http_request) ?? 0}
+    set {setExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_http_request, value: newValue)}
+  }
+  var hasSwiftUnittest_Names_Lowers_theHTTPRequest: Bool {
+    return hasExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_http_request)
+  }
+  mutating func clearSwiftUnittest_Names_Lowers_theHTTPRequest() {
+    clearExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_http_request)
+  }
+}
+
+extension SwiftUnittest_Names_ExtensionNamingInitials {
+  var SwiftUnittest_Names_Lowers_theHTTP: Int32 {
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_http) ?? 0}
+    set {setExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_http, value: newValue)}
+  }
+  var hasSwiftUnittest_Names_Lowers_theHTTP: Bool {
+    return hasExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_http)
+  }
+  mutating func clearSwiftUnittest_Names_Lowers_theHTTP() {
+    clearExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_http)
+  }
+}
+
+extension SwiftUnittest_Names_ExtensionNamingInitials {
+  var SwiftUnittest_Names_Lowers_https: Int32 {
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.https) ?? 0}
+    set {setExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.https, value: newValue)}
+  }
+  var hasSwiftUnittest_Names_Lowers_https: Bool {
+    return hasExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.https)
+  }
+  mutating func clearSwiftUnittest_Names_Lowers_https() {
+    clearExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.https)
+  }
+}
+
+extension SwiftUnittest_Names_ExtensionNamingInitials {
+  var SwiftUnittest_Names_Lowers_httpsRequest: Int32 {
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.https_request) ?? 0}
+    set {setExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.https_request, value: newValue)}
+  }
+  var hasSwiftUnittest_Names_Lowers_httpsRequest: Bool {
+    return hasExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.https_request)
+  }
+  mutating func clearSwiftUnittest_Names_Lowers_httpsRequest() {
+    clearExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.https_request)
+  }
+}
+
+extension SwiftUnittest_Names_ExtensionNamingInitials {
+  var SwiftUnittest_Names_Lowers_theHTTPSRequest: Int32 {
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_https_request) ?? 0}
+    set {setExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_https_request, value: newValue)}
+  }
+  var hasSwiftUnittest_Names_Lowers_theHTTPSRequest: Bool {
+    return hasExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_https_request)
+  }
+  mutating func clearSwiftUnittest_Names_Lowers_theHTTPSRequest() {
+    clearExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_https_request)
+  }
+}
+
+extension SwiftUnittest_Names_ExtensionNamingInitials {
+  var SwiftUnittest_Names_Lowers_theHTTPS: Int32 {
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_https) ?? 0}
+    set {setExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_https, value: newValue)}
+  }
+  var hasSwiftUnittest_Names_Lowers_theHTTPS: Bool {
+    return hasExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_https)
+  }
+  mutating func clearSwiftUnittest_Names_Lowers_theHTTPS() {
+    clearExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_https)
+  }
+}
+
+extension SwiftUnittest_Names_ExtensionNamingInitials {
+  var SwiftUnittest_Names_Lowers_url: Int32 {
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.url) ?? 0}
+    set {setExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.url, value: newValue)}
+  }
+  var hasSwiftUnittest_Names_Lowers_url: Bool {
+    return hasExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.url)
+  }
+  mutating func clearSwiftUnittest_Names_Lowers_url() {
+    clearExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.url)
+  }
+}
+
+extension SwiftUnittest_Names_ExtensionNamingInitials {
+  var SwiftUnittest_Names_Lowers_urlValue: Int32 {
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.url_value) ?? 0}
+    set {setExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.url_value, value: newValue)}
+  }
+  var hasSwiftUnittest_Names_Lowers_urlValue: Bool {
+    return hasExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.url_value)
+  }
+  mutating func clearSwiftUnittest_Names_Lowers_urlValue() {
+    clearExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.url_value)
+  }
+}
+
+extension SwiftUnittest_Names_ExtensionNamingInitials {
+  var SwiftUnittest_Names_Lowers_theURLValue: Int32 {
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_url_value) ?? 0}
+    set {setExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_url_value, value: newValue)}
+  }
+  var hasSwiftUnittest_Names_Lowers_theURLValue: Bool {
+    return hasExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_url_value)
+  }
+  mutating func clearSwiftUnittest_Names_Lowers_theURLValue() {
+    clearExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_url_value)
+  }
+}
+
+extension SwiftUnittest_Names_ExtensionNamingInitials {
+  var SwiftUnittest_Names_Lowers_theURL: Int32 {
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_url) ?? 0}
+    set {setExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_url, value: newValue)}
+  }
+  var hasSwiftUnittest_Names_Lowers_theURL: Bool {
+    return hasExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_url)
+  }
+  mutating func clearSwiftUnittest_Names_Lowers_theURL() {
+    clearExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_url)
+  }
+}
+
+extension SwiftUnittest_Names_ExtensionNamingInitials {
+  var SwiftUnittest_Names_Lowers_aBC: Int32 {
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.a_b_c) ?? 0}
+    set {setExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.a_b_c, value: newValue)}
+  }
+  var hasSwiftUnittest_Names_Lowers_aBC: Bool {
+    return hasExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.a_b_c)
+  }
+  mutating func clearSwiftUnittest_Names_Lowers_aBC() {
+    clearExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.a_b_c)
+  }
+}
+
+extension SwiftUnittest_Names_ExtensionNamingInitials {
+  var SwiftUnittest_Names_Uppers_http: Int32 {
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.HTTP) ?? 0}
+    set {setExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.HTTP, value: newValue)}
+  }
+  var hasSwiftUnittest_Names_Uppers_http: Bool {
+    return hasExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.HTTP)
+  }
+  mutating func clearSwiftUnittest_Names_Uppers_http() {
+    clearExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.HTTP)
+  }
+}
+
+extension SwiftUnittest_Names_ExtensionNamingInitials {
+  var SwiftUnittest_Names_Uppers_httpRequest: Int32 {
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.HTTP_request) ?? 0}
+    set {setExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.HTTP_request, value: newValue)}
+  }
+  var hasSwiftUnittest_Names_Uppers_httpRequest: Bool {
+    return hasExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.HTTP_request)
+  }
+  mutating func clearSwiftUnittest_Names_Uppers_httpRequest() {
+    clearExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.HTTP_request)
+  }
+}
+
+extension SwiftUnittest_Names_ExtensionNamingInitials {
+  var SwiftUnittest_Names_Uppers_theHTTPRequest: Int32 {
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_HTTP_request) ?? 0}
+    set {setExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_HTTP_request, value: newValue)}
+  }
+  var hasSwiftUnittest_Names_Uppers_theHTTPRequest: Bool {
+    return hasExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_HTTP_request)
+  }
+  mutating func clearSwiftUnittest_Names_Uppers_theHTTPRequest() {
+    clearExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_HTTP_request)
+  }
+}
+
+extension SwiftUnittest_Names_ExtensionNamingInitials {
+  var SwiftUnittest_Names_Uppers_theHTTP: Int32 {
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_HTTP) ?? 0}
+    set {setExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_HTTP, value: newValue)}
+  }
+  var hasSwiftUnittest_Names_Uppers_theHTTP: Bool {
+    return hasExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_HTTP)
+  }
+  mutating func clearSwiftUnittest_Names_Uppers_theHTTP() {
+    clearExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_HTTP)
+  }
+}
+
+extension SwiftUnittest_Names_ExtensionNamingInitials {
+  var SwiftUnittest_Names_Uppers_https: Int32 {
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.HTTPS) ?? 0}
+    set {setExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.HTTPS, value: newValue)}
+  }
+  var hasSwiftUnittest_Names_Uppers_https: Bool {
+    return hasExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.HTTPS)
+  }
+  mutating func clearSwiftUnittest_Names_Uppers_https() {
+    clearExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.HTTPS)
+  }
+}
+
+extension SwiftUnittest_Names_ExtensionNamingInitials {
+  var SwiftUnittest_Names_Uppers_httpsRequest: Int32 {
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.HTTPS_request) ?? 0}
+    set {setExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.HTTPS_request, value: newValue)}
+  }
+  var hasSwiftUnittest_Names_Uppers_httpsRequest: Bool {
+    return hasExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.HTTPS_request)
+  }
+  mutating func clearSwiftUnittest_Names_Uppers_httpsRequest() {
+    clearExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.HTTPS_request)
+  }
+}
+
+extension SwiftUnittest_Names_ExtensionNamingInitials {
+  var SwiftUnittest_Names_Uppers_theHTTPSRequest: Int32 {
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_HTTPS_request) ?? 0}
+    set {setExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_HTTPS_request, value: newValue)}
+  }
+  var hasSwiftUnittest_Names_Uppers_theHTTPSRequest: Bool {
+    return hasExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_HTTPS_request)
+  }
+  mutating func clearSwiftUnittest_Names_Uppers_theHTTPSRequest() {
+    clearExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_HTTPS_request)
+  }
+}
+
+extension SwiftUnittest_Names_ExtensionNamingInitials {
+  var SwiftUnittest_Names_Uppers_theHTTPS: Int32 {
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_HTTPS) ?? 0}
+    set {setExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_HTTPS, value: newValue)}
+  }
+  var hasSwiftUnittest_Names_Uppers_theHTTPS: Bool {
+    return hasExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_HTTPS)
+  }
+  mutating func clearSwiftUnittest_Names_Uppers_theHTTPS() {
+    clearExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_HTTPS)
+  }
+}
+
+extension SwiftUnittest_Names_ExtensionNamingInitials {
+  var SwiftUnittest_Names_Uppers_url: Int32 {
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.URL) ?? 0}
+    set {setExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.URL, value: newValue)}
+  }
+  var hasSwiftUnittest_Names_Uppers_url: Bool {
+    return hasExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.URL)
+  }
+  mutating func clearSwiftUnittest_Names_Uppers_url() {
+    clearExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.URL)
+  }
+}
+
+extension SwiftUnittest_Names_ExtensionNamingInitials {
+  var SwiftUnittest_Names_Uppers_urlValue: Int32 {
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.URL_value) ?? 0}
+    set {setExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.URL_value, value: newValue)}
+  }
+  var hasSwiftUnittest_Names_Uppers_urlValue: Bool {
+    return hasExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.URL_value)
+  }
+  mutating func clearSwiftUnittest_Names_Uppers_urlValue() {
+    clearExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.URL_value)
+  }
+}
+
+extension SwiftUnittest_Names_ExtensionNamingInitials {
+  var SwiftUnittest_Names_Uppers_theURLValue: Int32 {
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_URL_value) ?? 0}
+    set {setExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_URL_value, value: newValue)}
+  }
+  var hasSwiftUnittest_Names_Uppers_theURLValue: Bool {
+    return hasExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_URL_value)
+  }
+  mutating func clearSwiftUnittest_Names_Uppers_theURLValue() {
+    clearExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_URL_value)
+  }
+}
+
+extension SwiftUnittest_Names_ExtensionNamingInitials {
+  var SwiftUnittest_Names_Uppers_theURL: Int32 {
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_URL) ?? 0}
+    set {setExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_URL, value: newValue)}
+  }
+  var hasSwiftUnittest_Names_Uppers_theURL: Bool {
+    return hasExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_URL)
+  }
+  mutating func clearSwiftUnittest_Names_Uppers_theURL() {
+    clearExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_URL)
+  }
+}
+
+extension SwiftUnittest_Names_ExtensionNamingInitials {
+  var SwiftUnittest_Names_WordCase_http: Int32 {
+    get {return getExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.Http) ?? 0}
+    set {setExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.Http, value: newValue)}
+  }
+  var hasSwiftUnittest_Names_WordCase_http: Bool {
+    return hasExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.Http)
+  }
+  mutating func clearSwiftUnittest_Names_WordCase_http() {
+    clearExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.Http)
+  }
+}
+
+extension SwiftUnittest_Names_ExtensionNamingInitials {
+  var SwiftUnittest_Names_WordCase_httpRequest: Int32 {
+    get {return getExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.HttpRequest) ?? 0}
+    set {setExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.HttpRequest, value: newValue)}
+  }
+  var hasSwiftUnittest_Names_WordCase_httpRequest: Bool {
+    return hasExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.HttpRequest)
+  }
+  mutating func clearSwiftUnittest_Names_WordCase_httpRequest() {
+    clearExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.HttpRequest)
+  }
+}
+
+extension SwiftUnittest_Names_ExtensionNamingInitials {
+  var SwiftUnittest_Names_WordCase_theHTTPRequest: Int32 {
+    get {return getExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheHttpRequest) ?? 0}
+    set {setExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheHttpRequest, value: newValue)}
+  }
+  var hasSwiftUnittest_Names_WordCase_theHTTPRequest: Bool {
+    return hasExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheHttpRequest)
+  }
+  mutating func clearSwiftUnittest_Names_WordCase_theHTTPRequest() {
+    clearExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheHttpRequest)
+  }
+}
+
+extension SwiftUnittest_Names_ExtensionNamingInitials {
+  var SwiftUnittest_Names_WordCase_theHTTP: Int32 {
+    get {return getExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheHttp) ?? 0}
+    set {setExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheHttp, value: newValue)}
+  }
+  var hasSwiftUnittest_Names_WordCase_theHTTP: Bool {
+    return hasExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheHttp)
+  }
+  mutating func clearSwiftUnittest_Names_WordCase_theHTTP() {
+    clearExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheHttp)
+  }
+}
+
+extension SwiftUnittest_Names_ExtensionNamingInitials {
+  var SwiftUnittest_Names_WordCase_https: Int32 {
+    get {return getExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.Https) ?? 0}
+    set {setExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.Https, value: newValue)}
+  }
+  var hasSwiftUnittest_Names_WordCase_https: Bool {
+    return hasExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.Https)
+  }
+  mutating func clearSwiftUnittest_Names_WordCase_https() {
+    clearExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.Https)
+  }
+}
+
+extension SwiftUnittest_Names_ExtensionNamingInitials {
+  var SwiftUnittest_Names_WordCase_httpsRequest: Int32 {
+    get {return getExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.HttpsRequest) ?? 0}
+    set {setExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.HttpsRequest, value: newValue)}
+  }
+  var hasSwiftUnittest_Names_WordCase_httpsRequest: Bool {
+    return hasExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.HttpsRequest)
+  }
+  mutating func clearSwiftUnittest_Names_WordCase_httpsRequest() {
+    clearExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.HttpsRequest)
+  }
+}
+
+extension SwiftUnittest_Names_ExtensionNamingInitials {
+  var SwiftUnittest_Names_WordCase_theHTTPSRequest: Int32 {
+    get {return getExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheHttpsRequest) ?? 0}
+    set {setExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheHttpsRequest, value: newValue)}
+  }
+  var hasSwiftUnittest_Names_WordCase_theHTTPSRequest: Bool {
+    return hasExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheHttpsRequest)
+  }
+  mutating func clearSwiftUnittest_Names_WordCase_theHTTPSRequest() {
+    clearExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheHttpsRequest)
+  }
+}
+
+extension SwiftUnittest_Names_ExtensionNamingInitials {
+  var SwiftUnittest_Names_WordCase_theHTTPS: Int32 {
+    get {return getExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheHttps) ?? 0}
+    set {setExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheHttps, value: newValue)}
+  }
+  var hasSwiftUnittest_Names_WordCase_theHTTPS: Bool {
+    return hasExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheHttps)
+  }
+  mutating func clearSwiftUnittest_Names_WordCase_theHTTPS() {
+    clearExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheHttps)
+  }
+}
+
+extension SwiftUnittest_Names_ExtensionNamingInitials {
+  var SwiftUnittest_Names_WordCase_url: Int32 {
+    get {return getExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.Url) ?? 0}
+    set {setExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.Url, value: newValue)}
+  }
+  var hasSwiftUnittest_Names_WordCase_url: Bool {
+    return hasExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.Url)
+  }
+  mutating func clearSwiftUnittest_Names_WordCase_url() {
+    clearExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.Url)
+  }
+}
+
+extension SwiftUnittest_Names_ExtensionNamingInitials {
+  var SwiftUnittest_Names_WordCase_urlValue: Int32 {
+    get {return getExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.UrlValue) ?? 0}
+    set {setExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.UrlValue, value: newValue)}
+  }
+  var hasSwiftUnittest_Names_WordCase_urlValue: Bool {
+    return hasExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.UrlValue)
+  }
+  mutating func clearSwiftUnittest_Names_WordCase_urlValue() {
+    clearExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.UrlValue)
+  }
+}
+
+extension SwiftUnittest_Names_ExtensionNamingInitials {
+  var SwiftUnittest_Names_WordCase_theURLValue: Int32 {
+    get {return getExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheUrlValue) ?? 0}
+    set {setExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheUrlValue, value: newValue)}
+  }
+  var hasSwiftUnittest_Names_WordCase_theURLValue: Bool {
+    return hasExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheUrlValue)
+  }
+  mutating func clearSwiftUnittest_Names_WordCase_theURLValue() {
+    clearExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheUrlValue)
+  }
+}
+
+extension SwiftUnittest_Names_ExtensionNamingInitials {
+  var SwiftUnittest_Names_WordCase_theURL: Int32 {
+    get {return getExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheUrl) ?? 0}
+    set {setExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheUrl, value: newValue)}
+  }
+  var hasSwiftUnittest_Names_WordCase_theURL: Bool {
+    return hasExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheUrl)
+  }
+  mutating func clearSwiftUnittest_Names_WordCase_theURL() {
+    clearExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheUrl)
+  }
+}
+
+/// A `SwiftProtobuf.SimpleExtensionMap` that includes all of the extensions defined by
+/// this .proto file. It can be used any place an `SwiftProtobuf.ExtensionMap` is needed
+/// in parsing, or it can be combined with other `SwiftProtobuf.SimpleExtensionMap`s to create
+/// a larger `SwiftProtobuf.SimpleExtensionMap`.
 let SwiftUnittest_Names_UnittestSwiftNaming_Extensions: SwiftProtobuf.SimpleExtensionMap = [
   SwiftUnittest_Names_Extensions_http,
   SwiftUnittest_Names_Extensions_http_request,
@@ -22618,6 +18584,10 @@ let SwiftUnittest_Names_UnittestSwiftNaming_Extensions: SwiftProtobuf.SimpleExte
   SwiftUnittest_Names_Extensions_UrlValue,
   SwiftUnittest_Names_Extensions_TheUrlValue,
   SwiftUnittest_Names_Extensions_TheUrl,
+  SwiftUnittest_Names_FieldNames.Extensions.foo1,
+  SwiftUnittest_Names_MessageNames.Extensions.foo2,
+  SwiftUnittest_Names_MessageNames.Extensions.foo4,
+  SwiftUnittest_Names_MessageNames.StringMessage.Extensions.foo3,
   SwiftUnittest_Names_Lowers.Extensions.http,
   SwiftUnittest_Names_Lowers.Extensions.http_request,
   SwiftUnittest_Names_Lowers.Extensions.the_http_request,
@@ -22656,3 +18626,5681 @@ let SwiftUnittest_Names_UnittestSwiftNaming_Extensions: SwiftProtobuf.SimpleExte
   SwiftUnittest_Names_WordCase.Extensions.TheUrlValue,
   SwiftUnittest_Names_WordCase.Extensions.TheUrl
 ]
+
+let SwiftUnittest_Names_Extensions_http = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
+  _protobuf_fieldNumber: 1,
+  fieldName: "swift_unittest.names.http",
+  defaultValue: 0
+)
+
+let SwiftUnittest_Names_Extensions_http_request = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
+  _protobuf_fieldNumber: 2,
+  fieldName: "swift_unittest.names.http_request",
+  defaultValue: 0
+)
+
+let SwiftUnittest_Names_Extensions_the_http_request = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
+  _protobuf_fieldNumber: 3,
+  fieldName: "swift_unittest.names.the_http_request",
+  defaultValue: 0
+)
+
+let SwiftUnittest_Names_Extensions_the_http = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
+  _protobuf_fieldNumber: 4,
+  fieldName: "swift_unittest.names.the_http",
+  defaultValue: 0
+)
+
+let SwiftUnittest_Names_Extensions_https = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
+  _protobuf_fieldNumber: 11,
+  fieldName: "swift_unittest.names.https",
+  defaultValue: 0
+)
+
+let SwiftUnittest_Names_Extensions_https_request = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
+  _protobuf_fieldNumber: 12,
+  fieldName: "swift_unittest.names.https_request",
+  defaultValue: 0
+)
+
+let SwiftUnittest_Names_Extensions_the_https_request = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
+  _protobuf_fieldNumber: 13,
+  fieldName: "swift_unittest.names.the_https_request",
+  defaultValue: 0
+)
+
+let SwiftUnittest_Names_Extensions_the_https = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
+  _protobuf_fieldNumber: 14,
+  fieldName: "swift_unittest.names.the_https",
+  defaultValue: 0
+)
+
+let SwiftUnittest_Names_Extensions_url = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
+  _protobuf_fieldNumber: 21,
+  fieldName: "swift_unittest.names.url",
+  defaultValue: 0
+)
+
+let SwiftUnittest_Names_Extensions_url_value = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
+  _protobuf_fieldNumber: 22,
+  fieldName: "swift_unittest.names.url_value",
+  defaultValue: 0
+)
+
+let SwiftUnittest_Names_Extensions_the_url_value = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
+  _protobuf_fieldNumber: 23,
+  fieldName: "swift_unittest.names.the_url_value",
+  defaultValue: 0
+)
+
+let SwiftUnittest_Names_Extensions_the_url = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
+  _protobuf_fieldNumber: 24,
+  fieldName: "swift_unittest.names.the_url",
+  defaultValue: 0
+)
+
+let SwiftUnittest_Names_Extensions_a_b_c = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
+  _protobuf_fieldNumber: 31,
+  fieldName: "swift_unittest.names.a_b_c",
+  defaultValue: 0
+)
+
+let SwiftUnittest_Names_Extensions_HTTP = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsUppers>(
+  _protobuf_fieldNumber: 1,
+  fieldName: "swift_unittest.names.HTTP",
+  defaultValue: 0
+)
+
+let SwiftUnittest_Names_Extensions_HTTP_request = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsUppers>(
+  _protobuf_fieldNumber: 2,
+  fieldName: "swift_unittest.names.HTTP_request",
+  defaultValue: 0
+)
+
+let SwiftUnittest_Names_Extensions_the_HTTP_request = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsUppers>(
+  _protobuf_fieldNumber: 3,
+  fieldName: "swift_unittest.names.the_HTTP_request",
+  defaultValue: 0
+)
+
+let SwiftUnittest_Names_Extensions_the_HTTP = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsUppers>(
+  _protobuf_fieldNumber: 4,
+  fieldName: "swift_unittest.names.the_HTTP",
+  defaultValue: 0
+)
+
+let SwiftUnittest_Names_Extensions_HTTPS = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsUppers>(
+  _protobuf_fieldNumber: 11,
+  fieldName: "swift_unittest.names.HTTPS",
+  defaultValue: 0
+)
+
+let SwiftUnittest_Names_Extensions_HTTPS_request = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsUppers>(
+  _protobuf_fieldNumber: 12,
+  fieldName: "swift_unittest.names.HTTPS_request",
+  defaultValue: 0
+)
+
+let SwiftUnittest_Names_Extensions_the_HTTPS_request = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsUppers>(
+  _protobuf_fieldNumber: 13,
+  fieldName: "swift_unittest.names.the_HTTPS_request",
+  defaultValue: 0
+)
+
+let SwiftUnittest_Names_Extensions_the_HTTPS = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsUppers>(
+  _protobuf_fieldNumber: 14,
+  fieldName: "swift_unittest.names.the_HTTPS",
+  defaultValue: 0
+)
+
+let SwiftUnittest_Names_Extensions_URL = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsUppers>(
+  _protobuf_fieldNumber: 21,
+  fieldName: "swift_unittest.names.URL",
+  defaultValue: 0
+)
+
+let SwiftUnittest_Names_Extensions_URL_value = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsUppers>(
+  _protobuf_fieldNumber: 22,
+  fieldName: "swift_unittest.names.URL_value",
+  defaultValue: 0
+)
+
+let SwiftUnittest_Names_Extensions_the_URL_value = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsUppers>(
+  _protobuf_fieldNumber: 23,
+  fieldName: "swift_unittest.names.the_URL_value",
+  defaultValue: 0
+)
+
+let SwiftUnittest_Names_Extensions_the_URL = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsUppers>(
+  _protobuf_fieldNumber: 24,
+  fieldName: "swift_unittest.names.the_URL",
+  defaultValue: 0
+)
+
+let SwiftUnittest_Names_Extensions_Http = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>(
+  _protobuf_fieldNumber: 1,
+  fieldName: "swift_unittest.names.Http",
+  defaultValue: 0
+)
+
+let SwiftUnittest_Names_Extensions_HttpRequest = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>(
+  _protobuf_fieldNumber: 2,
+  fieldName: "swift_unittest.names.HttpRequest",
+  defaultValue: 0
+)
+
+let SwiftUnittest_Names_Extensions_TheHttpRequest = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>(
+  _protobuf_fieldNumber: 3,
+  fieldName: "swift_unittest.names.TheHttpRequest",
+  defaultValue: 0
+)
+
+let SwiftUnittest_Names_Extensions_TheHttp = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>(
+  _protobuf_fieldNumber: 4,
+  fieldName: "swift_unittest.names.TheHttp",
+  defaultValue: 0
+)
+
+let SwiftUnittest_Names_Extensions_Https = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>(
+  _protobuf_fieldNumber: 11,
+  fieldName: "swift_unittest.names.Https",
+  defaultValue: 0
+)
+
+let SwiftUnittest_Names_Extensions_HttpsRequest = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>(
+  _protobuf_fieldNumber: 12,
+  fieldName: "swift_unittest.names.HttpsRequest",
+  defaultValue: 0
+)
+
+let SwiftUnittest_Names_Extensions_TheHttpsRequest = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>(
+  _protobuf_fieldNumber: 13,
+  fieldName: "swift_unittest.names.TheHttpsRequest",
+  defaultValue: 0
+)
+
+let SwiftUnittest_Names_Extensions_TheHttps = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>(
+  _protobuf_fieldNumber: 14,
+  fieldName: "swift_unittest.names.TheHttps",
+  defaultValue: 0
+)
+
+let SwiftUnittest_Names_Extensions_Url = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>(
+  _protobuf_fieldNumber: 21,
+  fieldName: "swift_unittest.names.Url",
+  defaultValue: 0
+)
+
+let SwiftUnittest_Names_Extensions_UrlValue = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>(
+  _protobuf_fieldNumber: 22,
+  fieldName: "swift_unittest.names.UrlValue",
+  defaultValue: 0
+)
+
+let SwiftUnittest_Names_Extensions_TheUrlValue = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>(
+  _protobuf_fieldNumber: 23,
+  fieldName: "swift_unittest.names.TheUrlValue",
+  defaultValue: 0
+)
+
+let SwiftUnittest_Names_Extensions_TheUrl = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>(
+  _protobuf_fieldNumber: 24,
+  fieldName: "swift_unittest.names.TheUrl",
+  defaultValue: 0
+)
+
+extension SwiftUnittest_Names_FieldNames {
+  enum Extensions {
+    static let foo1 = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_Foo>(
+      _protobuf_fieldNumber: 1,
+      fieldName: "swift_unittest.names.FieldNames.foo1",
+      defaultValue: 0
+    )
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames {
+  enum Extensions {
+    static let foo2 = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_Foo>(
+      _protobuf_fieldNumber: 2,
+      fieldName: "swift_unittest.names.MessageNames.foo2",
+      defaultValue: 0
+    )
+
+    static let foo4 = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_Foo>(
+      _protobuf_fieldNumber: 4,
+      fieldName: "swift_unittest.names.MessageNames.foo4",
+      defaultValue: 0
+    )
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.StringMessage {
+  enum Extensions {
+    static let foo3 = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_Foo>(
+      _protobuf_fieldNumber: 3,
+      fieldName: "swift_unittest.names.MessageNames.String.foo3",
+      defaultValue: 0
+    )
+  }
+}
+
+extension SwiftUnittest_Names_Lowers {
+  enum Extensions {
+    static let http = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+      _protobuf_fieldNumber: 1,
+      fieldName: "swift_unittest.names.Lowers.http",
+      defaultValue: 0
+    )
+
+    static let http_request = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+      _protobuf_fieldNumber: 2,
+      fieldName: "swift_unittest.names.Lowers.http_request",
+      defaultValue: 0
+    )
+
+    static let the_http_request = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+      _protobuf_fieldNumber: 3,
+      fieldName: "swift_unittest.names.Lowers.the_http_request",
+      defaultValue: 0
+    )
+
+    static let the_http = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+      _protobuf_fieldNumber: 4,
+      fieldName: "swift_unittest.names.Lowers.the_http",
+      defaultValue: 0
+    )
+
+    static let https = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+      _protobuf_fieldNumber: 11,
+      fieldName: "swift_unittest.names.Lowers.https",
+      defaultValue: 0
+    )
+
+    static let https_request = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+      _protobuf_fieldNumber: 12,
+      fieldName: "swift_unittest.names.Lowers.https_request",
+      defaultValue: 0
+    )
+
+    static let the_https_request = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+      _protobuf_fieldNumber: 13,
+      fieldName: "swift_unittest.names.Lowers.the_https_request",
+      defaultValue: 0
+    )
+
+    static let the_https = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+      _protobuf_fieldNumber: 14,
+      fieldName: "swift_unittest.names.Lowers.the_https",
+      defaultValue: 0
+    )
+
+    static let url = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+      _protobuf_fieldNumber: 21,
+      fieldName: "swift_unittest.names.Lowers.url",
+      defaultValue: 0
+    )
+
+    static let url_value = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+      _protobuf_fieldNumber: 22,
+      fieldName: "swift_unittest.names.Lowers.url_value",
+      defaultValue: 0
+    )
+
+    static let the_url_value = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+      _protobuf_fieldNumber: 23,
+      fieldName: "swift_unittest.names.Lowers.the_url_value",
+      defaultValue: 0
+    )
+
+    static let the_url = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+      _protobuf_fieldNumber: 24,
+      fieldName: "swift_unittest.names.Lowers.the_url",
+      defaultValue: 0
+    )
+
+    static let a_b_c = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+      _protobuf_fieldNumber: 31,
+      fieldName: "swift_unittest.names.Lowers.a_b_c",
+      defaultValue: 0
+    )
+  }
+}
+
+extension SwiftUnittest_Names_Uppers {
+  enum Extensions {
+    static let HTTP = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+      _protobuf_fieldNumber: 101,
+      fieldName: "swift_unittest.names.Uppers.HTTP",
+      defaultValue: 0
+    )
+
+    static let HTTP_request = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+      _protobuf_fieldNumber: 102,
+      fieldName: "swift_unittest.names.Uppers.HTTP_request",
+      defaultValue: 0
+    )
+
+    static let the_HTTP_request = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+      _protobuf_fieldNumber: 103,
+      fieldName: "swift_unittest.names.Uppers.the_HTTP_request",
+      defaultValue: 0
+    )
+
+    static let the_HTTP = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+      _protobuf_fieldNumber: 104,
+      fieldName: "swift_unittest.names.Uppers.the_HTTP",
+      defaultValue: 0
+    )
+
+    static let HTTPS = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+      _protobuf_fieldNumber: 111,
+      fieldName: "swift_unittest.names.Uppers.HTTPS",
+      defaultValue: 0
+    )
+
+    static let HTTPS_request = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+      _protobuf_fieldNumber: 112,
+      fieldName: "swift_unittest.names.Uppers.HTTPS_request",
+      defaultValue: 0
+    )
+
+    static let the_HTTPS_request = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+      _protobuf_fieldNumber: 113,
+      fieldName: "swift_unittest.names.Uppers.the_HTTPS_request",
+      defaultValue: 0
+    )
+
+    static let the_HTTPS = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+      _protobuf_fieldNumber: 114,
+      fieldName: "swift_unittest.names.Uppers.the_HTTPS",
+      defaultValue: 0
+    )
+
+    static let URL = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+      _protobuf_fieldNumber: 121,
+      fieldName: "swift_unittest.names.Uppers.URL",
+      defaultValue: 0
+    )
+
+    static let URL_value = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+      _protobuf_fieldNumber: 122,
+      fieldName: "swift_unittest.names.Uppers.URL_value",
+      defaultValue: 0
+    )
+
+    static let the_URL_value = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+      _protobuf_fieldNumber: 123,
+      fieldName: "swift_unittest.names.Uppers.the_URL_value",
+      defaultValue: 0
+    )
+
+    static let the_URL = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+      _protobuf_fieldNumber: 124,
+      fieldName: "swift_unittest.names.Uppers.the_URL",
+      defaultValue: 0
+    )
+  }
+}
+
+extension SwiftUnittest_Names_WordCase {
+  enum Extensions {
+    static let Http = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+      _protobuf_fieldNumber: 201,
+      fieldName: "swift_unittest.names.WordCase.Http",
+      defaultValue: 0
+    )
+
+    static let HttpRequest = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+      _protobuf_fieldNumber: 202,
+      fieldName: "swift_unittest.names.WordCase.HttpRequest",
+      defaultValue: 0
+    )
+
+    static let TheHttpRequest = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+      _protobuf_fieldNumber: 203,
+      fieldName: "swift_unittest.names.WordCase.TheHttpRequest",
+      defaultValue: 0
+    )
+
+    static let TheHttp = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+      _protobuf_fieldNumber: 204,
+      fieldName: "swift_unittest.names.WordCase.TheHttp",
+      defaultValue: 0
+    )
+
+    static let Https = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+      _protobuf_fieldNumber: 211,
+      fieldName: "swift_unittest.names.WordCase.Https",
+      defaultValue: 0
+    )
+
+    static let HttpsRequest = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+      _protobuf_fieldNumber: 212,
+      fieldName: "swift_unittest.names.WordCase.HttpsRequest",
+      defaultValue: 0
+    )
+
+    static let TheHttpsRequest = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+      _protobuf_fieldNumber: 213,
+      fieldName: "swift_unittest.names.WordCase.TheHttpsRequest",
+      defaultValue: 0
+    )
+
+    static let TheHttps = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+      _protobuf_fieldNumber: 214,
+      fieldName: "swift_unittest.names.WordCase.TheHttps",
+      defaultValue: 0
+    )
+
+    static let Url = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+      _protobuf_fieldNumber: 221,
+      fieldName: "swift_unittest.names.WordCase.Url",
+      defaultValue: 0
+    )
+
+    static let UrlValue = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+      _protobuf_fieldNumber: 222,
+      fieldName: "swift_unittest.names.WordCase.UrlValue",
+      defaultValue: 0
+    )
+
+    static let TheUrlValue = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+      _protobuf_fieldNumber: 223,
+      fieldName: "swift_unittest.names.WordCase.TheUrlValue",
+      defaultValue: 0
+    )
+
+    static let TheUrl = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+      _protobuf_fieldNumber: 224,
+      fieldName: "swift_unittest.names.WordCase.TheUrl",
+      defaultValue: 0
+    )
+  }
+}
+
+// MARK: - Code below here is support for the SwiftProtobuf runtime.
+
+fileprivate let _protobuf_package = "swift_unittest.names"
+
+extension SwiftUnittest_Names_EnumFieldNames: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "A"),
+    1: .same(proto: "String"),
+    2: .same(proto: "Int"),
+    3: .same(proto: "Double"),
+    4: .same(proto: "Float"),
+    5: .same(proto: "UInt"),
+    6: .same(proto: "hashValue"),
+    7: .same(proto: "description"),
+    8: .same(proto: "debugDescription"),
+    9: .same(proto: "Swift"),
+    10: .same(proto: "UNRECOGNIZED"),
+    11: .same(proto: "class"),
+    12: .same(proto: "deinit"),
+    13: .same(proto: "enum"),
+    14: .same(proto: "extension"),
+    15: .same(proto: "func"),
+    16: .same(proto: "import"),
+    17: .same(proto: "init"),
+    18: .same(proto: "inout"),
+    19: .same(proto: "internal"),
+    20: .same(proto: "let"),
+    21: .same(proto: "operator"),
+    22: .same(proto: "private"),
+    23: .same(proto: "protocol"),
+    24: .same(proto: "public"),
+    25: .same(proto: "static"),
+    26: .same(proto: "struct"),
+    27: .same(proto: "subscript"),
+    28: .same(proto: "typealias"),
+    29: .same(proto: "var"),
+    30: .same(proto: "break"),
+    31: .same(proto: "case"),
+    32: .same(proto: "continue"),
+    33: .same(proto: "default"),
+    34: .same(proto: "defer"),
+    35: .same(proto: "do"),
+    36: .same(proto: "else"),
+    37: .same(proto: "fallthrough"),
+    38: .same(proto: "for"),
+    39: .same(proto: "guard"),
+    40: .same(proto: "if"),
+    41: .same(proto: "in"),
+    42: .same(proto: "repeat"),
+    43: .same(proto: "return"),
+    44: .same(proto: "switch"),
+    45: .same(proto: "where"),
+    46: .same(proto: "while"),
+    47: .same(proto: "as"),
+    48: .same(proto: "catch"),
+    49: .same(proto: "dynamicType"),
+    50: .same(proto: "false"),
+    51: .same(proto: "is"),
+    52: .same(proto: "nil"),
+    53: .same(proto: "rethrows"),
+    54: .same(proto: "super"),
+    55: .same(proto: "self"),
+    57: .same(proto: "throw"),
+    58: .same(proto: "throws"),
+    59: .same(proto: "true"),
+    60: .same(proto: "try"),
+    61: .same(proto: "__COLUMN__"),
+    62: .same(proto: "__FILE__"),
+    63: .same(proto: "__FUNCTION__"),
+    64: .same(proto: "__LINE__"),
+    65: .same(proto: "_"),
+    66: .same(proto: "associativity"),
+    67: .same(proto: "convenience"),
+    68: .same(proto: "dynamic"),
+    69: .same(proto: "didSet"),
+    70: .same(proto: "final"),
+    71: .same(proto: "get"),
+    72: .same(proto: "infix"),
+    73: .same(proto: "indirect"),
+    74: .same(proto: "lazy"),
+    75: .same(proto: "left"),
+    76: .same(proto: "mutating"),
+    77: .same(proto: "none"),
+    78: .same(proto: "nonmutating"),
+    79: .same(proto: "optional"),
+    80: .same(proto: "override"),
+    81: .same(proto: "postfix"),
+    82: .same(proto: "precedence"),
+    83: .same(proto: "prefix"),
+    85: .same(proto: "required"),
+    86: .same(proto: "right"),
+    87: .same(proto: "set"),
+    88: .same(proto: "Type"),
+    89: .same(proto: "unowned"),
+    90: .same(proto: "weak"),
+    91: .same(proto: "willSet"),
+    92: .same(proto: "id"),
+    93: .same(proto: "_cmd"),
+    96: .same(proto: "out"),
+    98: .same(proto: "bycopy"),
+    99: .same(proto: "byref"),
+    100: .same(proto: "oneway"),
+    102: .same(proto: "and"),
+    103: .same(proto: "and_eq"),
+    104: .same(proto: "alignas"),
+    105: .same(proto: "alignof"),
+    106: .same(proto: "asm"),
+    107: .same(proto: "auto"),
+    108: .same(proto: "bitand"),
+    109: .same(proto: "bitor"),
+    110: .same(proto: "bool"),
+    114: .same(proto: "char"),
+    115: .same(proto: "char16_t"),
+    116: .same(proto: "char32_t"),
+    118: .same(proto: "compl"),
+    119: .same(proto: "const"),
+    120: .same(proto: "constexpr"),
+    121: .same(proto: "const_cast"),
+    123: .same(proto: "decltype"),
+    125: .same(proto: "delete"),
+    127: .same(proto: "dynamic_cast"),
+    130: .same(proto: "explicit"),
+    131: .same(proto: "export"),
+    132: .same(proto: "extern"),
+    136: .same(proto: "friend"),
+    137: .same(proto: "goto"),
+    139: .same(proto: "inline"),
+    141: .same(proto: "long"),
+    142: .same(proto: "mutable"),
+    143: .same(proto: "namespace"),
+    144: .same(proto: "new"),
+    145: .same(proto: "noexcept"),
+    146: .same(proto: "not"),
+    147: .same(proto: "not_eq"),
+    148: .same(proto: "nullptr"),
+    150: .same(proto: "or"),
+    151: .same(proto: "or_eq"),
+    153: .same(proto: "protected"),
+    155: .same(proto: "register"),
+    156: .same(proto: "reinterpret_cast"),
+    158: .same(proto: "short"),
+    159: .same(proto: "signed"),
+    160: .same(proto: "sizeof"),
+    162: .same(proto: "static_assert"),
+    163: .same(proto: "static_cast"),
+    166: .same(proto: "template"),
+    167: .same(proto: "this"),
+    168: .same(proto: "thread_local"),
+    172: .same(proto: "typedef"),
+    173: .same(proto: "typeid"),
+    174: .same(proto: "typename"),
+    175: .same(proto: "union"),
+    176: .same(proto: "unsigned"),
+    177: .same(proto: "using"),
+    178: .same(proto: "virtual"),
+    179: .same(proto: "void"),
+    180: .same(proto: "volatile"),
+    181: .same(proto: "wchar_t"),
+    183: .same(proto: "xor"),
+    184: .same(proto: "xor_eq"),
+    185: .same(proto: "restrict"),
+    186: .same(proto: "Category"),
+    187: .same(proto: "Ivar"),
+    188: .same(proto: "Method"),
+    192: .same(proto: "finalize"),
+    193: .same(proto: "hash"),
+    194: .same(proto: "dealloc"),
+    197: .same(proto: "superclass"),
+    198: .same(proto: "retain"),
+    199: .same(proto: "release"),
+    200: .same(proto: "autorelease"),
+    201: .same(proto: "retainCount"),
+    202: .same(proto: "zone"),
+    203: .same(proto: "isProxy"),
+    204: .same(proto: "copy"),
+    205: .same(proto: "mutableCopy"),
+    206: .same(proto: "classForCoder"),
+    207: .same(proto: "clear"),
+    208: .same(proto: "data"),
+    209: .same(proto: "delimitedData"),
+    210: .same(proto: "descriptor"),
+    211: .same(proto: "extensionRegistry"),
+    212: .same(proto: "extensionsCurrentlySet"),
+    213: .same(proto: "isInitialized"),
+    214: .same(proto: "serializedSize"),
+    215: .same(proto: "sortedExtensionsInUse"),
+    216: .same(proto: "unknownFields"),
+    217: .same(proto: "Fixed"),
+    218: .same(proto: "Fract"),
+    219: .same(proto: "Size"),
+    220: .same(proto: "LogicalAddress"),
+    221: .same(proto: "PhysicalAddress"),
+    222: .same(proto: "ByteCount"),
+    223: .same(proto: "ByteOffset"),
+    224: .same(proto: "Duration"),
+    225: .same(proto: "AbsoluteTime"),
+    226: .same(proto: "OptionBits"),
+    227: .same(proto: "ItemCount"),
+    228: .same(proto: "PBVersion"),
+    229: .same(proto: "ScriptCode"),
+    230: .same(proto: "LangCode"),
+    231: .same(proto: "RegionCode"),
+    232: .same(proto: "OSType"),
+    233: .same(proto: "ProcessSerialNumber"),
+    234: .same(proto: "Point"),
+    235: .same(proto: "Rect"),
+    236: .same(proto: "FixedPoint"),
+    237: .same(proto: "FixedRect"),
+    238: .same(proto: "Style"),
+    239: .same(proto: "StyleParameter"),
+    240: .same(proto: "StyleField"),
+    241: .same(proto: "TimeScale"),
+    242: .same(proto: "TimeBase"),
+    243: .same(proto: "TimeRecord"),
+    244: .same(proto: "Extensions"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumFieldNames2: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "AA"),
+    1065: .same(proto: "__"),
+  ]
+}
+
+extension SwiftUnittest_Names_Foo: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_Foo) -> Bool {
+    if unknownFields != other.unknownFields {return false}
+    if _protobuf_extensionFieldValues != other._protobuf_extensionFieldValues {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_FieldNames: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "String"),
+    2: .same(proto: "Int"),
+    3: .same(proto: "Double"),
+    4: .same(proto: "Float"),
+    5: .same(proto: "UInt"),
+    6: .same(proto: "hashValue"),
+    7: .same(proto: "description"),
+    8: .same(proto: "debugDescription"),
+    9: .same(proto: "Swift"),
+    10: .same(proto: "UNRECOGNIZED"),
+    11: .same(proto: "class"),
+    12: .same(proto: "deinit"),
+    13: .same(proto: "enum"),
+    15: .same(proto: "func"),
+    16: .same(proto: "import"),
+    17: .same(proto: "init"),
+    18: .same(proto: "inout"),
+    19: .same(proto: "internal"),
+    20: .same(proto: "let"),
+    21: .same(proto: "operator"),
+    22: .same(proto: "private"),
+    23: .same(proto: "protocol"),
+    24: .same(proto: "public"),
+    25: .same(proto: "static"),
+    26: .same(proto: "struct"),
+    27: .same(proto: "subscript"),
+    28: .same(proto: "typealias"),
+    29: .same(proto: "var"),
+    30: .same(proto: "break"),
+    31: .same(proto: "case"),
+    32: .same(proto: "continue"),
+    33: .same(proto: "default"),
+    34: .same(proto: "defer"),
+    35: .same(proto: "do"),
+    36: .same(proto: "else"),
+    37: .same(proto: "fallthrough"),
+    38: .same(proto: "for"),
+    39: .same(proto: "guard"),
+    40: .same(proto: "if"),
+    41: .same(proto: "in"),
+    42: .same(proto: "repeat"),
+    43: .same(proto: "return"),
+    44: .same(proto: "switch"),
+    45: .same(proto: "where"),
+    46: .same(proto: "while"),
+    47: .same(proto: "as"),
+    48: .same(proto: "catch"),
+    49: .same(proto: "dynamicType"),
+    50: .same(proto: "false"),
+    51: .same(proto: "is"),
+    52: .same(proto: "nil"),
+    53: .same(proto: "rethrows"),
+    54: .same(proto: "super"),
+    55: .same(proto: "self"),
+    57: .same(proto: "throw"),
+    58: .same(proto: "throws"),
+    59: .same(proto: "true"),
+    60: .same(proto: "try"),
+    61: .standard(proto: "__COLUMN__"),
+    62: .standard(proto: "__FILE__"),
+    63: .standard(proto: "__FUNCTION__"),
+    64: .standard(proto: "__LINE__"),
+    65: .standard(proto: "_"),
+    66: .same(proto: "associativity"),
+    67: .same(proto: "convenience"),
+    68: .same(proto: "dynamic"),
+    69: .same(proto: "didSet"),
+    70: .same(proto: "final"),
+    71: .same(proto: "get"),
+    72: .same(proto: "infix"),
+    73: .same(proto: "indirect"),
+    74: .same(proto: "lazy"),
+    75: .same(proto: "left"),
+    76: .same(proto: "mutating"),
+    77: .same(proto: "none"),
+    78: .same(proto: "nonmutating"),
+    79: .same(proto: "optional"),
+    80: .same(proto: "override"),
+    81: .same(proto: "postfix"),
+    82: .same(proto: "precedence"),
+    83: .same(proto: "prefix"),
+    85: .same(proto: "required"),
+    86: .same(proto: "right"),
+    87: .same(proto: "set"),
+    88: .same(proto: "Type"),
+    89: .same(proto: "unowned"),
+    90: .same(proto: "weak"),
+    91: .same(proto: "willSet"),
+    92: .same(proto: "id"),
+    93: .standard(proto: "_cmd"),
+    96: .same(proto: "out"),
+    98: .same(proto: "bycopy"),
+    99: .same(proto: "byref"),
+    100: .same(proto: "oneway"),
+    102: .same(proto: "and"),
+    103: .standard(proto: "and_eq"),
+    104: .same(proto: "alignas"),
+    105: .same(proto: "alignof"),
+    106: .same(proto: "asm"),
+    107: .same(proto: "auto"),
+    108: .same(proto: "bitand"),
+    109: .same(proto: "bitor"),
+    110: .same(proto: "bool"),
+    114: .same(proto: "char"),
+    115: .standard(proto: "char16_t"),
+    116: .standard(proto: "char32_t"),
+    118: .same(proto: "compl"),
+    119: .same(proto: "const"),
+    120: .same(proto: "constexpr"),
+    121: .standard(proto: "const_cast"),
+    123: .same(proto: "decltype"),
+    125: .same(proto: "delete"),
+    127: .standard(proto: "dynamic_cast"),
+    130: .same(proto: "explicit"),
+    131: .same(proto: "export"),
+    132: .same(proto: "extern"),
+    136: .same(proto: "friend"),
+    137: .same(proto: "goto"),
+    139: .same(proto: "inline"),
+    141: .same(proto: "long"),
+    142: .same(proto: "mutable"),
+    143: .same(proto: "namespace"),
+    144: .same(proto: "new"),
+    145: .same(proto: "noexcept"),
+    146: .same(proto: "not"),
+    147: .standard(proto: "not_eq"),
+    148: .same(proto: "nullptr"),
+    150: .same(proto: "or"),
+    151: .standard(proto: "or_eq"),
+    153: .same(proto: "protected"),
+    155: .same(proto: "register"),
+    156: .standard(proto: "reinterpret_cast"),
+    158: .same(proto: "short"),
+    159: .same(proto: "signed"),
+    160: .same(proto: "sizeof"),
+    162: .standard(proto: "static_assert"),
+    163: .standard(proto: "static_cast"),
+    166: .same(proto: "template"),
+    167: .same(proto: "this"),
+    168: .standard(proto: "thread_local"),
+    172: .same(proto: "typedef"),
+    173: .same(proto: "typeid"),
+    174: .same(proto: "typename"),
+    175: .same(proto: "union"),
+    176: .same(proto: "unsigned"),
+    177: .same(proto: "using"),
+    178: .same(proto: "virtual"),
+    179: .same(proto: "void"),
+    180: .same(proto: "volatile"),
+    181: .standard(proto: "wchar_t"),
+    183: .same(proto: "xor"),
+    184: .standard(proto: "xor_eq"),
+    185: .same(proto: "restrict"),
+    186: .same(proto: "Category"),
+    187: .same(proto: "Ivar"),
+    188: .same(proto: "Method"),
+    192: .same(proto: "finalize"),
+    193: .same(proto: "hash"),
+    194: .same(proto: "dealloc"),
+    197: .same(proto: "superclass"),
+    198: .same(proto: "retain"),
+    199: .same(proto: "release"),
+    200: .same(proto: "autorelease"),
+    201: .same(proto: "retainCount"),
+    202: .same(proto: "zone"),
+    203: .same(proto: "isProxy"),
+    204: .same(proto: "copy"),
+    205: .same(proto: "mutableCopy"),
+    206: .same(proto: "classForCoder"),
+    207: .same(proto: "clear"),
+    208: .same(proto: "data"),
+    209: .same(proto: "delimitedData"),
+    210: .same(proto: "descriptor"),
+    211: .same(proto: "extensionRegistry"),
+    212: .same(proto: "extensionsCurrentlySet"),
+    213: .same(proto: "isInitialized"),
+    214: .same(proto: "serializedSize"),
+    215: .same(proto: "sortedExtensionsInUse"),
+    216: .same(proto: "unknownFields"),
+    217: .same(proto: "Fixed"),
+    218: .same(proto: "Fract"),
+    219: .same(proto: "Size"),
+    220: .same(proto: "LogicalAddress"),
+    221: .same(proto: "PhysicalAddress"),
+    222: .same(proto: "ByteCount"),
+    223: .same(proto: "ByteOffset"),
+    224: .same(proto: "Duration"),
+    225: .same(proto: "AbsoluteTime"),
+    226: .same(proto: "OptionBits"),
+    227: .same(proto: "ItemCount"),
+    228: .same(proto: "PBVersion"),
+    229: .same(proto: "ScriptCode"),
+    230: .same(proto: "LangCode"),
+    231: .same(proto: "RegionCode"),
+    232: .same(proto: "OSType"),
+    233: .same(proto: "ProcessSerialNumber"),
+    234: .same(proto: "Point"),
+    235: .same(proto: "Rect"),
+    236: .same(proto: "FixedPoint"),
+    237: .same(proto: "FixedRect"),
+    238: .same(proto: "Style"),
+    239: .same(proto: "StyleParameter"),
+    240: .same(proto: "StyleField"),
+    241: .same(proto: "TimeScale"),
+    242: .same(proto: "TimeBase"),
+    243: .same(proto: "TimeRecord"),
+    244: .unique(proto: "json_should_be_overriden", json: "json_was_overridden"),
+    245: .same(proto: "Any"),
+    246: .same(proto: "Int32"),
+    247: .same(proto: "Int64"),
+    250: .same(proto: "UInt32"),
+    251: .same(proto: "UInt64"),
+    252: .same(proto: "associatedtype"),
+    253: .same(proto: "fileprivate"),
+    254: .same(proto: "open"),
+    255: .same(proto: "serializedData"),
+    256: .same(proto: "hasSerializedData"),
+    257: .same(proto: "clearSerializedData"),
+    258: .same(proto: "jsonUTF8Data"),
+    259: .same(proto: "jsonString"),
+    260: .same(proto: "Extension"),
+    261: .same(proto: "Extensions"),
+  ]
+
+  fileprivate class _StorageClass {
+    var _string: Int32? = nil
+    var _int: Int32? = nil
+    var _double: Int32? = nil
+    var _float: Int32? = nil
+    var _uint: Int32? = nil
+    var _hashValue_p: Int32? = nil
+    var _description_p: Int32? = nil
+    var _debugDescription_p: Int32? = nil
+    var _swift: Int32? = nil
+    var _unrecognized: Int32? = nil
+    var _class_p: Int32? = nil
+    var _deinit_p: Int32? = nil
+    var _enum_p: Int32? = nil
+    var _func_p: Int32? = nil
+    var _import_p: Int32? = nil
+    var _init_p: Int32? = nil
+    var _inout_p: Int32? = nil
+    var _internal_p: Int32? = nil
+    var _let_p: Int32? = nil
+    var _operator_p: Int32? = nil
+    var _private_p: Int32? = nil
+    var _protocol_p: Int32? = nil
+    var _public_p: Int32? = nil
+    var _static_p: Int32? = nil
+    var _struct_p: Int32? = nil
+    var _subscript_p: Int32? = nil
+    var _typealias_p: Int32? = nil
+    var _var_p: Int32? = nil
+    var _break_p: Int32? = nil
+    var _case_p: Int32? = nil
+    var _continue_p: Int32? = nil
+    var _default_p: Int32? = nil
+    var _defer_p: Int32? = nil
+    var _do_p: Int32? = nil
+    var _else_p: Int32? = nil
+    var _fallthrough_p: Int32? = nil
+    var _for_p: Int32? = nil
+    var _guard_p: Int32? = nil
+    var _if_p: Int32? = nil
+    var _in_p: Int32? = nil
+    var _repeat_p: Int32? = nil
+    var _return_p: Int32? = nil
+    var _switch_p: Int32? = nil
+    var _where_p: Int32? = nil
+    var _while_p: Int32? = nil
+    var _as_p: Int32? = nil
+    var _catch_p: Int32? = nil
+    var _dynamicType_p: Int32? = nil
+    var _false_p: Int32? = nil
+    var _is_p: Int32? = nil
+    var _nil_p: Int32? = nil
+    var _rethrows_p: Int32? = nil
+    var _super_p: Int32? = nil
+    var _self_p: Int32? = nil
+    var _throw_p: Int32? = nil
+    var _throws_p: Int32? = nil
+    var _true_p: Int32? = nil
+    var _try_p: Int32? = nil
+    var __Column__: Int32? = nil
+    var __File__: Int32? = nil
+    var __Function__: Int32? = nil
+    var __Line__: Int32? = nil
+    var ____: Int32? = nil
+    var _associativity: Int32? = nil
+    var _convenience: Int32? = nil
+    var _dynamic: Int32? = nil
+    var _didSet: Int32? = nil
+    var _final: Int32? = nil
+    var _get: Int32? = nil
+    var _infix: Int32? = nil
+    var _indirect: Int32? = nil
+    var _lazy: Int32? = nil
+    var _left: Int32? = nil
+    var _mutating: Int32? = nil
+    var _none: Int32? = nil
+    var _nonmutating: Int32? = nil
+    var _optional: Int32? = nil
+    var _override: Int32? = nil
+    var _postfix: Int32? = nil
+    var _precedence: Int32? = nil
+    var _prefix: Int32? = nil
+    var _required: Int32? = nil
+    var _right: Int32? = nil
+    var _set: Int32? = nil
+    var _type: Int32? = nil
+    var _unowned: Int32? = nil
+    var _weak: Int32? = nil
+    var _willSet: Int32? = nil
+    var _id: Int32? = nil
+    var _cmd: Int32? = nil
+    var _out: Int32? = nil
+    var _bycopy: Int32? = nil
+    var _byref: Int32? = nil
+    var _oneway: Int32? = nil
+    var _and: Int32? = nil
+    var _andEq: Int32? = nil
+    var _alignas: Int32? = nil
+    var _alignof: Int32? = nil
+    var _asm: Int32? = nil
+    var _auto: Int32? = nil
+    var _bitand: Int32? = nil
+    var _bitor: Int32? = nil
+    var _bool: Int32? = nil
+    var _char: Int32? = nil
+    var _char16T: Int32? = nil
+    var _char32T: Int32? = nil
+    var _compl: Int32? = nil
+    var _const: Int32? = nil
+    var _constexpr: Int32? = nil
+    var _constCast: Int32? = nil
+    var _decltype: Int32? = nil
+    var _delete: Int32? = nil
+    var _dynamicCast: Int32? = nil
+    var _explicit: Int32? = nil
+    var _export: Int32? = nil
+    var _extern: Int32? = nil
+    var _friend: Int32? = nil
+    var _goto: Int32? = nil
+    var _inline: Int32? = nil
+    var _long: Int32? = nil
+    var _mutable: Int32? = nil
+    var _namespace: Int32? = nil
+    var _new: Int32? = nil
+    var _noexcept: Int32? = nil
+    var _not: Int32? = nil
+    var _notEq: Int32? = nil
+    var _nullptr: Int32? = nil
+    var _or: Int32? = nil
+    var _orEq: Int32? = nil
+    var _protected: Int32? = nil
+    var _register: Int32? = nil
+    var _reinterpretCast: Int32? = nil
+    var _short: Int32? = nil
+    var _signed: Int32? = nil
+    var _sizeof: Int32? = nil
+    var _staticAssert: Int32? = nil
+    var _staticCast: Int32? = nil
+    var _template: Int32? = nil
+    var _this: Int32? = nil
+    var _threadLocal: Int32? = nil
+    var _typedef: Int32? = nil
+    var _typeid: Int32? = nil
+    var _typename: Int32? = nil
+    var _union: Int32? = nil
+    var _unsigned: Int32? = nil
+    var _using: Int32? = nil
+    var _virtual: Int32? = nil
+    var _void: Int32? = nil
+    var _volatile: Int32? = nil
+    var _wcharT: Int32? = nil
+    var _xor: Int32? = nil
+    var _xorEq: Int32? = nil
+    var _restrict: Int32? = nil
+    var _category: Int32? = nil
+    var _ivar: Int32? = nil
+    var _method: Int32? = nil
+    var _finalize: Int32? = nil
+    var _hash_p: Int32? = nil
+    var _dealloc: Int32? = nil
+    var _superclass: Int32? = nil
+    var _retain: Int32? = nil
+    var _release: Int32? = nil
+    var _autorelease: Int32? = nil
+    var _retainCount: Int32? = nil
+    var _zone: Int32? = nil
+    var _isProxy: Int32? = nil
+    var _copy: Int32? = nil
+    var _mutableCopy: Int32? = nil
+    var _classForCoder: Int32? = nil
+    var _clear_p: Int32? = nil
+    var _data: Int32? = nil
+    var _delimitedData: Int32? = nil
+    var _descriptor: Int32? = nil
+    var _extensionRegistry: Int32? = nil
+    var _extensionsCurrentlySet: Int32? = nil
+    var _isInitialized_p: Int32? = nil
+    var _serializedSize: Int32? = nil
+    var _sortedExtensionsInUse: Int32? = nil
+    var _unknownFields_p: Int32? = nil
+    var _fixed: Int32? = nil
+    var _fract: Int32? = nil
+    var _size: Int32? = nil
+    var _logicalAddress: Int32? = nil
+    var _physicalAddress: Int32? = nil
+    var _byteCount: Int32? = nil
+    var _byteOffset: Int32? = nil
+    var _duration: Int32? = nil
+    var _absoluteTime: Int32? = nil
+    var _optionBits: Int32? = nil
+    var _itemCount: Int32? = nil
+    var _pbversion: Int32? = nil
+    var _scriptCode: Int32? = nil
+    var _langCode: Int32? = nil
+    var _regionCode: Int32? = nil
+    var _ostype: Int32? = nil
+    var _processSerialNumber: Int32? = nil
+    var _point: Int32? = nil
+    var _rect: Int32? = nil
+    var _fixedPoint: Int32? = nil
+    var _fixedRect: Int32? = nil
+    var _style: Int32? = nil
+    var _styleParameter: Int32? = nil
+    var _styleField: Int32? = nil
+    var _timeScale: Int32? = nil
+    var _timeBase: Int32? = nil
+    var _timeRecord: Int32? = nil
+    var _jsonShouldBeOverriden: Int32? = nil
+    var _any: Int32? = nil
+    var _int32: Int32? = nil
+    var _int64: Int32? = nil
+    var _uint32: Int32? = nil
+    var _uint64: Int32? = nil
+    var _associatedtype_p: Int32? = nil
+    var _fileprivate_p: Int32? = nil
+    var _open_p: Int32? = nil
+    var _serializedData: Int32? = nil
+    var _hasSerializedData_p: Int32? = nil
+    var _clearSerializedData_p: Int32? = nil
+    var _jsonUtf8Data: Int32? = nil
+    var _jsonString: Int32? = nil
+    var _extension_p: Int32? = nil
+    var _extensions: Int32? = nil
+
+    init() {}
+
+    init(copying source: _StorageClass) {
+      _string = source._string
+      _int = source._int
+      _double = source._double
+      _float = source._float
+      _uint = source._uint
+      _hashValue_p = source._hashValue_p
+      _description_p = source._description_p
+      _debugDescription_p = source._debugDescription_p
+      _swift = source._swift
+      _unrecognized = source._unrecognized
+      _class_p = source._class_p
+      _deinit_p = source._deinit_p
+      _enum_p = source._enum_p
+      _func_p = source._func_p
+      _import_p = source._import_p
+      _init_p = source._init_p
+      _inout_p = source._inout_p
+      _internal_p = source._internal_p
+      _let_p = source._let_p
+      _operator_p = source._operator_p
+      _private_p = source._private_p
+      _protocol_p = source._protocol_p
+      _public_p = source._public_p
+      _static_p = source._static_p
+      _struct_p = source._struct_p
+      _subscript_p = source._subscript_p
+      _typealias_p = source._typealias_p
+      _var_p = source._var_p
+      _break_p = source._break_p
+      _case_p = source._case_p
+      _continue_p = source._continue_p
+      _default_p = source._default_p
+      _defer_p = source._defer_p
+      _do_p = source._do_p
+      _else_p = source._else_p
+      _fallthrough_p = source._fallthrough_p
+      _for_p = source._for_p
+      _guard_p = source._guard_p
+      _if_p = source._if_p
+      _in_p = source._in_p
+      _repeat_p = source._repeat_p
+      _return_p = source._return_p
+      _switch_p = source._switch_p
+      _where_p = source._where_p
+      _while_p = source._while_p
+      _as_p = source._as_p
+      _catch_p = source._catch_p
+      _dynamicType_p = source._dynamicType_p
+      _false_p = source._false_p
+      _is_p = source._is_p
+      _nil_p = source._nil_p
+      _rethrows_p = source._rethrows_p
+      _super_p = source._super_p
+      _self_p = source._self_p
+      _throw_p = source._throw_p
+      _throws_p = source._throws_p
+      _true_p = source._true_p
+      _try_p = source._try_p
+      __Column__ = source.__Column__
+      __File__ = source.__File__
+      __Function__ = source.__Function__
+      __Line__ = source.__Line__
+      ____ = source.____
+      _associativity = source._associativity
+      _convenience = source._convenience
+      _dynamic = source._dynamic
+      _didSet = source._didSet
+      _final = source._final
+      _get = source._get
+      _infix = source._infix
+      _indirect = source._indirect
+      _lazy = source._lazy
+      _left = source._left
+      _mutating = source._mutating
+      _none = source._none
+      _nonmutating = source._nonmutating
+      _optional = source._optional
+      _override = source._override
+      _postfix = source._postfix
+      _precedence = source._precedence
+      _prefix = source._prefix
+      _required = source._required
+      _right = source._right
+      _set = source._set
+      _type = source._type
+      _unowned = source._unowned
+      _weak = source._weak
+      _willSet = source._willSet
+      _id = source._id
+      _cmd = source._cmd
+      _out = source._out
+      _bycopy = source._bycopy
+      _byref = source._byref
+      _oneway = source._oneway
+      _and = source._and
+      _andEq = source._andEq
+      _alignas = source._alignas
+      _alignof = source._alignof
+      _asm = source._asm
+      _auto = source._auto
+      _bitand = source._bitand
+      _bitor = source._bitor
+      _bool = source._bool
+      _char = source._char
+      _char16T = source._char16T
+      _char32T = source._char32T
+      _compl = source._compl
+      _const = source._const
+      _constexpr = source._constexpr
+      _constCast = source._constCast
+      _decltype = source._decltype
+      _delete = source._delete
+      _dynamicCast = source._dynamicCast
+      _explicit = source._explicit
+      _export = source._export
+      _extern = source._extern
+      _friend = source._friend
+      _goto = source._goto
+      _inline = source._inline
+      _long = source._long
+      _mutable = source._mutable
+      _namespace = source._namespace
+      _new = source._new
+      _noexcept = source._noexcept
+      _not = source._not
+      _notEq = source._notEq
+      _nullptr = source._nullptr
+      _or = source._or
+      _orEq = source._orEq
+      _protected = source._protected
+      _register = source._register
+      _reinterpretCast = source._reinterpretCast
+      _short = source._short
+      _signed = source._signed
+      _sizeof = source._sizeof
+      _staticAssert = source._staticAssert
+      _staticCast = source._staticCast
+      _template = source._template
+      _this = source._this
+      _threadLocal = source._threadLocal
+      _typedef = source._typedef
+      _typeid = source._typeid
+      _typename = source._typename
+      _union = source._union
+      _unsigned = source._unsigned
+      _using = source._using
+      _virtual = source._virtual
+      _void = source._void
+      _volatile = source._volatile
+      _wcharT = source._wcharT
+      _xor = source._xor
+      _xorEq = source._xorEq
+      _restrict = source._restrict
+      _category = source._category
+      _ivar = source._ivar
+      _method = source._method
+      _finalize = source._finalize
+      _hash_p = source._hash_p
+      _dealloc = source._dealloc
+      _superclass = source._superclass
+      _retain = source._retain
+      _release = source._release
+      _autorelease = source._autorelease
+      _retainCount = source._retainCount
+      _zone = source._zone
+      _isProxy = source._isProxy
+      _copy = source._copy
+      _mutableCopy = source._mutableCopy
+      _classForCoder = source._classForCoder
+      _clear_p = source._clear_p
+      _data = source._data
+      _delimitedData = source._delimitedData
+      _descriptor = source._descriptor
+      _extensionRegistry = source._extensionRegistry
+      _extensionsCurrentlySet = source._extensionsCurrentlySet
+      _isInitialized_p = source._isInitialized_p
+      _serializedSize = source._serializedSize
+      _sortedExtensionsInUse = source._sortedExtensionsInUse
+      _unknownFields_p = source._unknownFields_p
+      _fixed = source._fixed
+      _fract = source._fract
+      _size = source._size
+      _logicalAddress = source._logicalAddress
+      _physicalAddress = source._physicalAddress
+      _byteCount = source._byteCount
+      _byteOffset = source._byteOffset
+      _duration = source._duration
+      _absoluteTime = source._absoluteTime
+      _optionBits = source._optionBits
+      _itemCount = source._itemCount
+      _pbversion = source._pbversion
+      _scriptCode = source._scriptCode
+      _langCode = source._langCode
+      _regionCode = source._regionCode
+      _ostype = source._ostype
+      _processSerialNumber = source._processSerialNumber
+      _point = source._point
+      _rect = source._rect
+      _fixedPoint = source._fixedPoint
+      _fixedRect = source._fixedRect
+      _style = source._style
+      _styleParameter = source._styleParameter
+      _styleField = source._styleField
+      _timeScale = source._timeScale
+      _timeBase = source._timeBase
+      _timeRecord = source._timeRecord
+      _jsonShouldBeOverriden = source._jsonShouldBeOverriden
+      _any = source._any
+      _int32 = source._int32
+      _int64 = source._int64
+      _uint32 = source._uint32
+      _uint64 = source._uint64
+      _associatedtype_p = source._associatedtype_p
+      _fileprivate_p = source._fileprivate_p
+      _open_p = source._open_p
+      _serializedData = source._serializedData
+      _hasSerializedData_p = source._hasSerializedData_p
+      _clearSerializedData_p = source._clearSerializedData_p
+      _jsonUtf8Data = source._jsonUtf8Data
+      _jsonString = source._jsonString
+      _extension_p = source._extension_p
+      _extensions = source._extensions
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_FieldNames) -> Bool {
+    if _storage !== other._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+        if _storage._string != other_storage._string {return false}
+        if _storage._int != other_storage._int {return false}
+        if _storage._double != other_storage._double {return false}
+        if _storage._float != other_storage._float {return false}
+        if _storage._uint != other_storage._uint {return false}
+        if _storage._hashValue_p != other_storage._hashValue_p {return false}
+        if _storage._description_p != other_storage._description_p {return false}
+        if _storage._debugDescription_p != other_storage._debugDescription_p {return false}
+        if _storage._swift != other_storage._swift {return false}
+        if _storage._unrecognized != other_storage._unrecognized {return false}
+        if _storage._class_p != other_storage._class_p {return false}
+        if _storage._deinit_p != other_storage._deinit_p {return false}
+        if _storage._enum_p != other_storage._enum_p {return false}
+        if _storage._func_p != other_storage._func_p {return false}
+        if _storage._import_p != other_storage._import_p {return false}
+        if _storage._init_p != other_storage._init_p {return false}
+        if _storage._inout_p != other_storage._inout_p {return false}
+        if _storage._internal_p != other_storage._internal_p {return false}
+        if _storage._let_p != other_storage._let_p {return false}
+        if _storage._operator_p != other_storage._operator_p {return false}
+        if _storage._private_p != other_storage._private_p {return false}
+        if _storage._protocol_p != other_storage._protocol_p {return false}
+        if _storage._public_p != other_storage._public_p {return false}
+        if _storage._static_p != other_storage._static_p {return false}
+        if _storage._struct_p != other_storage._struct_p {return false}
+        if _storage._subscript_p != other_storage._subscript_p {return false}
+        if _storage._typealias_p != other_storage._typealias_p {return false}
+        if _storage._var_p != other_storage._var_p {return false}
+        if _storage._break_p != other_storage._break_p {return false}
+        if _storage._case_p != other_storage._case_p {return false}
+        if _storage._continue_p != other_storage._continue_p {return false}
+        if _storage._default_p != other_storage._default_p {return false}
+        if _storage._defer_p != other_storage._defer_p {return false}
+        if _storage._do_p != other_storage._do_p {return false}
+        if _storage._else_p != other_storage._else_p {return false}
+        if _storage._fallthrough_p != other_storage._fallthrough_p {return false}
+        if _storage._for_p != other_storage._for_p {return false}
+        if _storage._guard_p != other_storage._guard_p {return false}
+        if _storage._if_p != other_storage._if_p {return false}
+        if _storage._in_p != other_storage._in_p {return false}
+        if _storage._repeat_p != other_storage._repeat_p {return false}
+        if _storage._return_p != other_storage._return_p {return false}
+        if _storage._switch_p != other_storage._switch_p {return false}
+        if _storage._where_p != other_storage._where_p {return false}
+        if _storage._while_p != other_storage._while_p {return false}
+        if _storage._as_p != other_storage._as_p {return false}
+        if _storage._catch_p != other_storage._catch_p {return false}
+        if _storage._dynamicType_p != other_storage._dynamicType_p {return false}
+        if _storage._false_p != other_storage._false_p {return false}
+        if _storage._is_p != other_storage._is_p {return false}
+        if _storage._nil_p != other_storage._nil_p {return false}
+        if _storage._rethrows_p != other_storage._rethrows_p {return false}
+        if _storage._super_p != other_storage._super_p {return false}
+        if _storage._self_p != other_storage._self_p {return false}
+        if _storage._throw_p != other_storage._throw_p {return false}
+        if _storage._throws_p != other_storage._throws_p {return false}
+        if _storage._true_p != other_storage._true_p {return false}
+        if _storage._try_p != other_storage._try_p {return false}
+        if _storage.__Column__ != other_storage.__Column__ {return false}
+        if _storage.__File__ != other_storage.__File__ {return false}
+        if _storage.__Function__ != other_storage.__Function__ {return false}
+        if _storage.__Line__ != other_storage.__Line__ {return false}
+        if _storage.____ != other_storage.____ {return false}
+        if _storage._associativity != other_storage._associativity {return false}
+        if _storage._convenience != other_storage._convenience {return false}
+        if _storage._dynamic != other_storage._dynamic {return false}
+        if _storage._didSet != other_storage._didSet {return false}
+        if _storage._final != other_storage._final {return false}
+        if _storage._get != other_storage._get {return false}
+        if _storage._infix != other_storage._infix {return false}
+        if _storage._indirect != other_storage._indirect {return false}
+        if _storage._lazy != other_storage._lazy {return false}
+        if _storage._left != other_storage._left {return false}
+        if _storage._mutating != other_storage._mutating {return false}
+        if _storage._none != other_storage._none {return false}
+        if _storage._nonmutating != other_storage._nonmutating {return false}
+        if _storage._optional != other_storage._optional {return false}
+        if _storage._override != other_storage._override {return false}
+        if _storage._postfix != other_storage._postfix {return false}
+        if _storage._precedence != other_storage._precedence {return false}
+        if _storage._prefix != other_storage._prefix {return false}
+        if _storage._required != other_storage._required {return false}
+        if _storage._right != other_storage._right {return false}
+        if _storage._set != other_storage._set {return false}
+        if _storage._type != other_storage._type {return false}
+        if _storage._unowned != other_storage._unowned {return false}
+        if _storage._weak != other_storage._weak {return false}
+        if _storage._willSet != other_storage._willSet {return false}
+        if _storage._id != other_storage._id {return false}
+        if _storage._cmd != other_storage._cmd {return false}
+        if _storage._out != other_storage._out {return false}
+        if _storage._bycopy != other_storage._bycopy {return false}
+        if _storage._byref != other_storage._byref {return false}
+        if _storage._oneway != other_storage._oneway {return false}
+        if _storage._and != other_storage._and {return false}
+        if _storage._andEq != other_storage._andEq {return false}
+        if _storage._alignas != other_storage._alignas {return false}
+        if _storage._alignof != other_storage._alignof {return false}
+        if _storage._asm != other_storage._asm {return false}
+        if _storage._auto != other_storage._auto {return false}
+        if _storage._bitand != other_storage._bitand {return false}
+        if _storage._bitor != other_storage._bitor {return false}
+        if _storage._bool != other_storage._bool {return false}
+        if _storage._char != other_storage._char {return false}
+        if _storage._char16T != other_storage._char16T {return false}
+        if _storage._char32T != other_storage._char32T {return false}
+        if _storage._compl != other_storage._compl {return false}
+        if _storage._const != other_storage._const {return false}
+        if _storage._constexpr != other_storage._constexpr {return false}
+        if _storage._constCast != other_storage._constCast {return false}
+        if _storage._decltype != other_storage._decltype {return false}
+        if _storage._delete != other_storage._delete {return false}
+        if _storage._dynamicCast != other_storage._dynamicCast {return false}
+        if _storage._explicit != other_storage._explicit {return false}
+        if _storage._export != other_storage._export {return false}
+        if _storage._extern != other_storage._extern {return false}
+        if _storage._friend != other_storage._friend {return false}
+        if _storage._goto != other_storage._goto {return false}
+        if _storage._inline != other_storage._inline {return false}
+        if _storage._long != other_storage._long {return false}
+        if _storage._mutable != other_storage._mutable {return false}
+        if _storage._namespace != other_storage._namespace {return false}
+        if _storage._new != other_storage._new {return false}
+        if _storage._noexcept != other_storage._noexcept {return false}
+        if _storage._not != other_storage._not {return false}
+        if _storage._notEq != other_storage._notEq {return false}
+        if _storage._nullptr != other_storage._nullptr {return false}
+        if _storage._or != other_storage._or {return false}
+        if _storage._orEq != other_storage._orEq {return false}
+        if _storage._protected != other_storage._protected {return false}
+        if _storage._register != other_storage._register {return false}
+        if _storage._reinterpretCast != other_storage._reinterpretCast {return false}
+        if _storage._short != other_storage._short {return false}
+        if _storage._signed != other_storage._signed {return false}
+        if _storage._sizeof != other_storage._sizeof {return false}
+        if _storage._staticAssert != other_storage._staticAssert {return false}
+        if _storage._staticCast != other_storage._staticCast {return false}
+        if _storage._template != other_storage._template {return false}
+        if _storage._this != other_storage._this {return false}
+        if _storage._threadLocal != other_storage._threadLocal {return false}
+        if _storage._typedef != other_storage._typedef {return false}
+        if _storage._typeid != other_storage._typeid {return false}
+        if _storage._typename != other_storage._typename {return false}
+        if _storage._union != other_storage._union {return false}
+        if _storage._unsigned != other_storage._unsigned {return false}
+        if _storage._using != other_storage._using {return false}
+        if _storage._virtual != other_storage._virtual {return false}
+        if _storage._void != other_storage._void {return false}
+        if _storage._volatile != other_storage._volatile {return false}
+        if _storage._wcharT != other_storage._wcharT {return false}
+        if _storage._xor != other_storage._xor {return false}
+        if _storage._xorEq != other_storage._xorEq {return false}
+        if _storage._restrict != other_storage._restrict {return false}
+        if _storage._category != other_storage._category {return false}
+        if _storage._ivar != other_storage._ivar {return false}
+        if _storage._method != other_storage._method {return false}
+        if _storage._finalize != other_storage._finalize {return false}
+        if _storage._hash_p != other_storage._hash_p {return false}
+        if _storage._dealloc != other_storage._dealloc {return false}
+        if _storage._superclass != other_storage._superclass {return false}
+        if _storage._retain != other_storage._retain {return false}
+        if _storage._release != other_storage._release {return false}
+        if _storage._autorelease != other_storage._autorelease {return false}
+        if _storage._retainCount != other_storage._retainCount {return false}
+        if _storage._zone != other_storage._zone {return false}
+        if _storage._isProxy != other_storage._isProxy {return false}
+        if _storage._copy != other_storage._copy {return false}
+        if _storage._mutableCopy != other_storage._mutableCopy {return false}
+        if _storage._classForCoder != other_storage._classForCoder {return false}
+        if _storage._clear_p != other_storage._clear_p {return false}
+        if _storage._data != other_storage._data {return false}
+        if _storage._delimitedData != other_storage._delimitedData {return false}
+        if _storage._descriptor != other_storage._descriptor {return false}
+        if _storage._extensionRegistry != other_storage._extensionRegistry {return false}
+        if _storage._extensionsCurrentlySet != other_storage._extensionsCurrentlySet {return false}
+        if _storage._isInitialized_p != other_storage._isInitialized_p {return false}
+        if _storage._serializedSize != other_storage._serializedSize {return false}
+        if _storage._sortedExtensionsInUse != other_storage._sortedExtensionsInUse {return false}
+        if _storage._unknownFields_p != other_storage._unknownFields_p {return false}
+        if _storage._fixed != other_storage._fixed {return false}
+        if _storage._fract != other_storage._fract {return false}
+        if _storage._size != other_storage._size {return false}
+        if _storage._logicalAddress != other_storage._logicalAddress {return false}
+        if _storage._physicalAddress != other_storage._physicalAddress {return false}
+        if _storage._byteCount != other_storage._byteCount {return false}
+        if _storage._byteOffset != other_storage._byteOffset {return false}
+        if _storage._duration != other_storage._duration {return false}
+        if _storage._absoluteTime != other_storage._absoluteTime {return false}
+        if _storage._optionBits != other_storage._optionBits {return false}
+        if _storage._itemCount != other_storage._itemCount {return false}
+        if _storage._pbversion != other_storage._pbversion {return false}
+        if _storage._scriptCode != other_storage._scriptCode {return false}
+        if _storage._langCode != other_storage._langCode {return false}
+        if _storage._regionCode != other_storage._regionCode {return false}
+        if _storage._ostype != other_storage._ostype {return false}
+        if _storage._processSerialNumber != other_storage._processSerialNumber {return false}
+        if _storage._point != other_storage._point {return false}
+        if _storage._rect != other_storage._rect {return false}
+        if _storage._fixedPoint != other_storage._fixedPoint {return false}
+        if _storage._fixedRect != other_storage._fixedRect {return false}
+        if _storage._style != other_storage._style {return false}
+        if _storage._styleParameter != other_storage._styleParameter {return false}
+        if _storage._styleField != other_storage._styleField {return false}
+        if _storage._timeScale != other_storage._timeScale {return false}
+        if _storage._timeBase != other_storage._timeBase {return false}
+        if _storage._timeRecord != other_storage._timeRecord {return false}
+        if _storage._jsonShouldBeOverriden != other_storage._jsonShouldBeOverriden {return false}
+        if _storage._any != other_storage._any {return false}
+        if _storage._int32 != other_storage._int32 {return false}
+        if _storage._int64 != other_storage._int64 {return false}
+        if _storage._uint32 != other_storage._uint32 {return false}
+        if _storage._uint64 != other_storage._uint64 {return false}
+        if _storage._associatedtype_p != other_storage._associatedtype_p {return false}
+        if _storage._fileprivate_p != other_storage._fileprivate_p {return false}
+        if _storage._open_p != other_storage._open_p {return false}
+        if _storage._serializedData != other_storage._serializedData {return false}
+        if _storage._hasSerializedData_p != other_storage._hasSerializedData_p {return false}
+        if _storage._clearSerializedData_p != other_storage._clearSerializedData_p {return false}
+        if _storage._jsonUtf8Data != other_storage._jsonUtf8Data {return false}
+        if _storage._jsonString != other_storage._jsonString {return false}
+        if _storage._extension_p != other_storage._extension_p {return false}
+        if _storage._extensions != other_storage._extensions {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames) -> Bool {
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.StringMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "String"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.StringMessage) -> Bool {
+    if self._string != other._string {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.ProtocolMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "Protocol"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.ProtocolMessage) -> Bool {
+    if self._protocol_p != other._protocol_p {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.IntMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "Int"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.IntMessage) -> Bool {
+    if self._int != other._int {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.DoubleMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "Double"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.DoubleMessage) -> Bool {
+    if self._double != other._double {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.FloatMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "Float"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.FloatMessage) -> Bool {
+    if self._float != other._float {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.UIntMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "UInt"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.UIntMessage) -> Bool {
+    if self._uint != other._uint {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.hashValueMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "hashValue"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.hashValueMessage) -> Bool {
+    if self._hashValue_p != other._hashValue_p {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.descriptionMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "description"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.descriptionMessage) -> Bool {
+    if self._description_p != other._description_p {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.debugDescriptionMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "debugDescription"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.debugDescriptionMessage) -> Bool {
+    if self._debugDescription_p != other._debugDescription_p {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.Swift: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "Swift"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.Swift) -> Bool {
+    if self._swift != other._swift {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.UNRECOGNIZED: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "UNRECOGNIZED"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.UNRECOGNIZED) -> Bool {
+    if self._unrecognized != other._unrecognized {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.classMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "class"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.classMessage) -> Bool {
+    if self._class_p != other._class_p {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.deinitMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "deinit"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.deinitMessage) -> Bool {
+    if self._deinit_p != other._deinit_p {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.enumMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "enum"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.enumMessage) -> Bool {
+    if self._enum_p != other._enum_p {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.extensionMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "extension"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.extensionMessage) -> Bool {
+    if self._extension_p != other._extension_p {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.funcMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "func"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.funcMessage) -> Bool {
+    if self._func_p != other._func_p {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.importMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "import"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.importMessage) -> Bool {
+    if self._import_p != other._import_p {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.initMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "init"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.initMessage) -> Bool {
+    if self._init_p != other._init_p {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.inoutMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "inout"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.inoutMessage) -> Bool {
+    if self._inout_p != other._inout_p {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.internalMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "internal"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.internalMessage) -> Bool {
+    if self._internal_p != other._internal_p {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.letMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "let"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.letMessage) -> Bool {
+    if self._let_p != other._let_p {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.operatorMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "operator"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.operatorMessage) -> Bool {
+    if self._operator_p != other._operator_p {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.privateMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "private"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.privateMessage) -> Bool {
+    if self._private_p != other._private_p {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.protocolMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "protocol"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.protocolMessage) -> Bool {
+    if self._protocol_p != other._protocol_p {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.publicMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "public"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.publicMessage) -> Bool {
+    if self._public_p != other._public_p {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.staticMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "static"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.staticMessage) -> Bool {
+    if self._static_p != other._static_p {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.structMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "struct"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.structMessage) -> Bool {
+    if self._struct_p != other._struct_p {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.subscriptMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "subscript"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.subscriptMessage) -> Bool {
+    if self._subscript_p != other._subscript_p {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.typealiasMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "typealias"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.typealiasMessage) -> Bool {
+    if self._typealias_p != other._typealias_p {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.varMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "var"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.varMessage) -> Bool {
+    if self._var_p != other._var_p {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.breakMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "break"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.breakMessage) -> Bool {
+    if self._break_p != other._break_p {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.caseMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "case"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.caseMessage) -> Bool {
+    if self._case_p != other._case_p {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.continueMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "continue"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.continueMessage) -> Bool {
+    if self._continue_p != other._continue_p {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.defaultMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "default"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.defaultMessage) -> Bool {
+    if self._default_p != other._default_p {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.deferMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "defer"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.deferMessage) -> Bool {
+    if self._defer_p != other._defer_p {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.doMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "do"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.doMessage) -> Bool {
+    if self._do_p != other._do_p {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.elseMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "else"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.elseMessage) -> Bool {
+    if self._else_p != other._else_p {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.fallthroughMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "fallthrough"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.fallthroughMessage) -> Bool {
+    if self._fallthrough_p != other._fallthrough_p {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.forMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "for"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.forMessage) -> Bool {
+    if self._for_p != other._for_p {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.guardMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "guard"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.guardMessage) -> Bool {
+    if self._guard_p != other._guard_p {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.ifMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "if"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.ifMessage) -> Bool {
+    if self._if_p != other._if_p {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.inMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "in"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.inMessage) -> Bool {
+    if self._in_p != other._in_p {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.repeatMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "repeat"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.repeatMessage) -> Bool {
+    if self._repeat_p != other._repeat_p {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.returnMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "return"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.returnMessage) -> Bool {
+    if self._return_p != other._return_p {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.switchMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "switch"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.switchMessage) -> Bool {
+    if self._switch_p != other._switch_p {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.whereMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "where"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.whereMessage) -> Bool {
+    if self._where_p != other._where_p {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.whileMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "while"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.whileMessage) -> Bool {
+    if self._while_p != other._while_p {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.asMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "as"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.asMessage) -> Bool {
+    if self._as_p != other._as_p {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.catchMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "catch"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.catchMessage) -> Bool {
+    if self._catch_p != other._catch_p {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.dynamicTypeMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "dynamicType"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.dynamicTypeMessage) -> Bool {
+    if self._dynamicType_p != other._dynamicType_p {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.falseMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "false"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.falseMessage) -> Bool {
+    if self._false_p != other._false_p {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.isMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "is"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.isMessage) -> Bool {
+    if self._is_p != other._is_p {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.nilMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "nil"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.nilMessage) -> Bool {
+    if self._nil_p != other._nil_p {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.rethrowsMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "rethrows"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.rethrowsMessage) -> Bool {
+    if self._rethrows_p != other._rethrows_p {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.superMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "super"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.superMessage) -> Bool {
+    if self._super_p != other._super_p {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.selfMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "self"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.selfMessage) -> Bool {
+    if self._self_p != other._self_p {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.throwMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "throw"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.throwMessage) -> Bool {
+    if self._throw_p != other._throw_p {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.throwsMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "throws"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.throwsMessage) -> Bool {
+    if self._throws_p != other._throws_p {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.trueMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "true"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.trueMessage) -> Bool {
+    if self._true_p != other._true_p {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.tryMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "try"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.tryMessage) -> Bool {
+    if self._try_p != other._try_p {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.__COLUMN__Message: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "__COLUMN__"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.__COLUMN__Message) -> Bool {
+    if self.__Column__ != other.__Column__ {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.__FILE__Message: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "__FILE__"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.__FILE__Message) -> Bool {
+    if self.__File__ != other.__File__ {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.__FUNCTION__Message: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "__FUNCTION__"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.__FUNCTION__Message) -> Bool {
+    if self.__Function__ != other.__Function__ {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.__LINE__Message: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "__LINE__"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.__LINE__Message) -> Bool {
+    if self.__Line__ != other.__Line__ {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames._Message: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "_"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames._Message) -> Bool {
+    if self.____ != other.____ {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.__Message: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "__"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.__Message) -> Bool {
+    if self._____ != other._____ {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.associativity: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "associativity"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.associativity) -> Bool {
+    if self._associativity != other._associativity {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.convenience: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "convenience"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.convenience) -> Bool {
+    if self._convenience != other._convenience {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.dynamic: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "dynamic"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.dynamic) -> Bool {
+    if self._dynamic != other._dynamic {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.didSet: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "didSet"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.didSet) -> Bool {
+    if self._didSet != other._didSet {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.final: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "final"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.final) -> Bool {
+    if self._final != other._final {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.get: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "get"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.get) -> Bool {
+    if self._get != other._get {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.infix: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "infix"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.infix) -> Bool {
+    if self._infix != other._infix {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.indirect: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "indirect"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.indirect) -> Bool {
+    if self._indirect != other._indirect {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.lazy: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "lazy"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.lazy) -> Bool {
+    if self._lazy != other._lazy {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.left: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "left"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.left) -> Bool {
+    if self._left != other._left {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.mutating: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "mutating"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.mutating) -> Bool {
+    if self._mutating != other._mutating {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.none: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "none"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.none) -> Bool {
+    if self._none != other._none {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.nonmutating: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "nonmutating"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.nonmutating) -> Bool {
+    if self._nonmutating != other._nonmutating {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.optional: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "optional"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.optional) -> Bool {
+    if self._optional != other._optional {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.override: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "override"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.override) -> Bool {
+    if self._override != other._override {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.postfix: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "postfix"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.postfix) -> Bool {
+    if self._postfix != other._postfix {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.precedence: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "precedence"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.precedence) -> Bool {
+    if self._precedence != other._precedence {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.prefix: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "prefix"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.prefix) -> Bool {
+    if self._prefix != other._prefix {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.required: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "required"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.required) -> Bool {
+    if self._required != other._required {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.right: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "right"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.right) -> Bool {
+    if self._right != other._right {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.set: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "set"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.set) -> Bool {
+    if self._set != other._set {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.TypeMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "Type"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.TypeMessage) -> Bool {
+    if self._type != other._type {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.unowned: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "unowned"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.unowned) -> Bool {
+    if self._unowned != other._unowned {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.weak: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "weak"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.weak) -> Bool {
+    if self._weak != other._weak {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.willSet: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "willSet"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.willSet) -> Bool {
+    if self._willSet != other._willSet {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.id: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "id"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.id) -> Bool {
+    if self._id != other._id {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames._cmd: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "_cmd"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames._cmd) -> Bool {
+    if self._cmd != other._cmd {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.out: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "out"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.out) -> Bool {
+    if self._out != other._out {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.bycopy: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "bycopy"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.bycopy) -> Bool {
+    if self._bycopy != other._bycopy {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.byref: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "byref"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.byref) -> Bool {
+    if self._byref != other._byref {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.oneway: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "oneway"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.oneway) -> Bool {
+    if self._oneway != other._oneway {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.and: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "and"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.and) -> Bool {
+    if self._and != other._and {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.and_eq: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "and_eq"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.and_eq) -> Bool {
+    if self._andEq != other._andEq {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.alignas: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "alignas"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.alignas) -> Bool {
+    if self._alignas != other._alignas {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.alignof: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "alignof"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.alignof) -> Bool {
+    if self._alignof != other._alignof {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.asm: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "asm"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.asm) -> Bool {
+    if self._asm != other._asm {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.auto: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "auto"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.auto) -> Bool {
+    if self._auto != other._auto {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.bitand: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "bitand"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.bitand) -> Bool {
+    if self._bitand != other._bitand {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.bitor: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "bitor"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.bitor) -> Bool {
+    if self._bitor != other._bitor {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.bool: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "bool"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.bool) -> Bool {
+    if self._bool != other._bool {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.char: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "char"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.char) -> Bool {
+    if self._char != other._char {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.char16_t: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "char16_t"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.char16_t) -> Bool {
+    if self._char16T != other._char16T {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.char32_t: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "char32_t"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.char32_t) -> Bool {
+    if self._char32T != other._char32T {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.compl: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "compl"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.compl) -> Bool {
+    if self._compl != other._compl {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.const: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "const"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.const) -> Bool {
+    if self._const != other._const {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.constexpr: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "constexpr"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.constexpr) -> Bool {
+    if self._constexpr != other._constexpr {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.const_cast: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "const_cast"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.const_cast) -> Bool {
+    if self._constCast != other._constCast {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.decltype: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "decltype"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.decltype) -> Bool {
+    if self._decltype != other._decltype {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.delete: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "delete"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.delete) -> Bool {
+    if self._delete != other._delete {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.dynamic_cast: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "dynamic_cast"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.dynamic_cast) -> Bool {
+    if self._dynamicCast != other._dynamicCast {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.explicit: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "explicit"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.explicit) -> Bool {
+    if self._explicit != other._explicit {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.export: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "export"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.export) -> Bool {
+    if self._export != other._export {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.extern: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "extern"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.extern) -> Bool {
+    if self._extern != other._extern {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.friend: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "friend"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.friend) -> Bool {
+    if self._friend != other._friend {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.goto: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "goto"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.goto) -> Bool {
+    if self._goto != other._goto {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.inline: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "inline"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.inline) -> Bool {
+    if self._inline != other._inline {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.long: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "long"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.long) -> Bool {
+    if self._long != other._long {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.mutable: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "mutable"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.mutable) -> Bool {
+    if self._mutable != other._mutable {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.namespace: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "namespace"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.namespace) -> Bool {
+    if self._namespace != other._namespace {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.new: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "new"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.new) -> Bool {
+    if self._new != other._new {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.noexcept: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "noexcept"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.noexcept) -> Bool {
+    if self._noexcept != other._noexcept {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.not: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "not"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.not) -> Bool {
+    if self._not != other._not {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.not_eq: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "not_eq"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.not_eq) -> Bool {
+    if self._notEq != other._notEq {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.nullptr: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "nullptr"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.nullptr) -> Bool {
+    if self._nullptr != other._nullptr {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.or: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "or"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.or) -> Bool {
+    if self._or != other._or {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.or_eq: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "or_eq"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.or_eq) -> Bool {
+    if self._orEq != other._orEq {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.protected: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "protected"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.protected) -> Bool {
+    if self._protected != other._protected {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.register: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "register"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.register) -> Bool {
+    if self._register != other._register {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.reinterpret_cast: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "reinterpret_cast"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.reinterpret_cast) -> Bool {
+    if self._reinterpretCast != other._reinterpretCast {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.short: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "short"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.short) -> Bool {
+    if self._short != other._short {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.signed: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "signed"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.signed) -> Bool {
+    if self._signed != other._signed {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.sizeof: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "sizeof"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.sizeof) -> Bool {
+    if self._sizeof != other._sizeof {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.static_assert: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "static_assert"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.static_assert) -> Bool {
+    if self._staticAssert != other._staticAssert {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.static_cast: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "static_cast"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.static_cast) -> Bool {
+    if self._staticCast != other._staticCast {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.template: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "template"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.template) -> Bool {
+    if self._template != other._template {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.this: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "this"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.this) -> Bool {
+    if self._this != other._this {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.thread_local: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "thread_local"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.thread_local) -> Bool {
+    if self._threadLocal != other._threadLocal {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.typedef: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "typedef"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.typedef) -> Bool {
+    if self._typedef != other._typedef {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.typeid: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "typeid"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.typeid) -> Bool {
+    if self._typeid != other._typeid {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.typename: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "typename"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.typename) -> Bool {
+    if self._typename != other._typename {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.union: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "union"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.union) -> Bool {
+    if self._union != other._union {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.unsigned: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "unsigned"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.unsigned) -> Bool {
+    if self._unsigned != other._unsigned {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.using: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "using"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.using) -> Bool {
+    if self._using != other._using {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.virtual: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "virtual"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.virtual) -> Bool {
+    if self._virtual != other._virtual {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.void: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "void"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.void) -> Bool {
+    if self._void != other._void {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.volatile: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "volatile"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.volatile) -> Bool {
+    if self._volatile != other._volatile {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.wchar_t: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "wchar_t"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.wchar_t) -> Bool {
+    if self._wcharT != other._wcharT {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.xor: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "xor"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.xor) -> Bool {
+    if self._xor != other._xor {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.xor_eq: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "xor_eq"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.xor_eq) -> Bool {
+    if self._xorEq != other._xorEq {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.restrict: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "restrict"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.restrict) -> Bool {
+    if self._restrict != other._restrict {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.Category: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "Category"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.Category) -> Bool {
+    if self._category != other._category {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.Ivar: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "Ivar"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.Ivar) -> Bool {
+    if self._ivar != other._ivar {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.Method: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "Method"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.Method) -> Bool {
+    if self._method != other._method {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.finalize: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "finalize"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.finalize) -> Bool {
+    if self._finalize != other._finalize {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.hash: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "hash"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.hash) -> Bool {
+    if self._hash_p != other._hash_p {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.dealloc: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "dealloc"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.dealloc) -> Bool {
+    if self._dealloc != other._dealloc {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.superclass: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "superclass"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.superclass) -> Bool {
+    if self._superclass != other._superclass {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.retain: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "retain"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.retain) -> Bool {
+    if self._retain != other._retain {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.release: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "release"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.release) -> Bool {
+    if self._release != other._release {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.autorelease: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "autorelease"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.autorelease) -> Bool {
+    if self._autorelease != other._autorelease {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.retainCount: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "retainCount"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.retainCount) -> Bool {
+    if self._retainCount != other._retainCount {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.zone: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "zone"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.zone) -> Bool {
+    if self._zone != other._zone {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.isProxy: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "isProxy"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.isProxy) -> Bool {
+    if self._isProxy != other._isProxy {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.copy: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "copy"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.copy) -> Bool {
+    if self._copy != other._copy {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.mutableCopy: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "mutableCopy"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.mutableCopy) -> Bool {
+    if self._mutableCopy != other._mutableCopy {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.classForCoder: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "classForCoder"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.classForCoder) -> Bool {
+    if self._classForCoder != other._classForCoder {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.clear: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "clear"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.clear) -> Bool {
+    if self._clear_p != other._clear_p {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.data: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "data"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.data) -> Bool {
+    if self._data != other._data {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.delimitedData: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "delimitedData"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.delimitedData) -> Bool {
+    if self._delimitedData != other._delimitedData {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.descriptor: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "descriptor"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.descriptor) -> Bool {
+    if self._descriptor != other._descriptor {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.extensionRegistry: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "extensionRegistry"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.extensionRegistry) -> Bool {
+    if self._extensionRegistry != other._extensionRegistry {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.extensionsCurrentlySet: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "extensionsCurrentlySet"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.extensionsCurrentlySet) -> Bool {
+    if self._extensionsCurrentlySet != other._extensionsCurrentlySet {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.isInitializedMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "isInitialized"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.isInitializedMessage) -> Bool {
+    if self._isInitialized_p != other._isInitialized_p {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.serializedSize: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "serializedSize"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.serializedSize) -> Bool {
+    if self._serializedSize != other._serializedSize {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.sortedExtensionsInUse: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "sortedExtensionsInUse"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.sortedExtensionsInUse) -> Bool {
+    if self._sortedExtensionsInUse != other._sortedExtensionsInUse {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.unknownFieldsMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "unknownFields"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.unknownFieldsMessage) -> Bool {
+    if self._unknownFields_p != other._unknownFields_p {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.Fixed: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "Fixed"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.Fixed) -> Bool {
+    if self._fixed != other._fixed {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.Fract: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "Fract"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.Fract) -> Bool {
+    if self._fract != other._fract {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.Size: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "Size"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.Size) -> Bool {
+    if self._size != other._size {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.LogicalAddress: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "LogicalAddress"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.LogicalAddress) -> Bool {
+    if self._logicalAddress != other._logicalAddress {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.PhysicalAddress: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "PhysicalAddress"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.PhysicalAddress) -> Bool {
+    if self._physicalAddress != other._physicalAddress {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.ByteCount: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "ByteCount"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.ByteCount) -> Bool {
+    if self._byteCount != other._byteCount {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.ByteOffset: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "ByteOffset"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.ByteOffset) -> Bool {
+    if self._byteOffset != other._byteOffset {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.Duration: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "Duration"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.Duration) -> Bool {
+    if self._duration != other._duration {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.AbsoluteTime: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "AbsoluteTime"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.AbsoluteTime) -> Bool {
+    if self._absoluteTime != other._absoluteTime {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.OptionBits: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "OptionBits"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.OptionBits) -> Bool {
+    if self._optionBits != other._optionBits {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.ItemCount: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "ItemCount"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.ItemCount) -> Bool {
+    if self._itemCount != other._itemCount {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.PBVersion: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "PBVersion"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.PBVersion) -> Bool {
+    if self._pbversion != other._pbversion {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.ScriptCode: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "ScriptCode"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.ScriptCode) -> Bool {
+    if self._scriptCode != other._scriptCode {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.LangCode: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "LangCode"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.LangCode) -> Bool {
+    if self._langCode != other._langCode {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.RegionCode: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "RegionCode"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.RegionCode) -> Bool {
+    if self._regionCode != other._regionCode {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.OSType: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "OSType"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.OSType) -> Bool {
+    if self._ostype != other._ostype {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.ProcessSerialNumber: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "ProcessSerialNumber"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.ProcessSerialNumber) -> Bool {
+    if self._processSerialNumber != other._processSerialNumber {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.Point: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "Point"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.Point) -> Bool {
+    if self._point != other._point {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.Rect: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "Rect"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.Rect) -> Bool {
+    if self._rect != other._rect {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.FixedPoint: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "FixedPoint"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.FixedPoint) -> Bool {
+    if self._fixedPoint != other._fixedPoint {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.FixedRect: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "FixedRect"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.FixedRect) -> Bool {
+    if self._fixedRect != other._fixedRect {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.Style: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "Style"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.Style) -> Bool {
+    if self._style != other._style {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.StyleParameter: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "StyleParameter"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.StyleParameter) -> Bool {
+    if self._styleParameter != other._styleParameter {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.StyleField: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "StyleField"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.StyleField) -> Bool {
+    if self._styleField != other._styleField {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.TimeScale: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "TimeScale"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.TimeScale) -> Bool {
+    if self._timeScale != other._timeScale {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.TimeBase: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "TimeBase"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.TimeBase) -> Bool {
+    if self._timeBase != other._timeBase {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.TimeRecord: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "TimeRecord"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.TimeRecord) -> Bool {
+    if self._timeRecord != other._timeRecord {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.serializedData: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "serializedData"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.serializedData) -> Bool {
+    if self._serializedData != other._serializedData {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.jsonUTF8Data: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "jsonUTF8Data"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.jsonUTF8Data) -> Bool {
+    if self._jsonUtf8Data != other._jsonUtf8Data {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.jsonString: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "jsonString"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.jsonString) -> Bool {
+    if self._jsonString != other._jsonString {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.Extension: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "Extension"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.Extension) -> Bool {
+    if self._extension_p != other._extension_p {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.ExtensionsMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "Extensions"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.ExtensionsMessage) -> Bool {
+    if self._extensions != other._extensions {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_EnumNames: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_EnumNames) -> Bool {
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_EnumNames.StringEnum: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "aString"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.ProtocolEnum: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "aProtocol"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.IntEnum: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "aInt"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.DoubleEnum: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "aDouble"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.FloatEnum: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "aFloat"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.UIntEnum: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "aUInt"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.hashValueEnum: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "ahashValue"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.descriptionEnum: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "adescription"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.debugDescriptionEnum: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "adebugDescription"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.Swift: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "aSwift"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.UNRECOGNIZED: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "aUNRECOGNIZED"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.classEnum: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "aclass"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.deinitEnum: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "adeinit"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.enumEnum: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "aenum"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.extensionEnum: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "aextension"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.funcEnum: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "afunc"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.importEnum: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "aimport"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.initEnum: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "ainit"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.inoutEnum: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "ainout"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.internalEnum: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "ainternal"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.letEnum: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "alet"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.operatorEnum: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "aoperator"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.privateEnum: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "aprivate"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.protocolEnum: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "aprotocol"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.publicEnum: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "apublic"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.staticEnum: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "astatic"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.structEnum: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "astruct"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.subscriptEnum: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "asubscript"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.typealiasEnum: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "atypealias"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.varEnum: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "avar"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.breakEnum: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "abreak"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.caseEnum: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "acase"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.continueEnum: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "acontinue"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.defaultEnum: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "adefault"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.deferEnum: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "adefer"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.doEnum: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "ado"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.elseEnum: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "aelse"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.fallthroughEnum: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "afallthrough"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.forEnum: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "afor"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.guardEnum: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "aguard"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.ifEnum: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "aif"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.inEnum: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "ain"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.repeatEnum: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "arepeat"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.returnEnum: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "areturn"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.switchEnum: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "aswitch"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.whereEnum: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "awhere"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.whileEnum: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "awhile"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.asEnum: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "aas"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.catchEnum: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "acatch"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.dynamicTypeEnum: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "adynamicType"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.falseEnum: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "afalse"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.isEnum: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "ais"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.nilEnum: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "anil"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.rethrowsEnum: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "arethrows"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.superEnum: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "asuper"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.selfEnum: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "aself"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.throwEnum: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "athrow"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.throwsEnum: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "athrows"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.trueEnum: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "atrue"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.tryEnum: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "atry"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.__COLUMN__Enum: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "a__COLUMN__"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.__FILE__Enum: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "a__FILE__"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.__FUNCTION__Enum: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "a__FUNCTION__"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.__LINE__Enum: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "a__LINE__"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames._Enum: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "a_"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.__Enum: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "a__"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.associativity: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "aassociativity"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.convenience: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "aconvenience"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.dynamic: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "adynamic"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.didSet: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "adidSet"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.final: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "afinal"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.get: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "aget"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.infix: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "ainfix"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.indirect: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "aindirect"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.lazy: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "alazy"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.left: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "aleft"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.mutating: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "amutating"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.none: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "anone"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.nonmutating: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "anonmutating"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.optional: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "aoptional"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.override: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "aoverride"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.postfix: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "apostfix"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.precedence: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "aprecedence"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.prefix: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "aprefix"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.required: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "arequired"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.right: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "aright"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.set: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "aset"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.TypeEnum: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "aType"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.unowned: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "aunowned"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.weak: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "aweak"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.willSet: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "awillSet"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.id: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "aid"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames._cmd: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "a_cmd"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.out: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "aout"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.bycopy: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "abycopy"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.byref: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "abyref"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.oneway: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "aoneway"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.and: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "aand"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.and_eq: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "aand_eq"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.alignas: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "aalignas"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.alignof: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "aalignof"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.asm: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "aasm"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.auto: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "aauto"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.bitand: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "abitand"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.bitor: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "abitor"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.bool: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "abool"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.char: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "achar"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.char16_t: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "achar16_t"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.char32_t: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "achar32_t"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.compl: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "acompl"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.const: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "aconst"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.constexpr: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "aconstexpr"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.const_cast: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "aconst_cast"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.decltype: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "adecltype"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.delete: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "adelete"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.dynamic_cast: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "adynamic_cast"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.explicit: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "aexplicit"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.export: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "aexport"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.extern: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "aextern"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.friend: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "afriend"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.goto: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "agoto"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.inline: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "ainline"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.long: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "along"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.mutable: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "amutable"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.namespace: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "anamespace"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.new: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "anew"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.noexcept: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "anoexcept"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.not: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "anot"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.not_eq: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "anot_eq"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.nullptr: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "anullptr"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.or: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "aor"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.or_eq: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "aor_eq"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.protected: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "aprotected"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.register: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "aregister"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.reinterpret_cast: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "areinterpret_cast"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.short: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "ashort"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.signed: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "asigned"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.sizeof: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "asizeof"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.static_assert: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "astatic_assert"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.static_cast: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "astatic_cast"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.template: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "atemplate"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.this: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "athis"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.thread_local: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "athread_local"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.typedef: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "atypedef"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.typeid: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "atypeid"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.typename: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "atypename"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.union: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "aunion"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.unsigned: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "aunsigned"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.using: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "ausing"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.virtual: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "avirtual"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.void: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "avoid"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.volatile: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "avolatile"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.wchar_t: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "awchar_t"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.xor: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "axor"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.xor_eq: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "axor_eq"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.restrict: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "arestrict"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.Category: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "aCategory"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.Ivar: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "aIvar"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.Method: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "aMethod"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.finalize: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "afinalize"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.hash: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "ahash"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.dealloc: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "adealloc"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.superclass: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "asuperclass"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.retain: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "aretain"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.release: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "arelease"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.autorelease: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "aautorelease"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.retainCount: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "aretainCount"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.zone: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "azone"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.isProxy: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "aisProxy"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.copy: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "acopy"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.mutableCopy: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "amutableCopy"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.classForCoder: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "aclassForCoder"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.clear: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "aclear"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.data: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "adata"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.delimitedData: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "adelimitedData"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.descriptor: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "adescriptor"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.extensionRegistry: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "aextensionRegistry"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.extensionsCurrentlySet: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "aextensionsCurrentlySet"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.isInitializedEnum: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "aisInitialized"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.serializedSize: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "aserializedSize"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.sortedExtensionsInUse: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "asortedExtensionsInUse"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.unknownFieldsEnum: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "aunknownFields"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.Fixed: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "aFixed"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.Fract: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "aFract"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.Size: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "aSize"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.LogicalAddress: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "aLogicalAddress"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.PhysicalAddress: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "aPhysicalAddress"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.ByteCount: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "aByteCount"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.ByteOffset: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "aByteOffset"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.Duration: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "aDuration"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.AbsoluteTime: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "aAbsoluteTime"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.OptionBits: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "aOptionBits"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.ItemCount: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "aItemCount"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.PBVersion: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "aPBVersion"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.ScriptCode: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "aScriptCode"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.LangCode: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "aLangCode"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.RegionCode: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "aRegionCode"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.OSType: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "aOSType"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.ProcessSerialNumber: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "aProcessSerialNumber"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.Point: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "aPoint"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.Rect: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "aRect"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.FixedPoint: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "aFixedPoint"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.FixedRect: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "aFixedRect"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.Style: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "aStyle"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.StyleParameter: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "aStyleParameter"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.StyleField: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "aStyleField"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.TimeScale: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "aTimeScale"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.TimeBase: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "aTimeBase"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.TimeRecord: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "aTimeRecord"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.Extension: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "aExtension"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.ExtensionsEnum: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "aExtensions"),
+  ]
+}
+
+extension SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_FieldNamingInitials) -> Bool {
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_FieldNamingInitials.Lowers: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "http"),
+    2: .standard(proto: "http_request"),
+    3: .standard(proto: "the_http_request"),
+    4: .standard(proto: "the_http"),
+    11: .same(proto: "https"),
+    12: .standard(proto: "https_request"),
+    13: .standard(proto: "the_https_request"),
+    14: .standard(proto: "the_https"),
+    21: .same(proto: "url"),
+    22: .standard(proto: "url_value"),
+    23: .standard(proto: "the_url_value"),
+    24: .standard(proto: "the_url"),
+    31: .standard(proto: "a_b_c"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_FieldNamingInitials.Lowers) -> Bool {
+    if self._http != other._http {return false}
+    if self._httpRequest != other._httpRequest {return false}
+    if self._theHTTPRequest != other._theHTTPRequest {return false}
+    if self._theHTTP != other._theHTTP {return false}
+    if self._https != other._https {return false}
+    if self._httpsRequest != other._httpsRequest {return false}
+    if self._theHTTPSRequest != other._theHTTPSRequest {return false}
+    if self._theHTTPS != other._theHTTPS {return false}
+    if self._url != other._url {return false}
+    if self._urlValue != other._urlValue {return false}
+    if self._theURLValue != other._theURLValue {return false}
+    if self._theURL != other._theURL {return false}
+    if self._aBC != other._aBC {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_FieldNamingInitials.Uppers: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "HTTP"),
+    2: .standard(proto: "HTTP_request"),
+    3: .standard(proto: "the_HTTP_request"),
+    4: .standard(proto: "the_HTTP"),
+    11: .same(proto: "HTTPS"),
+    12: .standard(proto: "HTTPS_request"),
+    13: .standard(proto: "the_HTTPS_request"),
+    14: .standard(proto: "the_HTTPS"),
+    21: .same(proto: "URL"),
+    22: .standard(proto: "URL_value"),
+    23: .standard(proto: "the_URL_value"),
+    24: .standard(proto: "the_URL"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_FieldNamingInitials.Uppers) -> Bool {
+    if self._http != other._http {return false}
+    if self._httpRequest != other._httpRequest {return false}
+    if self._theHTTPRequest != other._theHTTPRequest {return false}
+    if self._theHTTP != other._theHTTP {return false}
+    if self._https != other._https {return false}
+    if self._httpsRequest != other._httpsRequest {return false}
+    if self._theHTTPSRequest != other._theHTTPSRequest {return false}
+    if self._theHTTPS != other._theHTTPS {return false}
+    if self._url != other._url {return false}
+    if self._urlValue != other._urlValue {return false}
+    if self._theURLValue != other._theURLValue {return false}
+    if self._theURL != other._theURL {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_FieldNamingInitials.WordCase: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "Http"),
+    2: .same(proto: "HttpRequest"),
+    3: .same(proto: "TheHttpRequest"),
+    4: .same(proto: "TheHttp"),
+    11: .same(proto: "Https"),
+    12: .same(proto: "HttpsRequest"),
+    13: .same(proto: "TheHttpsRequest"),
+    14: .same(proto: "TheHttps"),
+    21: .same(proto: "Url"),
+    22: .same(proto: "UrlValue"),
+    23: .same(proto: "TheUrlValue"),
+    24: .same(proto: "TheUrl"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_FieldNamingInitials.WordCase) -> Bool {
+    if self._http != other._http {return false}
+    if self._httpRequest != other._httpRequest {return false}
+    if self._theHTTPRequest != other._theHTTPRequest {return false}
+    if self._theHTTP != other._theHTTP {return false}
+    if self._https != other._https {return false}
+    if self._httpsRequest != other._httpsRequest {return false}
+    if self._theHTTPSRequest != other._theHTTPSRequest {return false}
+    if self._theHTTPS != other._theHTTPS {return false}
+    if self._url != other._url {return false}
+    if self._urlValue != other._urlValue {return false}
+    if self._theURLValue != other._theURLValue {return false}
+    if self._theURL != other._theURL {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_ExtensionNamingInitials: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_ExtensionNamingInitials) -> Bool {
+    if unknownFields != other.unknownFields {return false}
+    if _protobuf_extensionFieldValues != other._protobuf_extensionFieldValues {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_Lowers: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_Lowers) -> Bool {
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_Uppers: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_Uppers) -> Bool {
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_WordCase: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_WordCase) -> Bool {
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_ExtensionNamingInitialsLowers: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_ExtensionNamingInitialsLowers) -> Bool {
+    if unknownFields != other.unknownFields {return false}
+    if _protobuf_extensionFieldValues != other._protobuf_extensionFieldValues {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_ExtensionNamingInitialsUppers: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_ExtensionNamingInitialsUppers) -> Bool {
+    if unknownFields != other.unknownFields {return false}
+    if _protobuf_extensionFieldValues != other._protobuf_extensionFieldValues {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_ExtensionNamingInitialsWordCase: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_ExtensionNamingInitialsWordCase) -> Bool {
+    if unknownFields != other.unknownFields {return false}
+    if _protobuf_extensionFieldValues != other._protobuf_extensionFieldValues {return false}
+    return true
+  }
+}

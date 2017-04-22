@@ -178,8 +178,8 @@ extension Google_Protobuf_FieldDescriptorProto {
         }
         switch type {
         case .bool: return "false"
-        case .string: return "\"\""
-        case .bytes: return "Data()"
+        case .string: return "String()"
+        case .bytes: return "SwiftProtobuf.Internal.emptyData"
         case .group, .message:
             return context.getMessageNameForPath(path: typeName)! + "()"
         case .enum:
@@ -249,8 +249,22 @@ extension Google_Protobuf_FieldDescriptorProto {
            default: return defaultValue
            }
         case .bool: return defaultValue
-        case .string: return stringToEscapedStringLiteral(defaultValue)
-        case .bytes: return escapedToDataLiteral(defaultValue)
+        case .string:
+          if defaultValue.isEmpty {
+            // proto file listed the default as "", just pretend it wasn't set since
+            // this is the default.
+            return nil
+          } else {
+            return stringToEscapedStringLiteral(defaultValue)
+          }
+        case .bytes:
+          if defaultValue.isEmpty {
+            // proto file listed the default as "", just pretend it wasn't set since
+            // this is the default.
+            return nil
+          } else {
+            return escapedToDataLiteral(defaultValue)
+          }
         case .enum:
             return context.getSwiftNameForEnumCase(path: typeName, caseName: defaultValue)
         default: return defaultValue
@@ -261,7 +275,6 @@ extension Google_Protobuf_FieldDescriptorProto {
 struct MessageFieldGenerator {
     let descriptor: Google_Protobuf_FieldDescriptorProto
     let oneof: Google_Protobuf_OneofDescriptorProto?
-    let messageDescriptor: Google_Protobuf_DescriptorProto
     let jsonName: String?
     let swiftName: String
     let swiftHasName: String
@@ -303,7 +316,6 @@ struct MessageFieldGenerator {
             self.oneof = nil
         }
         self.swiftStorageName = "_" + self.swiftName
-        self.messageDescriptor = messageDescriptor
         self.path = path
         self.comments = file.commentsFor(path: path)
         self.isProto3 = file.isProto3
@@ -408,23 +420,15 @@ struct MessageFieldGenerator {
             p.indent()
             p.print("get {\n")
             p.indent()
-            p.print("if case .\(swiftName)(let v)? = \(oneof.swiftFieldName) {\n")
-            p.indent()
-            p.print("return v\n")
-            p.outdent()
-            p.print("}\n")
+            p.print("if case .\(swiftName)(let v)? = \(oneof.swiftFieldName) {return v}\n")
             p.print("return \(swiftDefaultValue)\n")
             p.outdent()
             p.print("}\n")
-            p.print("set {\n")
-            p.indent()
-            p.print("\(oneof.swiftFieldName) = .\(swiftName)(newValue)\n")
-            p.outdent()
-            p.print("}\n")
+            p.print("set {\(oneof.swiftFieldName) = .\(swiftName)(newValue)}\n")
             p.outdent()
             p.print("}\n")
         } else if !isRepeated && !isMap && !isProto3 {
-            p.print("private var \(swiftStorageName): \(swiftStorageType) = \(swiftStorageDefaultValue)\n")
+            p.print("fileprivate var \(swiftStorageName): \(swiftStorageType) = \(swiftStorageDefaultValue)\n")
             p.print("\(generatorOptions.visibilitySourceSnippet)var \(swiftName): \(swiftApiType) {\n")
             p.indent()
             p.print("get {return \(swiftStorageName) ?? \(swiftDefaultValue)}\n")
@@ -446,19 +450,11 @@ struct MessageFieldGenerator {
         if let oneof = oneof {
             p.print("get {\n")
             p.indent()
-            p.print("if case .\(swiftName)(let v)? = _storage.\(oneof.swiftStorageFieldName) {\n")
-            p.indent()
-            p.print("return v\n")
-            p.outdent()
-            p.print("}\n")
+            p.print("if case .\(swiftName)(let v)? = _storage.\(oneof.swiftStorageFieldName) {return v}\n")
             p.print("return \(swiftDefaultValue)\n")
             p.outdent()
             p.print("}\n")
-            p.print("set {\n")
-            p.indent()
-            p.print("_uniqueStorage().\(oneof.swiftStorageFieldName) = .\(swiftName)(newValue)\n")
-            p.outdent()
-            p.print("}\n")
+            p.print("set {_uniqueStorage().\(oneof.swiftStorageFieldName) = .\(swiftName)(newValue)}\n")
         } else {
             let defaultClause: String
             if isMap || isRepeated {
@@ -481,7 +477,7 @@ struct MessageFieldGenerator {
         if isRepeated || isMap || oneof != nil || (isProto3 && !isMessage) {
             return
         }
-        let storagePrefix = usesHeapStorage ? "_storage." : ""
+        let storagePrefix = usesHeapStorage ? "_storage." : "self."
         p.print("\(generatorOptions.visibilitySourceSnippet)var \(swiftHasName): Bool {\n")
         p.indent()
         p.print("return \(storagePrefix)\(swiftStorageName) != nil\n")
@@ -493,10 +489,10 @@ struct MessageFieldGenerator {
         if isRepeated || isMap || oneof != nil || (isProto3 && !isMessage) {
             return
         }
-        let storagePrefix = usesHeapStorage ? "_storage." : ""
+        let storagePrefix = usesHeapStorage ? "_storage." : "self."
         p.print("\(generatorOptions.visibilitySourceSnippet)mutating func \(swiftClearName)() {\n")
         p.indent()
-        p.print("return \(storagePrefix)\(swiftStorageName) = nil\n")
+        p.print("\(storagePrefix)\(swiftStorageName) = nil\n")
         p.outdent()
         p.print("}\n")
     }
@@ -506,9 +502,9 @@ struct MessageFieldGenerator {
         if usesStorage {
             prefix = "_storage._"
         } else if !isRepeated && !isMap && !isProto3 {
-            prefix = "_"
+            prefix = "self._"
         } else {
-            prefix = ""
+            prefix = "self."
         }
 
         let decoderMethod: String
@@ -546,9 +542,9 @@ struct MessageFieldGenerator {
         if usesStorage {
             prefix = "_storage._"
         } else if !isRepeated && !isMap && !isProto3 {
-            prefix = "_"
+            prefix = "self._"
         } else {
-            prefix = ""
+            prefix = "self."
         }
 
         let visitMethod: String

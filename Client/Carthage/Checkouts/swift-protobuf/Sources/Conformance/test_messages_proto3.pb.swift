@@ -6,41 +6,41 @@
  *
  */
 
-//  Protocol Buffers - Google's data interchange format
-//  Copyright 2008 Google Inc.  All rights reserved.
-//  https://developers.google.com/protocol-buffers/
-// 
-//  Redistribution and use in source and binary forms, with or without
-//  modification, are permitted provided that the following conditions are
-//  met:
-// 
-//      * Redistributions of source code must retain the above copyright
-//  notice, this list of conditions and the following disclaimer.
-//      * Redistributions in binary form must reproduce the above
-//  copyright notice, this list of conditions and the following disclaimer
-//  in the documentation and/or other materials provided with the
-//  distribution.
-//      * Neither the name of Google Inc. nor the names of its
-//  contributors may be used to endorse or promote products derived from
-//  this software without specific prior written permission.
-// 
-//  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-//  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-//  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
-//  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
-//  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-//  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
-//  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
-//  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
-//  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-//  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-//  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-// 
-//  Test schema for proto3 messages.  This test schema is used by:
-// 
-//  - benchmarks
-//  - fuzz tests
-//  - conformance tests
+// Protocol Buffers - Google's data interchange format
+// Copyright 2008 Google Inc.  All rights reserved.
+// https://developers.google.com/protocol-buffers/
+//
+// Redistribution and use in source and binary forms, with or without
+// modification, are permitted provided that the following conditions are
+// met:
+//
+//     * Redistributions of source code must retain the above copyright
+// notice, this list of conditions and the following disclaimer.
+//     * Redistributions in binary form must reproduce the above
+// copyright notice, this list of conditions and the following disclaimer
+// in the documentation and/or other materials provided with the
+// distribution.
+//     * Neither the name of Google Inc. nor the names of its
+// contributors may be used to endorse or promote products derived from
+// this software without specific prior written permission.
+//
+// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+// "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+// A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+// OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+//
+// Test schema for proto3 messages.  This test schema is used by:
+//
+// - benchmarks
+// - fuzz tests
+// - conformance tests
 
 import Foundation
 import SwiftProtobuf
@@ -55,20 +55,12 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _1
 }
 
-fileprivate let _protobuf_package = "protobuf_test_messages.proto3"
-
-enum ProtobufTestMessages_Proto3_ForeignEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+enum ProtobufTestMessages_Proto3_ForeignEnum: SwiftProtobuf.Enum {
   typealias RawValue = Int
   case foreignFoo // = 0
   case foreignBar // = 1
   case foreignBaz // = 2
   case UNRECOGNIZED(Int)
-
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "FOREIGN_FOO"),
-    1: .same(proto: "FOREIGN_BAR"),
-    2: .same(proto: "FOREIGN_BAZ"),
-  ]
 
   init() {
     self = .foreignFoo
@@ -94,377 +86,17 @@ enum ProtobufTestMessages_Proto3_ForeignEnum: SwiftProtobuf.Enum, SwiftProtobuf.
 
 }
 
-///   This proto includes every type of field in both singular and repeated
-///   forms.
-///  
-///   Also, crucially, all messages and enums in this file are eventually
-///   submessages of this message.  So for example, a fuzz test of TestAllTypes
-///   could trigger bugs that occur in any message type in this file.  We verify
-///   this stays true in a unit test.
-struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+/// This proto includes every type of field in both singular and repeated
+/// forms.
+///
+/// Also, crucially, all messages and enums in this file are eventually
+/// submessages of this message.  So for example, a fuzz test of TestAllTypes
+/// could trigger bugs that occur in any message type in this file.  We verify
+/// this stays true in a unit test.
+struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestAllTypes"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "optional_int32"),
-    2: .standard(proto: "optional_int64"),
-    3: .standard(proto: "optional_uint32"),
-    4: .standard(proto: "optional_uint64"),
-    5: .standard(proto: "optional_sint32"),
-    6: .standard(proto: "optional_sint64"),
-    7: .standard(proto: "optional_fixed32"),
-    8: .standard(proto: "optional_fixed64"),
-    9: .standard(proto: "optional_sfixed32"),
-    10: .standard(proto: "optional_sfixed64"),
-    11: .standard(proto: "optional_float"),
-    12: .standard(proto: "optional_double"),
-    13: .standard(proto: "optional_bool"),
-    14: .standard(proto: "optional_string"),
-    15: .standard(proto: "optional_bytes"),
-    18: .standard(proto: "optional_nested_message"),
-    19: .standard(proto: "optional_foreign_message"),
-    21: .standard(proto: "optional_nested_enum"),
-    22: .standard(proto: "optional_foreign_enum"),
-    24: .standard(proto: "optional_string_piece"),
-    25: .standard(proto: "optional_cord"),
-    27: .standard(proto: "recursive_message"),
-    31: .standard(proto: "repeated_int32"),
-    32: .standard(proto: "repeated_int64"),
-    33: .standard(proto: "repeated_uint32"),
-    34: .standard(proto: "repeated_uint64"),
-    35: .standard(proto: "repeated_sint32"),
-    36: .standard(proto: "repeated_sint64"),
-    37: .standard(proto: "repeated_fixed32"),
-    38: .standard(proto: "repeated_fixed64"),
-    39: .standard(proto: "repeated_sfixed32"),
-    40: .standard(proto: "repeated_sfixed64"),
-    41: .standard(proto: "repeated_float"),
-    42: .standard(proto: "repeated_double"),
-    43: .standard(proto: "repeated_bool"),
-    44: .standard(proto: "repeated_string"),
-    45: .standard(proto: "repeated_bytes"),
-    48: .standard(proto: "repeated_nested_message"),
-    49: .standard(proto: "repeated_foreign_message"),
-    51: .standard(proto: "repeated_nested_enum"),
-    52: .standard(proto: "repeated_foreign_enum"),
-    54: .standard(proto: "repeated_string_piece"),
-    55: .standard(proto: "repeated_cord"),
-    56: .standard(proto: "map_int32_int32"),
-    57: .standard(proto: "map_int64_int64"),
-    58: .standard(proto: "map_uint32_uint32"),
-    59: .standard(proto: "map_uint64_uint64"),
-    60: .standard(proto: "map_sint32_sint32"),
-    61: .standard(proto: "map_sint64_sint64"),
-    62: .standard(proto: "map_fixed32_fixed32"),
-    63: .standard(proto: "map_fixed64_fixed64"),
-    64: .standard(proto: "map_sfixed32_sfixed32"),
-    65: .standard(proto: "map_sfixed64_sfixed64"),
-    66: .standard(proto: "map_int32_float"),
-    67: .standard(proto: "map_int32_double"),
-    68: .standard(proto: "map_bool_bool"),
-    69: .standard(proto: "map_string_string"),
-    70: .standard(proto: "map_string_bytes"),
-    71: .standard(proto: "map_string_nested_message"),
-    72: .standard(proto: "map_string_foreign_message"),
-    73: .standard(proto: "map_string_nested_enum"),
-    74: .standard(proto: "map_string_foreign_enum"),
-    111: .standard(proto: "oneof_uint32"),
-    112: .standard(proto: "oneof_nested_message"),
-    113: .standard(proto: "oneof_string"),
-    114: .standard(proto: "oneof_bytes"),
-    115: .standard(proto: "oneof_bool"),
-    116: .standard(proto: "oneof_uint64"),
-    117: .standard(proto: "oneof_float"),
-    118: .standard(proto: "oneof_double"),
-    119: .standard(proto: "oneof_enum"),
-    201: .standard(proto: "optional_bool_wrapper"),
-    202: .standard(proto: "optional_int32_wrapper"),
-    203: .standard(proto: "optional_int64_wrapper"),
-    204: .standard(proto: "optional_uint32_wrapper"),
-    205: .standard(proto: "optional_uint64_wrapper"),
-    206: .standard(proto: "optional_float_wrapper"),
-    207: .standard(proto: "optional_double_wrapper"),
-    208: .standard(proto: "optional_string_wrapper"),
-    209: .standard(proto: "optional_bytes_wrapper"),
-    211: .standard(proto: "repeated_bool_wrapper"),
-    212: .standard(proto: "repeated_int32_wrapper"),
-    213: .standard(proto: "repeated_int64_wrapper"),
-    214: .standard(proto: "repeated_uint32_wrapper"),
-    215: .standard(proto: "repeated_uint64_wrapper"),
-    216: .standard(proto: "repeated_float_wrapper"),
-    217: .standard(proto: "repeated_double_wrapper"),
-    218: .standard(proto: "repeated_string_wrapper"),
-    219: .standard(proto: "repeated_bytes_wrapper"),
-    301: .standard(proto: "optional_duration"),
-    302: .standard(proto: "optional_timestamp"),
-    303: .standard(proto: "optional_field_mask"),
-    304: .standard(proto: "optional_struct"),
-    305: .standard(proto: "optional_any"),
-    306: .standard(proto: "optional_value"),
-    311: .standard(proto: "repeated_duration"),
-    312: .standard(proto: "repeated_timestamp"),
-    313: .standard(proto: "repeated_fieldmask"),
-    324: .standard(proto: "repeated_struct"),
-    315: .standard(proto: "repeated_any"),
-    316: .standard(proto: "repeated_value"),
-    401: .same(proto: "fieldname1"),
-    402: .standard(proto: "field_name2"),
-    403: .standard(proto: "_field_name3"),
-    404: .standard(proto: "field__name4_"),
-    405: .same(proto: "field0name5"),
-    406: .standard(proto: "field_0_name6"),
-    407: .same(proto: "fieldName7"),
-    408: .same(proto: "FieldName8"),
-    409: .standard(proto: "field_Name9"),
-    410: .standard(proto: "Field_Name10"),
-    411: .standard(proto: "FIELD_NAME11"),
-    412: .standard(proto: "FIELD_name12"),
-    413: .standard(proto: "__field_name13"),
-    414: .standard(proto: "__Field_name14"),
-    415: .standard(proto: "field__name15"),
-    416: .standard(proto: "field__Name16"),
-    417: .standard(proto: "field_name17__"),
-    418: .standard(proto: "Field_name18__"),
-  ]
 
-  private class _StorageClass {
-    var _optionalInt32: Int32 = 0
-    var _optionalInt64: Int64 = 0
-    var _optionalUint32: UInt32 = 0
-    var _optionalUint64: UInt64 = 0
-    var _optionalSint32: Int32 = 0
-    var _optionalSint64: Int64 = 0
-    var _optionalFixed32: UInt32 = 0
-    var _optionalFixed64: UInt64 = 0
-    var _optionalSfixed32: Int32 = 0
-    var _optionalSfixed64: Int64 = 0
-    var _optionalFloat: Float = 0
-    var _optionalDouble: Double = 0
-    var _optionalBool: Bool = false
-    var _optionalString: String = ""
-    var _optionalBytes: Data = Data()
-    var _optionalNestedMessage: ProtobufTestMessages_Proto3_TestAllTypes.NestedMessage? = nil
-    var _optionalForeignMessage: ProtobufTestMessages_Proto3_ForeignMessage? = nil
-    var _optionalNestedEnum: ProtobufTestMessages_Proto3_TestAllTypes.NestedEnum = ProtobufTestMessages_Proto3_TestAllTypes.NestedEnum.foo
-    var _optionalForeignEnum: ProtobufTestMessages_Proto3_ForeignEnum = ProtobufTestMessages_Proto3_ForeignEnum.foreignFoo
-    var _optionalStringPiece: String = ""
-    var _optionalCord: String = ""
-    var _recursiveMessage: ProtobufTestMessages_Proto3_TestAllTypes? = nil
-    var _repeatedInt32: [Int32] = []
-    var _repeatedInt64: [Int64] = []
-    var _repeatedUint32: [UInt32] = []
-    var _repeatedUint64: [UInt64] = []
-    var _repeatedSint32: [Int32] = []
-    var _repeatedSint64: [Int64] = []
-    var _repeatedFixed32: [UInt32] = []
-    var _repeatedFixed64: [UInt64] = []
-    var _repeatedSfixed32: [Int32] = []
-    var _repeatedSfixed64: [Int64] = []
-    var _repeatedFloat: [Float] = []
-    var _repeatedDouble: [Double] = []
-    var _repeatedBool: [Bool] = []
-    var _repeatedString: [String] = []
-    var _repeatedBytes: [Data] = []
-    var _repeatedNestedMessage: [ProtobufTestMessages_Proto3_TestAllTypes.NestedMessage] = []
-    var _repeatedForeignMessage: [ProtobufTestMessages_Proto3_ForeignMessage] = []
-    var _repeatedNestedEnum: [ProtobufTestMessages_Proto3_TestAllTypes.NestedEnum] = []
-    var _repeatedForeignEnum: [ProtobufTestMessages_Proto3_ForeignEnum] = []
-    var _repeatedStringPiece: [String] = []
-    var _repeatedCord: [String] = []
-    var _mapInt32Int32: Dictionary<Int32,Int32> = [:]
-    var _mapInt64Int64: Dictionary<Int64,Int64> = [:]
-    var _mapUint32Uint32: Dictionary<UInt32,UInt32> = [:]
-    var _mapUint64Uint64: Dictionary<UInt64,UInt64> = [:]
-    var _mapSint32Sint32: Dictionary<Int32,Int32> = [:]
-    var _mapSint64Sint64: Dictionary<Int64,Int64> = [:]
-    var _mapFixed32Fixed32: Dictionary<UInt32,UInt32> = [:]
-    var _mapFixed64Fixed64: Dictionary<UInt64,UInt64> = [:]
-    var _mapSfixed32Sfixed32: Dictionary<Int32,Int32> = [:]
-    var _mapSfixed64Sfixed64: Dictionary<Int64,Int64> = [:]
-    var _mapInt32Float: Dictionary<Int32,Float> = [:]
-    var _mapInt32Double: Dictionary<Int32,Double> = [:]
-    var _mapBoolBool: Dictionary<Bool,Bool> = [:]
-    var _mapStringString: Dictionary<String,String> = [:]
-    var _mapStringBytes: Dictionary<String,Data> = [:]
-    var _mapStringNestedMessage: Dictionary<String,ProtobufTestMessages_Proto3_TestAllTypes.NestedMessage> = [:]
-    var _mapStringForeignMessage: Dictionary<String,ProtobufTestMessages_Proto3_ForeignMessage> = [:]
-    var _mapStringNestedEnum: Dictionary<String,ProtobufTestMessages_Proto3_TestAllTypes.NestedEnum> = [:]
-    var _mapStringForeignEnum: Dictionary<String,ProtobufTestMessages_Proto3_ForeignEnum> = [:]
-    var _oneofField: ProtobufTestMessages_Proto3_TestAllTypes.OneOf_OneofField?
-    var _optionalBoolWrapper: Google_Protobuf_BoolValue? = nil
-    var _optionalInt32Wrapper: Google_Protobuf_Int32Value? = nil
-    var _optionalInt64Wrapper: Google_Protobuf_Int64Value? = nil
-    var _optionalUint32Wrapper: Google_Protobuf_UInt32Value? = nil
-    var _optionalUint64Wrapper: Google_Protobuf_UInt64Value? = nil
-    var _optionalFloatWrapper: Google_Protobuf_FloatValue? = nil
-    var _optionalDoubleWrapper: Google_Protobuf_DoubleValue? = nil
-    var _optionalStringWrapper: Google_Protobuf_StringValue? = nil
-    var _optionalBytesWrapper: Google_Protobuf_BytesValue? = nil
-    var _repeatedBoolWrapper: [Google_Protobuf_BoolValue] = []
-    var _repeatedInt32Wrapper: [Google_Protobuf_Int32Value] = []
-    var _repeatedInt64Wrapper: [Google_Protobuf_Int64Value] = []
-    var _repeatedUint32Wrapper: [Google_Protobuf_UInt32Value] = []
-    var _repeatedUint64Wrapper: [Google_Protobuf_UInt64Value] = []
-    var _repeatedFloatWrapper: [Google_Protobuf_FloatValue] = []
-    var _repeatedDoubleWrapper: [Google_Protobuf_DoubleValue] = []
-    var _repeatedStringWrapper: [Google_Protobuf_StringValue] = []
-    var _repeatedBytesWrapper: [Google_Protobuf_BytesValue] = []
-    var _optionalDuration: Google_Protobuf_Duration? = nil
-    var _optionalTimestamp: Google_Protobuf_Timestamp? = nil
-    var _optionalFieldMask: Google_Protobuf_FieldMask? = nil
-    var _optionalStruct: Google_Protobuf_Struct? = nil
-    var _optionalAny: Google_Protobuf_Any? = nil
-    var _optionalValue: Google_Protobuf_Value? = nil
-    var _repeatedDuration: [Google_Protobuf_Duration] = []
-    var _repeatedTimestamp: [Google_Protobuf_Timestamp] = []
-    var _repeatedFieldmask: [Google_Protobuf_FieldMask] = []
-    var _repeatedStruct: [Google_Protobuf_Struct] = []
-    var _repeatedAny: [Google_Protobuf_Any] = []
-    var _repeatedValue: [Google_Protobuf_Value] = []
-    var _fieldname1: Int32 = 0
-    var _fieldName2: Int32 = 0
-    var _fieldName3: Int32 = 0
-    var _field_Name4_: Int32 = 0
-    var _field0Name5: Int32 = 0
-    var _field0Name6: Int32 = 0
-    var _fieldName7: Int32 = 0
-    var _fieldName8: Int32 = 0
-    var _fieldName9: Int32 = 0
-    var _fieldName10: Int32 = 0
-    var _fieldName11: Int32 = 0
-    var _fieldName12: Int32 = 0
-    var __FieldName13: Int32 = 0
-    var __FieldName14: Int32 = 0
-    var _field_Name15: Int32 = 0
-    var _field_Name16: Int32 = 0
-    var _fieldName17__: Int32 = 0
-    var _fieldName18__: Int32 = 0
-
-    init() {}
-
-    init(copying source: _StorageClass) {
-      _optionalInt32 = source._optionalInt32
-      _optionalInt64 = source._optionalInt64
-      _optionalUint32 = source._optionalUint32
-      _optionalUint64 = source._optionalUint64
-      _optionalSint32 = source._optionalSint32
-      _optionalSint64 = source._optionalSint64
-      _optionalFixed32 = source._optionalFixed32
-      _optionalFixed64 = source._optionalFixed64
-      _optionalSfixed32 = source._optionalSfixed32
-      _optionalSfixed64 = source._optionalSfixed64
-      _optionalFloat = source._optionalFloat
-      _optionalDouble = source._optionalDouble
-      _optionalBool = source._optionalBool
-      _optionalString = source._optionalString
-      _optionalBytes = source._optionalBytes
-      _optionalNestedMessage = source._optionalNestedMessage
-      _optionalForeignMessage = source._optionalForeignMessage
-      _optionalNestedEnum = source._optionalNestedEnum
-      _optionalForeignEnum = source._optionalForeignEnum
-      _optionalStringPiece = source._optionalStringPiece
-      _optionalCord = source._optionalCord
-      _recursiveMessage = source._recursiveMessage
-      _repeatedInt32 = source._repeatedInt32
-      _repeatedInt64 = source._repeatedInt64
-      _repeatedUint32 = source._repeatedUint32
-      _repeatedUint64 = source._repeatedUint64
-      _repeatedSint32 = source._repeatedSint32
-      _repeatedSint64 = source._repeatedSint64
-      _repeatedFixed32 = source._repeatedFixed32
-      _repeatedFixed64 = source._repeatedFixed64
-      _repeatedSfixed32 = source._repeatedSfixed32
-      _repeatedSfixed64 = source._repeatedSfixed64
-      _repeatedFloat = source._repeatedFloat
-      _repeatedDouble = source._repeatedDouble
-      _repeatedBool = source._repeatedBool
-      _repeatedString = source._repeatedString
-      _repeatedBytes = source._repeatedBytes
-      _repeatedNestedMessage = source._repeatedNestedMessage
-      _repeatedForeignMessage = source._repeatedForeignMessage
-      _repeatedNestedEnum = source._repeatedNestedEnum
-      _repeatedForeignEnum = source._repeatedForeignEnum
-      _repeatedStringPiece = source._repeatedStringPiece
-      _repeatedCord = source._repeatedCord
-      _mapInt32Int32 = source._mapInt32Int32
-      _mapInt64Int64 = source._mapInt64Int64
-      _mapUint32Uint32 = source._mapUint32Uint32
-      _mapUint64Uint64 = source._mapUint64Uint64
-      _mapSint32Sint32 = source._mapSint32Sint32
-      _mapSint64Sint64 = source._mapSint64Sint64
-      _mapFixed32Fixed32 = source._mapFixed32Fixed32
-      _mapFixed64Fixed64 = source._mapFixed64Fixed64
-      _mapSfixed32Sfixed32 = source._mapSfixed32Sfixed32
-      _mapSfixed64Sfixed64 = source._mapSfixed64Sfixed64
-      _mapInt32Float = source._mapInt32Float
-      _mapInt32Double = source._mapInt32Double
-      _mapBoolBool = source._mapBoolBool
-      _mapStringString = source._mapStringString
-      _mapStringBytes = source._mapStringBytes
-      _mapStringNestedMessage = source._mapStringNestedMessage
-      _mapStringForeignMessage = source._mapStringForeignMessage
-      _mapStringNestedEnum = source._mapStringNestedEnum
-      _mapStringForeignEnum = source._mapStringForeignEnum
-      _oneofField = source._oneofField
-      _optionalBoolWrapper = source._optionalBoolWrapper
-      _optionalInt32Wrapper = source._optionalInt32Wrapper
-      _optionalInt64Wrapper = source._optionalInt64Wrapper
-      _optionalUint32Wrapper = source._optionalUint32Wrapper
-      _optionalUint64Wrapper = source._optionalUint64Wrapper
-      _optionalFloatWrapper = source._optionalFloatWrapper
-      _optionalDoubleWrapper = source._optionalDoubleWrapper
-      _optionalStringWrapper = source._optionalStringWrapper
-      _optionalBytesWrapper = source._optionalBytesWrapper
-      _repeatedBoolWrapper = source._repeatedBoolWrapper
-      _repeatedInt32Wrapper = source._repeatedInt32Wrapper
-      _repeatedInt64Wrapper = source._repeatedInt64Wrapper
-      _repeatedUint32Wrapper = source._repeatedUint32Wrapper
-      _repeatedUint64Wrapper = source._repeatedUint64Wrapper
-      _repeatedFloatWrapper = source._repeatedFloatWrapper
-      _repeatedDoubleWrapper = source._repeatedDoubleWrapper
-      _repeatedStringWrapper = source._repeatedStringWrapper
-      _repeatedBytesWrapper = source._repeatedBytesWrapper
-      _optionalDuration = source._optionalDuration
-      _optionalTimestamp = source._optionalTimestamp
-      _optionalFieldMask = source._optionalFieldMask
-      _optionalStruct = source._optionalStruct
-      _optionalAny = source._optionalAny
-      _optionalValue = source._optionalValue
-      _repeatedDuration = source._repeatedDuration
-      _repeatedTimestamp = source._repeatedTimestamp
-      _repeatedFieldmask = source._repeatedFieldmask
-      _repeatedStruct = source._repeatedStruct
-      _repeatedAny = source._repeatedAny
-      _repeatedValue = source._repeatedValue
-      _fieldname1 = source._fieldname1
-      _fieldName2 = source._fieldName2
-      _fieldName3 = source._fieldName3
-      _field_Name4_ = source._field_Name4_
-      _field0Name5 = source._field0Name5
-      _field0Name6 = source._field0Name6
-      _fieldName7 = source._fieldName7
-      _fieldName8 = source._fieldName8
-      _fieldName9 = source._fieldName9
-      _fieldName10 = source._fieldName10
-      _fieldName11 = source._fieldName11
-      _fieldName12 = source._fieldName12
-      __FieldName13 = source.__FieldName13
-      __FieldName14 = source.__FieldName14
-      _field_Name15 = source._field_Name15
-      _field_Name16 = source._field_Name16
-      _fieldName17__ = source._fieldName17__
-      _fieldName18__ = source._fieldName18__
-    }
-  }
-
-  private var _storage = _StorageClass()
-
-  private mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(copying: _storage)
-    }
-    return _storage
-  }
-
-  ///   Singular
+  /// Singular
   var optionalInt32: Int32 {
     get {return _storage._optionalInt32}
     set {_uniqueStorage()._optionalInt32 = newValue}
@@ -548,7 +180,7 @@ struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Message, SwiftPro
     return _storage._optionalNestedMessage != nil
   }
   mutating func clearOptionalNestedMessage() {
-    return _storage._optionalNestedMessage = nil
+    _storage._optionalNestedMessage = nil
   }
 
   var optionalForeignMessage: ProtobufTestMessages_Proto3_ForeignMessage {
@@ -559,7 +191,7 @@ struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Message, SwiftPro
     return _storage._optionalForeignMessage != nil
   }
   mutating func clearOptionalForeignMessage() {
-    return _storage._optionalForeignMessage = nil
+    _storage._optionalForeignMessage = nil
   }
 
   var optionalNestedEnum: ProtobufTestMessages_Proto3_TestAllTypes.NestedEnum {
@@ -590,10 +222,10 @@ struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Message, SwiftPro
     return _storage._recursiveMessage != nil
   }
   mutating func clearRecursiveMessage() {
-    return _storage._recursiveMessage = nil
+    _storage._recursiveMessage = nil
   }
 
-  ///   Repeated
+  /// Repeated
   var repeatedInt32: [Int32] {
     get {return _storage._repeatedInt32}
     set {_uniqueStorage()._repeatedInt32 = newValue}
@@ -699,7 +331,7 @@ struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Message, SwiftPro
     set {_uniqueStorage()._repeatedCord = newValue}
   }
 
-  ///   Map
+  /// Map
   var mapInt32Int32: Dictionary<Int32,Int32> {
     get {return _storage._mapInt32Int32}
     set {_uniqueStorage()._mapInt32Int32 = newValue}
@@ -795,115 +427,84 @@ struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Message, SwiftPro
     set {_uniqueStorage()._mapStringForeignEnum = newValue}
   }
 
+  var oneofField: OneOf_OneofField? {
+    get {return _storage._oneofField}
+    set {_uniqueStorage()._oneofField = newValue}
+  }
+
   var oneofUint32: UInt32 {
     get {
-      if case .oneofUint32(let v)? = _storage._oneofField {
-        return v
-      }
+      if case .oneofUint32(let v)? = _storage._oneofField {return v}
       return 0
     }
-    set {
-      _uniqueStorage()._oneofField = .oneofUint32(newValue)
-    }
+    set {_uniqueStorage()._oneofField = .oneofUint32(newValue)}
   }
 
   var oneofNestedMessage: ProtobufTestMessages_Proto3_TestAllTypes.NestedMessage {
     get {
-      if case .oneofNestedMessage(let v)? = _storage._oneofField {
-        return v
-      }
+      if case .oneofNestedMessage(let v)? = _storage._oneofField {return v}
       return ProtobufTestMessages_Proto3_TestAllTypes.NestedMessage()
     }
-    set {
-      _uniqueStorage()._oneofField = .oneofNestedMessage(newValue)
-    }
+    set {_uniqueStorage()._oneofField = .oneofNestedMessage(newValue)}
   }
 
   var oneofString: String {
     get {
-      if case .oneofString(let v)? = _storage._oneofField {
-        return v
-      }
-      return ""
+      if case .oneofString(let v)? = _storage._oneofField {return v}
+      return String()
     }
-    set {
-      _uniqueStorage()._oneofField = .oneofString(newValue)
-    }
+    set {_uniqueStorage()._oneofField = .oneofString(newValue)}
   }
 
   var oneofBytes: Data {
     get {
-      if case .oneofBytes(let v)? = _storage._oneofField {
-        return v
-      }
-      return Data()
+      if case .oneofBytes(let v)? = _storage._oneofField {return v}
+      return SwiftProtobuf.Internal.emptyData
     }
-    set {
-      _uniqueStorage()._oneofField = .oneofBytes(newValue)
-    }
+    set {_uniqueStorage()._oneofField = .oneofBytes(newValue)}
   }
 
   var oneofBool: Bool {
     get {
-      if case .oneofBool(let v)? = _storage._oneofField {
-        return v
-      }
+      if case .oneofBool(let v)? = _storage._oneofField {return v}
       return false
     }
-    set {
-      _uniqueStorage()._oneofField = .oneofBool(newValue)
-    }
+    set {_uniqueStorage()._oneofField = .oneofBool(newValue)}
   }
 
   var oneofUint64: UInt64 {
     get {
-      if case .oneofUint64(let v)? = _storage._oneofField {
-        return v
-      }
+      if case .oneofUint64(let v)? = _storage._oneofField {return v}
       return 0
     }
-    set {
-      _uniqueStorage()._oneofField = .oneofUint64(newValue)
-    }
+    set {_uniqueStorage()._oneofField = .oneofUint64(newValue)}
   }
 
   var oneofFloat: Float {
     get {
-      if case .oneofFloat(let v)? = _storage._oneofField {
-        return v
-      }
+      if case .oneofFloat(let v)? = _storage._oneofField {return v}
       return 0
     }
-    set {
-      _uniqueStorage()._oneofField = .oneofFloat(newValue)
-    }
+    set {_uniqueStorage()._oneofField = .oneofFloat(newValue)}
   }
 
   var oneofDouble: Double {
     get {
-      if case .oneofDouble(let v)? = _storage._oneofField {
-        return v
-      }
+      if case .oneofDouble(let v)? = _storage._oneofField {return v}
       return 0
     }
-    set {
-      _uniqueStorage()._oneofField = .oneofDouble(newValue)
-    }
+    set {_uniqueStorage()._oneofField = .oneofDouble(newValue)}
   }
 
   var oneofEnum: ProtobufTestMessages_Proto3_TestAllTypes.NestedEnum {
     get {
-      if case .oneofEnum(let v)? = _storage._oneofField {
-        return v
-      }
+      if case .oneofEnum(let v)? = _storage._oneofField {return v}
       return ProtobufTestMessages_Proto3_TestAllTypes.NestedEnum.foo
     }
-    set {
-      _uniqueStorage()._oneofField = .oneofEnum(newValue)
-    }
+    set {_uniqueStorage()._oneofField = .oneofEnum(newValue)}
   }
 
-  ///   Well-known types
+  /// Well-known types
   var optionalBoolWrapper: Google_Protobuf_BoolValue {
     get {return _storage._optionalBoolWrapper ?? Google_Protobuf_BoolValue()}
     set {_uniqueStorage()._optionalBoolWrapper = newValue}
@@ -912,7 +513,7 @@ struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Message, SwiftPro
     return _storage._optionalBoolWrapper != nil
   }
   mutating func clearOptionalBoolWrapper() {
-    return _storage._optionalBoolWrapper = nil
+    _storage._optionalBoolWrapper = nil
   }
 
   var optionalInt32Wrapper: Google_Protobuf_Int32Value {
@@ -923,7 +524,7 @@ struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Message, SwiftPro
     return _storage._optionalInt32Wrapper != nil
   }
   mutating func clearOptionalInt32Wrapper() {
-    return _storage._optionalInt32Wrapper = nil
+    _storage._optionalInt32Wrapper = nil
   }
 
   var optionalInt64Wrapper: Google_Protobuf_Int64Value {
@@ -934,7 +535,7 @@ struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Message, SwiftPro
     return _storage._optionalInt64Wrapper != nil
   }
   mutating func clearOptionalInt64Wrapper() {
-    return _storage._optionalInt64Wrapper = nil
+    _storage._optionalInt64Wrapper = nil
   }
 
   var optionalUint32Wrapper: Google_Protobuf_UInt32Value {
@@ -945,7 +546,7 @@ struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Message, SwiftPro
     return _storage._optionalUint32Wrapper != nil
   }
   mutating func clearOptionalUint32Wrapper() {
-    return _storage._optionalUint32Wrapper = nil
+    _storage._optionalUint32Wrapper = nil
   }
 
   var optionalUint64Wrapper: Google_Protobuf_UInt64Value {
@@ -956,7 +557,7 @@ struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Message, SwiftPro
     return _storage._optionalUint64Wrapper != nil
   }
   mutating func clearOptionalUint64Wrapper() {
-    return _storage._optionalUint64Wrapper = nil
+    _storage._optionalUint64Wrapper = nil
   }
 
   var optionalFloatWrapper: Google_Protobuf_FloatValue {
@@ -967,7 +568,7 @@ struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Message, SwiftPro
     return _storage._optionalFloatWrapper != nil
   }
   mutating func clearOptionalFloatWrapper() {
-    return _storage._optionalFloatWrapper = nil
+    _storage._optionalFloatWrapper = nil
   }
 
   var optionalDoubleWrapper: Google_Protobuf_DoubleValue {
@@ -978,7 +579,7 @@ struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Message, SwiftPro
     return _storage._optionalDoubleWrapper != nil
   }
   mutating func clearOptionalDoubleWrapper() {
-    return _storage._optionalDoubleWrapper = nil
+    _storage._optionalDoubleWrapper = nil
   }
 
   var optionalStringWrapper: Google_Protobuf_StringValue {
@@ -989,7 +590,7 @@ struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Message, SwiftPro
     return _storage._optionalStringWrapper != nil
   }
   mutating func clearOptionalStringWrapper() {
-    return _storage._optionalStringWrapper = nil
+    _storage._optionalStringWrapper = nil
   }
 
   var optionalBytesWrapper: Google_Protobuf_BytesValue {
@@ -1000,7 +601,7 @@ struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Message, SwiftPro
     return _storage._optionalBytesWrapper != nil
   }
   mutating func clearOptionalBytesWrapper() {
-    return _storage._optionalBytesWrapper = nil
+    _storage._optionalBytesWrapper = nil
   }
 
   var repeatedBoolWrapper: [Google_Protobuf_BoolValue] {
@@ -1056,7 +657,7 @@ struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Message, SwiftPro
     return _storage._optionalDuration != nil
   }
   mutating func clearOptionalDuration() {
-    return _storage._optionalDuration = nil
+    _storage._optionalDuration = nil
   }
 
   var optionalTimestamp: Google_Protobuf_Timestamp {
@@ -1067,7 +668,7 @@ struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Message, SwiftPro
     return _storage._optionalTimestamp != nil
   }
   mutating func clearOptionalTimestamp() {
-    return _storage._optionalTimestamp = nil
+    _storage._optionalTimestamp = nil
   }
 
   var optionalFieldMask: Google_Protobuf_FieldMask {
@@ -1078,7 +679,7 @@ struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Message, SwiftPro
     return _storage._optionalFieldMask != nil
   }
   mutating func clearOptionalFieldMask() {
-    return _storage._optionalFieldMask = nil
+    _storage._optionalFieldMask = nil
   }
 
   var optionalStruct: Google_Protobuf_Struct {
@@ -1089,7 +690,7 @@ struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Message, SwiftPro
     return _storage._optionalStruct != nil
   }
   mutating func clearOptionalStruct() {
-    return _storage._optionalStruct = nil
+    _storage._optionalStruct = nil
   }
 
   var optionalAny: Google_Protobuf_Any {
@@ -1100,7 +701,7 @@ struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Message, SwiftPro
     return _storage._optionalAny != nil
   }
   mutating func clearOptionalAny() {
-    return _storage._optionalAny = nil
+    _storage._optionalAny = nil
   }
 
   var optionalValue: Google_Protobuf_Value {
@@ -1111,7 +712,7 @@ struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Message, SwiftPro
     return _storage._optionalValue != nil
   }
   mutating func clearOptionalValue() {
-    return _storage._optionalValue = nil
+    _storage._optionalValue = nil
   }
 
   var repeatedDuration: [Google_Protobuf_Duration] {
@@ -1144,8 +745,8 @@ struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Message, SwiftPro
     set {_uniqueStorage()._repeatedValue = newValue}
   }
 
-  ///   Test field-name-to-JSON-name convention.
-  ///   (protobuf says names can be any valid C/C++ identifier.)
+  /// Test field-name-to-JSON-name convention.
+  /// (protobuf says names can be any valid C/C++ identifier.)
   var fieldname1: Int32 {
     get {return _storage._fieldname1}
     set {_uniqueStorage()._fieldname1 = newValue}
@@ -1236,13 +837,6 @@ struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Message, SwiftPro
     set {_uniqueStorage()._fieldName18__ = newValue}
   }
 
-  var oneofField: OneOf_OneofField? {
-    get {return _storage._oneofField}
-    set {
-      _uniqueStorage()._oneofField = newValue
-    }
-  }
-
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   enum OneOf_OneofField: Equatable {
@@ -1270,120 +864,17 @@ struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Message, SwiftPro
       default: return false
       }
     }
-
-    fileprivate init?<T: SwiftProtobuf.Decoder>(byDecodingFrom decoder: inout T, fieldNumber: Int) throws {
-      switch fieldNumber {
-      case 111:
-        var value = UInt32()
-        try decoder.decodeSingularUInt32Field(value: &value)
-        self = .oneofUint32(value)
-        return
-      case 112:
-        var value: ProtobufTestMessages_Proto3_TestAllTypes.NestedMessage?
-        try decoder.decodeSingularMessageField(value: &value)
-        if let value = value {
-          self = .oneofNestedMessage(value)
-          return
-        }
-      case 113:
-        var value = String()
-        try decoder.decodeSingularStringField(value: &value)
-        self = .oneofString(value)
-        return
-      case 114:
-        var value = Data()
-        try decoder.decodeSingularBytesField(value: &value)
-        self = .oneofBytes(value)
-        return
-      case 115:
-        var value = Bool()
-        try decoder.decodeSingularBoolField(value: &value)
-        self = .oneofBool(value)
-        return
-      case 116:
-        var value = UInt64()
-        try decoder.decodeSingularUInt64Field(value: &value)
-        self = .oneofUint64(value)
-        return
-      case 117:
-        var value = Float()
-        try decoder.decodeSingularFloatField(value: &value)
-        self = .oneofFloat(value)
-        return
-      case 118:
-        var value = Double()
-        try decoder.decodeSingularDoubleField(value: &value)
-        self = .oneofDouble(value)
-        return
-      case 119:
-        var value = ProtobufTestMessages_Proto3_TestAllTypes.NestedEnum()
-        try decoder.decodeSingularEnumField(value: &value)
-        self = .oneofEnum(value)
-        return
-      default:
-        break
-      }
-      return nil
-    }
-
-    fileprivate func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V, start: Int, end: Int) throws {
-      switch self {
-      case .oneofUint32(let v):
-        if start <= 111 && 111 < end {
-          try visitor.visitSingularUInt32Field(value: v, fieldNumber: 111)
-        }
-      case .oneofNestedMessage(let v):
-        if start <= 112 && 112 < end {
-          try visitor.visitSingularMessageField(value: v, fieldNumber: 112)
-        }
-      case .oneofString(let v):
-        if start <= 113 && 113 < end {
-          try visitor.visitSingularStringField(value: v, fieldNumber: 113)
-        }
-      case .oneofBytes(let v):
-        if start <= 114 && 114 < end {
-          try visitor.visitSingularBytesField(value: v, fieldNumber: 114)
-        }
-      case .oneofBool(let v):
-        if start <= 115 && 115 < end {
-          try visitor.visitSingularBoolField(value: v, fieldNumber: 115)
-        }
-      case .oneofUint64(let v):
-        if start <= 116 && 116 < end {
-          try visitor.visitSingularUInt64Field(value: v, fieldNumber: 116)
-        }
-      case .oneofFloat(let v):
-        if start <= 117 && 117 < end {
-          try visitor.visitSingularFloatField(value: v, fieldNumber: 117)
-        }
-      case .oneofDouble(let v):
-        if start <= 118 && 118 < end {
-          try visitor.visitSingularDoubleField(value: v, fieldNumber: 118)
-        }
-      case .oneofEnum(let v):
-        if start <= 119 && 119 < end {
-          try visitor.visitSingularEnumField(value: v, fieldNumber: 119)
-        }
-      }
-    }
   }
 
-  enum NestedEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum NestedEnum: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case foo // = 0
     case bar // = 1
     case baz // = 2
 
-    ///   Intentionally negative.
+    /// Intentionally negative.
     case neg // = -1
     case UNRECOGNIZED(Int)
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      -1: .same(proto: "NEG"),
-      0: .same(proto: "FOO"),
-      1: .same(proto: "BAR"),
-      2: .same(proto: "BAZ"),
-    ]
 
     init() {
       self = .foo
@@ -1411,33 +902,8 @@ struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Message, SwiftPro
 
   }
 
-  struct NestedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct NestedMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = ProtobufTestMessages_Proto3_TestAllTypes.protoMessageName + ".NestedMessage"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-      2: .same(proto: "corecursive"),
-    ]
-
-    private class _StorageClass {
-      var _a: Int32 = 0
-      var _corecursive: ProtobufTestMessages_Proto3_TestAllTypes? = nil
-
-      init() {}
-
-      init(copying source: _StorageClass) {
-        _a = source._a
-        _corecursive = source._corecursive
-      }
-    }
-
-    private var _storage = _StorageClass()
-
-    private mutating func _uniqueStorage() -> _StorageClass {
-      if !isKnownUniquelyReferenced(&_storage) {
-        _storage = _StorageClass(copying: _storage)
-      }
-      return _storage
-    }
 
     var a: Int32 {
       get {return _storage._a}
@@ -1452,7 +918,7 @@ struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Message, SwiftPro
       return _storage._corecursive != nil
     }
     mutating func clearCorecursive() {
-      return _storage._corecursive = nil
+      _storage._corecursive = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -1484,18 +950,7 @@ struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Message, SwiftPro
       try unknownFields.traverse(visitor: &visitor)
     }
 
-    func _protobuf_generated_isEqualTo(other: ProtobufTestMessages_Proto3_TestAllTypes.NestedMessage) -> Bool {
-      if _storage !== other._storage {
-        let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
-          if _storage._a != other_storage._a {return false}
-          if _storage._corecursive != other_storage._corecursive {return false}
-          return true
-        }
-        if !storagesAreEqual {return false}
-      }
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
+    fileprivate var _storage = _StorageClass()
   }
 
   init() {}
@@ -1599,9 +1054,9 @@ struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Message, SwiftPro
         case 311: try decoder.decodeRepeatedMessageField(value: &_storage._repeatedDuration)
         case 312: try decoder.decodeRepeatedMessageField(value: &_storage._repeatedTimestamp)
         case 313: try decoder.decodeRepeatedMessageField(value: &_storage._repeatedFieldmask)
-        case 324: try decoder.decodeRepeatedMessageField(value: &_storage._repeatedStruct)
         case 315: try decoder.decodeRepeatedMessageField(value: &_storage._repeatedAny)
         case 316: try decoder.decodeRepeatedMessageField(value: &_storage._repeatedValue)
+        case 324: try decoder.decodeRepeatedMessageField(value: &_storage._repeatedStruct)
         case 401: try decoder.decodeSingularInt32Field(value: &_storage._fieldname1)
         case 402: try decoder.decodeSingularInt32Field(value: &_storage._fieldName2)
         case 403: try decoder.decodeSingularInt32Field(value: &_storage._fieldName3)
@@ -1814,7 +1269,7 @@ struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Message, SwiftPro
       if !_storage._mapStringForeignEnum.isEmpty {
         try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufString,ProtobufTestMessages_Proto3_ForeignEnum>.self, value: _storage._mapStringForeignEnum, fieldNumber: 74)
       }
-      try _storage._oneofField?.traverse(visitor: &visitor, start: 111, end: 120)
+      try _storage._oneofField?.traverse(visitor: &visitor)
       if let v = _storage._optionalBoolWrapper {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 201)
       }
@@ -1963,6 +1418,407 @@ struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Message, SwiftPro
     try unknownFields.traverse(visitor: &visitor)
   }
 
+  fileprivate var _storage = _StorageClass()
+}
+
+struct ProtobufTestMessages_Proto3_ForeignMessage: SwiftProtobuf.Message {
+  static let protoMessageName: String = _protobuf_package + ".ForeignMessage"
+
+  var c: Int32 = 0
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self.c)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.c != 0 {
+      try visitor.visitSingularInt32Field(value: self.c, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+}
+
+// MARK: - Code below here is support for the SwiftProtobuf runtime.
+
+fileprivate let _protobuf_package = "protobuf_test_messages.proto3"
+
+extension ProtobufTestMessages_Proto3_ForeignEnum: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "FOREIGN_FOO"),
+    1: .same(proto: "FOREIGN_BAR"),
+    2: .same(proto: "FOREIGN_BAZ"),
+  ]
+}
+
+extension ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "optional_int32"),
+    2: .standard(proto: "optional_int64"),
+    3: .standard(proto: "optional_uint32"),
+    4: .standard(proto: "optional_uint64"),
+    5: .standard(proto: "optional_sint32"),
+    6: .standard(proto: "optional_sint64"),
+    7: .standard(proto: "optional_fixed32"),
+    8: .standard(proto: "optional_fixed64"),
+    9: .standard(proto: "optional_sfixed32"),
+    10: .standard(proto: "optional_sfixed64"),
+    11: .standard(proto: "optional_float"),
+    12: .standard(proto: "optional_double"),
+    13: .standard(proto: "optional_bool"),
+    14: .standard(proto: "optional_string"),
+    15: .standard(proto: "optional_bytes"),
+    18: .standard(proto: "optional_nested_message"),
+    19: .standard(proto: "optional_foreign_message"),
+    21: .standard(proto: "optional_nested_enum"),
+    22: .standard(proto: "optional_foreign_enum"),
+    24: .standard(proto: "optional_string_piece"),
+    25: .standard(proto: "optional_cord"),
+    27: .standard(proto: "recursive_message"),
+    31: .standard(proto: "repeated_int32"),
+    32: .standard(proto: "repeated_int64"),
+    33: .standard(proto: "repeated_uint32"),
+    34: .standard(proto: "repeated_uint64"),
+    35: .standard(proto: "repeated_sint32"),
+    36: .standard(proto: "repeated_sint64"),
+    37: .standard(proto: "repeated_fixed32"),
+    38: .standard(proto: "repeated_fixed64"),
+    39: .standard(proto: "repeated_sfixed32"),
+    40: .standard(proto: "repeated_sfixed64"),
+    41: .standard(proto: "repeated_float"),
+    42: .standard(proto: "repeated_double"),
+    43: .standard(proto: "repeated_bool"),
+    44: .standard(proto: "repeated_string"),
+    45: .standard(proto: "repeated_bytes"),
+    48: .standard(proto: "repeated_nested_message"),
+    49: .standard(proto: "repeated_foreign_message"),
+    51: .standard(proto: "repeated_nested_enum"),
+    52: .standard(proto: "repeated_foreign_enum"),
+    54: .standard(proto: "repeated_string_piece"),
+    55: .standard(proto: "repeated_cord"),
+    56: .standard(proto: "map_int32_int32"),
+    57: .standard(proto: "map_int64_int64"),
+    58: .standard(proto: "map_uint32_uint32"),
+    59: .standard(proto: "map_uint64_uint64"),
+    60: .standard(proto: "map_sint32_sint32"),
+    61: .standard(proto: "map_sint64_sint64"),
+    62: .standard(proto: "map_fixed32_fixed32"),
+    63: .standard(proto: "map_fixed64_fixed64"),
+    64: .standard(proto: "map_sfixed32_sfixed32"),
+    65: .standard(proto: "map_sfixed64_sfixed64"),
+    66: .standard(proto: "map_int32_float"),
+    67: .standard(proto: "map_int32_double"),
+    68: .standard(proto: "map_bool_bool"),
+    69: .standard(proto: "map_string_string"),
+    70: .standard(proto: "map_string_bytes"),
+    71: .standard(proto: "map_string_nested_message"),
+    72: .standard(proto: "map_string_foreign_message"),
+    73: .standard(proto: "map_string_nested_enum"),
+    74: .standard(proto: "map_string_foreign_enum"),
+    111: .standard(proto: "oneof_uint32"),
+    112: .standard(proto: "oneof_nested_message"),
+    113: .standard(proto: "oneof_string"),
+    114: .standard(proto: "oneof_bytes"),
+    115: .standard(proto: "oneof_bool"),
+    116: .standard(proto: "oneof_uint64"),
+    117: .standard(proto: "oneof_float"),
+    118: .standard(proto: "oneof_double"),
+    119: .standard(proto: "oneof_enum"),
+    201: .standard(proto: "optional_bool_wrapper"),
+    202: .standard(proto: "optional_int32_wrapper"),
+    203: .standard(proto: "optional_int64_wrapper"),
+    204: .standard(proto: "optional_uint32_wrapper"),
+    205: .standard(proto: "optional_uint64_wrapper"),
+    206: .standard(proto: "optional_float_wrapper"),
+    207: .standard(proto: "optional_double_wrapper"),
+    208: .standard(proto: "optional_string_wrapper"),
+    209: .standard(proto: "optional_bytes_wrapper"),
+    211: .standard(proto: "repeated_bool_wrapper"),
+    212: .standard(proto: "repeated_int32_wrapper"),
+    213: .standard(proto: "repeated_int64_wrapper"),
+    214: .standard(proto: "repeated_uint32_wrapper"),
+    215: .standard(proto: "repeated_uint64_wrapper"),
+    216: .standard(proto: "repeated_float_wrapper"),
+    217: .standard(proto: "repeated_double_wrapper"),
+    218: .standard(proto: "repeated_string_wrapper"),
+    219: .standard(proto: "repeated_bytes_wrapper"),
+    301: .standard(proto: "optional_duration"),
+    302: .standard(proto: "optional_timestamp"),
+    303: .standard(proto: "optional_field_mask"),
+    304: .standard(proto: "optional_struct"),
+    305: .standard(proto: "optional_any"),
+    306: .standard(proto: "optional_value"),
+    311: .standard(proto: "repeated_duration"),
+    312: .standard(proto: "repeated_timestamp"),
+    313: .standard(proto: "repeated_fieldmask"),
+    324: .standard(proto: "repeated_struct"),
+    315: .standard(proto: "repeated_any"),
+    316: .standard(proto: "repeated_value"),
+    401: .same(proto: "fieldname1"),
+    402: .standard(proto: "field_name2"),
+    403: .standard(proto: "_field_name3"),
+    404: .standard(proto: "field__name4_"),
+    405: .same(proto: "field0name5"),
+    406: .standard(proto: "field_0_name6"),
+    407: .same(proto: "fieldName7"),
+    408: .same(proto: "FieldName8"),
+    409: .standard(proto: "field_Name9"),
+    410: .standard(proto: "Field_Name10"),
+    411: .standard(proto: "FIELD_NAME11"),
+    412: .standard(proto: "FIELD_name12"),
+    413: .standard(proto: "__field_name13"),
+    414: .standard(proto: "__Field_name14"),
+    415: .standard(proto: "field__name15"),
+    416: .standard(proto: "field__Name16"),
+    417: .standard(proto: "field_name17__"),
+    418: .standard(proto: "Field_name18__"),
+  ]
+
+  fileprivate class _StorageClass {
+    var _optionalInt32: Int32 = 0
+    var _optionalInt64: Int64 = 0
+    var _optionalUint32: UInt32 = 0
+    var _optionalUint64: UInt64 = 0
+    var _optionalSint32: Int32 = 0
+    var _optionalSint64: Int64 = 0
+    var _optionalFixed32: UInt32 = 0
+    var _optionalFixed64: UInt64 = 0
+    var _optionalSfixed32: Int32 = 0
+    var _optionalSfixed64: Int64 = 0
+    var _optionalFloat: Float = 0
+    var _optionalDouble: Double = 0
+    var _optionalBool: Bool = false
+    var _optionalString: String = String()
+    var _optionalBytes: Data = SwiftProtobuf.Internal.emptyData
+    var _optionalNestedMessage: ProtobufTestMessages_Proto3_TestAllTypes.NestedMessage? = nil
+    var _optionalForeignMessage: ProtobufTestMessages_Proto3_ForeignMessage? = nil
+    var _optionalNestedEnum: ProtobufTestMessages_Proto3_TestAllTypes.NestedEnum = ProtobufTestMessages_Proto3_TestAllTypes.NestedEnum.foo
+    var _optionalForeignEnum: ProtobufTestMessages_Proto3_ForeignEnum = ProtobufTestMessages_Proto3_ForeignEnum.foreignFoo
+    var _optionalStringPiece: String = String()
+    var _optionalCord: String = String()
+    var _recursiveMessage: ProtobufTestMessages_Proto3_TestAllTypes? = nil
+    var _repeatedInt32: [Int32] = []
+    var _repeatedInt64: [Int64] = []
+    var _repeatedUint32: [UInt32] = []
+    var _repeatedUint64: [UInt64] = []
+    var _repeatedSint32: [Int32] = []
+    var _repeatedSint64: [Int64] = []
+    var _repeatedFixed32: [UInt32] = []
+    var _repeatedFixed64: [UInt64] = []
+    var _repeatedSfixed32: [Int32] = []
+    var _repeatedSfixed64: [Int64] = []
+    var _repeatedFloat: [Float] = []
+    var _repeatedDouble: [Double] = []
+    var _repeatedBool: [Bool] = []
+    var _repeatedString: [String] = []
+    var _repeatedBytes: [Data] = []
+    var _repeatedNestedMessage: [ProtobufTestMessages_Proto3_TestAllTypes.NestedMessage] = []
+    var _repeatedForeignMessage: [ProtobufTestMessages_Proto3_ForeignMessage] = []
+    var _repeatedNestedEnum: [ProtobufTestMessages_Proto3_TestAllTypes.NestedEnum] = []
+    var _repeatedForeignEnum: [ProtobufTestMessages_Proto3_ForeignEnum] = []
+    var _repeatedStringPiece: [String] = []
+    var _repeatedCord: [String] = []
+    var _mapInt32Int32: Dictionary<Int32,Int32> = [:]
+    var _mapInt64Int64: Dictionary<Int64,Int64> = [:]
+    var _mapUint32Uint32: Dictionary<UInt32,UInt32> = [:]
+    var _mapUint64Uint64: Dictionary<UInt64,UInt64> = [:]
+    var _mapSint32Sint32: Dictionary<Int32,Int32> = [:]
+    var _mapSint64Sint64: Dictionary<Int64,Int64> = [:]
+    var _mapFixed32Fixed32: Dictionary<UInt32,UInt32> = [:]
+    var _mapFixed64Fixed64: Dictionary<UInt64,UInt64> = [:]
+    var _mapSfixed32Sfixed32: Dictionary<Int32,Int32> = [:]
+    var _mapSfixed64Sfixed64: Dictionary<Int64,Int64> = [:]
+    var _mapInt32Float: Dictionary<Int32,Float> = [:]
+    var _mapInt32Double: Dictionary<Int32,Double> = [:]
+    var _mapBoolBool: Dictionary<Bool,Bool> = [:]
+    var _mapStringString: Dictionary<String,String> = [:]
+    var _mapStringBytes: Dictionary<String,Data> = [:]
+    var _mapStringNestedMessage: Dictionary<String,ProtobufTestMessages_Proto3_TestAllTypes.NestedMessage> = [:]
+    var _mapStringForeignMessage: Dictionary<String,ProtobufTestMessages_Proto3_ForeignMessage> = [:]
+    var _mapStringNestedEnum: Dictionary<String,ProtobufTestMessages_Proto3_TestAllTypes.NestedEnum> = [:]
+    var _mapStringForeignEnum: Dictionary<String,ProtobufTestMessages_Proto3_ForeignEnum> = [:]
+    var _oneofField: ProtobufTestMessages_Proto3_TestAllTypes.OneOf_OneofField?
+    var _optionalBoolWrapper: Google_Protobuf_BoolValue? = nil
+    var _optionalInt32Wrapper: Google_Protobuf_Int32Value? = nil
+    var _optionalInt64Wrapper: Google_Protobuf_Int64Value? = nil
+    var _optionalUint32Wrapper: Google_Protobuf_UInt32Value? = nil
+    var _optionalUint64Wrapper: Google_Protobuf_UInt64Value? = nil
+    var _optionalFloatWrapper: Google_Protobuf_FloatValue? = nil
+    var _optionalDoubleWrapper: Google_Protobuf_DoubleValue? = nil
+    var _optionalStringWrapper: Google_Protobuf_StringValue? = nil
+    var _optionalBytesWrapper: Google_Protobuf_BytesValue? = nil
+    var _repeatedBoolWrapper: [Google_Protobuf_BoolValue] = []
+    var _repeatedInt32Wrapper: [Google_Protobuf_Int32Value] = []
+    var _repeatedInt64Wrapper: [Google_Protobuf_Int64Value] = []
+    var _repeatedUint32Wrapper: [Google_Protobuf_UInt32Value] = []
+    var _repeatedUint64Wrapper: [Google_Protobuf_UInt64Value] = []
+    var _repeatedFloatWrapper: [Google_Protobuf_FloatValue] = []
+    var _repeatedDoubleWrapper: [Google_Protobuf_DoubleValue] = []
+    var _repeatedStringWrapper: [Google_Protobuf_StringValue] = []
+    var _repeatedBytesWrapper: [Google_Protobuf_BytesValue] = []
+    var _optionalDuration: Google_Protobuf_Duration? = nil
+    var _optionalTimestamp: Google_Protobuf_Timestamp? = nil
+    var _optionalFieldMask: Google_Protobuf_FieldMask? = nil
+    var _optionalStruct: Google_Protobuf_Struct? = nil
+    var _optionalAny: Google_Protobuf_Any? = nil
+    var _optionalValue: Google_Protobuf_Value? = nil
+    var _repeatedDuration: [Google_Protobuf_Duration] = []
+    var _repeatedTimestamp: [Google_Protobuf_Timestamp] = []
+    var _repeatedFieldmask: [Google_Protobuf_FieldMask] = []
+    var _repeatedStruct: [Google_Protobuf_Struct] = []
+    var _repeatedAny: [Google_Protobuf_Any] = []
+    var _repeatedValue: [Google_Protobuf_Value] = []
+    var _fieldname1: Int32 = 0
+    var _fieldName2: Int32 = 0
+    var _fieldName3: Int32 = 0
+    var _field_Name4_: Int32 = 0
+    var _field0Name5: Int32 = 0
+    var _field0Name6: Int32 = 0
+    var _fieldName7: Int32 = 0
+    var _fieldName8: Int32 = 0
+    var _fieldName9: Int32 = 0
+    var _fieldName10: Int32 = 0
+    var _fieldName11: Int32 = 0
+    var _fieldName12: Int32 = 0
+    var __FieldName13: Int32 = 0
+    var __FieldName14: Int32 = 0
+    var _field_Name15: Int32 = 0
+    var _field_Name16: Int32 = 0
+    var _fieldName17__: Int32 = 0
+    var _fieldName18__: Int32 = 0
+
+    init() {}
+
+    init(copying source: _StorageClass) {
+      _optionalInt32 = source._optionalInt32
+      _optionalInt64 = source._optionalInt64
+      _optionalUint32 = source._optionalUint32
+      _optionalUint64 = source._optionalUint64
+      _optionalSint32 = source._optionalSint32
+      _optionalSint64 = source._optionalSint64
+      _optionalFixed32 = source._optionalFixed32
+      _optionalFixed64 = source._optionalFixed64
+      _optionalSfixed32 = source._optionalSfixed32
+      _optionalSfixed64 = source._optionalSfixed64
+      _optionalFloat = source._optionalFloat
+      _optionalDouble = source._optionalDouble
+      _optionalBool = source._optionalBool
+      _optionalString = source._optionalString
+      _optionalBytes = source._optionalBytes
+      _optionalNestedMessage = source._optionalNestedMessage
+      _optionalForeignMessage = source._optionalForeignMessage
+      _optionalNestedEnum = source._optionalNestedEnum
+      _optionalForeignEnum = source._optionalForeignEnum
+      _optionalStringPiece = source._optionalStringPiece
+      _optionalCord = source._optionalCord
+      _recursiveMessage = source._recursiveMessage
+      _repeatedInt32 = source._repeatedInt32
+      _repeatedInt64 = source._repeatedInt64
+      _repeatedUint32 = source._repeatedUint32
+      _repeatedUint64 = source._repeatedUint64
+      _repeatedSint32 = source._repeatedSint32
+      _repeatedSint64 = source._repeatedSint64
+      _repeatedFixed32 = source._repeatedFixed32
+      _repeatedFixed64 = source._repeatedFixed64
+      _repeatedSfixed32 = source._repeatedSfixed32
+      _repeatedSfixed64 = source._repeatedSfixed64
+      _repeatedFloat = source._repeatedFloat
+      _repeatedDouble = source._repeatedDouble
+      _repeatedBool = source._repeatedBool
+      _repeatedString = source._repeatedString
+      _repeatedBytes = source._repeatedBytes
+      _repeatedNestedMessage = source._repeatedNestedMessage
+      _repeatedForeignMessage = source._repeatedForeignMessage
+      _repeatedNestedEnum = source._repeatedNestedEnum
+      _repeatedForeignEnum = source._repeatedForeignEnum
+      _repeatedStringPiece = source._repeatedStringPiece
+      _repeatedCord = source._repeatedCord
+      _mapInt32Int32 = source._mapInt32Int32
+      _mapInt64Int64 = source._mapInt64Int64
+      _mapUint32Uint32 = source._mapUint32Uint32
+      _mapUint64Uint64 = source._mapUint64Uint64
+      _mapSint32Sint32 = source._mapSint32Sint32
+      _mapSint64Sint64 = source._mapSint64Sint64
+      _mapFixed32Fixed32 = source._mapFixed32Fixed32
+      _mapFixed64Fixed64 = source._mapFixed64Fixed64
+      _mapSfixed32Sfixed32 = source._mapSfixed32Sfixed32
+      _mapSfixed64Sfixed64 = source._mapSfixed64Sfixed64
+      _mapInt32Float = source._mapInt32Float
+      _mapInt32Double = source._mapInt32Double
+      _mapBoolBool = source._mapBoolBool
+      _mapStringString = source._mapStringString
+      _mapStringBytes = source._mapStringBytes
+      _mapStringNestedMessage = source._mapStringNestedMessage
+      _mapStringForeignMessage = source._mapStringForeignMessage
+      _mapStringNestedEnum = source._mapStringNestedEnum
+      _mapStringForeignEnum = source._mapStringForeignEnum
+      _oneofField = source._oneofField
+      _optionalBoolWrapper = source._optionalBoolWrapper
+      _optionalInt32Wrapper = source._optionalInt32Wrapper
+      _optionalInt64Wrapper = source._optionalInt64Wrapper
+      _optionalUint32Wrapper = source._optionalUint32Wrapper
+      _optionalUint64Wrapper = source._optionalUint64Wrapper
+      _optionalFloatWrapper = source._optionalFloatWrapper
+      _optionalDoubleWrapper = source._optionalDoubleWrapper
+      _optionalStringWrapper = source._optionalStringWrapper
+      _optionalBytesWrapper = source._optionalBytesWrapper
+      _repeatedBoolWrapper = source._repeatedBoolWrapper
+      _repeatedInt32Wrapper = source._repeatedInt32Wrapper
+      _repeatedInt64Wrapper = source._repeatedInt64Wrapper
+      _repeatedUint32Wrapper = source._repeatedUint32Wrapper
+      _repeatedUint64Wrapper = source._repeatedUint64Wrapper
+      _repeatedFloatWrapper = source._repeatedFloatWrapper
+      _repeatedDoubleWrapper = source._repeatedDoubleWrapper
+      _repeatedStringWrapper = source._repeatedStringWrapper
+      _repeatedBytesWrapper = source._repeatedBytesWrapper
+      _optionalDuration = source._optionalDuration
+      _optionalTimestamp = source._optionalTimestamp
+      _optionalFieldMask = source._optionalFieldMask
+      _optionalStruct = source._optionalStruct
+      _optionalAny = source._optionalAny
+      _optionalValue = source._optionalValue
+      _repeatedDuration = source._repeatedDuration
+      _repeatedTimestamp = source._repeatedTimestamp
+      _repeatedFieldmask = source._repeatedFieldmask
+      _repeatedStruct = source._repeatedStruct
+      _repeatedAny = source._repeatedAny
+      _repeatedValue = source._repeatedValue
+      _fieldname1 = source._fieldname1
+      _fieldName2 = source._fieldName2
+      _fieldName3 = source._fieldName3
+      _field_Name4_ = source._field_Name4_
+      _field0Name5 = source._field0Name5
+      _field0Name6 = source._field0Name6
+      _fieldName7 = source._fieldName7
+      _fieldName8 = source._fieldName8
+      _fieldName9 = source._fieldName9
+      _fieldName10 = source._fieldName10
+      _fieldName11 = source._fieldName11
+      _fieldName12 = source._fieldName12
+      __FieldName13 = source.__FieldName13
+      __FieldName14 = source.__FieldName14
+      _field_Name15 = source._field_Name15
+      _field_Name16 = source._field_Name16
+      _fieldName17__ = source._fieldName17__
+      _fieldName18__ = source._fieldName18__
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
   func _protobuf_generated_isEqualTo(other: ProtobufTestMessages_Proto3_TestAllTypes) -> Bool {
     if _storage !== other._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
@@ -2086,36 +1942,141 @@ struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Message, SwiftPro
   }
 }
 
-struct ProtobufTestMessages_Proto3_ForeignMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ForeignMessage"
+extension ProtobufTestMessages_Proto3_TestAllTypes.OneOf_OneofField {
+  fileprivate init?<T: SwiftProtobuf.Decoder>(byDecodingFrom decoder: inout T, fieldNumber: Int) throws {
+    switch fieldNumber {
+    case 111:
+      var value = UInt32()
+      try decoder.decodeSingularUInt32Field(value: &value)
+      self = .oneofUint32(value)
+      return
+    case 112:
+      var value: ProtobufTestMessages_Proto3_TestAllTypes.NestedMessage?
+      try decoder.decodeSingularMessageField(value: &value)
+      if let value = value {
+        self = .oneofNestedMessage(value)
+        return
+      }
+    case 113:
+      var value = String()
+      try decoder.decodeSingularStringField(value: &value)
+      self = .oneofString(value)
+      return
+    case 114:
+      var value = Data()
+      try decoder.decodeSingularBytesField(value: &value)
+      self = .oneofBytes(value)
+      return
+    case 115:
+      var value = Bool()
+      try decoder.decodeSingularBoolField(value: &value)
+      self = .oneofBool(value)
+      return
+    case 116:
+      var value = UInt64()
+      try decoder.decodeSingularUInt64Field(value: &value)
+      self = .oneofUint64(value)
+      return
+    case 117:
+      var value = Float()
+      try decoder.decodeSingularFloatField(value: &value)
+      self = .oneofFloat(value)
+      return
+    case 118:
+      var value = Double()
+      try decoder.decodeSingularDoubleField(value: &value)
+      self = .oneofDouble(value)
+      return
+    case 119:
+      var value = ProtobufTestMessages_Proto3_TestAllTypes.NestedEnum()
+      try decoder.decodeSingularEnumField(value: &value)
+      self = .oneofEnum(value)
+      return
+    default:
+      break
+    }
+    return nil
+  }
+
+  fileprivate func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    switch self {
+    case .oneofUint32(let v):
+      try visitor.visitSingularUInt32Field(value: v, fieldNumber: 111)
+    case .oneofNestedMessage(let v):
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 112)
+    case .oneofString(let v):
+      try visitor.visitSingularStringField(value: v, fieldNumber: 113)
+    case .oneofBytes(let v):
+      try visitor.visitSingularBytesField(value: v, fieldNumber: 114)
+    case .oneofBool(let v):
+      try visitor.visitSingularBoolField(value: v, fieldNumber: 115)
+    case .oneofUint64(let v):
+      try visitor.visitSingularUInt64Field(value: v, fieldNumber: 116)
+    case .oneofFloat(let v):
+      try visitor.visitSingularFloatField(value: v, fieldNumber: 117)
+    case .oneofDouble(let v):
+      try visitor.visitSingularDoubleField(value: v, fieldNumber: 118)
+    case .oneofEnum(let v):
+      try visitor.visitSingularEnumField(value: v, fieldNumber: 119)
+    }
+  }
+}
+
+extension ProtobufTestMessages_Proto3_TestAllTypes.NestedEnum: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    -1: .same(proto: "NEG"),
+    0: .same(proto: "FOO"),
+    1: .same(proto: "BAR"),
+    2: .same(proto: "BAZ"),
+  ]
+}
+
+extension ProtobufTestMessages_Proto3_TestAllTypes.NestedMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "a"),
+    2: .same(proto: "corecursive"),
+  ]
+
+  fileprivate class _StorageClass {
+    var _a: Int32 = 0
+    var _corecursive: ProtobufTestMessages_Proto3_TestAllTypes? = nil
+
+    init() {}
+
+    init(copying source: _StorageClass) {
+      _a = source._a
+      _corecursive = source._corecursive
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
+  func _protobuf_generated_isEqualTo(other: ProtobufTestMessages_Proto3_TestAllTypes.NestedMessage) -> Bool {
+    if _storage !== other._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+        if _storage._a != other_storage._a {return false}
+        if _storage._corecursive != other_storage._corecursive {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension ProtobufTestMessages_Proto3_ForeignMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "c"),
   ]
 
-  var c: Int32 = 0
-
-  var unknownFields = SwiftProtobuf.UnknownStorage()
-
-  init() {}
-
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      switch fieldNumber {
-      case 1: try decoder.decodeSingularInt32Field(value: &c)
-      default: break
-      }
-    }
-  }
-
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if c != 0 {
-      try visitor.visitSingularInt32Field(value: c, fieldNumber: 1)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
   func _protobuf_generated_isEqualTo(other: ProtobufTestMessages_Proto3_ForeignMessage) -> Bool {
-    if c != other.c {return false}
+    if self.c != other.c {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }

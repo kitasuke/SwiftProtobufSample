@@ -35,19 +35,19 @@
       "package": "SSLService",
       "reason": null,
       "repositoryURL": "https://github.com/IBM-Swift/BlueSSLService.git",
-      "version": "0.12.31"
+      "version": "0.12.32"
     },
     {
       "package": "Socket",
       "reason": null,
       "repositoryURL": "https://github.com/IBM-Swift/BlueSocket.git",
-      "version": "0.12.43"
+      "version": "0.12.45"
     },
     {
       "package": "SwiftProtobuf",
       "reason": null,
       "repositoryURL": "https://github.com/apple/swift-protobuf.git",
-      "version": "0.9.29"
+      "version": "0.9.901"
     },
     {
       "package": "SwiftyJSON",

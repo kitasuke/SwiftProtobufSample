@@ -6,21 +6,21 @@
  *
  */
 
-//  Protos/unittest_swift_enum_optional_default.proto - test proto
-// 
-//  This source file is part of the Swift.org open source project
-// 
-//  Copyright (c) 2014 - 2016 Apple Inc. and the Swift project authors
-//  Licensed under Apache License v2.0 with Runtime Library Exception
-// 
-//  See http://swift.org/LICENSE.txt for license information
-//  See http://swift.org/CONTRIBUTORS.txt for the list of Swift project authors
-// 
-//  -----------------------------------------------------------------------------
-// /
-// / Test handling of enum fields with specified defaults
-// /
-//  -----------------------------------------------------------------------------
+// Protos/unittest_swift_enum_optional_default.proto - test proto
+//
+// This source file is part of the Swift.org open source project
+//
+// Copyright (c) 2014 - 2016 Apple Inc. and the Swift project authors
+// Licensed under Apache License v2.0 with Runtime Library Exception
+//
+// See http://swift.org/LICENSE.txt for license information
+// See http://swift.org/CONTRIBUTORS.txt for the list of Swift project authors
+//
+// -----------------------------------------------------------------------------
+///
+/// Test handling of enum fields with specified defaults
+///
+// -----------------------------------------------------------------------------
 
 import Foundation
 import SwiftProtobuf
@@ -35,44 +35,16 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _1
 }
 
-fileprivate let _protobuf_package = "protobuf_unittest.extend"
-
-struct ProtobufUnittest_Extend_EnumOptionalDefault: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+struct ProtobufUnittest_Extend_EnumOptionalDefault: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".EnumOptionalDefault"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  struct NestedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct NestedMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = ProtobufUnittest_Extend_EnumOptionalDefault.protoMessageName + ".NestedMessage"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "message"),
-      17: .standard(proto: "optional_enum"),
-    ]
 
-    private class _StorageClass {
-      var _message: ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage? = nil
-      var _optionalEnum: ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage.Enum? = nil
-
-      init() {}
-
-      init(copying source: _StorageClass) {
-        _message = source._message
-        _optionalEnum = source._optionalEnum
-      }
-    }
-
-    private var _storage = _StorageClass()
-
-    private mutating func _uniqueStorage() -> _StorageClass {
-      if !isKnownUniquelyReferenced(&_storage) {
-        _storage = _StorageClass(copying: _storage)
-      }
-      return _storage
-    }
-
-    ///   The circular reference here forces the generator to
-    ///   implement heap-backed storage.
+    /// The circular reference here forces the generator to
+    /// implement heap-backed storage.
     var message: ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage {
       get {return _storage._message ?? ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage()}
       set {_uniqueStorage()._message = newValue}
@@ -81,7 +53,7 @@ struct ProtobufUnittest_Extend_EnumOptionalDefault: SwiftProtobuf.Message, Swift
       return _storage._message != nil
     }
     mutating func clearMessage() {
-      return _storage._message = nil
+      _storage._message = nil
     }
 
     var optionalEnum: ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage.Enum {
@@ -92,18 +64,14 @@ struct ProtobufUnittest_Extend_EnumOptionalDefault: SwiftProtobuf.Message, Swift
       return _storage._optionalEnum != nil
     }
     mutating func clearOptionalEnum() {
-      return _storage._optionalEnum = nil
+      _storage._optionalEnum = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
-    enum Enum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+    enum Enum: SwiftProtobuf.Enum {
       typealias RawValue = Int
       case foo // = 0
-
-      static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-        0: .same(proto: "FOO"),
-      ]
 
       init() {
         self = .foo
@@ -151,47 +119,29 @@ struct ProtobufUnittest_Extend_EnumOptionalDefault: SwiftProtobuf.Message, Swift
       try unknownFields.traverse(visitor: &visitor)
     }
 
-    func _protobuf_generated_isEqualTo(other: ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage) -> Bool {
-      if _storage !== other._storage {
-        let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
-          if _storage._message != other_storage._message {return false}
-          if _storage._optionalEnum != other_storage._optionalEnum {return false}
-          return true
-        }
-        if !storagesAreEqual {return false}
-      }
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
+    fileprivate var _storage = _StorageClass()
   }
 
-  struct NestedMessage2: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct NestedMessage2: SwiftProtobuf.Message {
     static let protoMessageName: String = ProtobufUnittest_Extend_EnumOptionalDefault.protoMessageName + ".NestedMessage2"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      17: .standard(proto: "optional_enum"),
-    ]
 
-    private var _optionalEnum: ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage2.Enum? = nil
+    fileprivate var _optionalEnum: ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage2.Enum? = nil
     var optionalEnum: ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage2.Enum {
       get {return _optionalEnum ?? ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage2.Enum.foo}
       set {_optionalEnum = newValue}
     }
     var hasOptionalEnum: Bool {
-      return _optionalEnum != nil
+      return self._optionalEnum != nil
     }
     mutating func clearOptionalEnum() {
-      return _optionalEnum = nil
+      self._optionalEnum = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
-    enum Enum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+    enum Enum: SwiftProtobuf.Enum {
       typealias RawValue = Int
       case foo // = 0
-
-      static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-        0: .same(proto: "FOO"),
-      ]
 
       init() {
         self = .foo
@@ -217,23 +167,17 @@ struct ProtobufUnittest_Extend_EnumOptionalDefault: SwiftProtobuf.Message, Swift
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 17: try decoder.decodeSingularEnumField(value: &_optionalEnum)
+        case 17: try decoder.decodeSingularEnumField(value: &self._optionalEnum)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _optionalEnum {
+      if let v = self._optionalEnum {
         try visitor.visitSingularEnumField(value: v, fieldNumber: 17)
       }
       try unknownFields.traverse(visitor: &visitor)
-    }
-
-    func _protobuf_generated_isEqualTo(other: ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage2) -> Bool {
-      if _optionalEnum != other._optionalEnum {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
     }
   }
 
@@ -247,9 +191,80 @@ struct ProtobufUnittest_Extend_EnumOptionalDefault: SwiftProtobuf.Message, Swift
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try unknownFields.traverse(visitor: &visitor)
   }
+}
+
+// MARK: - Code below here is support for the SwiftProtobuf runtime.
+
+fileprivate let _protobuf_package = "protobuf_unittest.extend"
+
+extension ProtobufUnittest_Extend_EnumOptionalDefault: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_Extend_EnumOptionalDefault) -> Bool {
     if unknownFields != other.unknownFields {return false}
     return true
   }
+}
+
+extension ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "message"),
+    17: .standard(proto: "optional_enum"),
+  ]
+
+  fileprivate class _StorageClass {
+    var _message: ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage? = nil
+    var _optionalEnum: ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage.Enum? = nil
+
+    init() {}
+
+    init(copying source: _StorageClass) {
+      _message = source._message
+      _optionalEnum = source._optionalEnum
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
+  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage) -> Bool {
+    if _storage !== other._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+        if _storage._message != other_storage._message {return false}
+        if _storage._optionalEnum != other_storage._optionalEnum {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage.Enum: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "FOO"),
+  ]
+}
+
+extension ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage2: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    17: .standard(proto: "optional_enum"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage2) -> Bool {
+    if self._optionalEnum != other._optionalEnum {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage2.Enum: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "FOO"),
+  ]
 }

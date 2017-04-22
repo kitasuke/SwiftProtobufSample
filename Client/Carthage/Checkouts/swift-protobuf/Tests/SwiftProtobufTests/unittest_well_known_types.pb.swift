@@ -19,89 +19,11 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _1
 }
 
-fileprivate let _protobuf_package = "protobuf_unittest"
-
-///   Test that we can include all well-known types.
-///   Each wrapper type is included separately, as languages
-///   map handle different wrappers in different ways.
-struct ProtobufUnittest_TestWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+/// Test that we can include all well-known types.
+/// Each wrapper type is included separately, as languages
+/// map handle different wrappers in different ways.
+struct ProtobufUnittest_TestWellKnownTypes: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestWellKnownTypes"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "any_field"),
-    2: .standard(proto: "api_field"),
-    3: .standard(proto: "duration_field"),
-    4: .standard(proto: "empty_field"),
-    5: .standard(proto: "field_mask_field"),
-    6: .standard(proto: "source_context_field"),
-    7: .standard(proto: "struct_field"),
-    8: .standard(proto: "timestamp_field"),
-    9: .standard(proto: "type_field"),
-    10: .standard(proto: "double_field"),
-    11: .standard(proto: "float_field"),
-    12: .standard(proto: "int64_field"),
-    13: .standard(proto: "uint64_field"),
-    14: .standard(proto: "int32_field"),
-    15: .standard(proto: "uint32_field"),
-    16: .standard(proto: "bool_field"),
-    17: .standard(proto: "string_field"),
-    18: .standard(proto: "bytes_field"),
-    19: .standard(proto: "value_field"),
-  ]
-
-  private class _StorageClass {
-    var _anyField: Google_Protobuf_Any? = nil
-    var _apiField: Google_Protobuf_Api? = nil
-    var _durationField: Google_Protobuf_Duration? = nil
-    var _emptyField: Google_Protobuf_Empty? = nil
-    var _fieldMaskField: Google_Protobuf_FieldMask? = nil
-    var _sourceContextField: Google_Protobuf_SourceContext? = nil
-    var _structField: Google_Protobuf_Struct? = nil
-    var _timestampField: Google_Protobuf_Timestamp? = nil
-    var _typeField: Google_Protobuf_Type? = nil
-    var _doubleField: Google_Protobuf_DoubleValue? = nil
-    var _floatField: Google_Protobuf_FloatValue? = nil
-    var _int64Field: Google_Protobuf_Int64Value? = nil
-    var _uint64Field: Google_Protobuf_UInt64Value? = nil
-    var _int32Field: Google_Protobuf_Int32Value? = nil
-    var _uint32Field: Google_Protobuf_UInt32Value? = nil
-    var _boolField: Google_Protobuf_BoolValue? = nil
-    var _stringField: Google_Protobuf_StringValue? = nil
-    var _bytesField: Google_Protobuf_BytesValue? = nil
-    var _valueField: Google_Protobuf_Value? = nil
-
-    init() {}
-
-    init(copying source: _StorageClass) {
-      _anyField = source._anyField
-      _apiField = source._apiField
-      _durationField = source._durationField
-      _emptyField = source._emptyField
-      _fieldMaskField = source._fieldMaskField
-      _sourceContextField = source._sourceContextField
-      _structField = source._structField
-      _timestampField = source._timestampField
-      _typeField = source._typeField
-      _doubleField = source._doubleField
-      _floatField = source._floatField
-      _int64Field = source._int64Field
-      _uint64Field = source._uint64Field
-      _int32Field = source._int32Field
-      _uint32Field = source._uint32Field
-      _boolField = source._boolField
-      _stringField = source._stringField
-      _bytesField = source._bytesField
-      _valueField = source._valueField
-    }
-  }
-
-  private var _storage = _StorageClass()
-
-  private mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(copying: _storage)
-    }
-    return _storage
-  }
 
   var anyField: Google_Protobuf_Any {
     get {return _storage._anyField ?? Google_Protobuf_Any()}
@@ -111,7 +33,7 @@ struct ProtobufUnittest_TestWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf
     return _storage._anyField != nil
   }
   mutating func clearAnyField() {
-    return _storage._anyField = nil
+    _storage._anyField = nil
   }
 
   var apiField: Google_Protobuf_Api {
@@ -122,7 +44,7 @@ struct ProtobufUnittest_TestWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf
     return _storage._apiField != nil
   }
   mutating func clearApiField() {
-    return _storage._apiField = nil
+    _storage._apiField = nil
   }
 
   var durationField: Google_Protobuf_Duration {
@@ -133,7 +55,7 @@ struct ProtobufUnittest_TestWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf
     return _storage._durationField != nil
   }
   mutating func clearDurationField() {
-    return _storage._durationField = nil
+    _storage._durationField = nil
   }
 
   var emptyField: Google_Protobuf_Empty {
@@ -144,7 +66,7 @@ struct ProtobufUnittest_TestWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf
     return _storage._emptyField != nil
   }
   mutating func clearEmptyField() {
-    return _storage._emptyField = nil
+    _storage._emptyField = nil
   }
 
   var fieldMaskField: Google_Protobuf_FieldMask {
@@ -155,7 +77,7 @@ struct ProtobufUnittest_TestWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf
     return _storage._fieldMaskField != nil
   }
   mutating func clearFieldMaskField() {
-    return _storage._fieldMaskField = nil
+    _storage._fieldMaskField = nil
   }
 
   var sourceContextField: Google_Protobuf_SourceContext {
@@ -166,7 +88,7 @@ struct ProtobufUnittest_TestWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf
     return _storage._sourceContextField != nil
   }
   mutating func clearSourceContextField() {
-    return _storage._sourceContextField = nil
+    _storage._sourceContextField = nil
   }
 
   var structField: Google_Protobuf_Struct {
@@ -177,7 +99,7 @@ struct ProtobufUnittest_TestWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf
     return _storage._structField != nil
   }
   mutating func clearStructField() {
-    return _storage._structField = nil
+    _storage._structField = nil
   }
 
   var timestampField: Google_Protobuf_Timestamp {
@@ -188,7 +110,7 @@ struct ProtobufUnittest_TestWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf
     return _storage._timestampField != nil
   }
   mutating func clearTimestampField() {
-    return _storage._timestampField = nil
+    _storage._timestampField = nil
   }
 
   var typeField: Google_Protobuf_Type {
@@ -199,7 +121,7 @@ struct ProtobufUnittest_TestWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf
     return _storage._typeField != nil
   }
   mutating func clearTypeField() {
-    return _storage._typeField = nil
+    _storage._typeField = nil
   }
 
   var doubleField: Google_Protobuf_DoubleValue {
@@ -210,7 +132,7 @@ struct ProtobufUnittest_TestWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf
     return _storage._doubleField != nil
   }
   mutating func clearDoubleField() {
-    return _storage._doubleField = nil
+    _storage._doubleField = nil
   }
 
   var floatField: Google_Protobuf_FloatValue {
@@ -221,7 +143,7 @@ struct ProtobufUnittest_TestWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf
     return _storage._floatField != nil
   }
   mutating func clearFloatField() {
-    return _storage._floatField = nil
+    _storage._floatField = nil
   }
 
   var int64Field: Google_Protobuf_Int64Value {
@@ -232,7 +154,7 @@ struct ProtobufUnittest_TestWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf
     return _storage._int64Field != nil
   }
   mutating func clearInt64Field() {
-    return _storage._int64Field = nil
+    _storage._int64Field = nil
   }
 
   var uint64Field: Google_Protobuf_UInt64Value {
@@ -243,7 +165,7 @@ struct ProtobufUnittest_TestWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf
     return _storage._uint64Field != nil
   }
   mutating func clearUint64Field() {
-    return _storage._uint64Field = nil
+    _storage._uint64Field = nil
   }
 
   var int32Field: Google_Protobuf_Int32Value {
@@ -254,7 +176,7 @@ struct ProtobufUnittest_TestWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf
     return _storage._int32Field != nil
   }
   mutating func clearInt32Field() {
-    return _storage._int32Field = nil
+    _storage._int32Field = nil
   }
 
   var uint32Field: Google_Protobuf_UInt32Value {
@@ -265,7 +187,7 @@ struct ProtobufUnittest_TestWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf
     return _storage._uint32Field != nil
   }
   mutating func clearUint32Field() {
-    return _storage._uint32Field = nil
+    _storage._uint32Field = nil
   }
 
   var boolField: Google_Protobuf_BoolValue {
@@ -276,7 +198,7 @@ struct ProtobufUnittest_TestWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf
     return _storage._boolField != nil
   }
   mutating func clearBoolField() {
-    return _storage._boolField = nil
+    _storage._boolField = nil
   }
 
   var stringField: Google_Protobuf_StringValue {
@@ -287,7 +209,7 @@ struct ProtobufUnittest_TestWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf
     return _storage._stringField != nil
   }
   mutating func clearStringField() {
-    return _storage._stringField = nil
+    _storage._stringField = nil
   }
 
   var bytesField: Google_Protobuf_BytesValue {
@@ -298,10 +220,10 @@ struct ProtobufUnittest_TestWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf
     return _storage._bytesField != nil
   }
   mutating func clearBytesField() {
-    return _storage._bytesField = nil
+    _storage._bytesField = nil
   }
 
-  ///   Part of struct, but useful to be able to test separately
+  /// Part of struct, but useful to be able to test separately
   var valueField: Google_Protobuf_Value {
     get {return _storage._valueField ?? Google_Protobuf_Value()}
     set {_uniqueStorage()._valueField = newValue}
@@ -310,7 +232,7 @@ struct ProtobufUnittest_TestWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf
     return _storage._valueField != nil
   }
   mutating func clearValueField() {
-    return _storage._valueField = nil
+    _storage._valueField = nil
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -410,113 +332,12 @@ struct ProtobufUnittest_TestWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestWellKnownTypes) -> Bool {
-    if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
-        if _storage._anyField != other_storage._anyField {return false}
-        if _storage._apiField != other_storage._apiField {return false}
-        if _storage._durationField != other_storage._durationField {return false}
-        if _storage._emptyField != other_storage._emptyField {return false}
-        if _storage._fieldMaskField != other_storage._fieldMaskField {return false}
-        if _storage._sourceContextField != other_storage._sourceContextField {return false}
-        if _storage._structField != other_storage._structField {return false}
-        if _storage._timestampField != other_storage._timestampField {return false}
-        if _storage._typeField != other_storage._typeField {return false}
-        if _storage._doubleField != other_storage._doubleField {return false}
-        if _storage._floatField != other_storage._floatField {return false}
-        if _storage._int64Field != other_storage._int64Field {return false}
-        if _storage._uint64Field != other_storage._uint64Field {return false}
-        if _storage._int32Field != other_storage._int32Field {return false}
-        if _storage._uint32Field != other_storage._uint32Field {return false}
-        if _storage._boolField != other_storage._boolField {return false}
-        if _storage._stringField != other_storage._stringField {return false}
-        if _storage._bytesField != other_storage._bytesField {return false}
-        if _storage._valueField != other_storage._valueField {return false}
-        return true
-      }
-      if !storagesAreEqual {return false}
-    }
-    if unknownFields != other.unknownFields {return false}
-    return true
-  }
+  fileprivate var _storage = _StorageClass()
 }
 
-///   A repeated field for each well-known type.
-struct ProtobufUnittest_RepeatedWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+/// A repeated field for each well-known type.
+struct ProtobufUnittest_RepeatedWellKnownTypes: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".RepeatedWellKnownTypes"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "any_field"),
-    2: .standard(proto: "api_field"),
-    3: .standard(proto: "duration_field"),
-    4: .standard(proto: "empty_field"),
-    5: .standard(proto: "field_mask_field"),
-    6: .standard(proto: "source_context_field"),
-    7: .standard(proto: "struct_field"),
-    8: .standard(proto: "timestamp_field"),
-    9: .standard(proto: "type_field"),
-    10: .standard(proto: "double_field"),
-    11: .standard(proto: "float_field"),
-    12: .standard(proto: "int64_field"),
-    13: .standard(proto: "uint64_field"),
-    14: .standard(proto: "int32_field"),
-    15: .standard(proto: "uint32_field"),
-    16: .standard(proto: "bool_field"),
-    17: .standard(proto: "string_field"),
-    18: .standard(proto: "bytes_field"),
-  ]
-
-  private class _StorageClass {
-    var _anyField: [Google_Protobuf_Any] = []
-    var _apiField: [Google_Protobuf_Api] = []
-    var _durationField: [Google_Protobuf_Duration] = []
-    var _emptyField: [Google_Protobuf_Empty] = []
-    var _fieldMaskField: [Google_Protobuf_FieldMask] = []
-    var _sourceContextField: [Google_Protobuf_SourceContext] = []
-    var _structField: [Google_Protobuf_Struct] = []
-    var _timestampField: [Google_Protobuf_Timestamp] = []
-    var _typeField: [Google_Protobuf_Type] = []
-    var _doubleField: [Google_Protobuf_DoubleValue] = []
-    var _floatField: [Google_Protobuf_FloatValue] = []
-    var _int64Field: [Google_Protobuf_Int64Value] = []
-    var _uint64Field: [Google_Protobuf_UInt64Value] = []
-    var _int32Field: [Google_Protobuf_Int32Value] = []
-    var _uint32Field: [Google_Protobuf_UInt32Value] = []
-    var _boolField: [Google_Protobuf_BoolValue] = []
-    var _stringField: [Google_Protobuf_StringValue] = []
-    var _bytesField: [Google_Protobuf_BytesValue] = []
-
-    init() {}
-
-    init(copying source: _StorageClass) {
-      _anyField = source._anyField
-      _apiField = source._apiField
-      _durationField = source._durationField
-      _emptyField = source._emptyField
-      _fieldMaskField = source._fieldMaskField
-      _sourceContextField = source._sourceContextField
-      _structField = source._structField
-      _timestampField = source._timestampField
-      _typeField = source._typeField
-      _doubleField = source._doubleField
-      _floatField = source._floatField
-      _int64Field = source._int64Field
-      _uint64Field = source._uint64Field
-      _int32Field = source._int32Field
-      _uint32Field = source._uint32Field
-      _boolField = source._boolField
-      _stringField = source._stringField
-      _bytesField = source._bytesField
-    }
-  }
-
-  private var _storage = _StorageClass()
-
-  private mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(copying: _storage)
-    }
-    return _storage
-  }
 
   var anyField: [Google_Protobuf_Any] {
     get {return _storage._anyField}
@@ -563,7 +384,7 @@ struct ProtobufUnittest_RepeatedWellKnownTypes: SwiftProtobuf.Message, SwiftProt
     set {_uniqueStorage()._typeField = newValue}
   }
 
-  ///   These don't actually make a lot of sense, but they're not prohibited...
+  /// These don't actually make a lot of sense, but they're not prohibited...
   var doubleField: [Google_Protobuf_DoubleValue] {
     get {return _storage._doubleField}
     set {_uniqueStorage()._doubleField = newValue}
@@ -702,299 +523,159 @@ struct ProtobufUnittest_RepeatedWellKnownTypes: SwiftProtobuf.Message, SwiftProt
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_RepeatedWellKnownTypes) -> Bool {
-    if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
-        if _storage._anyField != other_storage._anyField {return false}
-        if _storage._apiField != other_storage._apiField {return false}
-        if _storage._durationField != other_storage._durationField {return false}
-        if _storage._emptyField != other_storage._emptyField {return false}
-        if _storage._fieldMaskField != other_storage._fieldMaskField {return false}
-        if _storage._sourceContextField != other_storage._sourceContextField {return false}
-        if _storage._structField != other_storage._structField {return false}
-        if _storage._timestampField != other_storage._timestampField {return false}
-        if _storage._typeField != other_storage._typeField {return false}
-        if _storage._doubleField != other_storage._doubleField {return false}
-        if _storage._floatField != other_storage._floatField {return false}
-        if _storage._int64Field != other_storage._int64Field {return false}
-        if _storage._uint64Field != other_storage._uint64Field {return false}
-        if _storage._int32Field != other_storage._int32Field {return false}
-        if _storage._uint32Field != other_storage._uint32Field {return false}
-        if _storage._boolField != other_storage._boolField {return false}
-        if _storage._stringField != other_storage._stringField {return false}
-        if _storage._bytesField != other_storage._bytesField {return false}
-        return true
-      }
-      if !storagesAreEqual {return false}
-    }
-    if unknownFields != other.unknownFields {return false}
-    return true
-  }
+  fileprivate var _storage = _StorageClass()
 }
 
-struct ProtobufUnittest_OneofWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+struct ProtobufUnittest_OneofWellKnownTypes: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".OneofWellKnownTypes"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "any_field"),
-    2: .standard(proto: "api_field"),
-    3: .standard(proto: "duration_field"),
-    4: .standard(proto: "empty_field"),
-    5: .standard(proto: "field_mask_field"),
-    6: .standard(proto: "source_context_field"),
-    7: .standard(proto: "struct_field"),
-    8: .standard(proto: "timestamp_field"),
-    9: .standard(proto: "type_field"),
-    10: .standard(proto: "double_field"),
-    11: .standard(proto: "float_field"),
-    12: .standard(proto: "int64_field"),
-    13: .standard(proto: "uint64_field"),
-    14: .standard(proto: "int32_field"),
-    15: .standard(proto: "uint32_field"),
-    16: .standard(proto: "bool_field"),
-    17: .standard(proto: "string_field"),
-    18: .standard(proto: "bytes_field"),
-  ]
 
-  private class _StorageClass {
-    var _oneofField: ProtobufUnittest_OneofWellKnownTypes.OneOf_OneofField?
-
-    init() {}
-
-    init(copying source: _StorageClass) {
-      _oneofField = source._oneofField
-    }
-  }
-
-  private var _storage = _StorageClass()
-
-  private mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(copying: _storage)
-    }
-    return _storage
+  var oneofField: OneOf_OneofField? {
+    get {return _storage._oneofField}
+    set {_uniqueStorage()._oneofField = newValue}
   }
 
   var anyField: Google_Protobuf_Any {
     get {
-      if case .anyField(let v)? = _storage._oneofField {
-        return v
-      }
+      if case .anyField(let v)? = _storage._oneofField {return v}
       return Google_Protobuf_Any()
     }
-    set {
-      _uniqueStorage()._oneofField = .anyField(newValue)
-    }
+    set {_uniqueStorage()._oneofField = .anyField(newValue)}
   }
 
   var apiField: Google_Protobuf_Api {
     get {
-      if case .apiField(let v)? = _storage._oneofField {
-        return v
-      }
+      if case .apiField(let v)? = _storage._oneofField {return v}
       return Google_Protobuf_Api()
     }
-    set {
-      _uniqueStorage()._oneofField = .apiField(newValue)
-    }
+    set {_uniqueStorage()._oneofField = .apiField(newValue)}
   }
 
   var durationField: Google_Protobuf_Duration {
     get {
-      if case .durationField(let v)? = _storage._oneofField {
-        return v
-      }
+      if case .durationField(let v)? = _storage._oneofField {return v}
       return Google_Protobuf_Duration()
     }
-    set {
-      _uniqueStorage()._oneofField = .durationField(newValue)
-    }
+    set {_uniqueStorage()._oneofField = .durationField(newValue)}
   }
 
   var emptyField: Google_Protobuf_Empty {
     get {
-      if case .emptyField(let v)? = _storage._oneofField {
-        return v
-      }
+      if case .emptyField(let v)? = _storage._oneofField {return v}
       return Google_Protobuf_Empty()
     }
-    set {
-      _uniqueStorage()._oneofField = .emptyField(newValue)
-    }
+    set {_uniqueStorage()._oneofField = .emptyField(newValue)}
   }
 
   var fieldMaskField: Google_Protobuf_FieldMask {
     get {
-      if case .fieldMaskField(let v)? = _storage._oneofField {
-        return v
-      }
+      if case .fieldMaskField(let v)? = _storage._oneofField {return v}
       return Google_Protobuf_FieldMask()
     }
-    set {
-      _uniqueStorage()._oneofField = .fieldMaskField(newValue)
-    }
+    set {_uniqueStorage()._oneofField = .fieldMaskField(newValue)}
   }
 
   var sourceContextField: Google_Protobuf_SourceContext {
     get {
-      if case .sourceContextField(let v)? = _storage._oneofField {
-        return v
-      }
+      if case .sourceContextField(let v)? = _storage._oneofField {return v}
       return Google_Protobuf_SourceContext()
     }
-    set {
-      _uniqueStorage()._oneofField = .sourceContextField(newValue)
-    }
+    set {_uniqueStorage()._oneofField = .sourceContextField(newValue)}
   }
 
   var structField: Google_Protobuf_Struct {
     get {
-      if case .structField(let v)? = _storage._oneofField {
-        return v
-      }
+      if case .structField(let v)? = _storage._oneofField {return v}
       return Google_Protobuf_Struct()
     }
-    set {
-      _uniqueStorage()._oneofField = .structField(newValue)
-    }
+    set {_uniqueStorage()._oneofField = .structField(newValue)}
   }
 
   var timestampField: Google_Protobuf_Timestamp {
     get {
-      if case .timestampField(let v)? = _storage._oneofField {
-        return v
-      }
+      if case .timestampField(let v)? = _storage._oneofField {return v}
       return Google_Protobuf_Timestamp()
     }
-    set {
-      _uniqueStorage()._oneofField = .timestampField(newValue)
-    }
+    set {_uniqueStorage()._oneofField = .timestampField(newValue)}
   }
 
   var typeField: Google_Protobuf_Type {
     get {
-      if case .typeField(let v)? = _storage._oneofField {
-        return v
-      }
+      if case .typeField(let v)? = _storage._oneofField {return v}
       return Google_Protobuf_Type()
     }
-    set {
-      _uniqueStorage()._oneofField = .typeField(newValue)
-    }
+    set {_uniqueStorage()._oneofField = .typeField(newValue)}
   }
 
   var doubleField: Google_Protobuf_DoubleValue {
     get {
-      if case .doubleField(let v)? = _storage._oneofField {
-        return v
-      }
+      if case .doubleField(let v)? = _storage._oneofField {return v}
       return Google_Protobuf_DoubleValue()
     }
-    set {
-      _uniqueStorage()._oneofField = .doubleField(newValue)
-    }
+    set {_uniqueStorage()._oneofField = .doubleField(newValue)}
   }
 
   var floatField: Google_Protobuf_FloatValue {
     get {
-      if case .floatField(let v)? = _storage._oneofField {
-        return v
-      }
+      if case .floatField(let v)? = _storage._oneofField {return v}
       return Google_Protobuf_FloatValue()
     }
-    set {
-      _uniqueStorage()._oneofField = .floatField(newValue)
-    }
+    set {_uniqueStorage()._oneofField = .floatField(newValue)}
   }
 
   var int64Field: Google_Protobuf_Int64Value {
     get {
-      if case .int64Field(let v)? = _storage._oneofField {
-        return v
-      }
+      if case .int64Field(let v)? = _storage._oneofField {return v}
       return Google_Protobuf_Int64Value()
     }
-    set {
-      _uniqueStorage()._oneofField = .int64Field(newValue)
-    }
+    set {_uniqueStorage()._oneofField = .int64Field(newValue)}
   }
 
   var uint64Field: Google_Protobuf_UInt64Value {
     get {
-      if case .uint64Field(let v)? = _storage._oneofField {
-        return v
-      }
+      if case .uint64Field(let v)? = _storage._oneofField {return v}
       return Google_Protobuf_UInt64Value()
     }
-    set {
-      _uniqueStorage()._oneofField = .uint64Field(newValue)
-    }
+    set {_uniqueStorage()._oneofField = .uint64Field(newValue)}
   }
 
   var int32Field: Google_Protobuf_Int32Value {
     get {
-      if case .int32Field(let v)? = _storage._oneofField {
-        return v
-      }
+      if case .int32Field(let v)? = _storage._oneofField {return v}
       return Google_Protobuf_Int32Value()
     }
-    set {
-      _uniqueStorage()._oneofField = .int32Field(newValue)
-    }
+    set {_uniqueStorage()._oneofField = .int32Field(newValue)}
   }
 
   var uint32Field: Google_Protobuf_UInt32Value {
     get {
-      if case .uint32Field(let v)? = _storage._oneofField {
-        return v
-      }
+      if case .uint32Field(let v)? = _storage._oneofField {return v}
       return Google_Protobuf_UInt32Value()
     }
-    set {
-      _uniqueStorage()._oneofField = .uint32Field(newValue)
-    }
+    set {_uniqueStorage()._oneofField = .uint32Field(newValue)}
   }
 
   var boolField: Google_Protobuf_BoolValue {
     get {
-      if case .boolField(let v)? = _storage._oneofField {
-        return v
-      }
+      if case .boolField(let v)? = _storage._oneofField {return v}
       return Google_Protobuf_BoolValue()
     }
-    set {
-      _uniqueStorage()._oneofField = .boolField(newValue)
-    }
+    set {_uniqueStorage()._oneofField = .boolField(newValue)}
   }
 
   var stringField: Google_Protobuf_StringValue {
     get {
-      if case .stringField(let v)? = _storage._oneofField {
-        return v
-      }
+      if case .stringField(let v)? = _storage._oneofField {return v}
       return Google_Protobuf_StringValue()
     }
-    set {
-      _uniqueStorage()._oneofField = .stringField(newValue)
-    }
+    set {_uniqueStorage()._oneofField = .stringField(newValue)}
   }
 
   var bytesField: Google_Protobuf_BytesValue {
     get {
-      if case .bytesField(let v)? = _storage._oneofField {
-        return v
-      }
+      if case .bytesField(let v)? = _storage._oneofField {return v}
       return Google_Protobuf_BytesValue()
     }
-    set {
-      _uniqueStorage()._oneofField = .bytesField(newValue)
-    }
-  }
-
-  var oneofField: OneOf_OneofField? {
-    get {return _storage._oneofField}
-    set {
-      _uniqueStorage()._oneofField = newValue
-    }
+    set {_uniqueStorage()._oneofField = .bytesField(newValue)}
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -1042,217 +723,6 @@ struct ProtobufUnittest_OneofWellKnownTypes: SwiftProtobuf.Message, SwiftProtobu
       default: return false
       }
     }
-
-    fileprivate init?<T: SwiftProtobuf.Decoder>(byDecodingFrom decoder: inout T, fieldNumber: Int) throws {
-      switch fieldNumber {
-      case 1:
-        var value: Google_Protobuf_Any?
-        try decoder.decodeSingularMessageField(value: &value)
-        if let value = value {
-          self = .anyField(value)
-          return
-        }
-      case 2:
-        var value: Google_Protobuf_Api?
-        try decoder.decodeSingularMessageField(value: &value)
-        if let value = value {
-          self = .apiField(value)
-          return
-        }
-      case 3:
-        var value: Google_Protobuf_Duration?
-        try decoder.decodeSingularMessageField(value: &value)
-        if let value = value {
-          self = .durationField(value)
-          return
-        }
-      case 4:
-        var value: Google_Protobuf_Empty?
-        try decoder.decodeSingularMessageField(value: &value)
-        if let value = value {
-          self = .emptyField(value)
-          return
-        }
-      case 5:
-        var value: Google_Protobuf_FieldMask?
-        try decoder.decodeSingularMessageField(value: &value)
-        if let value = value {
-          self = .fieldMaskField(value)
-          return
-        }
-      case 6:
-        var value: Google_Protobuf_SourceContext?
-        try decoder.decodeSingularMessageField(value: &value)
-        if let value = value {
-          self = .sourceContextField(value)
-          return
-        }
-      case 7:
-        var value: Google_Protobuf_Struct?
-        try decoder.decodeSingularMessageField(value: &value)
-        if let value = value {
-          self = .structField(value)
-          return
-        }
-      case 8:
-        var value: Google_Protobuf_Timestamp?
-        try decoder.decodeSingularMessageField(value: &value)
-        if let value = value {
-          self = .timestampField(value)
-          return
-        }
-      case 9:
-        var value: Google_Protobuf_Type?
-        try decoder.decodeSingularMessageField(value: &value)
-        if let value = value {
-          self = .typeField(value)
-          return
-        }
-      case 10:
-        var value: Google_Protobuf_DoubleValue?
-        try decoder.decodeSingularMessageField(value: &value)
-        if let value = value {
-          self = .doubleField(value)
-          return
-        }
-      case 11:
-        var value: Google_Protobuf_FloatValue?
-        try decoder.decodeSingularMessageField(value: &value)
-        if let value = value {
-          self = .floatField(value)
-          return
-        }
-      case 12:
-        var value: Google_Protobuf_Int64Value?
-        try decoder.decodeSingularMessageField(value: &value)
-        if let value = value {
-          self = .int64Field(value)
-          return
-        }
-      case 13:
-        var value: Google_Protobuf_UInt64Value?
-        try decoder.decodeSingularMessageField(value: &value)
-        if let value = value {
-          self = .uint64Field(value)
-          return
-        }
-      case 14:
-        var value: Google_Protobuf_Int32Value?
-        try decoder.decodeSingularMessageField(value: &value)
-        if let value = value {
-          self = .int32Field(value)
-          return
-        }
-      case 15:
-        var value: Google_Protobuf_UInt32Value?
-        try decoder.decodeSingularMessageField(value: &value)
-        if let value = value {
-          self = .uint32Field(value)
-          return
-        }
-      case 16:
-        var value: Google_Protobuf_BoolValue?
-        try decoder.decodeSingularMessageField(value: &value)
-        if let value = value {
-          self = .boolField(value)
-          return
-        }
-      case 17:
-        var value: Google_Protobuf_StringValue?
-        try decoder.decodeSingularMessageField(value: &value)
-        if let value = value {
-          self = .stringField(value)
-          return
-        }
-      case 18:
-        var value: Google_Protobuf_BytesValue?
-        try decoder.decodeSingularMessageField(value: &value)
-        if let value = value {
-          self = .bytesField(value)
-          return
-        }
-      default:
-        break
-      }
-      return nil
-    }
-
-    fileprivate func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V, start: Int, end: Int) throws {
-      switch self {
-      case .anyField(let v):
-        if start <= 1 && 1 < end {
-          try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
-        }
-      case .apiField(let v):
-        if start <= 2 && 2 < end {
-          try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
-        }
-      case .durationField(let v):
-        if start <= 3 && 3 < end {
-          try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
-        }
-      case .emptyField(let v):
-        if start <= 4 && 4 < end {
-          try visitor.visitSingularMessageField(value: v, fieldNumber: 4)
-        }
-      case .fieldMaskField(let v):
-        if start <= 5 && 5 < end {
-          try visitor.visitSingularMessageField(value: v, fieldNumber: 5)
-        }
-      case .sourceContextField(let v):
-        if start <= 6 && 6 < end {
-          try visitor.visitSingularMessageField(value: v, fieldNumber: 6)
-        }
-      case .structField(let v):
-        if start <= 7 && 7 < end {
-          try visitor.visitSingularMessageField(value: v, fieldNumber: 7)
-        }
-      case .timestampField(let v):
-        if start <= 8 && 8 < end {
-          try visitor.visitSingularMessageField(value: v, fieldNumber: 8)
-        }
-      case .typeField(let v):
-        if start <= 9 && 9 < end {
-          try visitor.visitSingularMessageField(value: v, fieldNumber: 9)
-        }
-      case .doubleField(let v):
-        if start <= 10 && 10 < end {
-          try visitor.visitSingularMessageField(value: v, fieldNumber: 10)
-        }
-      case .floatField(let v):
-        if start <= 11 && 11 < end {
-          try visitor.visitSingularMessageField(value: v, fieldNumber: 11)
-        }
-      case .int64Field(let v):
-        if start <= 12 && 12 < end {
-          try visitor.visitSingularMessageField(value: v, fieldNumber: 12)
-        }
-      case .uint64Field(let v):
-        if start <= 13 && 13 < end {
-          try visitor.visitSingularMessageField(value: v, fieldNumber: 13)
-        }
-      case .int32Field(let v):
-        if start <= 14 && 14 < end {
-          try visitor.visitSingularMessageField(value: v, fieldNumber: 14)
-        }
-      case .uint32Field(let v):
-        if start <= 15 && 15 < end {
-          try visitor.visitSingularMessageField(value: v, fieldNumber: 15)
-        }
-      case .boolField(let v):
-        if start <= 16 && 16 < end {
-          try visitor.visitSingularMessageField(value: v, fieldNumber: 16)
-        }
-      case .stringField(let v):
-        if start <= 17 && 17 < end {
-          try visitor.visitSingularMessageField(value: v, fieldNumber: 17)
-        }
-      case .bytesField(let v):
-        if start <= 18 && 18 < end {
-          try visitor.visitSingularMessageField(value: v, fieldNumber: 18)
-        }
-      }
-    }
   }
 
   init() {}
@@ -1275,102 +745,19 @@ struct ProtobufUnittest_OneofWellKnownTypes: SwiftProtobuf.Message, SwiftProtobu
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      try _storage._oneofField?.traverse(visitor: &visitor, start: 1, end: 19)
+      try _storage._oneofField?.traverse(visitor: &visitor)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_OneofWellKnownTypes) -> Bool {
-    if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
-        if _storage._oneofField != other_storage._oneofField {return false}
-        return true
-      }
-      if !storagesAreEqual {return false}
-    }
-    if unknownFields != other.unknownFields {return false}
-    return true
-  }
+  fileprivate var _storage = _StorageClass()
 }
 
-///   A map field for each well-known type. We only
-///   need to worry about the value part of the map being the
-///   well-known types, as messages can't be map keys.
-struct ProtobufUnittest_MapWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+/// A map field for each well-known type. We only
+/// need to worry about the value part of the map being the
+/// well-known types, as messages can't be map keys.
+struct ProtobufUnittest_MapWellKnownTypes: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".MapWellKnownTypes"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "any_field"),
-    2: .standard(proto: "api_field"),
-    3: .standard(proto: "duration_field"),
-    4: .standard(proto: "empty_field"),
-    5: .standard(proto: "field_mask_field"),
-    6: .standard(proto: "source_context_field"),
-    7: .standard(proto: "struct_field"),
-    8: .standard(proto: "timestamp_field"),
-    9: .standard(proto: "type_field"),
-    10: .standard(proto: "double_field"),
-    11: .standard(proto: "float_field"),
-    12: .standard(proto: "int64_field"),
-    13: .standard(proto: "uint64_field"),
-    14: .standard(proto: "int32_field"),
-    15: .standard(proto: "uint32_field"),
-    16: .standard(proto: "bool_field"),
-    17: .standard(proto: "string_field"),
-    18: .standard(proto: "bytes_field"),
-  ]
-
-  private class _StorageClass {
-    var _anyField: Dictionary<Int32,Google_Protobuf_Any> = [:]
-    var _apiField: Dictionary<Int32,Google_Protobuf_Api> = [:]
-    var _durationField: Dictionary<Int32,Google_Protobuf_Duration> = [:]
-    var _emptyField: Dictionary<Int32,Google_Protobuf_Empty> = [:]
-    var _fieldMaskField: Dictionary<Int32,Google_Protobuf_FieldMask> = [:]
-    var _sourceContextField: Dictionary<Int32,Google_Protobuf_SourceContext> = [:]
-    var _structField: Dictionary<Int32,Google_Protobuf_Struct> = [:]
-    var _timestampField: Dictionary<Int32,Google_Protobuf_Timestamp> = [:]
-    var _typeField: Dictionary<Int32,Google_Protobuf_Type> = [:]
-    var _doubleField: Dictionary<Int32,Google_Protobuf_DoubleValue> = [:]
-    var _floatField: Dictionary<Int32,Google_Protobuf_FloatValue> = [:]
-    var _int64Field: Dictionary<Int32,Google_Protobuf_Int64Value> = [:]
-    var _uint64Field: Dictionary<Int32,Google_Protobuf_UInt64Value> = [:]
-    var _int32Field: Dictionary<Int32,Google_Protobuf_Int32Value> = [:]
-    var _uint32Field: Dictionary<Int32,Google_Protobuf_UInt32Value> = [:]
-    var _boolField: Dictionary<Int32,Google_Protobuf_BoolValue> = [:]
-    var _stringField: Dictionary<Int32,Google_Protobuf_StringValue> = [:]
-    var _bytesField: Dictionary<Int32,Google_Protobuf_BytesValue> = [:]
-
-    init() {}
-
-    init(copying source: _StorageClass) {
-      _anyField = source._anyField
-      _apiField = source._apiField
-      _durationField = source._durationField
-      _emptyField = source._emptyField
-      _fieldMaskField = source._fieldMaskField
-      _sourceContextField = source._sourceContextField
-      _structField = source._structField
-      _timestampField = source._timestampField
-      _typeField = source._typeField
-      _doubleField = source._doubleField
-      _floatField = source._floatField
-      _int64Field = source._int64Field
-      _uint64Field = source._uint64Field
-      _int32Field = source._int32Field
-      _uint32Field = source._uint32Field
-      _boolField = source._boolField
-      _stringField = source._stringField
-      _bytesField = source._bytesField
-    }
-  }
-
-  private var _storage = _StorageClass()
-
-  private mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(copying: _storage)
-    }
-    return _storage
-  }
 
   var anyField: Dictionary<Int32,Google_Protobuf_Any> {
     get {return _storage._anyField}
@@ -1553,6 +940,525 @@ struct ProtobufUnittest_MapWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf.
       }
     }
     try unknownFields.traverse(visitor: &visitor)
+  }
+
+  fileprivate var _storage = _StorageClass()
+}
+
+// MARK: - Code below here is support for the SwiftProtobuf runtime.
+
+fileprivate let _protobuf_package = "protobuf_unittest"
+
+extension ProtobufUnittest_TestWellKnownTypes: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "any_field"),
+    2: .standard(proto: "api_field"),
+    3: .standard(proto: "duration_field"),
+    4: .standard(proto: "empty_field"),
+    5: .standard(proto: "field_mask_field"),
+    6: .standard(proto: "source_context_field"),
+    7: .standard(proto: "struct_field"),
+    8: .standard(proto: "timestamp_field"),
+    9: .standard(proto: "type_field"),
+    10: .standard(proto: "double_field"),
+    11: .standard(proto: "float_field"),
+    12: .standard(proto: "int64_field"),
+    13: .standard(proto: "uint64_field"),
+    14: .standard(proto: "int32_field"),
+    15: .standard(proto: "uint32_field"),
+    16: .standard(proto: "bool_field"),
+    17: .standard(proto: "string_field"),
+    18: .standard(proto: "bytes_field"),
+    19: .standard(proto: "value_field"),
+  ]
+
+  fileprivate class _StorageClass {
+    var _anyField: Google_Protobuf_Any? = nil
+    var _apiField: Google_Protobuf_Api? = nil
+    var _durationField: Google_Protobuf_Duration? = nil
+    var _emptyField: Google_Protobuf_Empty? = nil
+    var _fieldMaskField: Google_Protobuf_FieldMask? = nil
+    var _sourceContextField: Google_Protobuf_SourceContext? = nil
+    var _structField: Google_Protobuf_Struct? = nil
+    var _timestampField: Google_Protobuf_Timestamp? = nil
+    var _typeField: Google_Protobuf_Type? = nil
+    var _doubleField: Google_Protobuf_DoubleValue? = nil
+    var _floatField: Google_Protobuf_FloatValue? = nil
+    var _int64Field: Google_Protobuf_Int64Value? = nil
+    var _uint64Field: Google_Protobuf_UInt64Value? = nil
+    var _int32Field: Google_Protobuf_Int32Value? = nil
+    var _uint32Field: Google_Protobuf_UInt32Value? = nil
+    var _boolField: Google_Protobuf_BoolValue? = nil
+    var _stringField: Google_Protobuf_StringValue? = nil
+    var _bytesField: Google_Protobuf_BytesValue? = nil
+    var _valueField: Google_Protobuf_Value? = nil
+
+    init() {}
+
+    init(copying source: _StorageClass) {
+      _anyField = source._anyField
+      _apiField = source._apiField
+      _durationField = source._durationField
+      _emptyField = source._emptyField
+      _fieldMaskField = source._fieldMaskField
+      _sourceContextField = source._sourceContextField
+      _structField = source._structField
+      _timestampField = source._timestampField
+      _typeField = source._typeField
+      _doubleField = source._doubleField
+      _floatField = source._floatField
+      _int64Field = source._int64Field
+      _uint64Field = source._uint64Field
+      _int32Field = source._int32Field
+      _uint32Field = source._uint32Field
+      _boolField = source._boolField
+      _stringField = source._stringField
+      _bytesField = source._bytesField
+      _valueField = source._valueField
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
+  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestWellKnownTypes) -> Bool {
+    if _storage !== other._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+        if _storage._anyField != other_storage._anyField {return false}
+        if _storage._apiField != other_storage._apiField {return false}
+        if _storage._durationField != other_storage._durationField {return false}
+        if _storage._emptyField != other_storage._emptyField {return false}
+        if _storage._fieldMaskField != other_storage._fieldMaskField {return false}
+        if _storage._sourceContextField != other_storage._sourceContextField {return false}
+        if _storage._structField != other_storage._structField {return false}
+        if _storage._timestampField != other_storage._timestampField {return false}
+        if _storage._typeField != other_storage._typeField {return false}
+        if _storage._doubleField != other_storage._doubleField {return false}
+        if _storage._floatField != other_storage._floatField {return false}
+        if _storage._int64Field != other_storage._int64Field {return false}
+        if _storage._uint64Field != other_storage._uint64Field {return false}
+        if _storage._int32Field != other_storage._int32Field {return false}
+        if _storage._uint32Field != other_storage._uint32Field {return false}
+        if _storage._boolField != other_storage._boolField {return false}
+        if _storage._stringField != other_storage._stringField {return false}
+        if _storage._bytesField != other_storage._bytesField {return false}
+        if _storage._valueField != other_storage._valueField {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension ProtobufUnittest_RepeatedWellKnownTypes: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "any_field"),
+    2: .standard(proto: "api_field"),
+    3: .standard(proto: "duration_field"),
+    4: .standard(proto: "empty_field"),
+    5: .standard(proto: "field_mask_field"),
+    6: .standard(proto: "source_context_field"),
+    7: .standard(proto: "struct_field"),
+    8: .standard(proto: "timestamp_field"),
+    9: .standard(proto: "type_field"),
+    10: .standard(proto: "double_field"),
+    11: .standard(proto: "float_field"),
+    12: .standard(proto: "int64_field"),
+    13: .standard(proto: "uint64_field"),
+    14: .standard(proto: "int32_field"),
+    15: .standard(proto: "uint32_field"),
+    16: .standard(proto: "bool_field"),
+    17: .standard(proto: "string_field"),
+    18: .standard(proto: "bytes_field"),
+  ]
+
+  fileprivate class _StorageClass {
+    var _anyField: [Google_Protobuf_Any] = []
+    var _apiField: [Google_Protobuf_Api] = []
+    var _durationField: [Google_Protobuf_Duration] = []
+    var _emptyField: [Google_Protobuf_Empty] = []
+    var _fieldMaskField: [Google_Protobuf_FieldMask] = []
+    var _sourceContextField: [Google_Protobuf_SourceContext] = []
+    var _structField: [Google_Protobuf_Struct] = []
+    var _timestampField: [Google_Protobuf_Timestamp] = []
+    var _typeField: [Google_Protobuf_Type] = []
+    var _doubleField: [Google_Protobuf_DoubleValue] = []
+    var _floatField: [Google_Protobuf_FloatValue] = []
+    var _int64Field: [Google_Protobuf_Int64Value] = []
+    var _uint64Field: [Google_Protobuf_UInt64Value] = []
+    var _int32Field: [Google_Protobuf_Int32Value] = []
+    var _uint32Field: [Google_Protobuf_UInt32Value] = []
+    var _boolField: [Google_Protobuf_BoolValue] = []
+    var _stringField: [Google_Protobuf_StringValue] = []
+    var _bytesField: [Google_Protobuf_BytesValue] = []
+
+    init() {}
+
+    init(copying source: _StorageClass) {
+      _anyField = source._anyField
+      _apiField = source._apiField
+      _durationField = source._durationField
+      _emptyField = source._emptyField
+      _fieldMaskField = source._fieldMaskField
+      _sourceContextField = source._sourceContextField
+      _structField = source._structField
+      _timestampField = source._timestampField
+      _typeField = source._typeField
+      _doubleField = source._doubleField
+      _floatField = source._floatField
+      _int64Field = source._int64Field
+      _uint64Field = source._uint64Field
+      _int32Field = source._int32Field
+      _uint32Field = source._uint32Field
+      _boolField = source._boolField
+      _stringField = source._stringField
+      _bytesField = source._bytesField
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
+  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_RepeatedWellKnownTypes) -> Bool {
+    if _storage !== other._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+        if _storage._anyField != other_storage._anyField {return false}
+        if _storage._apiField != other_storage._apiField {return false}
+        if _storage._durationField != other_storage._durationField {return false}
+        if _storage._emptyField != other_storage._emptyField {return false}
+        if _storage._fieldMaskField != other_storage._fieldMaskField {return false}
+        if _storage._sourceContextField != other_storage._sourceContextField {return false}
+        if _storage._structField != other_storage._structField {return false}
+        if _storage._timestampField != other_storage._timestampField {return false}
+        if _storage._typeField != other_storage._typeField {return false}
+        if _storage._doubleField != other_storage._doubleField {return false}
+        if _storage._floatField != other_storage._floatField {return false}
+        if _storage._int64Field != other_storage._int64Field {return false}
+        if _storage._uint64Field != other_storage._uint64Field {return false}
+        if _storage._int32Field != other_storage._int32Field {return false}
+        if _storage._uint32Field != other_storage._uint32Field {return false}
+        if _storage._boolField != other_storage._boolField {return false}
+        if _storage._stringField != other_storage._stringField {return false}
+        if _storage._bytesField != other_storage._bytesField {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension ProtobufUnittest_OneofWellKnownTypes: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "any_field"),
+    2: .standard(proto: "api_field"),
+    3: .standard(proto: "duration_field"),
+    4: .standard(proto: "empty_field"),
+    5: .standard(proto: "field_mask_field"),
+    6: .standard(proto: "source_context_field"),
+    7: .standard(proto: "struct_field"),
+    8: .standard(proto: "timestamp_field"),
+    9: .standard(proto: "type_field"),
+    10: .standard(proto: "double_field"),
+    11: .standard(proto: "float_field"),
+    12: .standard(proto: "int64_field"),
+    13: .standard(proto: "uint64_field"),
+    14: .standard(proto: "int32_field"),
+    15: .standard(proto: "uint32_field"),
+    16: .standard(proto: "bool_field"),
+    17: .standard(proto: "string_field"),
+    18: .standard(proto: "bytes_field"),
+  ]
+
+  fileprivate class _StorageClass {
+    var _oneofField: ProtobufUnittest_OneofWellKnownTypes.OneOf_OneofField?
+
+    init() {}
+
+    init(copying source: _StorageClass) {
+      _oneofField = source._oneofField
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
+  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_OneofWellKnownTypes) -> Bool {
+    if _storage !== other._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+        if _storage._oneofField != other_storage._oneofField {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension ProtobufUnittest_OneofWellKnownTypes.OneOf_OneofField {
+  fileprivate init?<T: SwiftProtobuf.Decoder>(byDecodingFrom decoder: inout T, fieldNumber: Int) throws {
+    switch fieldNumber {
+    case 1:
+      var value: Google_Protobuf_Any?
+      try decoder.decodeSingularMessageField(value: &value)
+      if let value = value {
+        self = .anyField(value)
+        return
+      }
+    case 2:
+      var value: Google_Protobuf_Api?
+      try decoder.decodeSingularMessageField(value: &value)
+      if let value = value {
+        self = .apiField(value)
+        return
+      }
+    case 3:
+      var value: Google_Protobuf_Duration?
+      try decoder.decodeSingularMessageField(value: &value)
+      if let value = value {
+        self = .durationField(value)
+        return
+      }
+    case 4:
+      var value: Google_Protobuf_Empty?
+      try decoder.decodeSingularMessageField(value: &value)
+      if let value = value {
+        self = .emptyField(value)
+        return
+      }
+    case 5:
+      var value: Google_Protobuf_FieldMask?
+      try decoder.decodeSingularMessageField(value: &value)
+      if let value = value {
+        self = .fieldMaskField(value)
+        return
+      }
+    case 6:
+      var value: Google_Protobuf_SourceContext?
+      try decoder.decodeSingularMessageField(value: &value)
+      if let value = value {
+        self = .sourceContextField(value)
+        return
+      }
+    case 7:
+      var value: Google_Protobuf_Struct?
+      try decoder.decodeSingularMessageField(value: &value)
+      if let value = value {
+        self = .structField(value)
+        return
+      }
+    case 8:
+      var value: Google_Protobuf_Timestamp?
+      try decoder.decodeSingularMessageField(value: &value)
+      if let value = value {
+        self = .timestampField(value)
+        return
+      }
+    case 9:
+      var value: Google_Protobuf_Type?
+      try decoder.decodeSingularMessageField(value: &value)
+      if let value = value {
+        self = .typeField(value)
+        return
+      }
+    case 10:
+      var value: Google_Protobuf_DoubleValue?
+      try decoder.decodeSingularMessageField(value: &value)
+      if let value = value {
+        self = .doubleField(value)
+        return
+      }
+    case 11:
+      var value: Google_Protobuf_FloatValue?
+      try decoder.decodeSingularMessageField(value: &value)
+      if let value = value {
+        self = .floatField(value)
+        return
+      }
+    case 12:
+      var value: Google_Protobuf_Int64Value?
+      try decoder.decodeSingularMessageField(value: &value)
+      if let value = value {
+        self = .int64Field(value)
+        return
+      }
+    case 13:
+      var value: Google_Protobuf_UInt64Value?
+      try decoder.decodeSingularMessageField(value: &value)
+      if let value = value {
+        self = .uint64Field(value)
+        return
+      }
+    case 14:
+      var value: Google_Protobuf_Int32Value?
+      try decoder.decodeSingularMessageField(value: &value)
+      if let value = value {
+        self = .int32Field(value)
+        return
+      }
+    case 15:
+      var value: Google_Protobuf_UInt32Value?
+      try decoder.decodeSingularMessageField(value: &value)
+      if let value = value {
+        self = .uint32Field(value)
+        return
+      }
+    case 16:
+      var value: Google_Protobuf_BoolValue?
+      try decoder.decodeSingularMessageField(value: &value)
+      if let value = value {
+        self = .boolField(value)
+        return
+      }
+    case 17:
+      var value: Google_Protobuf_StringValue?
+      try decoder.decodeSingularMessageField(value: &value)
+      if let value = value {
+        self = .stringField(value)
+        return
+      }
+    case 18:
+      var value: Google_Protobuf_BytesValue?
+      try decoder.decodeSingularMessageField(value: &value)
+      if let value = value {
+        self = .bytesField(value)
+        return
+      }
+    default:
+      break
+    }
+    return nil
+  }
+
+  fileprivate func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    switch self {
+    case .anyField(let v):
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
+    case .apiField(let v):
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
+    case .durationField(let v):
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
+    case .emptyField(let v):
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 4)
+    case .fieldMaskField(let v):
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 5)
+    case .sourceContextField(let v):
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 6)
+    case .structField(let v):
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 7)
+    case .timestampField(let v):
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 8)
+    case .typeField(let v):
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 9)
+    case .doubleField(let v):
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 10)
+    case .floatField(let v):
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 11)
+    case .int64Field(let v):
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 12)
+    case .uint64Field(let v):
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 13)
+    case .int32Field(let v):
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 14)
+    case .uint32Field(let v):
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 15)
+    case .boolField(let v):
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 16)
+    case .stringField(let v):
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 17)
+    case .bytesField(let v):
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 18)
+    }
+  }
+}
+
+extension ProtobufUnittest_MapWellKnownTypes: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "any_field"),
+    2: .standard(proto: "api_field"),
+    3: .standard(proto: "duration_field"),
+    4: .standard(proto: "empty_field"),
+    5: .standard(proto: "field_mask_field"),
+    6: .standard(proto: "source_context_field"),
+    7: .standard(proto: "struct_field"),
+    8: .standard(proto: "timestamp_field"),
+    9: .standard(proto: "type_field"),
+    10: .standard(proto: "double_field"),
+    11: .standard(proto: "float_field"),
+    12: .standard(proto: "int64_field"),
+    13: .standard(proto: "uint64_field"),
+    14: .standard(proto: "int32_field"),
+    15: .standard(proto: "uint32_field"),
+    16: .standard(proto: "bool_field"),
+    17: .standard(proto: "string_field"),
+    18: .standard(proto: "bytes_field"),
+  ]
+
+  fileprivate class _StorageClass {
+    var _anyField: Dictionary<Int32,Google_Protobuf_Any> = [:]
+    var _apiField: Dictionary<Int32,Google_Protobuf_Api> = [:]
+    var _durationField: Dictionary<Int32,Google_Protobuf_Duration> = [:]
+    var _emptyField: Dictionary<Int32,Google_Protobuf_Empty> = [:]
+    var _fieldMaskField: Dictionary<Int32,Google_Protobuf_FieldMask> = [:]
+    var _sourceContextField: Dictionary<Int32,Google_Protobuf_SourceContext> = [:]
+    var _structField: Dictionary<Int32,Google_Protobuf_Struct> = [:]
+    var _timestampField: Dictionary<Int32,Google_Protobuf_Timestamp> = [:]
+    var _typeField: Dictionary<Int32,Google_Protobuf_Type> = [:]
+    var _doubleField: Dictionary<Int32,Google_Protobuf_DoubleValue> = [:]
+    var _floatField: Dictionary<Int32,Google_Protobuf_FloatValue> = [:]
+    var _int64Field: Dictionary<Int32,Google_Protobuf_Int64Value> = [:]
+    var _uint64Field: Dictionary<Int32,Google_Protobuf_UInt64Value> = [:]
+    var _int32Field: Dictionary<Int32,Google_Protobuf_Int32Value> = [:]
+    var _uint32Field: Dictionary<Int32,Google_Protobuf_UInt32Value> = [:]
+    var _boolField: Dictionary<Int32,Google_Protobuf_BoolValue> = [:]
+    var _stringField: Dictionary<Int32,Google_Protobuf_StringValue> = [:]
+    var _bytesField: Dictionary<Int32,Google_Protobuf_BytesValue> = [:]
+
+    init() {}
+
+    init(copying source: _StorageClass) {
+      _anyField = source._anyField
+      _apiField = source._apiField
+      _durationField = source._durationField
+      _emptyField = source._emptyField
+      _fieldMaskField = source._fieldMaskField
+      _sourceContextField = source._sourceContextField
+      _structField = source._structField
+      _timestampField = source._timestampField
+      _typeField = source._typeField
+      _doubleField = source._doubleField
+      _floatField = source._floatField
+      _int64Field = source._int64Field
+      _uint64Field = source._uint64Field
+      _int32Field = source._int32Field
+      _uint32Field = source._uint32Field
+      _boolField = source._boolField
+      _stringField = source._stringField
+      _bytesField = source._bytesField
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
   }
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_MapWellKnownTypes) -> Bool {
