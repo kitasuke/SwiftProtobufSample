@@ -6,35 +6,35 @@
  *
  */
 
-//  Protocol Buffers - Google's data interchange format
-//  Copyright 2008 Google Inc.  All rights reserved.
-//  https://developers.google.com/protocol-buffers/
-// 
-//  Redistribution and use in source and binary forms, with or without
-//  modification, are permitted provided that the following conditions are
-//  met:
-// 
-//      * Redistributions of source code must retain the above copyright
-//  notice, this list of conditions and the following disclaimer.
-//      * Redistributions in binary form must reproduce the above
-//  copyright notice, this list of conditions and the following disclaimer
-//  in the documentation and/or other materials provided with the
-//  distribution.
-//      * Neither the name of Google Inc. nor the names of its
-//  contributors may be used to endorse or promote products derived from
-//  this software without specific prior written permission.
-// 
-//  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-//  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-//  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
-//  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
-//  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-//  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
-//  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
-//  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
-//  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-//  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-//  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+// Protocol Buffers - Google's data interchange format
+// Copyright 2008 Google Inc.  All rights reserved.
+// https://developers.google.com/protocol-buffers/
+//
+// Redistribution and use in source and binary forms, with or without
+// modification, are permitted provided that the following conditions are
+// met:
+//
+//     * Redistributions of source code must retain the above copyright
+// notice, this list of conditions and the following disclaimer.
+//     * Redistributions in binary form must reproduce the above
+// copyright notice, this list of conditions and the following disclaimer
+// in the documentation and/or other materials provided with the
+// distribution.
+//     * Neither the name of Google Inc. nor the names of its
+// contributors may be used to endorse or promote products derived from
+// this software without specific prior written permission.
+//
+// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+// "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+// A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+// OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 import Foundation
 import SwiftProtobuf
@@ -49,24 +49,19 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _1
 }
 
-fileprivate let _protobuf_package = "protobuf_unittest_no_arena"
-
-struct ProtobufUnittestNoArena_ForeignMessageLite: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+struct ProtobufUnittestNoArena_ForeignMessageLite: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".ForeignMessageLite"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "c"),
-  ]
 
-  private var _c: Int32? = nil
+  fileprivate var _c: Int32? = nil
   var c: Int32 {
     get {return _c ?? 0}
     set {_c = newValue}
   }
   var hasC: Bool {
-    return _c != nil
+    return self._c != nil
   }
   mutating func clearC() {
-    return _c = nil
+    self._c = nil
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -76,21 +71,31 @@ struct ProtobufUnittestNoArena_ForeignMessageLite: SwiftProtobuf.Message, SwiftP
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
-      case 1: try decoder.decodeSingularInt32Field(value: &_c)
+      case 1: try decoder.decodeSingularInt32Field(value: &self._c)
       default: break
       }
     }
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if let v = _c {
+    if let v = self._c {
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+}
+
+// MARK: - Code below here is support for the SwiftProtobuf runtime.
+
+fileprivate let _protobuf_package = "protobuf_unittest_no_arena"
+
+extension ProtobufUnittestNoArena_ForeignMessageLite: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "c"),
+  ]
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittestNoArena_ForeignMessageLite) -> Bool {
-    if _c != other._c {return false}
+    if self._c != other._c {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }

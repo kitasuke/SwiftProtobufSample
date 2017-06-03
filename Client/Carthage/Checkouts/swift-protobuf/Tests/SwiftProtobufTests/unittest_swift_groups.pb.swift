@@ -6,35 +6,35 @@
  *
  */
 
-//  Protocol Buffers - Google's data interchange format
-//  Copyright 2015 Google Inc.  All rights reserved.
-//  https://developers.google.com/protocol-buffers/
-// 
-//  Redistribution and use in source and binary forms, with or without
-//  modification, are permitted provided that the following conditions are
-//  met:
-// 
-//      * Redistributions of source code must retain the above copyright
-//  notice, this list of conditions and the following disclaimer.
-//      * Redistributions in binary form must reproduce the above
-//  copyright notice, this list of conditions and the following disclaimer
-//  in the documentation and/or other materials provided with the
-//  distribution.
-//      * Neither the name of Google Inc. nor the names of its
-//  contributors may be used to endorse or promote products derived from
-//  this software without specific prior written permission.
-// 
-//  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-//  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-//  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
-//  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
-//  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-//  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
-//  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
-//  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
-//  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-//  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-//  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+// Protocol Buffers - Google's data interchange format
+// Copyright 2015 Google Inc.  All rights reserved.
+// https://developers.google.com/protocol-buffers/
+//
+// Redistribution and use in source and binary forms, with or without
+// modification, are permitted provided that the following conditions are
+// met:
+//
+//     * Redistributions of source code must retain the above copyright
+// notice, this list of conditions and the following disclaimer.
+//     * Redistributions in binary form must reproduce the above
+// copyright notice, this list of conditions and the following disclaimer
+// in the documentation and/or other materials provided with the
+// distribution.
+//     * Neither the name of Google Inc. nor the names of its
+// contributors may be used to endorse or promote products derived from
+// this software without specific prior written permission.
+//
+// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+// "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+// A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+// OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 import Foundation
 import SwiftProtobuf
@@ -49,23 +49,20 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _1
 }
 
-///   Same field number appears inside and outside of the group.
-struct SwiftTestGroupExtensions: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+/// Same field number appears inside and outside of the group.
+struct SwiftTestGroupExtensions: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage {
   static let protoMessageName: String = "SwiftTestGroupExtensions"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "a"),
-  ]
 
-  private var _a: Int32? = nil
+  fileprivate var _a: Int32? = nil
   var a: Int32 {
     get {return _a ?? 0}
     set {_a = newValue}
   }
   var hasA: Bool {
-    return _a != nil
+    return self._a != nil
   }
   mutating func clearA() {
-    return _a = nil
+    self._a = nil
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -80,7 +77,7 @@ struct SwiftTestGroupExtensions: SwiftProtobuf.Message, SwiftProtobuf.Extensible
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
-      case 1: try decoder.decodeSingularInt32Field(value: &_a)
+      case 1: try decoder.decodeSingularInt32Field(value: &self._a)
       case 2..<11:
         try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: SwiftTestGroupExtensions.self, fieldNumber: fieldNumber)
       default: break
@@ -89,39 +86,29 @@ struct SwiftTestGroupExtensions: SwiftProtobuf.Message, SwiftProtobuf.Extensible
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if let v = _a {
+    if let v = self._a {
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
     }
     try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 2, end: 11)
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  func _protobuf_generated_isEqualTo(other: SwiftTestGroupExtensions) -> Bool {
-    if _a != other._a {return false}
-    if unknownFields != other.unknownFields {return false}
-    if _protobuf_extensionFieldValues != other._protobuf_extensionFieldValues {return false}
-    return true
-  }
-
   var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
 }
 
-struct ExtensionGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+struct ExtensionGroup: SwiftProtobuf.Message {
   static let protoMessageName: String = "ExtensionGroup"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "a"),
-  ]
 
-  private var _a: Int32? = nil
+  fileprivate var _a: Int32? = nil
   var a: Int32 {
     get {return _a ?? 0}
     set {_a = newValue}
   }
   var hasA: Bool {
-    return _a != nil
+    return self._a != nil
   }
   mutating func clearA() {
-    return _a = nil
+    self._a = nil
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -131,42 +118,33 @@ struct ExtensionGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementati
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
-      case 1: try decoder.decodeSingularInt32Field(value: &_a)
+      case 1: try decoder.decodeSingularInt32Field(value: &self._a)
       default: break
       }
     }
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if let v = _a {
+    if let v = self._a {
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
-
-  func _protobuf_generated_isEqualTo(other: ExtensionGroup) -> Bool {
-    if _a != other._a {return false}
-    if unknownFields != other.unknownFields {return false}
-    return true
-  }
 }
 
-struct RepeatedExtensionGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+struct RepeatedExtensionGroup: SwiftProtobuf.Message {
   static let protoMessageName: String = "RepeatedExtensionGroup"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "a"),
-  ]
 
-  private var _a: Int32? = nil
+  fileprivate var _a: Int32? = nil
   var a: Int32 {
     get {return _a ?? 0}
     set {_a = newValue}
   }
   var hasA: Bool {
-    return _a != nil
+    return self._a != nil
   }
   mutating func clearA() {
-    return _a = nil
+    self._a = nil
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -176,42 +154,33 @@ struct RepeatedExtensionGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageImpl
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
-      case 1: try decoder.decodeSingularInt32Field(value: &_a)
+      case 1: try decoder.decodeSingularInt32Field(value: &self._a)
       default: break
       }
     }
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if let v = _a {
+    if let v = self._a {
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
-
-  func _protobuf_generated_isEqualTo(other: RepeatedExtensionGroup) -> Bool {
-    if _a != other._a {return false}
-    if unknownFields != other.unknownFields {return false}
-    return true
-  }
 }
 
-struct SwiftTestGroupUnextended: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+struct SwiftTestGroupUnextended: SwiftProtobuf.Message {
   static let protoMessageName: String = "SwiftTestGroupUnextended"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "a"),
-  ]
 
-  private var _a: Int32? = nil
+  fileprivate var _a: Int32? = nil
   var a: Int32 {
     get {return _a ?? 0}
     set {_a = newValue}
   }
   var hasA: Bool {
-    return _a != nil
+    return self._a != nil
   }
   mutating func clearA() {
-    return _a = nil
+    self._a = nil
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -221,56 +190,22 @@ struct SwiftTestGroupUnextended: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
-      case 1: try decoder.decodeSingularInt32Field(value: &_a)
+      case 1: try decoder.decodeSingularInt32Field(value: &self._a)
       default: break
       }
     }
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if let v = _a {
+    if let v = self._a {
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
-
-  func _protobuf_generated_isEqualTo(other: SwiftTestGroupUnextended) -> Bool {
-    if _a != other._a {return false}
-    if unknownFields != other.unknownFields {return false}
-    return true
-  }
 }
 
-struct SwiftTestNestingGroupsMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+struct SwiftTestNestingGroupsMessage: SwiftProtobuf.Message {
   static let protoMessageName: String = "SwiftTestNestingGroupsMessage"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "outer_a"),
-    2: .unique(proto: "SubGroup1", json: "subgroup1"),
-    3: .unique(proto: "SubGroup3", json: "subgroup3"),
-  ]
-
-  private class _StorageClass {
-    var _outerA: Int32? = nil
-    var _subGroup1: SwiftTestNestingGroupsMessage.SubGroup1? = nil
-    var _subGroup3: [SwiftTestNestingGroupsMessage.SubGroup3] = []
-
-    init() {}
-
-    init(copying source: _StorageClass) {
-      _outerA = source._outerA
-      _subGroup1 = source._subGroup1
-      _subGroup3 = source._subGroup3
-    }
-  }
-
-  private var _storage = _StorageClass()
-
-  private mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(copying: _storage)
-    }
-    return _storage
-  }
 
   var outerA: Int32 {
     get {return _storage._outerA ?? 0}
@@ -280,7 +215,7 @@ struct SwiftTestNestingGroupsMessage: SwiftProtobuf.Message, SwiftProtobuf._Mess
     return _storage._outerA != nil
   }
   mutating func clearOuterA() {
-    return _storage._outerA = nil
+    _storage._outerA = nil
   }
 
   var subGroup1: SwiftTestNestingGroupsMessage.SubGroup1 {
@@ -291,7 +226,7 @@ struct SwiftTestNestingGroupsMessage: SwiftProtobuf.Message, SwiftProtobuf._Mess
     return _storage._subGroup1 != nil
   }
   mutating func clearSubGroup1() {
-    return _storage._subGroup1 = nil
+    _storage._subGroup1 = nil
   }
 
   var subGroup3: [SwiftTestNestingGroupsMessage.SubGroup3] {
@@ -301,33 +236,8 @@ struct SwiftTestNestingGroupsMessage: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  struct SubGroup1: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct SubGroup1: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftTestNestingGroupsMessage.protoMessageName + ".SubGroup1"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .standard(proto: "sub1_a"),
-      2: .unique(proto: "SubGroup2", json: "subgroup2"),
-    ]
-
-    private class _StorageClass {
-      var _sub1A: Int32? = nil
-      var _subGroup2: SwiftTestNestingGroupsMessage.SubGroup1.SubGroup2? = nil
-
-      init() {}
-
-      init(copying source: _StorageClass) {
-        _sub1A = source._sub1A
-        _subGroup2 = source._subGroup2
-      }
-    }
-
-    private var _storage = _StorageClass()
-
-    private mutating func _uniqueStorage() -> _StorageClass {
-      if !isKnownUniquelyReferenced(&_storage) {
-        _storage = _StorageClass(copying: _storage)
-      }
-      return _storage
-    }
 
     var sub1A: Int32 {
       get {return _storage._sub1A ?? 0}
@@ -337,7 +247,7 @@ struct SwiftTestNestingGroupsMessage: SwiftProtobuf.Message, SwiftProtobuf._Mess
       return _storage._sub1A != nil
     }
     mutating func clearSub1A() {
-      return _storage._sub1A = nil
+      _storage._sub1A = nil
     }
 
     var subGroup2: SwiftTestNestingGroupsMessage.SubGroup1.SubGroup2 {
@@ -348,27 +258,24 @@ struct SwiftTestNestingGroupsMessage: SwiftProtobuf.Message, SwiftProtobuf._Mess
       return _storage._subGroup2 != nil
     }
     mutating func clearSubGroup2() {
-      return _storage._subGroup2 = nil
+      _storage._subGroup2 = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
-    struct SubGroup2: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+    struct SubGroup2: SwiftProtobuf.Message {
       static let protoMessageName: String = SwiftTestNestingGroupsMessage.SubGroup1.protoMessageName + ".SubGroup2"
-      static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-        1: .standard(proto: "sub2_a"),
-      ]
 
-      private var _sub2A: Int32? = nil
+      fileprivate var _sub2A: Int32? = nil
       var sub2A: Int32 {
         get {return _sub2A ?? 0}
         set {_sub2A = newValue}
       }
       var hasSub2A: Bool {
-        return _sub2A != nil
+        return self._sub2A != nil
       }
       mutating func clearSub2A() {
-        return _sub2A = nil
+        self._sub2A = nil
       }
 
       var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -378,23 +285,17 @@ struct SwiftTestNestingGroupsMessage: SwiftProtobuf.Message, SwiftProtobuf._Mess
       mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
         while let fieldNumber = try decoder.nextFieldNumber() {
           switch fieldNumber {
-          case 1: try decoder.decodeSingularInt32Field(value: &_sub2A)
+          case 1: try decoder.decodeSingularInt32Field(value: &self._sub2A)
           default: break
           }
         }
       }
 
       func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-        if let v = _sub2A {
+        if let v = self._sub2A {
           try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
         }
         try unknownFields.traverse(visitor: &visitor)
-      }
-
-      func _protobuf_generated_isEqualTo(other: SwiftTestNestingGroupsMessage.SubGroup1.SubGroup2) -> Bool {
-        if _sub2A != other._sub2A {return false}
-        if unknownFields != other.unknownFields {return false}
-        return true
       }
     }
 
@@ -425,59 +326,41 @@ struct SwiftTestNestingGroupsMessage: SwiftProtobuf.Message, SwiftProtobuf._Mess
       try unknownFields.traverse(visitor: &visitor)
     }
 
-    func _protobuf_generated_isEqualTo(other: SwiftTestNestingGroupsMessage.SubGroup1) -> Bool {
-      if _storage !== other._storage {
-        let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
-          if _storage._sub1A != other_storage._sub1A {return false}
-          if _storage._subGroup2 != other_storage._subGroup2 {return false}
-          return true
-        }
-        if !storagesAreEqual {return false}
-      }
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
+    fileprivate var _storage = _StorageClass()
   }
 
-  struct SubGroup3: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct SubGroup3: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftTestNestingGroupsMessage.protoMessageName + ".SubGroup3"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .standard(proto: "sub3_a"),
-      2: .unique(proto: "SubGroup4", json: "subgroup4"),
-    ]
 
-    private var _sub3A: Int32? = nil
+    fileprivate var _sub3A: Int32? = nil
     var sub3A: Int32 {
       get {return _sub3A ?? 0}
       set {_sub3A = newValue}
     }
     var hasSub3A: Bool {
-      return _sub3A != nil
+      return self._sub3A != nil
     }
     mutating func clearSub3A() {
-      return _sub3A = nil
+      self._sub3A = nil
     }
 
     var subGroup4: [SwiftTestNestingGroupsMessage.SubGroup3.SubGroup4] = []
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
-    struct SubGroup4: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+    struct SubGroup4: SwiftProtobuf.Message {
       static let protoMessageName: String = SwiftTestNestingGroupsMessage.SubGroup3.protoMessageName + ".SubGroup4"
-      static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-        1: .standard(proto: "sub4_a"),
-      ]
 
-      private var _sub4A: Int32? = nil
+      fileprivate var _sub4A: Int32? = nil
       var sub4A: Int32 {
         get {return _sub4A ?? 0}
         set {_sub4A = newValue}
       }
       var hasSub4A: Bool {
-        return _sub4A != nil
+        return self._sub4A != nil
       }
       mutating func clearSub4A() {
-        return _sub4A = nil
+        self._sub4A = nil
       }
 
       var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -487,23 +370,17 @@ struct SwiftTestNestingGroupsMessage: SwiftProtobuf.Message, SwiftProtobuf._Mess
       mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
         while let fieldNumber = try decoder.nextFieldNumber() {
           switch fieldNumber {
-          case 1: try decoder.decodeSingularInt32Field(value: &_sub4A)
+          case 1: try decoder.decodeSingularInt32Field(value: &self._sub4A)
           default: break
           }
         }
       }
 
       func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-        if let v = _sub4A {
+        if let v = self._sub4A {
           try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
         }
         try unknownFields.traverse(visitor: &visitor)
-      }
-
-      func _protobuf_generated_isEqualTo(other: SwiftTestNestingGroupsMessage.SubGroup3.SubGroup4) -> Bool {
-        if _sub4A != other._sub4A {return false}
-        if unknownFields != other.unknownFields {return false}
-        return true
       }
     }
 
@@ -512,28 +389,21 @@ struct SwiftTestNestingGroupsMessage: SwiftProtobuf.Message, SwiftProtobuf._Mess
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_sub3A)
-        case 2: try decoder.decodeRepeatedGroupField(value: &subGroup4)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._sub3A)
+        case 2: try decoder.decodeRepeatedGroupField(value: &self.subGroup4)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _sub3A {
+      if let v = self._sub3A {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      if !subGroup4.isEmpty {
-        try visitor.visitRepeatedGroupField(value: subGroup4, fieldNumber: 2)
+      if !self.subGroup4.isEmpty {
+        try visitor.visitRepeatedGroupField(value: self.subGroup4, fieldNumber: 2)
       }
       try unknownFields.traverse(visitor: &visitor)
-    }
-
-    func _protobuf_generated_isEqualTo(other: SwiftTestNestingGroupsMessage.SubGroup3) -> Bool {
-      if _sub3A != other._sub3A {return false}
-      if subGroup4 != other.subGroup4 {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
     }
   }
 
@@ -568,32 +438,10 @@ struct SwiftTestNestingGroupsMessage: SwiftProtobuf.Message, SwiftProtobuf._Mess
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  func _protobuf_generated_isEqualTo(other: SwiftTestNestingGroupsMessage) -> Bool {
-    if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
-        if _storage._outerA != other_storage._outerA {return false}
-        if _storage._subGroup1 != other_storage._subGroup1 {return false}
-        if _storage._subGroup3 != other_storage._subGroup3 {return false}
-        return true
-      }
-      if !storagesAreEqual {return false}
-    }
-    if unknownFields != other.unknownFields {return false}
-    return true
-  }
+  fileprivate var _storage = _StorageClass()
 }
 
-let Extensions_ExtensionGroup = SwiftProtobuf.MessageExtension<OptionalGroupExtensionField<ExtensionGroup>, SwiftTestGroupExtensions>(
-  _protobuf_fieldNumber: 2,
-  fieldName: "ExtensionGroup",
-  defaultValue: ExtensionGroup()
-)
-
-let Extensions_RepeatedExtensionGroup = SwiftProtobuf.MessageExtension<RepeatedGroupExtensionField<RepeatedExtensionGroup>, SwiftTestGroupExtensions>(
-  _protobuf_fieldNumber: 3,
-  fieldName: "RepeatedExtensionGroup",
-  defaultValue: []
-)
+// MARK: - Extension support defined in unittest_swift_groups.proto.
 
 extension SwiftTestGroupExtensions {
   var extensionGroup: ExtensionGroup {
@@ -621,7 +469,194 @@ extension SwiftTestGroupExtensions {
   }
 }
 
+/// A `SwiftProtobuf.SimpleExtensionMap` that includes all of the extensions defined by
+/// this .proto file. It can be used any place an `SwiftProtobuf.ExtensionMap` is needed
+/// in parsing, or it can be combined with other `SwiftProtobuf.SimpleExtensionMap`s to create
+/// a larger `SwiftProtobuf.SimpleExtensionMap`.
 let UnittestSwiftGroups_Extensions: SwiftProtobuf.SimpleExtensionMap = [
   Extensions_ExtensionGroup,
   Extensions_RepeatedExtensionGroup
 ]
+
+let Extensions_ExtensionGroup = SwiftProtobuf.MessageExtension<OptionalGroupExtensionField<ExtensionGroup>, SwiftTestGroupExtensions>(
+  _protobuf_fieldNumber: 2,
+  fieldName: "ExtensionGroup",
+  defaultValue: ExtensionGroup()
+)
+
+let Extensions_RepeatedExtensionGroup = SwiftProtobuf.MessageExtension<RepeatedGroupExtensionField<RepeatedExtensionGroup>, SwiftTestGroupExtensions>(
+  _protobuf_fieldNumber: 3,
+  fieldName: "RepeatedExtensionGroup",
+  defaultValue: []
+)
+
+// MARK: - Code below here is support for the SwiftProtobuf runtime.
+
+extension SwiftTestGroupExtensions: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "a"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftTestGroupExtensions) -> Bool {
+    if self._a != other._a {return false}
+    if unknownFields != other.unknownFields {return false}
+    if _protobuf_extensionFieldValues != other._protobuf_extensionFieldValues {return false}
+    return true
+  }
+}
+
+extension ExtensionGroup: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "a"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: ExtensionGroup) -> Bool {
+    if self._a != other._a {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension RepeatedExtensionGroup: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "a"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: RepeatedExtensionGroup) -> Bool {
+    if self._a != other._a {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftTestGroupUnextended: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "a"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftTestGroupUnextended) -> Bool {
+    if self._a != other._a {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftTestNestingGroupsMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "outer_a"),
+    2: .unique(proto: "SubGroup1", json: "subgroup1"),
+    3: .unique(proto: "SubGroup3", json: "subgroup3"),
+  ]
+
+  fileprivate class _StorageClass {
+    var _outerA: Int32? = nil
+    var _subGroup1: SwiftTestNestingGroupsMessage.SubGroup1? = nil
+    var _subGroup3: [SwiftTestNestingGroupsMessage.SubGroup3] = []
+
+    init() {}
+
+    init(copying source: _StorageClass) {
+      _outerA = source._outerA
+      _subGroup1 = source._subGroup1
+      _subGroup3 = source._subGroup3
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
+  func _protobuf_generated_isEqualTo(other: SwiftTestNestingGroupsMessage) -> Bool {
+    if _storage !== other._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+        if _storage._outerA != other_storage._outerA {return false}
+        if _storage._subGroup1 != other_storage._subGroup1 {return false}
+        if _storage._subGroup3 != other_storage._subGroup3 {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftTestNestingGroupsMessage.SubGroup1: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "sub1_a"),
+    2: .unique(proto: "SubGroup2", json: "subgroup2"),
+  ]
+
+  fileprivate class _StorageClass {
+    var _sub1A: Int32? = nil
+    var _subGroup2: SwiftTestNestingGroupsMessage.SubGroup1.SubGroup2? = nil
+
+    init() {}
+
+    init(copying source: _StorageClass) {
+      _sub1A = source._sub1A
+      _subGroup2 = source._subGroup2
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
+  func _protobuf_generated_isEqualTo(other: SwiftTestNestingGroupsMessage.SubGroup1) -> Bool {
+    if _storage !== other._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+        if _storage._sub1A != other_storage._sub1A {return false}
+        if _storage._subGroup2 != other_storage._subGroup2 {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftTestNestingGroupsMessage.SubGroup1.SubGroup2: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "sub2_a"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftTestNestingGroupsMessage.SubGroup1.SubGroup2) -> Bool {
+    if self._sub2A != other._sub2A {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftTestNestingGroupsMessage.SubGroup3: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "sub3_a"),
+    2: .unique(proto: "SubGroup4", json: "subgroup4"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftTestNestingGroupsMessage.SubGroup3) -> Bool {
+    if self._sub3A != other._sub3A {return false}
+    if self.subGroup4 != other.subGroup4 {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftTestNestingGroupsMessage.SubGroup3.SubGroup4: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "sub4_a"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftTestNestingGroupsMessage.SubGroup3.SubGroup4) -> Bool {
+    if self._sub4A != other._sub4A {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}

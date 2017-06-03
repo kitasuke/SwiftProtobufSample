@@ -1,12 +1,10 @@
 // Sources/SwiftProtobuf/JSONEncodingVisitor.swift - JSON encoding visitor
 //
-// This source file is part of the Swift.org open source project
-//
-// Copyright (c) 2014 - 2016 Apple Inc. and the Swift project authors
+// Copyright (c) 2014 - 2016 Apple Inc. and the project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception
 //
-// See http://swift.org/LICENSE.txt for license information
-// See http://swift.org/CONTRIBUTORS.txt for the list of Swift project authors
+// See LICENSE.txt for license information:
+// https://github.com/apple/swift-protobuf/blob/master/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
 ///
@@ -120,7 +118,7 @@ internal struct JSONEncodingVisitor: Visitor {
 
   private mutating func _visitRepeated<T>(value: [T], fieldNumber: Int, encode: (T) -> ()) throws {
     try startField(for: fieldNumber)
-    var arraySeparator = ""
+    var arraySeparator = String()
     encoder.append(text: "[")
     for v in value {
       encoder.append(text: arraySeparator)
@@ -141,8 +139,8 @@ internal struct JSONEncodingVisitor: Visitor {
 
   mutating func visitSingularMessageField<M: Message>(value: M, fieldNumber: Int) throws {
     try startField(for: fieldNumber)
-    let json = try value.jsonString()
-    encoder.append(text: json)
+    let json = try value.jsonUTF8Data()
+    encoder.append(utf8Data: json)
   }
 
   mutating func visitSingularGroupField<G: Message>(value: G, fieldNumber: Int) throws {
@@ -229,7 +227,7 @@ internal struct JSONEncodingVisitor: Visitor {
 
   mutating func visitRepeatedEnumField<E: Enum>(value: [E], fieldNumber: Int) throws {
     try startField(for: fieldNumber)
-    var arraySeparator = ""
+    var arraySeparator = String()
     encoder.append(text: "[")
     for v in value {
       encoder.append(text: arraySeparator)
@@ -245,12 +243,12 @@ internal struct JSONEncodingVisitor: Visitor {
 
   mutating func visitRepeatedMessageField<M: Message>(value: [M], fieldNumber: Int) throws {
     try startField(for: fieldNumber)
-    var arraySeparator = ""
+    var arraySeparator = String()
     encoder.append(text: "[")
     for v in value {
       encoder.append(text: arraySeparator)
-      let json = try v.jsonString()
-      encoder.append(text: json)
+      let json = try v.jsonUTF8Data()
+      encoder.append(utf8Data: json)
       arraySeparator = ","
     }
     encoder.append(text: "]")

@@ -48,6 +48,9 @@ message SwiftReservedTest {
     optional string is_initialized = 20;
     optional string hash_value = 21;
     optional int32 debug_description = 22;
+
+    // Prompt code generator to build an 'isInitialized' test
+    required int32 required_int = 30;
 }
 
 extend SwiftReservedTest.class {
@@ -65,7 +68,7 @@ extend SwiftReservedTest.class {
 
 message SwiftReservedTestExt {
     extend SwiftReservedTest.class {
-        // This will end up in the "struct Extensions" to scope it, but there
+        // This will end up in the "enum Extensions" to scope it, but there
         // the raw form is used ("hash_value", not the Swift one "hashValue"),
         // so there is no conflict, and no renaming happens.
         optional bool hash_value = 1001;

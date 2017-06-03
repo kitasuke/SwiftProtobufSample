@@ -5,7 +5,7 @@ generate:
 
 setup:
 	cd Server; swift package update; swift package generate-xcodeproj
-	cd Client; carthage bootstrap --platform iOS --no-use-binaries
+	cd Client; carthage bootstrap --platform iOS --no-use-binaries --cache-builds
 
 run-server:
 	cd Server; swift build; .build/debug/Server

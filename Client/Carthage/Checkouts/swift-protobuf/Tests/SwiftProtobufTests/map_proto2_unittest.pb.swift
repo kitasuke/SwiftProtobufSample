@@ -6,35 +6,35 @@
  *
  */
 
-//  Protocol Buffers - Google's data interchange format
-//  Copyright 2008 Google Inc.  All rights reserved.
-//  https://developers.google.com/protocol-buffers/
-// 
-//  Redistribution and use in source and binary forms, with or without
-//  modification, are permitted provided that the following conditions are
-//  met:
-// 
-//      * Redistributions of source code must retain the above copyright
-//  notice, this list of conditions and the following disclaimer.
-//      * Redistributions in binary form must reproduce the above
-//  copyright notice, this list of conditions and the following disclaimer
-//  in the documentation and/or other materials provided with the
-//  distribution.
-//      * Neither the name of Google Inc. nor the names of its
-//  contributors may be used to endorse or promote products derived from
-//  this software without specific prior written permission.
-// 
-//  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-//  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-//  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
-//  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
-//  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-//  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
-//  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
-//  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
-//  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-//  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-//  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+// Protocol Buffers - Google's data interchange format
+// Copyright 2008 Google Inc.  All rights reserved.
+// https://developers.google.com/protocol-buffers/
+//
+// Redistribution and use in source and binary forms, with or without
+// modification, are permitted provided that the following conditions are
+// met:
+//
+//     * Redistributions of source code must retain the above copyright
+// notice, this list of conditions and the following disclaimer.
+//     * Redistributions in binary form must reproduce the above
+// copyright notice, this list of conditions and the following disclaimer
+// in the documentation and/or other materials provided with the
+// distribution.
+//     * Neither the name of Google Inc. nor the names of its
+// contributors may be used to endorse or promote products derived from
+// this software without specific prior written permission.
+//
+// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+// "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+// A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+// OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 import Foundation
 import SwiftProtobuf
@@ -49,19 +49,11 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _1
 }
 
-fileprivate let _protobuf_package = "protobuf_unittest"
-
-enum ProtobufUnittest_Proto2MapEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+enum ProtobufUnittest_Proto2MapEnum: SwiftProtobuf.Enum {
   typealias RawValue = Int
   case foo // = 0
   case bar // = 1
   case baz // = 2
-
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "PROTO2_MAP_ENUM_FOO"),
-    1: .same(proto: "PROTO2_MAP_ENUM_BAR"),
-    2: .same(proto: "PROTO2_MAP_ENUM_BAZ"),
-  ]
 
   init() {
     self = .foo
@@ -86,19 +78,12 @@ enum ProtobufUnittest_Proto2MapEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNam
 
 }
 
-enum ProtobufUnittest_Proto2MapEnumPlusExtra: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+enum ProtobufUnittest_Proto2MapEnumPlusExtra: SwiftProtobuf.Enum {
   typealias RawValue = Int
   case eProto2MapEnumFoo // = 0
   case eProto2MapEnumBar // = 1
   case eProto2MapEnumBaz // = 2
   case eProto2MapEnumExtra // = 3
-
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "E_PROTO2_MAP_ENUM_FOO"),
-    1: .same(proto: "E_PROTO2_MAP_ENUM_BAR"),
-    2: .same(proto: "E_PROTO2_MAP_ENUM_BAZ"),
-    3: .same(proto: "E_PROTO2_MAP_ENUM_EXTRA"),
-  ]
 
   init() {
     self = .eProto2MapEnumFoo
@@ -125,12 +110,8 @@ enum ProtobufUnittest_Proto2MapEnumPlusExtra: SwiftProtobuf.Enum, SwiftProtobuf.
 
 }
 
-struct ProtobufUnittest_TestEnumMap: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+struct ProtobufUnittest_TestEnumMap: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestEnumMap"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    101: .standard(proto: "known_map_field"),
-    102: .standard(proto: "unknown_map_field"),
-  ]
 
   var knownMapField: Dictionary<Int32,ProtobufUnittest_Proto2MapEnum> = [:]
 
@@ -143,37 +124,26 @@ struct ProtobufUnittest_TestEnumMap: SwiftProtobuf.Message, SwiftProtobuf._Messa
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
-      case 101: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittest_Proto2MapEnum>.self, value: &knownMapField)
-      case 102: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittest_Proto2MapEnum>.self, value: &unknownMapField)
+      case 101: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittest_Proto2MapEnum>.self, value: &self.knownMapField)
+      case 102: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittest_Proto2MapEnum>.self, value: &self.unknownMapField)
       default: break
       }
     }
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if !knownMapField.isEmpty {
-      try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittest_Proto2MapEnum>.self, value: knownMapField, fieldNumber: 101)
+    if !self.knownMapField.isEmpty {
+      try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittest_Proto2MapEnum>.self, value: self.knownMapField, fieldNumber: 101)
     }
-    if !unknownMapField.isEmpty {
-      try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittest_Proto2MapEnum>.self, value: unknownMapField, fieldNumber: 102)
+    if !self.unknownMapField.isEmpty {
+      try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittest_Proto2MapEnum>.self, value: self.unknownMapField, fieldNumber: 102)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
-
-  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestEnumMap) -> Bool {
-    if knownMapField != other.knownMapField {return false}
-    if unknownMapField != other.unknownMapField {return false}
-    if unknownFields != other.unknownFields {return false}
-    return true
-  }
 }
 
-struct ProtobufUnittest_TestEnumMapPlusExtra: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+struct ProtobufUnittest_TestEnumMapPlusExtra: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestEnumMapPlusExtra"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    101: .standard(proto: "known_map_field"),
-    102: .standard(proto: "unknown_map_field"),
-  ]
 
   var knownMapField: Dictionary<Int32,ProtobufUnittest_Proto2MapEnumPlusExtra> = [:]
 
@@ -186,36 +156,26 @@ struct ProtobufUnittest_TestEnumMapPlusExtra: SwiftProtobuf.Message, SwiftProtob
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
-      case 101: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittest_Proto2MapEnumPlusExtra>.self, value: &knownMapField)
-      case 102: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittest_Proto2MapEnumPlusExtra>.self, value: &unknownMapField)
+      case 101: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittest_Proto2MapEnumPlusExtra>.self, value: &self.knownMapField)
+      case 102: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittest_Proto2MapEnumPlusExtra>.self, value: &self.unknownMapField)
       default: break
       }
     }
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if !knownMapField.isEmpty {
-      try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittest_Proto2MapEnumPlusExtra>.self, value: knownMapField, fieldNumber: 101)
+    if !self.knownMapField.isEmpty {
+      try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittest_Proto2MapEnumPlusExtra>.self, value: self.knownMapField, fieldNumber: 101)
     }
-    if !unknownMapField.isEmpty {
-      try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittest_Proto2MapEnumPlusExtra>.self, value: unknownMapField, fieldNumber: 102)
+    if !self.unknownMapField.isEmpty {
+      try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittest_Proto2MapEnumPlusExtra>.self, value: self.unknownMapField, fieldNumber: 102)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
-
-  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestEnumMapPlusExtra) -> Bool {
-    if knownMapField != other.knownMapField {return false}
-    if unknownMapField != other.unknownMapField {return false}
-    if unknownFields != other.unknownFields {return false}
-    return true
-  }
 }
 
-struct ProtobufUnittest_TestImportEnumMap: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+struct ProtobufUnittest_TestImportEnumMap: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestImportEnumMap"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "import_enum_amp"),
-  ]
 
   var importEnumAmp: Dictionary<Int32,ProtobufUnittestImport_ImportEnumForMap> = [:]
 
@@ -226,31 +186,22 @@ struct ProtobufUnittest_TestImportEnumMap: SwiftProtobuf.Message, SwiftProtobuf.
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
-      case 1: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittestImport_ImportEnumForMap>.self, value: &importEnumAmp)
+      case 1: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittestImport_ImportEnumForMap>.self, value: &self.importEnumAmp)
       default: break
       }
     }
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if !importEnumAmp.isEmpty {
-      try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittestImport_ImportEnumForMap>.self, value: importEnumAmp, fieldNumber: 1)
+    if !self.importEnumAmp.isEmpty {
+      try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittestImport_ImportEnumForMap>.self, value: self.importEnumAmp, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
-
-  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestImportEnumMap) -> Bool {
-    if importEnumAmp != other.importEnumAmp {return false}
-    if unknownFields != other.unknownFields {return false}
-    return true
-  }
 }
 
-struct ProtobufUnittest_TestIntIntMap: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+struct ProtobufUnittest_TestIntIntMap: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestIntIntMap"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "m"),
-  ]
 
   var m: Dictionary<Int32,Int32> = [:]
 
@@ -261,43 +212,23 @@ struct ProtobufUnittest_TestIntIntMap: SwiftProtobuf.Message, SwiftProtobuf._Mes
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
-      case 1: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufInt32>.self, value: &m)
+      case 1: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufInt32>.self, value: &self.m)
       default: break
       }
     }
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if !m.isEmpty {
-      try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufInt32>.self, value: m, fieldNumber: 1)
+    if !self.m.isEmpty {
+      try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufInt32>.self, value: self.m, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
-
-  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestIntIntMap) -> Bool {
-    if m != other.m {return false}
-    if unknownFields != other.unknownFields {return false}
-    return true
-  }
 }
 
-///   Test all key types: string, plus the non-floating-point scalars.
-struct ProtobufUnittest_TestMaps: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+/// Test all key types: string, plus the non-floating-point scalars.
+struct ProtobufUnittest_TestMaps: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestMaps"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "m_int32"),
-    2: .standard(proto: "m_int64"),
-    3: .standard(proto: "m_uint32"),
-    4: .standard(proto: "m_uint64"),
-    5: .standard(proto: "m_sint32"),
-    6: .standard(proto: "m_sint64"),
-    7: .standard(proto: "m_fixed32"),
-    8: .standard(proto: "m_fixed64"),
-    9: .standard(proto: "m_sfixed32"),
-    10: .standard(proto: "m_sfixed64"),
-    11: .standard(proto: "m_bool"),
-    12: .standard(proto: "m_string"),
-  ]
 
   var mInt32: Dictionary<Int32,ProtobufUnittest_TestIntIntMap> = [:]
 
@@ -330,76 +261,166 @@ struct ProtobufUnittest_TestMaps: SwiftProtobuf.Message, SwiftProtobuf._MessageI
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
-      case 1: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittest_TestIntIntMap>.self, value: &mInt32)
-      case 2: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt64,ProtobufUnittest_TestIntIntMap>.self, value: &mInt64)
-      case 3: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufUInt32,ProtobufUnittest_TestIntIntMap>.self, value: &mUint32)
-      case 4: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufUInt64,ProtobufUnittest_TestIntIntMap>.self, value: &mUint64)
-      case 5: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufSInt32,ProtobufUnittest_TestIntIntMap>.self, value: &mSint32)
-      case 6: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufSInt64,ProtobufUnittest_TestIntIntMap>.self, value: &mSint64)
-      case 7: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufFixed32,ProtobufUnittest_TestIntIntMap>.self, value: &mFixed32)
-      case 8: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufFixed64,ProtobufUnittest_TestIntIntMap>.self, value: &mFixed64)
-      case 9: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufSFixed32,ProtobufUnittest_TestIntIntMap>.self, value: &mSfixed32)
-      case 10: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufSFixed64,ProtobufUnittest_TestIntIntMap>.self, value: &mSfixed64)
-      case 11: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufBool,ProtobufUnittest_TestIntIntMap>.self, value: &mBool)
-      case 12: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufString,ProtobufUnittest_TestIntIntMap>.self, value: &mString)
+      case 1: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittest_TestIntIntMap>.self, value: &self.mInt32)
+      case 2: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt64,ProtobufUnittest_TestIntIntMap>.self, value: &self.mInt64)
+      case 3: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufUInt32,ProtobufUnittest_TestIntIntMap>.self, value: &self.mUint32)
+      case 4: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufUInt64,ProtobufUnittest_TestIntIntMap>.self, value: &self.mUint64)
+      case 5: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufSInt32,ProtobufUnittest_TestIntIntMap>.self, value: &self.mSint32)
+      case 6: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufSInt64,ProtobufUnittest_TestIntIntMap>.self, value: &self.mSint64)
+      case 7: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufFixed32,ProtobufUnittest_TestIntIntMap>.self, value: &self.mFixed32)
+      case 8: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufFixed64,ProtobufUnittest_TestIntIntMap>.self, value: &self.mFixed64)
+      case 9: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufSFixed32,ProtobufUnittest_TestIntIntMap>.self, value: &self.mSfixed32)
+      case 10: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufSFixed64,ProtobufUnittest_TestIntIntMap>.self, value: &self.mSfixed64)
+      case 11: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufBool,ProtobufUnittest_TestIntIntMap>.self, value: &self.mBool)
+      case 12: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufString,ProtobufUnittest_TestIntIntMap>.self, value: &self.mString)
       default: break
       }
     }
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if !mInt32.isEmpty {
-      try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittest_TestIntIntMap>.self, value: mInt32, fieldNumber: 1)
+    if !self.mInt32.isEmpty {
+      try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittest_TestIntIntMap>.self, value: self.mInt32, fieldNumber: 1)
     }
-    if !mInt64.isEmpty {
-      try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt64,ProtobufUnittest_TestIntIntMap>.self, value: mInt64, fieldNumber: 2)
+    if !self.mInt64.isEmpty {
+      try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt64,ProtobufUnittest_TestIntIntMap>.self, value: self.mInt64, fieldNumber: 2)
     }
-    if !mUint32.isEmpty {
-      try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufUInt32,ProtobufUnittest_TestIntIntMap>.self, value: mUint32, fieldNumber: 3)
+    if !self.mUint32.isEmpty {
+      try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufUInt32,ProtobufUnittest_TestIntIntMap>.self, value: self.mUint32, fieldNumber: 3)
     }
-    if !mUint64.isEmpty {
-      try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufUInt64,ProtobufUnittest_TestIntIntMap>.self, value: mUint64, fieldNumber: 4)
+    if !self.mUint64.isEmpty {
+      try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufUInt64,ProtobufUnittest_TestIntIntMap>.self, value: self.mUint64, fieldNumber: 4)
     }
-    if !mSint32.isEmpty {
-      try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufSInt32,ProtobufUnittest_TestIntIntMap>.self, value: mSint32, fieldNumber: 5)
+    if !self.mSint32.isEmpty {
+      try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufSInt32,ProtobufUnittest_TestIntIntMap>.self, value: self.mSint32, fieldNumber: 5)
     }
-    if !mSint64.isEmpty {
-      try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufSInt64,ProtobufUnittest_TestIntIntMap>.self, value: mSint64, fieldNumber: 6)
+    if !self.mSint64.isEmpty {
+      try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufSInt64,ProtobufUnittest_TestIntIntMap>.self, value: self.mSint64, fieldNumber: 6)
     }
-    if !mFixed32.isEmpty {
-      try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufFixed32,ProtobufUnittest_TestIntIntMap>.self, value: mFixed32, fieldNumber: 7)
+    if !self.mFixed32.isEmpty {
+      try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufFixed32,ProtobufUnittest_TestIntIntMap>.self, value: self.mFixed32, fieldNumber: 7)
     }
-    if !mFixed64.isEmpty {
-      try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufFixed64,ProtobufUnittest_TestIntIntMap>.self, value: mFixed64, fieldNumber: 8)
+    if !self.mFixed64.isEmpty {
+      try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufFixed64,ProtobufUnittest_TestIntIntMap>.self, value: self.mFixed64, fieldNumber: 8)
     }
-    if !mSfixed32.isEmpty {
-      try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufSFixed32,ProtobufUnittest_TestIntIntMap>.self, value: mSfixed32, fieldNumber: 9)
+    if !self.mSfixed32.isEmpty {
+      try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufSFixed32,ProtobufUnittest_TestIntIntMap>.self, value: self.mSfixed32, fieldNumber: 9)
     }
-    if !mSfixed64.isEmpty {
-      try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufSFixed64,ProtobufUnittest_TestIntIntMap>.self, value: mSfixed64, fieldNumber: 10)
+    if !self.mSfixed64.isEmpty {
+      try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufSFixed64,ProtobufUnittest_TestIntIntMap>.self, value: self.mSfixed64, fieldNumber: 10)
     }
-    if !mBool.isEmpty {
-      try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufBool,ProtobufUnittest_TestIntIntMap>.self, value: mBool, fieldNumber: 11)
+    if !self.mBool.isEmpty {
+      try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufBool,ProtobufUnittest_TestIntIntMap>.self, value: self.mBool, fieldNumber: 11)
     }
-    if !mString.isEmpty {
-      try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufString,ProtobufUnittest_TestIntIntMap>.self, value: mString, fieldNumber: 12)
+    if !self.mString.isEmpty {
+      try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufString,ProtobufUnittest_TestIntIntMap>.self, value: self.mString, fieldNumber: 12)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+}
+
+// MARK: - Code below here is support for the SwiftProtobuf runtime.
+
+fileprivate let _protobuf_package = "protobuf_unittest"
+
+extension ProtobufUnittest_Proto2MapEnum: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "PROTO2_MAP_ENUM_FOO"),
+    1: .same(proto: "PROTO2_MAP_ENUM_BAR"),
+    2: .same(proto: "PROTO2_MAP_ENUM_BAZ"),
+  ]
+}
+
+extension ProtobufUnittest_Proto2MapEnumPlusExtra: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "E_PROTO2_MAP_ENUM_FOO"),
+    1: .same(proto: "E_PROTO2_MAP_ENUM_BAR"),
+    2: .same(proto: "E_PROTO2_MAP_ENUM_BAZ"),
+    3: .same(proto: "E_PROTO2_MAP_ENUM_EXTRA"),
+  ]
+}
+
+extension ProtobufUnittest_TestEnumMap: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    101: .standard(proto: "known_map_field"),
+    102: .standard(proto: "unknown_map_field"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestEnumMap) -> Bool {
+    if self.knownMapField != other.knownMapField {return false}
+    if self.unknownMapField != other.unknownMapField {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension ProtobufUnittest_TestEnumMapPlusExtra: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    101: .standard(proto: "known_map_field"),
+    102: .standard(proto: "unknown_map_field"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestEnumMapPlusExtra) -> Bool {
+    if self.knownMapField != other.knownMapField {return false}
+    if self.unknownMapField != other.unknownMapField {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension ProtobufUnittest_TestImportEnumMap: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "import_enum_amp"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestImportEnumMap) -> Bool {
+    if self.importEnumAmp != other.importEnumAmp {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension ProtobufUnittest_TestIntIntMap: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "m"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestIntIntMap) -> Bool {
+    if self.m != other.m {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension ProtobufUnittest_TestMaps: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "m_int32"),
+    2: .standard(proto: "m_int64"),
+    3: .standard(proto: "m_uint32"),
+    4: .standard(proto: "m_uint64"),
+    5: .standard(proto: "m_sint32"),
+    6: .standard(proto: "m_sint64"),
+    7: .standard(proto: "m_fixed32"),
+    8: .standard(proto: "m_fixed64"),
+    9: .standard(proto: "m_sfixed32"),
+    10: .standard(proto: "m_sfixed64"),
+    11: .standard(proto: "m_bool"),
+    12: .standard(proto: "m_string"),
+  ]
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestMaps) -> Bool {
-    if mInt32 != other.mInt32 {return false}
-    if mInt64 != other.mInt64 {return false}
-    if mUint32 != other.mUint32 {return false}
-    if mUint64 != other.mUint64 {return false}
-    if mSint32 != other.mSint32 {return false}
-    if mSint64 != other.mSint64 {return false}
-    if mFixed32 != other.mFixed32 {return false}
-    if mFixed64 != other.mFixed64 {return false}
-    if mSfixed32 != other.mSfixed32 {return false}
-    if mSfixed64 != other.mSfixed64 {return false}
-    if mBool != other.mBool {return false}
-    if mString != other.mString {return false}
+    if self.mInt32 != other.mInt32 {return false}
+    if self.mInt64 != other.mInt64 {return false}
+    if self.mUint32 != other.mUint32 {return false}
+    if self.mUint64 != other.mUint64 {return false}
+    if self.mSint32 != other.mSint32 {return false}
+    if self.mSint64 != other.mSint64 {return false}
+    if self.mFixed32 != other.mFixed32 {return false}
+    if self.mFixed64 != other.mFixed64 {return false}
+    if self.mSfixed32 != other.mSfixed32 {return false}
+    if self.mSfixed64 != other.mSfixed64 {return false}
+    if self.mBool != other.mBool {return false}
+    if self.mString != other.mString {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }

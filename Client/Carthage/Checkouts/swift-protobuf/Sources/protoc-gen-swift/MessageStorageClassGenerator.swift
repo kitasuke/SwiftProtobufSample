@@ -43,7 +43,7 @@ class MessageStorageClassGenerator {
 
   /// Visibility of the storage within the Message.
   var storageVisibility: String {
-    return "private"
+    return "fileprivate"
   }
 
   /// If the storage wants to manually implement equality.
@@ -52,8 +52,8 @@ class MessageStorageClassGenerator {
   /// Generates the full code for the storage class.
   ///
   /// - Parameter p: The code printer.
-  func generateNested(printer p: inout CodePrinter) {
-    p.print("private class _StorageClass {\n")
+  func generateTypeDeclaration(printer p: inout CodePrinter) {
+    p.print("fileprivate class _StorageClass {\n")
     p.indent()
 
     generateStoredProperties(printer: &p)
@@ -123,7 +123,7 @@ class AnyMessageStorageClassGenerator : MessageStorageClassGenerator {
   override var storageVisibility: String { return "internal" }
   override var storageProvidesEqualTo: Bool { return true }
 
-  override func generateNested(printer p: inout CodePrinter) {
+  override func generateTypeDeclaration(printer p: inout CodePrinter) {
     // Just need an alias to the hand coded Storage.
     p.print("typealias _StorageClass = AnyMessageStorage\n")
   }
