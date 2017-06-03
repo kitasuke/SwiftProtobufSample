@@ -37,7 +37,7 @@ struct User: SwiftProtobuf.Message {
   enum TypeEnum: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case speaker // = 0
-    case participant // = 1
+    case attendee // = 1
     case UNRECOGNIZED(Int)
 
     init() {
@@ -47,7 +47,7 @@ struct User: SwiftProtobuf.Message {
     init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .speaker
-      case 1: self = .participant
+      case 1: self = .attendee
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
@@ -55,7 +55,7 @@ struct User: SwiftProtobuf.Message {
     var rawValue: Int {
       switch self {
       case .speaker: return 0
-      case .participant: return 1
+      case .attendee: return 1
       case .UNRECOGNIZED(let i): return i
       }
     }
@@ -122,6 +122,6 @@ extension User: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNa
 extension User.TypeEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "Speaker"),
-    1: .same(proto: "Participant"),
+    1: .same(proto: "Attendee"),
   ]
 }

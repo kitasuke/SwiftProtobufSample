@@ -9,6 +9,6 @@ message User {
 
   enum Type {
     Speaker = 0;
-    Participant = 1;
+    Attendee = 1;
   }
 }
