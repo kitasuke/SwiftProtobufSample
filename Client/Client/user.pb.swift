@@ -19,38 +19,26 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _1
 }
 
-struct User: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+struct User: SwiftProtobuf.Message {
   static let protoMessageName: String = "User"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "id"),
-    2: .same(proto: "type"),
-    3: .same(proto: "name"),
-    4: .same(proto: "introduction"),
-    5: .same(proto: "photoUrl"),
-  ]
 
   var id: Int32 = 0
 
   var type: User.TypeEnum = User.TypeEnum.speaker
 
-  var name: String = ""
+  var name: String = String()
 
-  var introduction: String = ""
+  var introduction: String = String()
 
-  var photoURL: String = ""
+  var photoURL: String = String()
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum TypeEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum TypeEnum: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case speaker // = 0
     case participant // = 1
     case UNRECOGNIZED(Int)
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "Speaker"),
-      1: .same(proto: "Participant"),
-    ]
 
     init() {
       self = .speaker
@@ -79,42 +67,61 @@ struct User: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, Sw
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
-      case 1: try decoder.decodeSingularInt32Field(value: &id)
-      case 2: try decoder.decodeSingularEnumField(value: &type)
-      case 3: try decoder.decodeSingularStringField(value: &name)
-      case 4: try decoder.decodeSingularStringField(value: &introduction)
-      case 5: try decoder.decodeSingularStringField(value: &photoURL)
+      case 1: try decoder.decodeSingularInt32Field(value: &self.id)
+      case 2: try decoder.decodeSingularEnumField(value: &self.type)
+      case 3: try decoder.decodeSingularStringField(value: &self.name)
+      case 4: try decoder.decodeSingularStringField(value: &self.introduction)
+      case 5: try decoder.decodeSingularStringField(value: &self.photoURL)
       default: break
       }
     }
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if id != 0 {
-      try visitor.visitSingularInt32Field(value: id, fieldNumber: 1)
+    if self.id != 0 {
+      try visitor.visitSingularInt32Field(value: self.id, fieldNumber: 1)
     }
-    if type != User.TypeEnum.speaker {
-      try visitor.visitSingularEnumField(value: type, fieldNumber: 2)
+    if self.type != User.TypeEnum.speaker {
+      try visitor.visitSingularEnumField(value: self.type, fieldNumber: 2)
     }
-    if !name.isEmpty {
-      try visitor.visitSingularStringField(value: name, fieldNumber: 3)
+    if !self.name.isEmpty {
+      try visitor.visitSingularStringField(value: self.name, fieldNumber: 3)
     }
-    if !introduction.isEmpty {
-      try visitor.visitSingularStringField(value: introduction, fieldNumber: 4)
+    if !self.introduction.isEmpty {
+      try visitor.visitSingularStringField(value: self.introduction, fieldNumber: 4)
     }
-    if !photoURL.isEmpty {
-      try visitor.visitSingularStringField(value: photoURL, fieldNumber: 5)
+    if !self.photoURL.isEmpty {
+      try visitor.visitSingularStringField(value: self.photoURL, fieldNumber: 5)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+}
+
+// MARK: - Code below here is support for the SwiftProtobuf runtime.
+
+extension User: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "id"),
+    2: .same(proto: "type"),
+    3: .same(proto: "name"),
+    4: .same(proto: "introduction"),
+    5: .same(proto: "photoUrl"),
+  ]
 
   func _protobuf_generated_isEqualTo(other: User) -> Bool {
-    if id != other.id {return false}
-    if type != other.type {return false}
-    if name != other.name {return false}
-    if introduction != other.introduction {return false}
-    if photoURL != other.photoURL {return false}
+    if self.id != other.id {return false}
+    if self.type != other.type {return false}
+    if self.name != other.name {return false}
+    if self.introduction != other.introduction {return false}
+    if self.photoURL != other.photoURL {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }
+}
+
+extension User.TypeEnum: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "Speaker"),
+    1: .same(proto: "Participant"),
+  ]
 }

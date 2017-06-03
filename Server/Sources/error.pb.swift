@@ -19,35 +19,26 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _1
 }
 
-struct NetworkError: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+struct NetworkError: SwiftProtobuf.Message {
   static let protoMessageName: String = "NetworkError"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "message"),
-  ]
 
-  ///   Error code
+  /// Error code
   var code: NetworkError.Code = NetworkError.Code.unknown
 
-  ///   Optional: Message
-  var message: String = ""
+  /// Optional: Message
+  var message: String = String()
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum Code: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum Code: SwiftProtobuf.Enum {
     typealias RawValue = Int
 
-    ///   Unknown
+    /// Unknown
     case unknown // = 0
 
-    ///   400
+    /// 400
     case badRequest // = 400
     case UNRECOGNIZED(Int)
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "UNKNOWN"),
-      400: .same(proto: "BAD_REQUEST"),
-    ]
 
     init() {
       self = .unknown
@@ -76,27 +67,43 @@ struct NetworkError: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementation
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
-      case 1: try decoder.decodeSingularEnumField(value: &code)
-      case 2: try decoder.decodeSingularStringField(value: &message)
+      case 1: try decoder.decodeSingularEnumField(value: &self.code)
+      case 2: try decoder.decodeSingularStringField(value: &self.message)
       default: break
       }
     }
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if code != NetworkError.Code.unknown {
-      try visitor.visitSingularEnumField(value: code, fieldNumber: 1)
+    if self.code != NetworkError.Code.unknown {
+      try visitor.visitSingularEnumField(value: self.code, fieldNumber: 1)
     }
-    if !message.isEmpty {
-      try visitor.visitSingularStringField(value: message, fieldNumber: 2)
+    if !self.message.isEmpty {
+      try visitor.visitSingularStringField(value: self.message, fieldNumber: 2)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+}
+
+// MARK: - Code below here is support for the SwiftProtobuf runtime.
+
+extension NetworkError: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "code"),
+    2: .same(proto: "message"),
+  ]
 
   func _protobuf_generated_isEqualTo(other: NetworkError) -> Bool {
-    if code != other.code {return false}
-    if message != other.message {return false}
+    if self.code != other.code {return false}
+    if self.message != other.message {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }
+}
+
+extension NetworkError.Code: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "UNKNOWN"),
+    400: .same(proto: "BAD_REQUEST"),
+  ]
 }

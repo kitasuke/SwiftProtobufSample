@@ -19,42 +19,8 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _1
 }
 
-struct Talk: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+struct Talk: SwiftProtobuf.Message {
   static let protoMessageName: String = "Talk"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "id"),
-    2: .same(proto: "title"),
-    3: .same(proto: "desc"),
-    4: .same(proto: "speaker"),
-    5: .same(proto: "tags"),
-  ]
-
-  private class _StorageClass {
-    var _id: Int32 = 0
-    var _title: String = ""
-    var _desc: String = ""
-    var _speaker: User? = nil
-    var _tags: [String] = []
-
-    init() {}
-
-    init(copying source: _StorageClass) {
-      _id = source._id
-      _title = source._title
-      _desc = source._desc
-      _speaker = source._speaker
-      _tags = source._tags
-    }
-  }
-
-  private var _storage = _StorageClass()
-
-  private mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(copying: _storage)
-    }
-    return _storage
-  }
 
   var id: Int32 {
     get {return _storage._id}
@@ -79,7 +45,7 @@ struct Talk: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, Sw
     return _storage._speaker != nil
   }
   mutating func clearSpeaker() {
-    return _storage._speaker = nil
+    _storage._speaker = nil
   }
 
   var tags: [String] {
@@ -128,6 +94,123 @@ struct Talk: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, Sw
     try unknownFields.traverse(visitor: &visitor)
   }
 
+  fileprivate var _storage = _StorageClass()
+}
+
+struct TalkResponse: SwiftProtobuf.Message {
+  static let protoMessageName: String = "TalkResponse"
+
+  var talks: [Talk] = []
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeRepeatedMessageField(value: &self.talks)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.talks.isEmpty {
+      try visitor.visitRepeatedMessageField(value: self.talks, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+}
+
+struct LikeRequest: SwiftProtobuf.Message {
+  static let protoMessageName: String = "LikeRequest"
+
+  var id: Int32 = 0
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self.id)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.id != 0 {
+      try visitor.visitSingularInt32Field(value: self.id, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+}
+
+struct LikeResponse: SwiftProtobuf.Message {
+  static let protoMessageName: String = "LikeResponse"
+
+  var result: Bool = false
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularBoolField(value: &self.result)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.result != false {
+      try visitor.visitSingularBoolField(value: self.result, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+}
+
+// MARK: - Code below here is support for the SwiftProtobuf runtime.
+
+extension Talk: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "id"),
+    2: .same(proto: "title"),
+    3: .same(proto: "desc"),
+    4: .same(proto: "speaker"),
+    5: .same(proto: "tags"),
+  ]
+
+  fileprivate class _StorageClass {
+    var _id: Int32 = 0
+    var _title: String = String()
+    var _desc: String = String()
+    var _speaker: User? = nil
+    var _tags: [String] = []
+
+    init() {}
+
+    init(copying source: _StorageClass) {
+      _id = source._id
+      _title = source._title
+      _desc = source._desc
+      _speaker = source._speaker
+      _tags = source._tags
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
   func _protobuf_generated_isEqualTo(other: Talk) -> Bool {
     if _storage !== other._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
@@ -145,106 +228,37 @@ struct Talk: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, Sw
   }
 }
 
-struct TalkResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "TalkResponse"
+extension TalkResponse: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "talks"),
   ]
 
-  var talks: [Talk] = []
-
-  var unknownFields = SwiftProtobuf.UnknownStorage()
-
-  init() {}
-
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      switch fieldNumber {
-      case 1: try decoder.decodeRepeatedMessageField(value: &talks)
-      default: break
-      }
-    }
-  }
-
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if !talks.isEmpty {
-      try visitor.visitRepeatedMessageField(value: talks, fieldNumber: 1)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
   func _protobuf_generated_isEqualTo(other: TalkResponse) -> Bool {
-    if talks != other.talks {return false}
+    if self.talks != other.talks {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }
 }
 
-struct LikeRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "LikeRequest"
+extension LikeRequest: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "id"),
   ]
 
-  var id: Int32 = 0
-
-  var unknownFields = SwiftProtobuf.UnknownStorage()
-
-  init() {}
-
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      switch fieldNumber {
-      case 1: try decoder.decodeSingularInt32Field(value: &id)
-      default: break
-      }
-    }
-  }
-
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if id != 0 {
-      try visitor.visitSingularInt32Field(value: id, fieldNumber: 1)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
   func _protobuf_generated_isEqualTo(other: LikeRequest) -> Bool {
-    if id != other.id {return false}
+    if self.id != other.id {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }
 }
 
-struct LikeResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "LikeResponse"
+extension LikeResponse: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "result"),
   ]
 
-  var result: Bool = false
-
-  var unknownFields = SwiftProtobuf.UnknownStorage()
-
-  init() {}
-
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      switch fieldNumber {
-      case 1: try decoder.decodeSingularBoolField(value: &result)
-      default: break
-      }
-    }
-  }
-
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if result != false {
-      try visitor.visitSingularBoolField(value: result, fieldNumber: 1)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
   func _protobuf_generated_isEqualTo(other: LikeResponse) -> Bool {
-    if result != other.result {return false}
+    if self.result != other.result {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }
