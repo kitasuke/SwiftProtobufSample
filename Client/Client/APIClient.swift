@@ -97,8 +97,7 @@ class APIClient {
         case .protobuf:
             return try! T(serializedData: data)
         case .json:
-            let json = String(data: data, encoding: .utf8)!
-            return try! T(jsonString: json)
+            return try! T(jsonUTF8Data: data)
         }
     }
 }
