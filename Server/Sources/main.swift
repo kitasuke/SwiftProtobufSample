@@ -46,7 +46,7 @@ router.get("/v1/talks") { request, response, next in
     case .protobuf:
         response.send(data: try data.serializedData())
     case .json:
-        response.send(try data.jsonString())
+        response.send(data: try data.jsonUTF8Data())
     }
     
     next()
@@ -81,7 +81,7 @@ router.post("/v1/like") { request, response, next in
     case .protobuf:
         response.status(.badRequest).send(data: try error.serializedData())
     case .json:
-        response.status(.badRequest).send(try error.jsonString())
+        response.status(.badRequest).send(data: try error.jsonUTF8Data())
     }
     
     next()
