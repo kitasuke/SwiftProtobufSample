@@ -38,6 +38,18 @@ struct NetworkError: SwiftProtobuf.Message {
 
     /// 400
     case badRequest // = 400
+
+    /// 401
+    case unauthorized // = 410
+
+    /// 403
+    case forbidden // = 430
+
+    /// 404
+    case notFound // = 440
+
+    /// 500
+    case internalServerError // = 500
     case UNRECOGNIZED(Int)
 
     init() {
@@ -48,6 +60,10 @@ struct NetworkError: SwiftProtobuf.Message {
       switch rawValue {
       case 0: self = .unknown
       case 400: self = .badRequest
+      case 410: self = .unauthorized
+      case 430: self = .forbidden
+      case 440: self = .notFound
+      case 500: self = .internalServerError
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
@@ -56,6 +72,10 @@ struct NetworkError: SwiftProtobuf.Message {
       switch self {
       case .unknown: return 0
       case .badRequest: return 400
+      case .unauthorized: return 410
+      case .forbidden: return 430
+      case .notFound: return 440
+      case .internalServerError: return 500
       case .UNRECOGNIZED(let i): return i
       }
     }
@@ -105,5 +125,9 @@ extension NetworkError.Code: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "UNKNOWN"),
     400: .same(proto: "BAD_REQUEST"),
+    410: .same(proto: "UNAUTHORIZED"),
+    430: .same(proto: "FORBIDDEN"),
+    440: .same(proto: "NOT_FOUND"),
+    500: .same(proto: "INTERNAL_SERVER_ERROR"),
   ]
 }
