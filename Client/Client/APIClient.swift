@@ -81,7 +81,9 @@ class APIClient {
                 
                 switch error.code {
                 case .badRequest:
-                    break
+                    DispatchQueue.main.async {
+                        failure(error)
+                    }
                 case .unauthorized:
                     break
                 case .forbidden:
@@ -94,9 +96,6 @@ class APIClient {
                     break
                 }
                 
-                DispatchQueue.main.async {
-                    failure(error)
-                }
                 return
             }
             
