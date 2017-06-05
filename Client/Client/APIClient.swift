@@ -78,6 +78,22 @@ class APIClient {
             // error handling   
             guard 200..<300 ~= urlResponse.statusCode else {
                 let error: NetworkError = self.convertData(data, to: contentType)
+                
+                switch error.code {
+                case .badRequest:
+                    break
+                case .unauthorized:
+                    break
+                case .forbidden:
+                    break
+                case .notFound:
+                    break
+                case .internalServerError:
+                    break
+                default:
+                    break
+                }
+                
                 DispatchQueue.main.async {
                     failure(error)
                 }

@@ -9,5 +9,17 @@ message NetworkError {
 
     // 400
     BAD_REQUEST = 400; // Bad request
+
+    // 401
+    UNAUTHORIZED = 410; // Unauthorized
+
+    // 403
+    FORBIDDEN = 430; // Forbidden
+
+    // 404
+    NOT_FOUND = 440; // Not found
+
+    // 500
+    INTERNAL_SERVER_ERROR = 500; // Internal server error
   }
 }
