@@ -13,12 +13,13 @@ Web framework, [Kitura](http://www.kitura.io/) provides HTTP server with [swift-
 
 ## Requirements
 
-Swift 3.1  
-Xcode 8.3    
-protoc 3.2  
-swift-protobuf 0.9.903  
-Kitura 1.3  
-Carthage 0.20  
+Swift 5.3  
+Xcode 12.4    
+protoc 3.17.1 
+swift-protobuf 1.6.0 
+Kitura 1.7.0
+SwiftPackageManager
+swift-tools-version 5.3 
 
 ## Setup
 
