@@ -3,10 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		32D8A29826686E2B002AF7C0 /* SwiftProtobuf in Frameworks */ = {isa = PBXBuildFile; productRef = 32D8A29726686E2B002AF7C0 /* SwiftProtobuf */; };
+		32D8A29A26686E2B002AF7C0 /* SwiftProtobufPluginLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = 32D8A29926686E2B002AF7C0 /* SwiftProtobufPluginLibrary */; };
 		EC0BF7681E8CADD300DB6CE7 /* error.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0BF7651E8CADD300DB6CE7 /* error.pb.swift */; };
 		EC0BF7691E8CADD300DB6CE7 /* talk.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0BF7661E8CADD300DB6CE7 /* talk.pb.swift */; };
 		EC0BF76A1E8CADD300DB6CE7 /* user.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0BF7671E8CADD300DB6CE7 /* user.pb.swift */; };
@@ -16,8 +18,6 @@
 		EC59DA0E1E0750A800A601B7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC59DA0C1E0750A800A601B7 /* Main.storyboard */; };
 		EC59DA101E0750A800A601B7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC59DA0F1E0750A800A601B7 /* Assets.xcassets */; };
 		EC59DA131E0750A800A601B7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC59DA111E0750A800A601B7 /* LaunchScreen.storyboard */; };
-		EC5B1C4B1E0AFE2C00996368 /* SwiftProtobuf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC5B1C4A1E0AFE2C00996368 /* SwiftProtobuf.framework */; };
-		EC5B1C4C1E0AFE2C00996368 /* SwiftProtobuf.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC5B1C4A1E0AFE2C00996368 /* SwiftProtobuf.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EC67CC351E5BB2A600B1D05F /* TalkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC67CC341E5BB2A600B1D05F /* TalkViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -28,7 +28,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				EC5B1C4C1E0AFE2C00996368 /* SwiftProtobuf.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -48,7 +47,6 @@
 		EC59DA0F1E0750A800A601B7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EC59DA121E0750A800A601B7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EC59DA141E0750A800A601B7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EC5B1C4A1E0AFE2C00996368 /* SwiftProtobuf.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftProtobuf.framework; path = Carthage/Build/iOS/SwiftProtobuf.framework; sourceTree = "<group>"; };
 		EC67CC341E5BB2A600B1D05F /* TalkViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TalkViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -57,7 +55,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EC5B1C4B1E0AFE2C00996368 /* SwiftProtobuf.framework in Frameworks */,
+				32D8A29A26686E2B002AF7C0 /* SwiftProtobufPluginLibrary in Frameworks */,
+				32D8A29826686E2B002AF7C0 /* SwiftProtobuf in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,7 +74,6 @@
 		EC59D9FC1E0750A800A601B7 = {
 			isa = PBXGroup;
 			children = (
-				EC5B1C4A1E0AFE2C00996368 /* SwiftProtobuf.framework */,
 				EC59DA071E0750A800A601B7 /* Client */,
 				EC59DA061E0750A800A601B7 /* Products */,
 				C43BD026DE4506D7C77F8B25 /* Frameworks */,
@@ -125,6 +123,10 @@
 			dependencies = (
 			);
 			name = Client;
+			packageProductDependencies = (
+				32D8A29726686E2B002AF7C0 /* SwiftProtobuf */,
+				32D8A29926686E2B002AF7C0 /* SwiftProtobufPluginLibrary */,
+			);
 			productName = Client;
 			productReference = EC59DA051E0750A800A601B7 /* Client.app */;
 			productType = "com.apple.product-type.application";
@@ -150,10 +152,14 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
 			mainGroup = EC59D9FC1E0750A800A601B7;
+			packageReferences = (
+				32D8A29626686E2B002AF7C0 /* XCRemoteSwiftPackageReference "swift-protobuf" */,
+			);
 			productRefGroup = EC59DA061E0750A800A601B7 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -259,6 +265,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -299,7 +306,9 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -313,10 +322,13 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = Client/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.kitasuke.Client;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -329,10 +341,13 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = Client/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.kitasuke.Client;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -358,6 +373,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		32D8A29626686E2B002AF7C0 /* XCRemoteSwiftPackageReference "swift-protobuf" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-protobuf.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.6.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		32D8A29726686E2B002AF7C0 /* SwiftProtobuf */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 32D8A29626686E2B002AF7C0 /* XCRemoteSwiftPackageReference "swift-protobuf" */;
+			productName = SwiftProtobuf;
+		};
+		32D8A29926686E2B002AF7C0 /* SwiftProtobufPluginLibrary */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 32D8A29626686E2B002AF7C0 /* XCRemoteSwiftPackageReference "swift-protobuf" */;
+			productName = SwiftProtobufPluginLibrary;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = EC59D9FD1E0750A800A601B7 /* Project object */;
 }

@@ -1,9 +1,13 @@
+// swift-tools-version:5.3
 import PackageDescription
 
 let package = Package(
     name: "Server",
     dependencies: [
-        .Package(url: "https://github.com/apple/swift-protobuf.git", Version(0,9,901)),
-        .Package(url: "https://github.com/IBM-Swift/Kitura.git", majorVersion: 1, minor: 7),
+        .package(name: "Kitura", url: "https://github.com/IBM-Swift/Kitura.git", from: "1.7.0"),
+        .package(name: "SwiftProtobuf", url: "https://github.com/apple/swift-protobuf.git", from: "1.6.0"),
+    ],
+    targets: [
+        .target(name: "Server", dependencies: ["Kitura", "SwiftProtobuf"]),
     ]
 )
